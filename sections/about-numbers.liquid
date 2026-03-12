@@ -1,0 +1,56 @@
+<div class="container">
+  {% if section.settings.number_heading != blank %}
+    <div class="number-heading text-center mb-4">
+      <h2>{{ section.settings.number_heading }}</h2>
+    </div>
+  {% endif %}
+  <ul class="row-num">
+    {% for block in section.blocks %}
+      <li>
+        {% if block.settings.number != blank %}
+          <h2 class="number">{{ block.settings.number }}</h2>
+        {% endif %}
+        {% if block.settings.number_text != blank %}
+          <p>{{ block.settings.number_text }}</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% schema %}
+{
+  "name": "About Numbers",
+  "tag": "section",
+  "class": "about-numbers comm-padd",
+  "settings": [
+    {
+      "type": "text",
+      "id": "number_heading",
+      "label": "Main Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "number",
+      "name": "number",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number"
+        },
+        {
+          "type": "text",
+          "id": "number_text",
+          "label": "Number text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Numbers"
+    }
+  ]
+}
+{% endschema %}

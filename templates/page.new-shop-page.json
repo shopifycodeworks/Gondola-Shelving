@@ -1,0 +1,1065 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "56727af8-6268-41df-b5bd-f033137ef150": {
+      "type": "image--slideshow",
+      "blocks": {
+        "template--20019801489706__56727af8-6268-41df-b5bd-f033137ef150-1689751530701ba3ed-0": {
+          "type": "slide",
+          "settings": {
+            "image": "",
+            "mobile_image": "shopify://shop_images/Commercial_Equipment_39498e2e-efbc-4e83-8aed-0f10d99f4330.webp",
+            "subheading": "",
+            "title": "THE PLACE for SUPERIOR\n<span> COMMERCIAL EQUIPMENT.</span>",
+            "text": "Your store and kitchen deserve the best of the best - that is why we are partnered with the most qualitative and reliable North American brands of the industry.",
+            "enlarge-text": true,
+            "button_1_label": "SHOP PRODUCTS",
+            "button_1_link": "shopify://collections/all",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_3_label": "",
+            "button_3_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "button-background-hover": "#797979",
+            "horizontal-alignment": "center",
+            "text-alignment": "center",
+            "vertical-alignment": "middle"
+          }
+        }
+      },
+      "block_order": [
+        "template--20019801489706__56727af8-6268-41df-b5bd-f033137ef150-1689751530701ba3ed-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "slider-animation": "slide",
+        "slider-slide-time": 5,
+        "caption-heading-size": 50,
+        "slideshow-height": "slideshow--fixed-height",
+        "slideshow--desktop-fixed-height": 400,
+        "slideshow--mobile-fixed-height": 340,
+        "show-slide-dots": true,
+        "show-slide-arrows": false,
+        "show-slide-controls": false,
+        "slider-navigation--color": "#ffffff",
+        "overlay": false,
+        "section_width": "full",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_slideshow_WDr9Md": {
+      "type": "image--slideshow",
+      "blocks": {
+        "slide_L3fdea": {
+          "type": "slide",
+          "settings": {
+            "image": "",
+            "mobile_image": "shopify://shop_images/Commercial_Equipment_39498e2e-efbc-4e83-8aed-0f10d99f4330.webp",
+            "subheading": "",
+            "title": "<span> THE PLACE FOR SUPERIOR </span>COMMERCIAL EQUIPMENT.",
+            "text": "Your kitchen and store deserve the best of the best - that is why we have partnered with the most qualitative and reliable brands of the industry.",
+            "enlarge-text": true,
+            "button_1_label": "SHOP PRODUCTS",
+            "button_1_link": "shopify://collections",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_3_label": "",
+            "button_3_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#db0b0b",
+            "button-background-hover": "#252424",
+            "horizontal-alignment": "center",
+            "text-alignment": "center",
+            "vertical-alignment": "middle"
+          }
+        }
+      },
+      "block_order": [
+        "slide_L3fdea"
+      ],
+      "settings": {
+        "slider-animation": "fade",
+        "slider-slide-time": 5,
+        "caption-heading-size": 50,
+        "slideshow-height": "slideshow--fixed-height",
+        "slideshow--desktop-fixed-height": 600,
+        "slideshow--mobile-fixed-height": 600,
+        "show-slide-dots": false,
+        "show-slide-arrows": true,
+        "show-slide-controls": true,
+        "slider-navigation--color": "#ffffff",
+        "overlay": true,
+        "section_width": "full",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "92e60213-f6c2-4ae1-868f-3b18a9f27af8": {
+      "type": "slider-bottom-icons",
+      "settings": {
+        "free_shippingIcon": "shopify://shop_images/free-shipping_2x_c4f412f7-ff9e-46e8-88b3-c89bfa194e33.png",
+        "free_ship_text": "FAST SHIPPING",
+        "free_ship_title": "from in-stock products",
+        "expertIcon": "shopify://shop_images/customer-support.png",
+        "expert_text": "GET EXPERT'S HELP",
+        "expert_title": "1-888-828-1688",
+        "canadianIcon": "shopify://shop_images/canadian-leaf.png",
+        "canadian_text": "PROUDLY CANADIAN",
+        "canadian_title": "superior customer service",
+        "matchingIcon": "shopify://shop_images/price-tag_cdae604e-c5b3-42fe-b27b-d37fabb95f69.png",
+        "matching_text": "BEST PRICE GUARANTEE",
+        "matching_title": "unbeatable prices"
+      }
+    },
+    "a4e37321-ad51-4ca0-a01d-2c4d15ed03f5": {
+      "type": "todays-ships",
+      "blocks": {
+        "collection_list_TGXgen": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "reach-in-freezers"
+          }
+        },
+        "collection_list_AgdJxC": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "reach-in-refrigeration"
+          }
+        },
+        "collection_list_gitBYK": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "merchandising-refrigeration"
+          }
+        },
+        "collection_list_c7ekpi": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "open-air-refrigerated-display-cases"
+          }
+        },
+        "collection_list_JFNQjJ": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "ice-cream-freezers"
+          }
+        },
+        "collection_list_JViJrJ": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "commercial-chef-bases"
+          }
+        },
+        "collection_list_TQW83R": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "black-bar-coolers"
+          }
+        },
+        "collection_list_MiBdi4": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "bottle-coolers"
+          }
+        },
+        "collection_list_LMPmP9": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "commercial-chef-bases"
+          }
+        }
+      },
+      "block_order": [
+        "collection_list_TGXgen",
+        "collection_list_AgdJxC",
+        "collection_list_gitBYK",
+        "collection_list_c7ekpi",
+        "collection_list_JFNQjJ",
+        "collection_list_JViJrJ",
+        "collection_list_TQW83R",
+        "collection_list_MiBdi4",
+        "collection_list_LMPmP9"
+      ],
+      "settings": {
+        "ships-today-title": "THE ONE STOP SHOP FOR ALL COMMERCIAL EQUIPMENT",
+        "ships-today-content": "",
+        "featured-title": ""
+      }
+    },
+    "03715eb0-9af6-4fe7-a531-dcc182a90f53": {
+      "type": "custom-featured-category",
+      "blocks": {
+        "0b6871bf-9134-49bc-b3e7-638121c823b5": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-10"
+          }
+        },
+        "8902176b-417b-404b-aa25-a5362113ff6f": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-10"
+          }
+        },
+        "914abd98-606b-4dca-9677-25d551197cb9": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "restaurant-equipment-1-kelvinator"
+          }
+        },
+        "fe6e983d-2b47-4399-b8bd-e0dbcbb0f632": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-2"
+          }
+        },
+        "bd568a12-3e90-4812-9142-b8e32407b549": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit"
+          }
+        },
+        "474ba4e6-99fc-42f2-b9e4-ef0fb04c61d6": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-1"
+          }
+        },
+        "6727ede4-6a7a-4e49-a4e6-bed3e80195e8": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-7"
+          }
+        },
+        "5569c9a9-84dd-4ee1-9804-9b4d198ee2b8": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-8"
+          }
+        },
+        "f7695538-0a98-4b27-9083-379ec4ec4a6e": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-4"
+          }
+        },
+        "8fc05cf4-31b6-4eb2-800b-2971c48291f3": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-6"
+          }
+        }
+      },
+      "block_order": [
+        "0b6871bf-9134-49bc-b3e7-638121c823b5",
+        "8902176b-417b-404b-aa25-a5362113ff6f",
+        "914abd98-606b-4dca-9677-25d551197cb9",
+        "fe6e983d-2b47-4399-b8bd-e0dbcbb0f632",
+        "bd568a12-3e90-4812-9142-b8e32407b549",
+        "474ba4e6-99fc-42f2-b9e4-ef0fb04c61d6",
+        "6727ede4-6a7a-4e49-a4e6-bed3e80195e8",
+        "5569c9a9-84dd-4ee1-9804-9b4d198ee2b8",
+        "f7695538-0a98-4b27-9083-379ec4ec4a6e",
+        "8fc05cf4-31b6-4eb2-800b-2971c48291f3"
+      ],
+      "disabled": true,
+      "settings": {
+        "ships-today-title": "YOUR ORDER SHIPS TODAY",
+        "ships-today-content": "ORDER BY 2 PM EST QUALIFY. order after 2pm ship next business day. PRODUCT MUST BE *IN STOCK & SHIPS TODAY",
+        "featured-title": "FEATURED CATEGORIES"
+      }
+    },
+    "9fa41ff4-2af6-4ce1-b980-a2596b773733": {
+      "type": "all-brands",
+      "blocks": {
+        "card_CefibL": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/kool-it-signature_brand.png"
+          }
+        },
+        "card_AadkEL": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Ikon_brand.png"
+          }
+        },
+        "a4f07e9b-bc77-48f9-b288-31d85cb305b0": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/habco-logo-badge_v2.webp"
+          }
+        },
+        "card_WEzjwa": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/kool-it_brand.png"
+          }
+        },
+        "card_7qcgme": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/axis_brand.png"
+          }
+        },
+        "card_PhHgRc": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/jet_tech_header_brand.png"
+          }
+        },
+        "card_AKzmVN": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/sierra_brand.png"
+          }
+        },
+        "card_Qb9gme": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/hydra_kool_brand.png"
+          }
+        },
+        "card_33fYKW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/sharp_brand.png"
+          }
+        },
+        "card_8fPtha": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/primo_brand.png"
+          }
+        }
+      },
+      "block_order": [
+        "card_CefibL",
+        "card_AadkEL",
+        "a4f07e9b-bc77-48f9-b288-31d85cb305b0",
+        "card_WEzjwa",
+        "card_7qcgme",
+        "card_PhHgRc",
+        "card_AKzmVN",
+        "card_Qb9gme",
+        "card_33fYKW",
+        "card_8fPtha"
+      ],
+      "settings": {
+        "button_lebel": "",
+        "button_link": "#"
+      }
+    },
+    "86a7598b-59a3-49c2-9157-f21ac2da2357": {
+      "type": "collection--featured-collection",
+      "blocks": {
+        "template--21801299476778__86a7598b-59a3-49c2-9157-f21ac2da2357-grid-card-title-1": {
+          "type": "grid-card-title",
+          "settings": {}
+        },
+        "template--21801299476778__86a7598b-59a3-49c2-9157-f21ac2da2357-grid-card-price-1": {
+          "type": "grid-card-price",
+          "settings": {}
+        },
+        "template--21801299476778__86a7598b-59a3-49c2-9157-f21ac2da2357-grid-card-swatches-1": {
+          "type": "grid-card-swatches",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "template--21801299476778__86a7598b-59a3-49c2-9157-f21ac2da2357-grid-card-title-1",
+        "template--21801299476778__86a7598b-59a3-49c2-9157-f21ac2da2357-grid-card-price-1",
+        "template--21801299476778__86a7598b-59a3-49c2-9157-f21ac2da2357-grid-card-swatches-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "subheading": "Subheading",
+        "title": "Featured collection",
+        "collection": "",
+        "columns": 4,
+        "rows": 1,
+        "product_limit": 4,
+        "show_view_all": false,
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "b7ddf70f-0497-45e7-a153-4ce07a3278d9": {
+      "type": "see-best-seller",
+      "blocks": {
+        "card_TiAmex": {
+          "type": "card",
+          "settings": {
+            "choose_collection": "Reach-In",
+            "product_list": [
+              "se28hcsx",
+              "se42hc",
+              "habco-se46hcsx-47-5-double-solid-swing-door-refrigerator-sx-model",
+              "ikon-ib27r-27-upright-single-door-bottom-mount-refrigerator",
+              "ikon-it56r-56-upright-double-doors-top-mount-refrigerator",
+              "copy-of-copy",
+              "kool-it-kbsr-1g-27-upright-bottom-mount-single-glass-door-refrigerator-signature",
+              "kool-it-ktsr-1-27-upright-top-mount-single-door-refrigerator-signature",
+              "ikon-it82r-82-upright-triple-doors-top-mount-refrigerator",
+              "ib81r"
+            ]
+          }
+        },
+        "card_BTCiCG": {
+          "type": "card",
+          "settings": {
+            "choose_collection": "Merchandisers",
+            "product_list": [
+              "lx-46rs",
+              "hydra-kool-kgl-krystal-45-spot-merchandiser",
+              "kool-it-kom-36xbk-36-black-refrigerated-open-air-merchandiser",
+              "kool-it-lx-74rs-66-3-cu-ft-stainless-steel-triple-glass-door-merchandiser-refrigerator-signature",
+              "habco-esm49hctd-54-double-swing-glass-door-cold-space-merchandiser-49-cu-ft",
+              "habco-esm28hctd-hl-30-5-impulse-single-glass-swing-door-cold-space-merchandiser-with-health-lock-timer-refrigerated-display-49-cu-ft",
+              "hydra-kool-kgl-ch-60-s-60-countertop-height-grab-n-go-open-merchandiser-self-contained",
+              "kii-420",
+              "hydra-kool-kfm-sf-100-r-100-fresh-fish-seafood-case-flat-glass-remotely-cooled",
+              "kgl-is-110-s"
+            ]
+          }
+        },
+        "card_YJwNyM": {
+          "type": "card",
+          "settings": {
+            "choose_collection": "Chef Base",
+            "product_list": [
+              "ikon-icbr-74-74-four-drawers-chef-base",
+              "icbr-50",
+              "kcb-60",
+              "icbr-38",
+              "kool-it-kcb-96-4m-96-refrigerated-chef-base-4-drawers-signature"
+            ]
+          }
+        },
+        "card_qzNjCt": {
+          "type": "card",
+          "settings": {
+            "choose_collection": "Prep Tables",
+            "product_list": [
+              "ikon-isp48-48-two-doors-sandwich-salad-prep-table",
+              "ipp47",
+              "ikon-iuc36r-36-undercounter-refrigerator",
+              "ikon-ibb49-2g-24ss-49-stainless-steel-back-bar-refrigerator-glass-swing-two-doors",
+              "ipp94",
+              "kstm-60-2",
+              "kool-it-kpt-44-1-44-single-door-pizza-prep-table-signature",
+              "kool-it-kstm-36-2-36-double-door-megatop-sandwich-prep-signature",
+              "kcb-60",
+              "kpt-93-3"
+            ]
+          }
+        },
+        "card_zRCBnh": {
+          "type": "card",
+          "settings": {
+            "choose_collection": "Bar Refrigeration",
+            "product_list": [
+              "ibc-49ss",
+              "ikon-ibc-49-49-bottle-cooler",
+              "ibb-49-2g-24",
+              "ikon-igc-36-36-glass-chiller",
+              "ibb61-2g-24ss",
+              "ikon-ibb61-2g-24-61-back-bar-refrigerator-swing-two-doors",
+              "ikon-iuc72r-72-undercounter-refrigerator",
+              "ibb-73-3g-24",
+              "ikon-ibc-95-95-bottle-cooler",
+              "ikon-ibc-95ss-95-bottle-cooler"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "card_TiAmex",
+        "card_BTCiCG",
+        "card_YJwNyM",
+        "card_qzNjCt",
+        "card_zRCBnh"
+      ],
+      "settings": {
+        "title": "SEE OUR BEST SELLERS",
+        "button_lebel": "SHOP ALL",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "aff040f1-f71e-48c1-82c7-f7c5b969dae5": {
+      "type": "onsale-products",
+      "disabled": true,
+      "settings": {
+        "background_image": "shopify://shop_images/onSell-bgPic1.jpg",
+        "show_button": true,
+        "product_list": [
+          "sign-frame-1",
+          "wire-gridwall-slatwall-shelf",
+          "wire-dump-bins",
+          "technivorm-moccamaster-coffee-maker-kbts-79212"
+        ]
+      }
+    },
+    "b9650057-9b53-4e8b-b931-3460054e1e72": {
+      "type": "template--contact-form",
+      "blocks": {
+        "template--21801299476778__b9650057-9b53-4e8b-b931-3460054e1e72-name_input-1": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "daad83cd-9758-4f02-b8f1-b13556c821fb": {
+          "type": "custom_input",
+          "settings": {
+            "input_label": "Business Name",
+            "required": false,
+            "input_width": "partial"
+          }
+        },
+        "template--21801299476778__b9650057-9b53-4e8b-b931-3460054e1e72-email_input-1": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "template--21801299476778__b9650057-9b53-4e8b-b931-3460054e1e72-tel_input-1": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "partial"
+          }
+        },
+        "template--21801299476778__b9650057-9b53-4e8b-b931-3460054e1e72-message_input-1": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "template--21801299476778__b9650057-9b53-4e8b-b931-3460054e1e72-name_input-1",
+        "daad83cd-9758-4f02-b8f1-b13556c821fb",
+        "template--21801299476778__b9650057-9b53-4e8b-b931-3460054e1e72-email_input-1",
+        "template--21801299476778__b9650057-9b53-4e8b-b931-3460054e1e72-tel_input-1",
+        "template--21801299476778__b9650057-9b53-4e8b-b931-3460054e1e72-message_input-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "LET US KNOW HOW WE CAN HELP",
+        "section_subheading": "Contact us today to create the perfect environment for your retail space,that not only attracts and retains customers,but also promotes efficient business operations",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "83ade8aa-5107-49ef-9cdf-d1bcd65a2eaf": {
+      "type": "new-banner",
+      "blocks": {
+        "ded0866d-9855-425c-b593-7922ef29f57f": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "0f87ada5-ff3c-4ebb-9d2e-ee4f754469f0": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "9a16a2fc-23b0-40e1-8b51-009ffcef62c7": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "ded0866d-9855-425c-b593-7922ef29f57f",
+        "0f87ada5-ff3c-4ebb-9d2e-ee4f754469f0",
+        "9a16a2fc-23b0-40e1-8b51-009ffcef62c7"
+      ],
+      "disabled": true,
+      "settings": {
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/e3c174dbb1e948e88b100ab9a6b304ad.mp4",
+        "banner_image": "shopify://shop_images/Mask_group_1.png",
+        "heading": "YOUR VISION,OUR RESPONSIBILITY.",
+        "btn_text": "CONTACT US",
+        "btn_link": "shopify://pages/contact",
+        "form_head": "<h2>Request yourfree Consultation</h2>",
+        "form_desc": "<p>We want to learn more about your business’s goals and helps you achieve them!</p>"
+      }
+    },
+    "95bdffa1-21a3-46c8-892c-fcd94647ea63": {
+      "type": "index-track-record",
+      "blocks": {
+        "52ed1664-1002-4e79-a6ea-42412fafe311": {
+          "type": "Records",
+          "settings": {
+            "image": "shopify://shop_images/architectural-icon.png",
+            "record": "10000",
+            "record_span": "+",
+            "record_title": "Projects",
+            "description": "Successfully supplied thousands of retail stores of all types and sizes."
+          }
+        },
+        "38eff905-3658-4f88-ab0c-cc81e6c4e210": {
+          "type": "Records",
+          "settings": {
+            "image": "shopify://shop_images/guarantee-icon.png",
+            "record": "67",
+            "record_span": "+",
+            "record_title": "Years Of Experience",
+            "description": "Trust and proof of qualitative deliveries has been built since 1955."
+          }
+        },
+        "6320c928-0dca-4929-b855-491a815c2a6e": {
+          "type": "Records",
+          "settings": {
+            "image": "shopify://shop_images/floor-plan-size-icon_2f45b299-3005-46dd-8cf1-787c0637ae88.png",
+            "record": "100",
+            "record_span": "M+",
+            "record_title": "Square Feet Supply",
+            "description": "Millions of square feet covered by the efforts of our team of experts."
+          }
+        }
+      },
+      "block_order": [
+        "52ed1664-1002-4e79-a6ea-42412fafe311",
+        "38eff905-3658-4f88-ab0c-cc81e6c4e210",
+        "6320c928-0dca-4929-b855-491a815c2a6e"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "colors": "white",
+        "heading": "TEAM'S TRACK RECORD",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "ba0ce6da-ac0e-461a-a246-36455fbda34b": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "image-width": "extra-large",
+        "heading": "WHY VANGUARD?",
+        "main_image": "shopify://shop_images/why-vanguard.webp",
+        "layout": "left",
+        "image_text_heading": "WE WILL TURN YOUR VISION TO REALITY.",
+        "content": "At Vanguard Store Fixtures, client satisfaction is our number one priority. We turn visions to reality by providing complete solutions for retail stores of all types and sizes. Our services include, but are not limited to:\n\n<ul class=\"list-bg-img\">\n<li>GUARANTEED CLIENT SATISFACTION</li>\n<li>MANUFACTURE &amp; SUPPLY ALL TYPES OF FIXTURES FOR RETAIL STORES</li>\n<li>CUSTOM DESIGNS &amp; ENGINEERED FLOOR PLANS</li>\n<li>3D RENDERS OF COMPLEX PROJECTS</li>\n<li>SHIPPING, DELIVERY &amp; INSTALLATION</li>\n<li>PROUDLY <span>MADE IN CANADA</span>\n</li>\n</ul>",
+        "button_lebel": "START NOW",
+        "button_link": "shopify://pages/contact"
+      }
+    },
+    "4e62db11-030e-4408-ba61-e658518e66c6": {
+      "type": "feature-process",
+      "blocks": {
+        "template--14661718442081__4e62db11-030e-4408-ba61-e658518e66c6-16836395698ef37af9-0": {
+          "type": "html",
+          "settings": {
+            "image": "shopify://shop_images/1.png",
+            "icon-image": "shopify://shop_images/image_24.png",
+            "icon_heading": "RESEARCH & PLANNING",
+            "description": "We begin the process of your store’s development with curiosity, collaboration, and a questioning effort. This way we ensure a comprehensive understanding of your company’s wants and needs."
+          }
+        },
+        "b13008be-27f0-4de7-b75b-84c0820d9566": {
+          "type": "html",
+          "settings": {
+            "image": "shopify://shop_images/2.png",
+            "icon-image": "shopify://shop_images/image_36.png",
+            "icon_heading": "DESIGN & LAYOUT",
+            "description": "We bring any of your ideas to life by designing custom solutions for your business’s store and tailor a perfect walk through experience for your customers."
+          }
+        },
+        "5c45509e-cef9-4e3a-a6ba-b5d1f1b7bde9": {
+          "type": "html",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_2.png",
+            "icon-image": "shopify://shop_images/image_24_1.png",
+            "icon_heading": "CREATE & BUILD",
+            "description": "Our team’s capabilities enable us to create custom solutions and achieve the desired look and functionalities for your retail environment. We ensure the highest quality materials and a perfect fit for any retail space."
+          }
+        },
+        "534a84ab-92c6-4d56-a453-17f26f613f76": {
+          "type": "html",
+          "settings": {
+            "image": "shopify://shop_images/Mask_group_3.png",
+            "icon-image": "shopify://shop_images/image_37.png",
+            "icon_heading": "PROJECT COMPLETION",
+            "description": "We take care of your project from start to finish to make sure your expectations are met or exceeded, as we stand by our guaranteed client satisfaction promise..."
+          }
+        }
+      },
+      "block_order": [
+        "template--14661718442081__4e62db11-030e-4408-ba61-e658518e66c6-16836395698ef37af9-0",
+        "b13008be-27f0-4de7-b75b-84c0820d9566",
+        "5c45509e-cef9-4e3a-a6ba-b5d1f1b7bde9",
+        "534a84ab-92c6-4d56-a453-17f26f613f76"
+      ],
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "heading": "Our Process"
+      }
+    },
+    "44f43a30-8d3d-48e5-b23b-a33d3e4f5e41": {
+      "type": "image--logo-list",
+      "blocks": {
+        "template--14661718442081__44f43a30-8d3d-48e5-b23b-a33d3e4f5e41-168364058549338b1e-0": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "e8cfeab8-f4c4-4789-9a8d-f33a57e21c91": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "template--14661718442081__44f43a30-8d3d-48e5-b23b-a33d3e4f5e41-168364058549338b1e-1": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "4d888e16-2dfa-4813-9b7d-ee6fcc4b4436": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "f23d1fb4-3197-4ba7-b36d-5799ec1e623c": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "b7161596-25e5-4805-abcc-260d444c1abf": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "c9337701-eac8-4436-81ae-86c759a6e0b9": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "5274ee93-7945-4998-a212-748b205226f3": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--14661718442081__44f43a30-8d3d-48e5-b23b-a33d3e4f5e41-168364058549338b1e-0",
+        "e8cfeab8-f4c4-4789-9a8d-f33a57e21c91",
+        "template--14661718442081__44f43a30-8d3d-48e5-b23b-a33d3e4f5e41-168364058549338b1e-1",
+        "4d888e16-2dfa-4813-9b7d-ee6fcc4b4436",
+        "f23d1fb4-3197-4ba7-b36d-5799ec1e623c",
+        "b7161596-25e5-4805-abcc-260d444c1abf",
+        "c9337701-eac8-4436-81ae-86c759a6e0b9",
+        "5274ee93-7945-4998-a212-748b205226f3"
+      ],
+      "disabled": true,
+      "settings": {
+        "colors": "dark",
+        "width": 180,
+        "subheading": "",
+        "title": "Some Of Our Clients",
+        "section_width": "container",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "f239b0b8-5506-446a-baaa-c80c9573dadf": {
+      "type": "return-policy",
+      "blocks": {
+        "61618f00-b1be-4d21-9095-e9a9be2e11c0": {
+          "type": "policy",
+          "settings": {
+            "return_icon": "shopify://shop_images/07_Pickup.png",
+            "return_head": "<p><strong>MADE IN CANADA</strong></p>",
+            "return_desc": "<p>All of your retail space will be supplied and set up with products from Canada.</p>"
+          }
+        },
+        "e64893f3-90bc-4bb0-8c6d-82c95b4fb9df": {
+          "type": "policy",
+          "settings": {
+            "return_icon": "shopify://shop_images/Layer_2.png",
+            "return_head": "<p><strong>UNLIMITED SOLUTIONS</strong></p>",
+            "return_desc": "<p>Vanguard has made solid partnerships in all industries to make sure no retail space goes unfinished.</p>"
+          }
+        },
+        "c2a2fd45-0bb9-4960-b182-9a065a29ba89": {
+          "type": "policy",
+          "settings": {
+            "return_icon": "shopify://shop_images/Vector_3_79bb4540-36a2-4d6e-bc6c-14021cbb4dc7.png",
+            "return_head": "<p><strong>GUARANTEED SATISFACTION</strong></p>",
+            "return_desc": "<p>We guarantee a perfect project completion for all of our clients.</p>"
+          }
+        },
+        "d4cd8345-1bf1-49f6-8711-367c59e907a5": {
+          "type": "policy",
+          "settings": {
+            "return_icon": "shopify://shop_images/Group_ebf61ef8-45ef-4870-8a7f-d36f74c5e547.png",
+            "return_head": "<p><strong>CALL US ANYTIME</strong></p>",
+            "return_desc": "<p>Our reception will always be glad to help.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "61618f00-b1be-4d21-9095-e9a9be2e11c0",
+        "e64893f3-90bc-4bb0-8c6d-82c95b4fb9df",
+        "c2a2fd45-0bb9-4960-b182-9a065a29ba89",
+        "d4cd8345-1bf1-49f6-8711-367c59e907a5"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "d304dbaf-f82e-431b-bdc6-4a33f3db6bf8": {
+      "type": "store-vision-blogs-slider",
+      "blocks": {
+        "b2d261cf-f5b0-4792-81de-1c4b27bf7bf4": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Cosmetic_Store_51.jpg",
+            "page_title": "Cosmetic",
+            "page_link": "shopify://pages/cosmetic"
+          }
+        },
+        "1d488c81-67b7-4d0f-838c-3222bdf62d78": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Supermarket_53.jpg",
+            "page_title": "Supermarket",
+            "page_link": "shopify://pages/supermarket"
+          }
+        },
+        "f9cfe64b-845c-4788-89ab-cda7228d5eb9": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Smoke_Shop_51.jpg",
+            "page_title": "Smoke",
+            "page_link": "shopify://pages/smoke"
+          }
+        },
+        "8a0183ec-7a81-4ad1-80c7-2e3019378336": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Jewelry_51.jpg",
+            "page_title": "Jewelry",
+            "page_link": "shopify://pages/jewlery"
+          }
+        },
+        "312f0f51-f803-400c-a2fd-cc68de42ab17": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Optical_Store_51.jpg",
+            "page_title": "Optical",
+            "page_link": "shopify://pages/optical"
+          }
+        },
+        "a704e628-2156-49b5-8fe2-f2b939458405": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Bakery_51.jpg",
+            "page_title": "Restaurant",
+            "page_link": "shopify://pages/restaurant"
+          }
+        },
+        "1a304572-881d-46b1-bcdd-d7b893f8145c": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Pet_Store_51.jpg",
+            "page_title": "Pet Store",
+            "page_link": "shopify://pages/pet-store"
+          }
+        },
+        "d0925f50-d956-4f1e-8b41-239ade30da5a": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Clothing_Store_51.jpg",
+            "page_title": "Clothing",
+            "page_link": "shopify://pages/clothing"
+          }
+        },
+        "652eb2ec-d9e9-45f9-9149-f29480d1614f": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Pharmacy_53.jpg",
+            "page_title": "Pharmacy",
+            "page_link": "shopify://pages/pharmacy"
+          }
+        }
+      },
+      "block_order": [
+        "b2d261cf-f5b0-4792-81de-1c4b27bf7bf4",
+        "1d488c81-67b7-4d0f-838c-3222bdf62d78",
+        "f9cfe64b-845c-4788-89ab-cda7228d5eb9",
+        "8a0183ec-7a81-4ad1-80c7-2e3019378336",
+        "312f0f51-f803-400c-a2fd-cc68de42ab17",
+        "a704e628-2156-49b5-8fe2-f2b939458405",
+        "1a304572-881d-46b1-bcdd-d7b893f8145c",
+        "d0925f50-d956-4f1e-8b41-239ade30da5a",
+        "652eb2ec-d9e9-45f9-9149-f29480d1614f"
+      ],
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "label_heading": "Store Vision",
+        "post_limit": 3,
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "3516fe7f-af2f-48ae-a59f-58cfe9279d22": {
+      "type": "blog--blog-posts",
+      "blocks": {
+        "2de5b8f2-3ca2-43af-b7b6-20baccc9704a": {
+          "type": "blog",
+          "settings": {
+            "blog": "news",
+            "show_view_all": true
+          }
+        }
+      },
+      "block_order": [
+        "2de5b8f2-3ca2-43af-b7b6-20baccc9704a"
+      ],
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "subheading": "",
+        "title": "Our blogs",
+        "post_limit": 3,
+        "show_author_name": false,
+        "show_dates": true,
+        "show_blog_images": true,
+        "imageSize": "square",
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "0441407f-33a4-47d7-92cc-ae6da31f12ef": {
+      "type": "text--rich-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "subheading": "GET IN TOUCH",
+        "title": "Want to know more about us? Call or email us now!",
+        "text": "<p><a href=\"mailto:contact@vanguardstorefixtures.com\" title=\"mailto:contact@vanguardstorefixtures.com\">contact@vanguardstorefixtures.com</a></p><p>1 King Street West, 4800-50, Toronto, ON, M5H 1A1</p>",
+        "button_link": "shopify://pages/contact",
+        "button_label": "Contact us",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "custom_inquire_form_GF4DTr": {
+      "type": "custom-inquire-form",
+      "blocks": {
+        "name_input_q4pDw9": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "email_input_phUa3y": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "tel_input_h89jg6": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "message_input_p6gqpQ": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "name_input_q4pDw9",
+        "email_input_phUa3y",
+        "tel_input_h89jg6",
+        "message_input_p6gqpQ"
+      ],
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "GET A FREE CONSULTATION",
+        "sub_heading": "By submitting the form below, you agree to receive SMS, email, or a phone call from the experts at Vanguard Store Fixtures\nwithin 24 hours.",
+        "location": "<p><strong>Vanguard Store Fixtures Inc.</strong><br/>1 King Street West, 4800-50, Toronto, ON, M5H 1A1</p>",
+        "timing": "<p><strong>Monday to Friday</strong> 9:00AM - 5:00PM EST<br/><strong>Saturday & Sunday</strong> - CLOSED</p>",
+        "number": "<p><strong>TOLL FREE LINE</strong></p><p><a href=\"tel:1-888-828-1688\" title=\"tel:1-888-828-1688\">1-888-828-1688</a></p>",
+        "email": "<p><strong>WILL RESPOND WITHIN 24 HOURS</strong></p><p><a href=\"mailto:contact@vanguardstorefixtures.com\" title=\"mailto:contact@vanguardstorefixtures.com\"><span style=\"text-decoration:underline\">contact@vanguardstorefixtures.com</span></a></p>",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "56727af8-6268-41df-b5bd-f033137ef150",
+    "image_slideshow_WDr9Md",
+    "92e60213-f6c2-4ae1-868f-3b18a9f27af8",
+    "a4e37321-ad51-4ca0-a01d-2c4d15ed03f5",
+    "03715eb0-9af6-4fe7-a531-dcc182a90f53",
+    "9fa41ff4-2af6-4ce1-b980-a2596b773733",
+    "86a7598b-59a3-49c2-9157-f21ac2da2357",
+    "b7ddf70f-0497-45e7-a153-4ce07a3278d9",
+    "aff040f1-f71e-48c1-82c7-f7c5b969dae5",
+    "b9650057-9b53-4e8b-b931-3460054e1e72",
+    "83ade8aa-5107-49ef-9cdf-d1bcd65a2eaf",
+    "95bdffa1-21a3-46c8-892c-fcd94647ea63",
+    "ba0ce6da-ac0e-461a-a246-36455fbda34b",
+    "4e62db11-030e-4408-ba61-e658518e66c6",
+    "44f43a30-8d3d-48e5-b23b-a33d3e4f5e41",
+    "f239b0b8-5506-446a-baaa-c80c9573dadf",
+    "d304dbaf-f82e-431b-bdc6-4a33f3db6bf8",
+    "3516fe7f-af2f-48ae-a59f-58cfe9279d22",
+    "0441407f-33a4-47d7-92cc-ae6da31f12ef",
+    "custom_inquire_form_GF4DTr"
+  ]
+}

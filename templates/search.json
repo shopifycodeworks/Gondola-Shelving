@@ -1,0 +1,50 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-wrapper",
+  "sections": {
+    "search_header": {
+      "type": "template--search-header",
+      "settings": {}
+    },
+    "main": {
+      "type": "template--search",
+      "blocks": {
+        "grid-card-title": {
+          "type": "grid-card-title",
+          "settings": {}
+        },
+        "grid-card-price": {
+          "type": "grid-card-price",
+          "settings": {}
+        },
+        "grid-card-swatches": {
+          "type": "grid-card-swatches",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "grid-card-title",
+        "grid-card-price",
+        "grid-card-swatches"
+      ],
+      "settings": {
+        "article-hover-effect": "zoom",
+        "desktop_position": "sidebar",
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    }
+  },
+  "order": [
+    "search_header",
+    "main"
+  ]
+}

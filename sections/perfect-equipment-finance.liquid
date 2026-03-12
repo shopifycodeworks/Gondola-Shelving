@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      {% if section.settings.main_heading != blank %}
+        <div class="heading text-center mb-4">
+          <h2>{{ section.settings.main_heading }}</h2>
+          {% if section.settings.peragraph != blank %}
+            <p>{{ section.settings.peragraph }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="row">
+    {% for block in section.blocks %}
+      <div class="col-lg-6 col-md-6 mb-4">
+        <div class="equipemnet-wrapper">
+          {% if block.settings.finace_image != blank %}
+            <div class="fin-img">
+              <img src="{{ block.settings.finace_image | img_url:'master' }}">
+            </div>
+          {% endif %}
+          <div class="fin_content">
+            {% if block.settings.finace_head %}
+              <h5>{{ block.settings.finace_head }}</h5>
+            {% endif %}
+            {% if block.settings.finance_desc != blank %}
+              <p>{{ block.settings.finance_desc }}</p>
+            {% endif %}
+            {% if block.settings.finance_terms != blank %}
+              <div class="termsList">{{ block.settings.finance_terms }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Perfect Equipment",
+  "tag": "section",
+  "class": "equipment-finance comm-padd",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "peragraph",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list",
+      "name": "list",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "finace_image",
+          "label": "Finance Image"
+        },
+        {
+          "type": "text",
+          "id": "finace_head",
+          "label": "Finace Heading"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "finance_desc",
+          "label": "Finance Description"
+        },
+        {
+          "type": "richtext",
+          "id": "finance_terms",
+          "label": "Finance Terms"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Perfect Equipment"
+    }
+  ]
+}
+{% endschema %}

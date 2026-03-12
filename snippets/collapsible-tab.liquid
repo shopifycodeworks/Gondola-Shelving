@@ -1,0 +1,21 @@
+<div class="collapsible-tab">
+    <details class="collapsible-tab-content"{% if open_by_default %} open{% endif %}>
+        <summary class="type-subheading type-subheading--1" role="button" aria-expanded="false" tabindex="0">
+            {% render 'text-with-icon', icon: icon, text: heading, borders: false %}
+            <span>
+                {% if open_close_icon == "plus_minus" %}
+                  {% render 'icons', icon: 'plus', icon_classes: 'feather feather-x plus-icon' %}
+                  {% render 'icons', icon: 'minus', icon_classes: 'feather feather-x minus-icon' %}
+                {% elsif open_close_icon == "caret" %}
+                  {% render 'icons', icon: 'chevron_up', icon_classes: 'feather feather-chevron-down chevron-up' %}
+                  {% render 'icons', icon: 'chevron_down', icon_classes: 'feather feather-chevron-down chevron-down' %}
+                {% endif %}
+            </span>
+        </summary>
+        {% if content != blank %}
+            <div class="rte">
+                {{ content }}
+            </div>
+        {% endif %}
+    </details>
+</div>

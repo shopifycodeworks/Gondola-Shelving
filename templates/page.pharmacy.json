@@ -1,0 +1,545 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "df6e9143-f008-4855-8cdd-dd6f27eccc73": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": false,
+        "page_heading": "Pharmacy Design & Fixtures",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "hover_over_button_half_qNw4bx": {
+      "type": "hover-over-button-half",
+      "settings": {
+        "hover_image": "shopify://shop_images/1_bb40d295-c7d3-47b0-a537-7ea5cd65ecdd.jpg",
+        "custom_class": "hover_buttons_half"
+      }
+    },
+    "gandola_text_half_rFWwiJ": {
+      "type": "gandola-text-half",
+      "settings": {
+        "heading": "Custom Pharmacy Fixtures and Layout Design Built for Precision",
+        "text_cont": "<p><strong>Designing a pharmacy isn’t just about fixtures — it’s about how the space works every hour of every day.</strong></p><p>We design your pharmacy layout first — then manufacture Canadian-made RX fixtures and custom millwork to match. Everything is planned around real dispensing workflows, not generic retail assumptions.</p><p><strong>What you get working with Vanguard:</strong></p><ul><li><strong>Precise pharmacy layout design</strong> based on workflow, privacy, and compliance</li><li><strong>Custom RX fixtures and millwork</strong>, manufactured in Canada</li><li>Fixtures built for <strong>daily pharmacy loads</strong>, not light retail use</li><li>Optimized staff flow to reduce congestion and errors</li><li>Exact equipment planning — no over-ordering or rework</li><li>One partner from design through manufacturing<br/></li></ul><p><strong>Designed once. Built right. Performs every day your pharmacy is open.</strong></p><p></p><p><strong>CLICK TO VIEW OUR PRODUCT CATALOGS:</strong></p><ul><li><a href=\"#\" title=\"#\">GONDOLA SHELVING CATALOG</a></li><li><a href=\"#\" title=\"#\">RXZONE PHARMACY FIXTURES</a></li><li><a href=\"#\" title=\"#\">CONSULTATION ROOM</a></li></ul><p></p>",
+        "button_label": "Book A Consultation",
+        "button_link": "https://vanguardstorefixtures.com/pages/contact",
+        "custom_class": "pdf_links pharmacy_half_anchor"
+      }
+    },
+    "infinite_images_scroll_bmdtjC": {
+      "type": "infinite-images-scroll",
+      "blocks": {
+        "article_73bQdr": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa29170025bb9e5e147_5ed9568f02f98113b54293b0_3001-Hospital-Gate-2-Oakville-large-004-7-P7A0942-1492x1000-72dpi-1491x994_7dd65ffa-7e6f-48e1-b8d0-8ff1fee24367.jpg",
+            "page_link": ""
+          }
+        },
+        "article_xYgUQn": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95a9f8018b2e7b641ad08_5ed956266aedf8849dc5526a_Pharmacie-Familiprix_Montre81al-01.jpg",
+            "page_link": ""
+          }
+        },
+        "article_c3nYti": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa54eef55d329d842b8_5ed9570b6aedf81af6c55aa4_Pharmacie-Proxim-Bellemare03_05ab966d-a696-4616-a7fa-4b0cfc6e5c6d.jpg",
+            "page_link": ""
+          }
+        },
+        "article_eAaBAp": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa4c76b3b7b37116636_5ed956db02f98128e042984e_Familliprix-Nicolet-01.jpg",
+            "page_link": ""
+          }
+        },
+        "article_YWTXtz": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa9050e9636765fcbbe_5ed9577113326edec4a8d432_SynMed-Jean-Countu_07.jpg",
+            "page_link": ""
+          }
+        },
+        "article_PQhQtf": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa73d5a43cdf5345a90_5ed9572ff81380e92d462be2_Pharmacie-Proxim-Labrie-02.jpg",
+            "page_link": ""
+          }
+        },
+        "article_4Lc4aU": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa2917002e5d7e5e148_5ed95695ff9ca8ec973771d0_3001-Hospital-Gate-2-Oakville-large-005-2-P7A0978-1500x995-72dpi-1491x994.jpg",
+            "page_link": ""
+          }
+        },
+        "article_Xk4XPq": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95a9f8018b2d7a241ad0c_5ed9561b4615301f8a2eec05_Pharmacie-Familiprix_Montre81al-07.jpg",
+            "page_link": ""
+          }
+        },
+        "article_G3QVk3": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa54eef5528c7d842b6_5ed957089a3ce0439253fc55_Pharmacie-Proxim-Bellemare01.jpg",
+            "page_link": ""
+          }
+        },
+        "article_nEyrmA": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa4c76b3b0084116639_5ed956df917709b412c0c65f_Familliprix-Nicolet-04_9bfd7b38-cbdc-458b-b293-84d9194dde03.jpg",
+            "page_link": ""
+          }
+        },
+        "article_Gg9LiL": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa54eef554359d842b5_5ed9570af17e61b3f286cdb8_Pharmacie-Proxim-Bellemare02.jpg",
+            "page_link": ""
+          }
+        },
+        "article_pr78y7": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95a9f8018b21fc941ad04_5ed95621f8138097644626a8_Pharmacie-Familiprix_Montre81al-03.jpg",
+            "page_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "article_73bQdr",
+        "article_xYgUQn",
+        "article_c3nYti",
+        "article_eAaBAp",
+        "article_YWTXtz",
+        "article_PQhQtf",
+        "article_4Lc4aU",
+        "article_Xk4XPq",
+        "article_G3QVk3",
+        "article_nEyrmA",
+        "article_Gg9LiL",
+        "article_pr78y7"
+      ],
+      "disabled": true,
+      "settings": {
+        "label_heading": "",
+        "section_width": "container-full-width",
+        "padding_top": 0,
+        "padding_bottom": 56,
+        "gallery_link": ""
+      }
+    },
+    "177043746624c23045": {
+      "type": "apps",
+      "blocks": {
+        "xo_gallery_xo_gallery_2_kbGepd": {
+          "type": "shopify://apps/xo-gallery/blocks/xo-gallery-2/e61dfbaa-1a75-4e4e-bffc-324f17325251",
+          "settings": {
+            "gallery_metaobjects": "pharmacies-photos",
+            "padding_top": 50,
+            "padding_bottom": 50
+          }
+        }
+      },
+      "block_order": [
+        "xo_gallery_xo_gallery_2_kbGepd"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "gandola_benefits_ReXqTC": {
+      "type": "gandola-benefits",
+      "blocks": {
+        "benefits_H4jzM6": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/marker.png",
+            "benefits_heading": "Made In Canada",
+            "benefits_cont": "<p>Manufactured locally guaranteeing a superior quality with fast production times.</p>"
+          }
+        },
+        "benefits_3GnFAR": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/games-podium-with-trophy-for-number-one.png",
+            "benefits_heading": "Competitive Pricing",
+            "benefits_cont": "<p>We ensure real savings compared compared to other North American brands.</p>"
+          }
+        },
+        "benefits_zitGEa": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/customizable.png",
+            "benefits_heading": "Customizable",
+            "benefits_cont": "<p>All gondola shelving systems are made to order, meaning all sizes, colors, and parts are tailored to your store's layout and its brand.</p>"
+          }
+        },
+        "benefits_MGPK68": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/laser-cutting-machine.png",
+            "benefits_heading": "Precise Vision",
+            "benefits_cont": "<p>We guarantee the final results will be as envisioned, by providing engineered floor plans & 3D renders before manufacturing.</p>"
+          }
+        },
+        "benefits_GpQYby": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/trustworthiness.png",
+            "benefits_heading": "Client Satistaction",
+            "benefits_cont": "<p>Your happiness is our top priority, and we strive to exceed your expectations with every interaction.</p>"
+          }
+        },
+        "benefits_i9UFqP": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/stone.png",
+            "benefits_heading": "Superior Quality",
+            "benefits_cont": "<p>Our gondola shelving, made from durable steel, is built to last a lifetime, ensuring you won't need to replace it anytime soon.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefits_H4jzM6",
+        "benefits_3GnFAR",
+        "benefits_zitGEa",
+        "benefits_MGPK68",
+        "benefits_GpQYby",
+        "benefits_i9UFqP"
+      ],
+      "settings": {
+        "heading": "WHY CHOOSE VANGUARD?",
+        "button_label": "",
+        "button_link": "https://vanguardstorefixtures.com/pages/contact",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "infinite_images_scroll_kNJMkp": {
+      "type": "infinite-images-scroll",
+      "blocks": {
+        "article_jU8JpT": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Scene_3_2_d46b79a0-8fe8-4303-9e14-d1e108345854.jpg",
+            "page_link": ""
+          }
+        },
+        "article_LdNntp": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/4532412341.png",
+            "page_link": ""
+          }
+        },
+        "article_8Qj7bd": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Scene_2_2.jpg",
+            "page_link": ""
+          }
+        },
+        "article_MpjkqW": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/312.png",
+            "page_link": ""
+          }
+        },
+        "article_NkVyBh": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5324124_7aa18b41-2b3f-45f5-96a0-f1314413e68a.png",
+            "page_link": ""
+          }
+        },
+        "article_MEGbKL": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/ew412.png",
+            "page_link": ""
+          }
+        },
+        "article_fJVQEt": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/d213123.png",
+            "page_link": ""
+          }
+        },
+        "article_PcAJWC": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/3214124.png",
+            "page_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "article_jU8JpT",
+        "article_LdNntp",
+        "article_8Qj7bd",
+        "article_MpjkqW",
+        "article_NkVyBh",
+        "article_MEGbKL",
+        "article_fJVQEt",
+        "article_PcAJWC"
+      ],
+      "disabled": true,
+      "settings": {
+        "label_heading": "",
+        "section_width": "container-full-width",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "gallery_link": ""
+      }
+    },
+    "1770438334f19e2417": {
+      "type": "apps",
+      "blocks": {
+        "xo_gallery_xo_gallery_2_9fH6UC": {
+          "type": "shopify://apps/xo-gallery/blocks/xo-gallery-2/e61dfbaa-1a75-4e4e-bffc-324f17325251",
+          "settings": {
+            "gallery_metaobjects": "pharmacies-3d",
+            "padding_top": 50,
+            "padding_bottom": 50
+          }
+        }
+      },
+      "block_order": [
+        "xo_gallery_xo_gallery_2_9fH6UC"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "gondola_customization_Azqz6w": {
+      "type": "gondola-customization",
+      "blocks": {
+        "customization_q8zLpr": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/gondola-structure-1.jpg",
+            "customization_block_heading": "Solid Construction",
+            "customization_block_desc": "<p>Gondola shelving is the backbone of retail display, widely used across the industry as a top choice for showcasing products. Our gondola shelving systems are built at the highest standards of quality, and offer various height and depth options, along with a diverse selection of shelves, cases, stands, and hooks. Additionally, it comes in a range of finishes and colors to suit any store's aesthetic.</p>"
+          }
+        },
+        "customization_a8JcHe": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/backing-choices.jpg",
+            "customization_block_heading": "Panel Options",
+            "customization_block_desc": "<p>From slat wall and plain panels, to perforated and metal grids, our custom gondola shelving back panel solutions are limitless. All backpanels are extremely sturdy and can hold hundreds of pounds of weight so you can rest assured your store is always in safe operations, while maintaining a beautiful aesthetic.</p>"
+          }
+        },
+        "customization_wXBH4z": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/gondola-shelving-choices.jpg",
+            "customization_block_heading": "Shelving & Display Choices",
+            "customization_block_desc": "<p>Our solid steel gondola shelves that can securely hold up to 500lbs of weight with ease. Dozens of alternative gondola shelving attachments are available, like display cases, magaize displays, baskets, slanted shelves, and many more for you to explore in our catalog.</p>"
+          }
+        },
+        "customization_VheNTL": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/Custom-Color-Chart.jpg",
+            "customization_block_heading": "Custom Colors",
+            "customization_block_desc": "<p>We understand the importance of branding and are dedicated to matching the branding of your company. Our color options range from standard White, Beige, Gray, and Black to specialty choices like Charcoal, Yellow, Nickel, Light Grey, Blue, Shiny Grey, Red, Pure White, and Hammertone. Let us help you create a cohesive and impactful brand presence.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "customization_q8zLpr",
+        "customization_a8JcHe",
+        "customization_wXBH4z",
+        "customization_VheNTL"
+      ],
+      "settings": {
+        "customization_heading": "Gondola Shelving Customizations",
+        "customization_block_sub": "<p>We've put together a selection of configuration options and features to give you an idea of the possibilities of our custom gondola shelving systems. These are just a few examples, and there are many more available. Contact us to discuss which options will best suit your needs.</p>"
+      }
+    },
+    "gandola_extra_features_hWUYYP": {
+      "type": "gandola-extra-features",
+      "blocks": {
+        "feature_R9N4U7": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/wall-one-half.jpg",
+            "slider-heading": "Half Gondola or Wall Unit",
+            "desc": "<p>Used against a wall or other vertical structure. Can be secured to increase weight capacity.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_yd3f39": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/full-gondola.jpg",
+            "slider-heading": "Full Gondola",
+            "desc": "<p>Free standing units perfect for multiple locations. Often used to create aisles and controlling flow through a store.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_PYAjFt": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/base-end-cap.jpg",
+            "slider-heading": "End Caps",
+            "desc": "<p>Used with our without a base shelf these units increase the flexibility for both full and half gondola systems.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_pfiRrP": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/standard-shelves.jpg",
+            "slider-heading": "Standard Shelves",
+            "desc": "<p>Standard shelves are available in 8″ – 22″ depths. Holding weight up to 500 lbs. of evenly distributed weight.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_LnPBbH": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/tilting-shelves.jpg",
+            "slider-heading": "Tilting Shelves",
+            "desc": "<p>Tilting shelves are available in 8″ – 16″ depths</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_7VVxK9": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/shelf-edges.jpg",
+            "slider-heading": "Edge Fences",
+            "desc": "<p>Shelves can be outfitted with acrylic, wire or metal edge fences.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_x78Ur8": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/magazine-racks.jpg",
+            "slider-heading": "Magazine Racks",
+            "desc": "<p>Magazine racks can be added to display a range of printed materials.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_dDN7yg": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/display-case-1.jpg",
+            "slider-heading": "Display Cases",
+            "desc": "<p>Perfect for merchandise needing extra care or security.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_R9N4U7",
+        "feature_yd3f39",
+        "feature_PYAjFt",
+        "feature_pfiRrP",
+        "feature_LnPBbH",
+        "feature_7VVxK9",
+        "feature_x78Ur8",
+        "feature_dDN7yg"
+      ],
+      "settings": {
+        "heading": "",
+        "button_label": "",
+        "button_link": "https://vanguardstorefixtures.com/pages/contact"
+      }
+    },
+    "custom_inquire_form_Pzk3Ed": {
+      "type": "custom-inquire-form",
+      "blocks": {
+        "name_input_Mzy3EA": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "email_input_4dj4Cg": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "tel_input_wDGbtg": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "message_input_7ATGLh": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "name_input_Mzy3EA",
+        "email_input_4dj4Cg",
+        "tel_input_wDGbtg",
+        "message_input_7ATGLh"
+      ],
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "RECEIVE A FREE CONSULTATION",
+        "sub_heading": "Contact us today to receive help in creating the perfect retail space for your business, that not only attracts and retains customers, but also promotes efficient business operations. \n\n\nReceive your free consultation within within 24 hours.",
+        "location": "<p><strong>Vanguard Store Fixtures Inc.</strong></p><p>1 King Street West, 4800-50, Toronto, ON, M5H 1A1</p>",
+        "timing": "<p><strong>Monday to Friday</strong>9:00AM - 5:00PM EST<br/><strong>Saturday & Sunday</strong>- CLOSED</p>",
+        "number": "<p><strong>TOLL FREE LINE</strong></p><p><a href=\"tel:1-888-828-1688\" title=\"tel:1-888-828-1688\">1-888-828-1688</a></p>",
+        "email": "<p><strong>WILL RESPOND WITHIN 24 HOURS</strong></p><p><a href=\"mailto:contact@vanguardstorefixtures.com\" title=\"mailto:contact@vanguardstorefixtures.com\"><span style=\"text-decoration:underline\">contact@vanguardstorefixtures.com</span></a></p>",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "df6e9143-f008-4855-8cdd-dd6f27eccc73",
+    "hover_over_button_half_qNw4bx",
+    "gandola_text_half_rFWwiJ",
+    "infinite_images_scroll_bmdtjC",
+    "177043746624c23045",
+    "gandola_benefits_ReXqTC",
+    "infinite_images_scroll_kNJMkp",
+    "1770438334f19e2417",
+    "gondola_customization_Azqz6w",
+    "gandola_extra_features_hWUYYP",
+    "custom_inquire_form_Pzk3Ed"
+  ]
+}

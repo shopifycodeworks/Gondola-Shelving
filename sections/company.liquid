@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="company">
+    {% if section.settings.main_text != blank %}
+      {{ section.settings.main_text }}
+    {% endif %}
+    <div class="row">
+      {% if section.settings.desc1 != blank %}
+        <div class="col-lg-6">
+          <div class="tab-about-content">
+            <p>{{ section.settings.desc1 }}</p>
+          </div>
+        </div>
+      {% endif %}
+      {% if section.settings.desc2 != blank %}
+        <div class="col-lg-6">
+          <div class="tab-about-content">
+            <p>{{ section.settings.desc2 }}</p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Company",
+  "tag": "section",
+  "class": "company comm-padd",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "main_text",
+      "label": "Main Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "desc1",
+      "label": "First Description"
+    },
+    {
+      "type": "textarea",
+      "id": "desc2",
+      "label": "Second Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Company"
+    }
+  ]
+}
+{% endschema %}

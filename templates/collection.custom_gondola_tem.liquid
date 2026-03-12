@@ -1,0 +1,108 @@
+<script>
+  // Your Storefront API endpoint and access token
+  const STORE_API_URL = 'https://3fd83e.myshopify.com/api/2023-04/graphql.json';
+  const ACCESS_TOKEN = 'e4f372498ebaa14c270b178f80c5daa7';  // Replace with your Storefront API access token
+
+  // Function to get product variants
+  function getProductVariants(productId) {
+    const query = `
+      {
+        product(id: "gid://shopify/Product/${productId}") {
+          id
+          title
+          variants(first: 250) {
+            edges {
+              node {
+                id
+                title
+                priceV2 {
+                  amount
+                  currencyCode
+                }
+                sku
+                inventoryItem {
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    // Make an API request to Shopify Storefront API
+    fetch(STORE_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': ACCESS_TOKEN,
+      },
+      body: JSON.stringify({ query: query }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.errors) {
+          console.error('GraphQL errors:', data.errors);
+          document.getElementById('productVariants').innerHTML = '<p>Error fetching variants. Check console for details.</p>';
+          return;
+        }
+
+        const variants = data.data.product.variants.edges;
+        if (variants.length > 0) {
+          let variantHtml = '<ul>';
+          variants.forEach(variant => {
+            // Send the inventoryItemId to your backend to get inventory levels
+            fetchInventoryLevel(variant.node.inventoryItem.id, variant.node);
+          });
+          variantHtml += '</ul>';
+          document.getElementById('productVariants').innerHTML = variantHtml;
+        } else {
+          document.getElementById('productVariants').innerHTML = '<p>No variants found.</p>';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching variants:', error);
+        document.getElementById('productVariants').innerHTML = '<p>Error fetching variants. Please try again later.</p>';
+      });
+  }
+
+  // Function to fetch inventory level from your backend (Server-side)
+  function fetchInventoryLevel(inventoryItemId, variant) {
+    // Send the inventoryItemId to your backend via a REST API or AJAX call
+    // Example: Sending it to an endpoint like /get-inventory-level
+    fetch('/get-inventory-level', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ inventoryItemId: inventoryItemId }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from your backend (inventory data)
+        const inventoryQuantity = data.inventoryQuantity;
+
+        // Display the variant and its inventory level
+        let variantHtml = `
+          <li>
+            <strong>${variant.title}</strong><br>
+            Price: ${variant.priceV2.amount} ${variant.priceV2.currencyCode}<br>
+            SKU: ${variant.sku}<br>
+            Available: ${inventoryQuantity}
+          </li>
+        `;
+        document.getElementById('productVariants').innerHTML += variantHtml;
+      })
+      .catch(error => {
+        console.error('Error fetching inventory:', error);
+        document.getElementById('productVariants').innerHTML += '<p>Error fetching inventory. Please try again later.</p>';
+      });
+  }
+
+  // Call to get the variants for a specific product
+  const productId = '9788125315370';  // Replace with the actual product ID
+  getProductVariants(productId);
+</script>
+
+<!-- Display the variants here -->
+<div id="productVariants"></div>

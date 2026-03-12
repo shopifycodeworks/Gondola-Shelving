@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    {% for block in section.blocks %}
+      <div class="col-md-4 mb-3">
+        {% if block.settings.image != blank %}
+          <div class="contactIcon-image-wrapper">
+            <img src="{{ block.settings.image | img_url:'master' }}">
+          </div>
+        {% endif %}
+
+        {% if block.settings.heading != blank %}
+          <div class="contactIcon-heading-wrapper">
+            <p>{{ block.settings.heading }}</p>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Us Icons",
+  "tag":"section",
+  "class":"contactUs-section sec-gapTop sec-gapBottom",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading"
+        }
+      ]
+    }
+  ],
+     "presets": [
+  {
+    "name": "Contact Us Icons"
+  }
+]
+}
+{% endschema %}

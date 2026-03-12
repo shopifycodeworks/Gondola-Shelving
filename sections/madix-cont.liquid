@@ -1,0 +1,162 @@
+{% comment %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  {{ 'owl.carousel.min.css' | asset_url | stylesheet_tag }}
+  {{ 'owl.theme.default.min.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'owl.carousel.js' | asset_url }}"></script>
+{% endcomment %}
+
+<div class="comm-padd video-sec">
+  <div class="container">
+    <div class="row">
+      <div class="index-section col-md-12">
+        <div class="page-width feature-row homepage-featured-content">
+          <div class="feature-row__container">
+            {% for block in section.blocks %}
+              <div class="row align-items-center">
+                {% capture video_layout %}
+              <div class="feature-row__item col-md-6">
+                <div class="owl-carousel owl-theme wrapper video-img-wrap about-carausal">
+                  {% if block.settings.image1 != blank %}
+                  <div class="item section-homepage-video slider-home">
+                      {% include 'responsive-image' with block.settings.image1, alt: block.settings.image1.alt, class:
+                      'feature-row__image feature-block-image' %}
+                    </div>
+                    {% endif %}
+                    {% if block.settings.image2 != blank %}
+                  <div class="item section-homepage-video slider-home">
+                    {% include 'responsive-image' with block.settings.image2, alt: block.settings.image2.alt, class:
+                    'feature-row__image feature-block-image' %}
+                  </div>
+                  {% endif %}
+                  {% if block.settings.image3 != blank %}
+                  <div class="item section-homepage-video slider-home">
+                    {% include 'responsive-image' with block.settings.image3, alt: block.settings.image3.alt, class:
+                    'feature-row__image feature-block-image' %}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+              {% endcapture %}
+
+                {% if block.settings.video_alignment == 'left' %}
+                  {{ video_layout }}
+                {% endif %}
+
+                <div class="col-md-6">
+                  <div class=" section-header-padding custom-font">
+                    {% if block.settings.title != blank %}
+                      <h2 class="type-heading type-heading--1 wow fadeIn">{{ block.settings.title | escape }}</h2>
+                    {% endif %}
+                    {% if block.settings.video_description != blank %}
+                      <p>{{ block.settings.video_description }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+
+                {% if block.settings.video_alignment == 'right' %}
+                  {{ video_layout }}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Madix Content",
+  "tag": "section",
+  "class": "madix-cont comm-padd",
+  "blocks": [
+    {
+      "type": "video",
+      "name": "video & text",
+      "settings": [
+          {
+            "type": "text",
+            "id": "url",
+            "label": "Video URL"
+          },
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Select Image"
+          },
+        {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Select Image"
+          },
+        {
+            "type": "image_picker",
+            "id": "image3",
+            "label": "Select Image"
+          },
+          {
+            "type": "select",
+            "id": "video_alignment",
+            "label": "Image Position",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "Video Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "video_description",
+            "label": "Video Description"
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Madix Content"
+    }
+  ]
+}
+{% endschema %}
+<!--
+  <script>
+      jQuery('.about-carausal').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+      dots:false,
+      autoplay:true,
+    autoplayTimeout:4000,
+    autoplayHoverPause:true,
+        responsive:{
+            0:{
+               nav:false,
+      dots:true,
+                items:1
+            },
+            600:{
+              nav:false,
+      dots:true,
+                items:1
+            },
+            1000:{
+              nav:true,
+      dots:false,
+                items:1
+            }
+        }
+    })
+  </script>
+-->

@@ -1,0 +1,161 @@
+{{ 'section-video.min.css' | asset_url | stylesheet_tag }}
+
+{% case section.settings.image-width %}
+  {% when 'extra-small' %}
+    {%- assign image_width_columns = 2 -%}
+    {%- assign content_width_columns = 10 -%}
+  {% when 'small' %}
+    {%- assign image_width_columns = 3 -%}
+    {%- assign content_width_columns = 9 -%}
+  {% when 'medium' %}
+    {%- assign image_width_columns = 4 -%}
+    {%- assign content_width_columns = 8 -%}
+  {% when 'large' %}
+    {%- assign image_width_columns = 5 -%}
+    {%- assign content_width_columns = 7 -%}
+  {% when 'extra-large' %}
+    {%- assign image_width_columns = 6 -%}
+    {%- assign content_width_columns = 6 -%}
+{% endcase %}
+<div class="multi-img-wrap comm-padd">
+<div class="multi-after">
+  <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/Clip-path3.png?v=1684231053">
+</div>
+<div class="container">
+ {% if section.settings.main_heading != blank %}
+        <h2 class="text-center type-heading type-heading--1 wow fadeIn">{{ section.settings.main_heading }}</h2>
+      {% endif %}
+	<div class="row">
+     
+      <div class="index-section col-md-12">
+          <div class="page-width feature-row homepage-featured-content">
+            <div class="feature-row__container">
+          {% for block in section.blocks %}
+            <div class="row">
+              {% capture video_layout %}
+                <div class="feature-row__item col-lg-6 col-md-12">
+                      <div class="wrapper multi-img-right">
+                        {% if block.settings.image != blank %}
+                          {% include 'responsive-image' with block.settings.image, alt: block.settings.image.alt, class: 'feature-row__image feature-block-image' %}
+                        {% endif %}
+                      </div>
+                </div>
+              {% endcapture %}
+
+          {% if block.settings.image_alignment == 'left' %}
+            {{ video_layout }}
+          {% endif %}
+            
+            <div class="col-lg-6 col-md-12">
+         
+                <div class=" section-header-padding custom-font multi-img-left">
+                {% if block.settings.title != blank %}
+                    <h2 class="type-heading type-heading--1 wow fadeIn">{{ block.settings.title }}</h2>
+                {% endif %}
+                {% if block.settings.image_description != blank %}
+                    <p class="wow fadeIn">{{ block.settings.image_description }}</p>
+                {% endif %}
+                </div>
+            </div>
+
+            {% if block.settings.image_alignment == 'right' %}
+              {{ video_layout }}
+            {% endif %}
+            </div>
+          {% endfor %}
+            </div>
+    </div>
+</div>
+  
+</div>
+
+{% schema %}
+{
+    "name": "Multiple Image",
+    "tag": "section",
+    "class": "aboutus-section--multi-image-wrapper wow fadeIn",
+    "settings": [
+        {
+        "type": "select",
+        "id": "image-width",
+        "label": "Image width",
+        "default": "medium",
+        "options": [
+          {
+            "value": "extra-small",
+            "label": "Extra small"
+          },
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "extra-large",
+            "label": "Extra large"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "main_heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "video",
+        "name": "Image & text",
+        "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Select Image"
+            },
+            {
+              "type": "select",
+              "id": "image_alignment",
+              "label": "Image Position",
+              "default": "left",
+              "options": [
+                {
+                  "value": "left",
+                  "label": "Left"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+              ]
+            },
+            {
+              "type": "inline_richtext",
+              "id": "title",
+              "label": "Image Title"
+            },
+            {
+              "type": "html",
+              "id": "image_description",
+              "label": "Image Description"
+            }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Multiple Image"
+        }
+    ],
+    "enabled_on": {
+        "templates": ["index", "collection", "list-collections", "blog", "article", "page", "password", "404", "cart", "search", "product"]
+    }
+}
+{% endschema %}
+

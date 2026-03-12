@@ -1,0 +1,161 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "df6e9143-f008-4855-8cdd-dd6f27eccc73": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": false,
+        "page_heading": "SHELVING SYSTEMS",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "ecea7b41-afb2-4018-90d4-5d0d2c80e815": {
+      "type": "services-content",
+      "blocks": {
+        "888902dd-fdb5-4b80-a9c7-899028631dc0": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/KBSR_F-1.webp",
+            "video_alignment": "left",
+            "title": "Gondola Shelving Systems for Superior Stores",
+            "video_description": "<p>Setup your store with the most qualitative and durable gondola shelving systems in the North American. At Vanguard Store Fixtures, we offer tailor-made solutions crafted specifically to complement your store's unique brand. Available in a wide variety of colors and sizes, our gondola shelving systems guarantee superior durability and unmatched quality. Contact us today for a free consultation regarding the  customizable, high-performance shelving solutions which will elevate your store's aesthetics and functionality.</p><ul><li><strong>Made in Canada</strong> - manufactured locally guarantees superior quality and FAST LEAD TIMES</li><li><strong>SUPERIOR QUALITY</strong> - our gondola shelving stee will last a lifetime and you can be sure the systems won't need replacement anytime soon</li><li><strong>COMPETETIVE PRICING </strong>- we ensure that our prices compared to other north american brands are the most affordable.</li><li><strong>FULLY CUSTOMIZABLE </strong>- All shelving systems are made to order, which means the size and colour can be customizable to perfectly fit your store and it's branding</li><li><strong>NEW & USED -</strong> GONDOLA SHELVING SOLUTIONS FOR ALL REQUIREMENTS</li><li><strong>guaranteed client satisfaction</strong> - OUR JOB IS ONLY DONE WHEN YOU ARE HAPPY</li></ul>"
+          }
+        },
+        "d33f12aa-88a2-4968-ad45-5ca08755bba8": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/5ed95aa8b17cb478b6dea55e_5ed956417a8259b4e9f93c50_Bayview-LCBO.jpg",
+            "video_alignment": "right",
+            "title": "",
+            "video_description": "<p>Our gondola shelving systems are of the highest standards of quality and are priced extremely competetive in the market. The gondola shelving systems are meant for retail stores of all types, including but not limited to:</p><ul><li>Grocery Stores</li><li>SUPERMARKETS</li><li>LIQUOR STORES</li><li>HARDWARE STORES</li><li>convenience stores</li><li>GAS STATIONs</li><li>PET STOREs</li><li>PHARMACIES</li><li>DRUGSTORES</li><li>ELECTRONIC STORES</li></ul><p></p><p></p>"
+          }
+        },
+        "e70a3a42-e479-4968-93c8-6fc44ae5c83c": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/5ed95aa29170025bb9e5e147_5ed9568f02f98113b54293b0_3001-Hospital-Gate-2-Oakville-large-004-7-P7A0942-1492x1000-72dpi-1491x994.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>Choose us for custom gondola shelving solutions that transform your retail space into a captivating shopping environment. Our commitment to quality, combined with an in-depth understanding of consumer behavior, sets us apart in the store fixtures industry. Our custom gondola shelving adds unique character to your store, fostering a stronger connection between your brand and your customers. As a partner, we are dedicated to surpassing your expectations, delivering custom fixtures that are not only stunning but are strategically designed to optimize sales. Begin your journey with us today, and let our custom gondola shelving elevate your retail space to new heights, as we redefine what it means to be a successful retail destination.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "888902dd-fdb5-4b80-a9c7-899028631dc0",
+        "d33f12aa-88a2-4968-ad45-5ca08755bba8",
+        "e70a3a42-e479-4968-93c8-6fc44ae5c83c"
+      ],
+      "custom_css": [],
+      "settings": {}
+    },
+    "custom_inquire_form_Pzk3Ed": {
+      "type": "custom-inquire-form",
+      "blocks": {
+        "name_input_Mzy3EA": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "email_input_4dj4Cg": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "tel_input_wDGbtg": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "message_input_7ATGLh": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "name_input_Mzy3EA",
+        "email_input_4dj4Cg",
+        "tel_input_wDGbtg",
+        "message_input_7ATGLh"
+      ],
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "RECEIVE A FREE CONSULTATION",
+        "sub_heading": "Contact us today to receive help in creating the perfect retail space for your business, that not only attracts and retains customers, but also promotes efficient business operations. \n\n\nReceive your free consultation within within 24 hours.",
+        "location": "<p><strong>Vanguard Store Fixtures Inc.</strong></p><p>1 King Street West, 4800-50, Toronto, ON, M5H 1A1</p>",
+        "timing": "<p><strong>Monday to Friday</strong>9:00AM - 5:00PM EST<br/><strong>Saturday & Sunday</strong>- CLOSED</p>",
+        "number": "<p><strong>TOLL FREE LINE</strong></p><p><a href=\"tel:1-888-828-1688\" title=\"tel:1-888-828-1688\">1-888-828-1688</a></p>",
+        "email": "<p><strong>WILL RESPOND WITHIN 24 HOURS</strong></p><p><a href=\"mailto:contact@vanguardstorefixtures.com\" title=\"mailto:contact@vanguardstorefixtures.com\"><span style=\"text-decoration:underline\">contact@vanguardstorefixtures.com</span></a></p>",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "0972612b-3e6d-4d8c-9b65-765702189a17": {
+      "type": "how-we-can-help",
+      "blocks": {
+        "12cc8dcc-4f0e-47a2-8dd5-7d392722a7f0": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "1b6aa9c4-9ff0-4622-8c4f-b5efeea4562f": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "d13d8716-4f34-40f8-8df1-8cd589a4b16f": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "90490c01-1b4b-4d2f-b892-f8b007ac1331": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "12cc8dcc-4f0e-47a2-8dd5-7d392722a7f0",
+        "1b6aa9c4-9ff0-4622-8c4f-b5efeea4562f",
+        "d13d8716-4f34-40f8-8df1-8cd589a4b16f",
+        "90490c01-1b4b-4d2f-b892-f8b007ac1331"
+      ],
+      "disabled": true,
+      "settings": {
+        "form_head": "<h3>RECEIVE A FREE CONSULTATION</h3>",
+        "form_desc": "<p>Contact us today to create the perfect setup for your retail space, that not only attracts and retains customers, but also promotes efficient business operations. </p><p>Receive your <strong>free consultation </strong>within within 24 hours.</p>"
+      }
+    }
+  },
+  "order": [
+    "df6e9143-f008-4855-8cdd-dd6f27eccc73",
+    "ecea7b41-afb2-4018-90d4-5d0d2c80e815",
+    "custom_inquire_form_Pzk3Ed",
+    "0972612b-3e6d-4d8c-9b65-765702189a17"
+  ]
+}

@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center sec-gapBottomSm">
+      {% if section.settings['ships-today-title'] != blank %}
+        <div class="ships-today-title stylishTitle">
+          <h3>{{ section.settings['ships-today-title'] }}</h3>
+        </div>
+      {% endif %}
+
+      {% if section.settings['ships-today-content'] != blank %}
+        <div class="ships-today-content sec-gapBottomMd">
+          <h5>{{ section.settings['ships-today-content'] }}</h5>
+        </div>
+      {% endif %}
+
+      {% if section.settings['featured-title'] != blank %}
+        <div class="featured-title">
+          <h2>{{ section.settings['featured-title'] }}</h2>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div id="featured-collection-slider" class="owl-carousel owl-theme swiper-wrapper featuredCollectionSlider">
+        {%- for block in section.blocks -%}
+          <a href="{{ block.settings.featured_collection.url }}">
+            <div class="featured-box text-center">
+              {% if block.settings.featured_collection.featured_image %}
+                <div class="featured-img-wrap">
+                  <img src="{{ block.settings.featured_collection.featured_image | img_url: 'master' }}" alt="{{ block.settings.featured_collection.title }}">
+                </div>
+              {% endif %}
+              {% if block.settings.featured_collection.title != blank %}
+                <div class="featured-imgTitle">
+                  <p>{{ block.settings.featured_collection.title }}</p>
+                </div>
+              {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Todays Ship",
+  "tag":"section",
+  "class":"todays-ship-sectionClass sec-gapTop sec-gapBottom",
+  "settings": [
+     {
+      "type": "text",
+      "id": "ships-today-title",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "ships-today-content",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id": "featured-title",
+      "label": "Featured Title"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"collection_list",
+      "name":"Collection List",
+      "settings":[
+       {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Collection"
+        }
+      ]
+    }
+  ],
+    "presets": [
+  {
+    "name": "Todays Ships"
+  }
+]
+}
+{% endschema %}

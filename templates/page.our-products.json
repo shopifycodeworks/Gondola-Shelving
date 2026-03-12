@@ -1,0 +1,183 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "25dc06cd-cdc3-4fa1-8b69-d982f3144a92": {
+      "type": "banner-with-text",
+      "disabled": true,
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "f7f9115b-daa2-4e72-9a6f-9914bf8ff874": {
+      "type": "image--slideshow",
+      "blocks": {
+        "template--21801300099370__f7f9115b-daa2-4e72-9a6f-9914bf8ff874-slide-1": {
+          "type": "slide",
+          "settings": {
+            "subheading": "",
+            "title": "Share your story",
+            "text": "Here's your chance to make a great first impression",
+            "enlarge-text": false,
+            "button_1_label": "",
+            "button_1_link": "",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_3_label": "",
+            "button_3_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "button-background-hover": "#797979",
+            "horizontal-alignment": "left",
+            "text-alignment": "left",
+            "vertical-alignment": "middle"
+          }
+        },
+        "template--21801300099370__f7f9115b-daa2-4e72-9a6f-9914bf8ff874-slide-2": {
+          "type": "slide",
+          "settings": {
+            "subheading": "",
+            "title": "Share your story",
+            "text": "Here's your chance to make a great first impression",
+            "enlarge-text": false,
+            "button_1_label": "",
+            "button_1_link": "",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_3_label": "",
+            "button_3_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "button-background-hover": "#797979",
+            "horizontal-alignment": "left",
+            "text-alignment": "left",
+            "vertical-alignment": "middle"
+          }
+        },
+        "4cec230c-36e3-47a3-8653-37ef557f47ff": {
+          "type": "slide",
+          "settings": {
+            "subheading": "",
+            "title": "Share your story",
+            "text": "Here's your chance to make a great first impression",
+            "enlarge-text": false,
+            "button_1_label": "",
+            "button_1_link": "",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_3_label": "",
+            "button_3_link": "",
+            "caption-background": "rgba(0,0,0,0)",
+            "caption-text": "#ffffff",
+            "button-text": "#ffffff",
+            "button-background": "#000000",
+            "button-background-hover": "#797979",
+            "horizontal-alignment": "left",
+            "text-alignment": "left",
+            "vertical-alignment": "middle"
+          }
+        }
+      },
+      "block_order": [
+        "template--21801300099370__f7f9115b-daa2-4e72-9a6f-9914bf8ff874-slide-1",
+        "template--21801300099370__f7f9115b-daa2-4e72-9a6f-9914bf8ff874-slide-2",
+        "4cec230c-36e3-47a3-8653-37ef557f47ff"
+      ],
+      "settings": {
+        "slider-animation": "slide",
+        "slider-slide-time": 5,
+        "caption-heading-size": 50,
+        "slideshow-height": "slideshow--fixed-height",
+        "slideshow--desktop-fixed-height": 600,
+        "slideshow--mobile-fixed-height": 600,
+        "show-slide-dots": true,
+        "show-slide-arrows": false,
+        "show-slide-controls": false,
+        "slider-navigation--color": "#ffffff",
+        "overlay": true,
+        "section_width": "full",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "8d713a0d-9829-467c-b418-cb2729b36a59": {
+      "type": "advanced-layout--custom-html",
+      "blocks": {
+        "template--20135354958122__8d713a0d-9829-467c-b418-cb2729b36a59-html-1": {
+          "type": "html",
+          "settings": {
+            "code": "<div style=\"text-align:center\"><h2>COMMING SOON!</h2></div>",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": [
+        "template--20135354958122__8d713a0d-9829-467c-b418-cb2729b36a59-html-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_width": "full",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "78bb9840-50ec-4951-86ce-9b92924fdae7": {
+      "type": "todays-ships",
+      "blocks": {
+        "8d493534-f183-4ca8-a256-362e49bcbf53": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-6"
+          }
+        },
+        "ff475d0f-9c4b-46d9-acb8-c303f1f2face": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-10"
+          }
+        },
+        "1e09d325-be49-49b8-9bbb-4a084ba6714c": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "lorem-lipsum-sit-2"
+          }
+        }
+      },
+      "block_order": [
+        "8d493534-f183-4ca8-a256-362e49bcbf53",
+        "ff475d0f-9c4b-46d9-acb8-c303f1f2face",
+        "1e09d325-be49-49b8-9bbb-4a084ba6714c"
+      ],
+      "settings": {
+        "ships-today-title": "YOUR ORDER SHIPS TODAY",
+        "ships-today-content": "ORDER BY 2 PM EST QUALIFY. order after 2pm ship next business day.<span> PRODUCT MUST BE *IN STOCK & SHIPS TODAY</span>",
+        "featured-title": "FEATURED CATEGORIES"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "25dc06cd-cdc3-4fa1-8b69-d982f3144a92",
+    "f7f9115b-daa2-4e72-9a6f-9914bf8ff874",
+    "8d713a0d-9829-467c-b418-cb2729b36a59",
+    "78bb9840-50ec-4951-86ce-9b92924fdae7"
+  ]
+}

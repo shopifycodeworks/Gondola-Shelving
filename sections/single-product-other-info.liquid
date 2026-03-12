@@ -1,0 +1,230 @@
+{{ 'section-store-availability.min.css' | asset_url | stylesheet_tag }}
+
+{%- assign product_thumb_size = '160x160' -%}
+{%- assign product_image_zoom_size = '1024x1024' -%}
+
+{% comment %}Pick an option only makes sense together with dropdowns{% endcomment %}
+{% assign pick_an_option = false %}
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+{%- assign featured_image = current_variant.image | default: product.featured_image -%}
+
+{% comment %}
+  Check if the product is on sale and set a variable to be used below.
+{% endcomment %}
+{% assign on_sale = false %}
+{% if current_variant.compare_at_price > current_variant.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+<div class="container">
+  <div class="color">
+    {% liquid 
+      if settings.show_swatches == false and block.settings.pick_an_option
+        unless product.has_only_default_variant
+          assign pick_an_option = true
+        endunless
+      endif
+    %}
+    {% if product.variants.size > 0 %}
+        <div class="variants-container hide-variant-labels">
+          {% if settings.show_swatches %}
+            {% unless product.has_only_default_variant %}
+
+              {% liquid 
+                for option in product.options
+                  render 'swatch' with option, product: product, section: section, block: block
+                endfor
+              %}
+            {% endunless %}
+
+          {% else %}
+
+            {% for option in product.options_with_values %}
+              <div class="product-form-option{% if hide_default_title == true %} hide{% endif %}" {{ block.shopify_attributes }}>
+                <div class="input-field product-option-select">
+                  <wetheme-dropdown fit="parent">
+                    <select id="SingleOptionSelector-{{ forloop.index0 }}" class="wetheme-dropdown__select"{% if option.values.size == 1 %} disabled{% endif %}>
+                        {% if pick_an_option and option.values.size > 0 %}
+                          <option value="" selected data-placeholder>Pick a {{ option.name }}</option>
+                        {% endif %}
+                        {% for value in option.values %}
+                            {% if pick_an_option and option.values.size > 0 %}
+                                {% assign props = '' %}
+                            {% elsif option.selected_value == value %}
+                                {% assign props = 'selected' %}
+                            {% else %}
+                              {% assign props = '' %}
+                            {% endif %}
+
+                            {% comment %}Hide out of stock variants{% endcomment %}
+                            {% if product.options_with_values.size == 1 and hide_out_of_stock %}
+                              {% assign hide = true %}
+                              {% for v in product.variants %}
+                                {% if v.option1 == value and v.available %}
+                                  {% assign hide = false %}
+                                {% endif %}
+                              {% endfor %}
+                            {% else %}
+                              {% assign hide = false %}
+                            {% endif %}
+
+                            {% unless hide %}
+                              <option {{ props }} value="{{ value | escape }}">{{ value }}</option>
+                            {% endunless %}
+                        {% endfor %}
+                    </select>
+                    <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+                  </wetheme-dropdown>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      {% endif %}
+  </div>
+
+  <table>
+      <tr>
+        {% if section.settings.short_desc != blank %}
+        <th>Description</th>
+        {% endif %}
+        {% if section.settings.model_no != blank %}
+        <th>Model No</th>
+        {% endif %}
+        <th>Size</th>
+        <th>Color</th>
+        <th>Availablity</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+      <tr>
+        {% if section.settings.short_desc != blank %}
+          <td>{{ section.settings.short_desc }}</td>
+        {% endif %}
+        {% if section.settings.model_no != blank %}
+          <td>{{ section.settings.model_no }}</td>
+        {% endif %}
+        <td></td>
+        <td>Alfreds Futterkiste</td>
+        <td>{% if product.available %} <span>In Stock</span> {% else %} <span>Out Of Stock</span> {% endif %}</td>
+        <td>
+          <ul class="product-page--pricing discount-badge" {{ block.shopify_attributes }}>
+                  {% render 'product-pricing', current_variant: current_variant %}
+                  {% render 'unit-price-measurement-variant', current_variant: current_variant %}
+                </ul>
+
+                  {% if current_variant.compare_at_price > current_variant.price %}
+                    <div class="product-page--pricing--discount">
+                          <span class="variant-percentage-wrapper hide">
+                            - <span class="variant-percentage">{{ current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | money_without_currency | times: 100 | remove: '.0'}}%</span>
+                          </span>
+                    </div>
+                  {% endif %}
+
+                {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+                    <div class="product-page__policies rte">
+                        {{ 'products.product.include_taxes' | t }}
+                    </div>
+                  {%- endif -%}
+        </td>
+        <td>
+           {% form 'product', product, id: "add-to-cart-form" %}
+          <input type="hidden" id="cart-link" value="{{ routes.cart_url }}" />
+
+          {% assign hide_default_title = false %}
+          {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+            {% assign hide_default_title = true %}
+          {% endif %}
+
+          <div class="product-info-wrapper">
+
+
+
+                <div class="quantity-controls__outer {% if settings.show_swatches %}swatches-wrapper{% else %}selector-wrapper{% endif %}" {{ block.shopify_attributes }}>
+                  <label for="quantity">{{ 'products.product.quantity' | t }}</label>
+                  <div class="quantity-controls">
+                      <button
+                        type="button"
+                        class="qty-minus alt-focus"
+                        aria-label="Reduce item quantity by one"
+                      >-</button>
+                      <input
+                        id="quantity"
+                        class="quantity-selector"
+                        value="1"
+                        min="1"
+                        type="text"
+                        name="quantity"
+                      >
+                      <button
+                        type="button"
+                        class="qty-plus alt-focus"
+                        aria-label="Increase item quantity by one"
+                      >+</button>
+                  </div>
+                </div>
+                
+
+                <div class="product-page--submit-action" {{ block.shopify_attributes }}>
+              {% assign disabled = pick_an_option %}
+              {% unless current_variant.available %}
+                {% assign disabled = true %}
+              {% endunless %}
+  
+              <button
+                type="submit"
+                name="add"
+                id="purchase"
+                class="btn {% if block.settings.show_smart_checkout and product.selling_plan_groups.size == 0 %} secondary-button{% endif %}"{% if disabled %}
+                disabled{% endif %}
+                data-cart-action="{{ settings.cart-action }}"
+              >
+                {% if pick_an_option or current_variant.available %}
+                  {{ 'products.product.add_to_cart' | t }}
+                {% else %}
+                  {{ 'products.product.sold_out' | t }}
+                {% endif %}
+              </button>
+                </div>
+
+                {% render 'product-select', section_id: section.id, variants: product.variants %}
+
+          </div>
+        {% endform %}
+        </td>
+      </tr>
+  </table>
+</div>
+{% schema %}
+  {
+    "name": "Product Info",
+    "tag": "section",
+    "class": "product-info-sec",
+    "settings": [
+      {
+        "type": "text",
+        "id": "short_desc",
+        "label": "Short Description"
+      },
+      {
+        "type": "text",
+        "id": "model_no",
+        "label": "Model No"
+      },
+      {
+          "type": "checkbox",
+          "id": "show_smart_checkout",
+          "label": "Show dynamic checkout button",
+          "default": true,
+          "info": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Info"
+      }
+    ]
+  }
+{% endschema %}

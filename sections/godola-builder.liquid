@@ -1,0 +1,703 @@
+<style>
+  .gondola-builder {
+    margin: 50px 0;
+    text-align: center;
+  }
+
+  .gondola-product__description p {
+    font-size: 20px;
+  }
+
+  .g-product-table__row {
+    display: flex;
+    align-items: center;
+  }
+
+  .gondola-product__cta {
+    margin-top: 20px;
+  }
+
+  .g-product-table__color,
+  .g-product-table__length,
+  .g-product-table__backing {
+    width: 10%;
+    height: 50px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .g-product-table__backing--empty select {
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .g-product-table__label {
+    width: 30%;
+    height: 50px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .g-product-table__image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    box-shadow: 0 5px 16px #00000080, 0 6px 20px #00000030;
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.2s;
+    border-radius: 3px;
+  }
+
+  .g-product-table__label:hover .g-product-table__image {
+    z-index: 999;
+    opacity: 1;
+  }
+
+  .g-product-table__actions {
+    width: 20%;
+    height: 50px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .g-product-table__options {
+    width: 20%;
+    display: flex;
+  }
+
+  .g-product-table__option {
+    width: calc(100% / 2);
+    height: 50px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .g-product-table__color select,
+  .g-product-table__length select,
+  .g-product-table__backing select {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    text-align: center;
+  }
+
+  .g-product-table__product {
+    display: none;
+  }
+
+  .g-product-qty__minus,
+  .g-product-qty__plus {
+    cursor: pointer;
+    color: #fff;
+    appearance: none;
+    border: 0;
+    background: #f50018;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 2px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+  }
+
+  .g-product-qty__minus:disabled {
+    background: #b7b7b7 !important;
+    pointer-events: none;
+  }
+
+  .g-product-qty__input {
+    border: 1px solid #bdbbbb;
+    appearance: none;
+    box-shadow: 0;
+    margin: 0;
+    border-radius: 2px;
+    text-align: center;
+    width: 50px;
+    display: block;
+    height: 26px;
+  }
+
+  .g-product-qty__input::-webkit-outer-spin-button,
+  .g-product-qty__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .gondola-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .g-product-qty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .g-product-cta__addtocart {
+    height: 30px;
+    border: 0;
+    padding: 0 15px;
+    background: #f50018;
+    color: #fff;
+    border-radius: 3px;
+  }
+
+  .g-product-cta__addtocart:disabled {
+    opacity: 0.7;
+  }
+
+  .gondola-product__table {
+    min-width: 900px;
+    border: 1px solid;
+  }
+
+  @media (max-width: 768px) {
+    .g-product-table__row:first-child {
+      display: none;
+    }
+
+    .gondola-builder {
+      margin: 20px 0;
+    }
+
+    .gondola-product__table {
+      min-width: auto;
+      width: 100%;
+      padding: 0 15px;
+      border: 0;
+    }
+
+    .g-product-table__row {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .g-product-table__label {
+      width: 100%;
+      border: 0;
+      height: auto;
+      font-weight: bold;
+      font-size: 18px;
+      display: block;
+    }
+
+    .g-product-table__image {
+      display: block;
+      opacity: 1;
+      width: calc(100% - 40px);
+      margin: 15px auto 15px auto;
+      height: auto;
+      box-shadow: none;
+      position: static;
+    }
+
+    .g-product-table__color,
+    .g-product-table__length,
+    .g-product-table__options,
+    .g-product-table__backing,
+    .g-product-table__actions {
+      grid-column: 2 / 3;
+      width: auto;
+      border: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      height: auto;
+      text-align: left;
+      width: calc(100% - 40px);
+      margin: 0 auto;
+    }
+
+    .g-product-table__color select,
+    .g-product-table__length select,
+    .g-product-table__options select,
+    .g-product-table__backing select {
+      width: 60%;
+      font-size: 14px;
+      height: 40px;
+      border: 1px solid;
+      text-align: left;
+      border-bottom: 0;
+      padding-left: 10px;
+      border-radius: 0;
+      background: white;
+    }
+
+    .g-product-table__backing select {
+      border-bottom: 1px solid;
+    }
+
+    .g-product-table__color:before {
+      content: 'COLOUR';
+      display: block;
+      width: 40%;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid;
+      border-right: 0;
+      border-bottom: 0;
+      order: 2;
+      padding-left: 10px;
+      font-weight: bold;
+    }
+
+    .g-product-table__length:before {
+      content: 'LENGTH';
+      display: block;
+      width: 40%;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid;
+      border-right: 0;
+      border-bottom: 0;
+      padding-left: 10px;
+      font-weight: bold;
+    }
+
+    .g-product-table__options:before {
+      content: 'DEPTH';
+      display: block;
+      width: 40%;
+      order: 1;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid;
+      border-right: 0;
+      border-bottom: 0;
+      padding-left: 10px;
+      font-weight: bold;
+    }
+
+    .g-product-table__options:after {
+      content: 'HEIGHT';
+      display: block;
+      width: 40%;
+      order: 3;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid;
+      border-right: 0;
+      border-bottom: 0;
+      padding-left: 10px;
+      font-weight: bold;
+    }
+
+    .g-product-table__options select:first-child {
+      order: 2;
+    }
+
+    .g-product-table__options select:last-child {
+      order: 4;
+    }
+
+    .g-product-table__backing:before {
+      content: 'BACKING';
+      display: block;
+      width: 40%;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid;
+      border-right: 0;
+      padding-left: 10px;
+      font-weight: bold;
+    }
+
+    .g-product-table__actions {
+      padding: 10px 0;
+    }
+
+    .g-product-cta__addtocart {
+      min-width: 90px;
+    }
+
+    /*
+    .g-product-table__color:after {
+      content: attr(data-title);
+      display: block;
+      order: 1;
+      width: 100%;
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+    */
+
+    .g-product-table__color select {
+      order: 3;
+    }
+
+    .g-product-table__color--empty:before {
+      display: none !important;
+    }
+
+    .g-product-table__option:empty {
+      display: none !important;
+    }
+
+    .g-product-table__options--placeholder:after {
+      display: none !important;
+    }
+
+    .g-product-table__backing--empty {
+      display: none;
+    }
+
+    .g-product-table__row:last-child .g-product-table__options:before {
+      border-bottom: 1px solid;
+    }
+
+    .g-product-table__row:last-child .g-product-table__options select {
+      border-bottom: 1px solid;
+    }
+  }
+</style>
+
+<div class="container p-0">
+  <div class="gondola-builder">
+
+    <script>
+      window.productVariantsMap = {
+        {% for block in section.blocks %}
+          "{{ block.settings.collection.id }}": {
+            {% for product in block.settings.collection.products %}
+              "{{ product.id }}": {
+                "title": `{{ product.title }}`,
+                "options": {{ product.options | json }},
+                "variants": [
+                  {% for variant in product.variants %}
+                    {
+                      "id": {{ variant.id }},
+                      "available": {{ variant.available | json }},
+                      "options": {{ variant.options | json }}
+                    }{% unless forloop.last %},{% endunless %}
+                  {% endfor %}
+                ]
+              }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      };
+    </script>
+
+    
+    <div class="gondola-product__table">
+      <div class="g-product-table__row" style="font-weight:bold;">
+        <div class="g-product-table__label">GONDOLA TYPE</div>
+        <div class="g-product-table__color">COLOUR</div>
+        <div class="g-product-table__length">LENGTH</div>
+        <div class="g-product-table__options">
+          <div class="g-product-table__option">DEPTH</div>
+          <div class="g-product-table__option">HEIGHT</div>
+        </div>
+        <div class="g-product-table__backing">BACKING</div>
+        <div class="g-product-table__actions">ADD TO CART</div>
+      </div>
+
+      {% for block in section.blocks %}
+        <div class="g-product-table__row">
+          <div class="g-product-table__label">
+            {{ block.settings.collection.title }}
+            <img class="g-product-table__image" src="{{ block.settings.collection.image | img_url: 'master' }}">
+          </div>
+          <div class="g-product-table__color {% if block.settings.collection.title == 'GONDOLA SHELVES' %}g-product-table__color--empty{% endif %}" data-title="{{ block.settings.collection.title }}">
+            {% if block.settings.collection.title != 'GONDOLA SHELVES' %}
+              <select>
+                <option value="Black">Black</option>
+                <option value="White">White</option>
+                <option value="Beige">Beige</option>
+                <option value="Grey">Grey</option>
+              </select>
+            {% endif %}
+          </div>
+          <div class="g-product-table__length">
+            <select>
+              <option value="24">24"</option>
+              <option value="30">30"</option>
+              <option value="36">36"</option>
+              <option value="48">48"</option>
+            </select>
+            <select class="g-product-table__product">
+            </select>
+          </div>
+          <div class="g-product-table__options"></div>
+          <div class="g-product-table__backing {% if block.settings.collection.title == 'GONDOLA SHELVES' %}g-product-table__backing--empty{% endif %}">
+              <select>
+                {% if block.settings.collection.title != 'GONDOLA SHELVES' %}
+                  <option value="Plain back">Plain back</option>
+                  <option value="Peg board">Peg board</option>
+                  <option value="Slatwall">Slatwall</option>
+                {% endif %}
+              </select>
+          </div>
+          <div class="g-product-table__actions">
+            <form method="post" action="/cart/add" class="add-to-cart-form gondola-product" data-collection-id="{{ block.settings.collection.id }}">
+              <div class="g-product-qty">
+                <span class="g-product-qty__minus" disabled>-</span>
+                <input type="number" min="1" max="999" class="g-product-qty__input" name="quantity" value="1">
+                <span class="g-product-qty__plus">+</span>
+                <input type="hidden" name="id" class="g-product-table__variant">
+                <input type="hidden" name="properties[Backing]" class="g-product-table__properties" value="Plain back">
+              </div>
+              <button class="g-product-cta__addtocart" type="submit" disabled>Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let collections = document.querySelectorAll('.gondola-product');
+
+    for (let i = 0; i < collections.length; i ++) {
+      const data = window.productVariantsMap[collections[i].dataset.collectionId];
+      const productRow = collections[i].closest('.g-product-table__row');
+      const productSelect = productRow.querySelector(".g-product-table__product");
+      const optionContainer = productRow.querySelector(".g-product-table__options");
+      const variantIdInput = productRow.querySelector(".g-product-table__variant");
+      const addToCartBtn = productRow.querySelector(".g-product-cta__addtocart");
+
+      // Add event listener for color and length
+      if (productRow.querySelector('.g-product-table__color select')) {
+        productRow.querySelector('.g-product-table__color select').addEventListener('change', function () {
+          let selectedTitle = productRow.querySelector('.g-product-table__color select').value + ' - ' + productRow.querySelector('.g-product-table__length select').value;
+          let productOptions = productRow.querySelectorAll('.g-product-table__product option');
+          for (let i = 0; i < productOptions.length; i ++) {
+            if (productOptions[i].innerHTML.indexOf(selectedTitle) >= 0) {
+              productRow.querySelector('.g-product-table__product').value = productOptions[i].value;
+              productRow.querySelector('.g-product-table__product').dispatchEvent(new Event("change"));
+              break;
+            }
+          }
+        });
+        productRow.querySelector('.g-product-table__length select').addEventListener('change', function () {
+          let selectedTitle = productRow.querySelector('.g-product-table__color select').value + ' - ' + productRow.querySelector('.g-product-table__length select').value;
+          let productOptions = productRow.querySelectorAll('.g-product-table__product option');
+          for (let i = 0; i < productOptions.length; i ++) {
+            if (productOptions[i].innerHTML.indexOf(selectedTitle) >= 0) {
+              productRow.querySelector('.g-product-table__product').value = productOptions[i].value;
+              productRow.querySelector('.g-product-table__product').dispatchEvent(new Event("change"));
+              break;
+            }
+          }
+        });
+      }
+      else {
+        productRow.querySelector('.g-product-table__length select').addEventListener('change', function () {
+          let selectedTitle = productRow.querySelector('.g-product-table__length select').value;
+          let productOptions = productRow.querySelectorAll('.g-product-table__product option');
+          for (let i = 0; i < productOptions.length; i ++) {
+            if (productOptions[i].innerHTML.indexOf(selectedTitle) >= 0) {
+              productRow.querySelector('.g-product-table__product').value = productOptions[i].value;
+              productRow.querySelector('.g-product-table__product').dispatchEvent(new Event("change"));
+              break;
+            }
+          }
+        });
+      }
+      productRow.querySelector('.g-product-table__backing select').addEventListener('change', function () {
+        let selectedBacking = productRow.querySelector('.g-product-table__backing select').value;
+        productRow.querySelector('.g-product-table__properties').value = selectedBacking;
+      });
+
+      // Add event listener for quantity
+      productRow.querySelector('.g-product-qty__minus').addEventListener('click', function () {
+        let value = parseInt(productRow.querySelector('.g-product-qty__input').value);
+        value --;
+        if (value < 1) {
+          value = 1;
+        }
+        if (value == 1) {
+          productRow.querySelector('.g-product-qty__minus').disabled = true;
+        }
+        else {
+          productRow.querySelector('.g-product-qty__minus').disabled = false;
+        }
+        productRow.querySelector('.g-product-qty__input').value = value;
+      });
+      productRow.querySelector('.g-product-qty__plus').addEventListener('click', function () {
+        let value = parseInt(productRow.querySelector('.g-product-qty__input').value);
+        value ++;
+        productRow.querySelector('.g-product-qty__input').value = value;
+      });
+
+      // Populate product dropdown
+      for (const [productId, productData] of Object.entries(data)) {
+        const opt = document.createElement("option");
+        opt.value = productId;
+        const titleParts = productData.title.split('Length')[0].split(' - ');
+        if (titleParts.length == 2) {
+          opt.textContent = titleParts[1];
+        }
+        else {
+          opt.textContent = titleParts[1] + ' - ' + titleParts[2];
+        }
+        console.log(opt);
+        productSelect.appendChild(opt);
+      }
+      console.log(productSelect);
+
+      function getCurrentOptionSelections() {
+        const selections = [];
+        const selects = optionContainer.querySelectorAll("select");
+        selects.forEach(select => {
+          selections[select.dataset.optionIndex] = select.value;
+        });
+        return selections;
+      }
+
+      function createSelect(optionName, optionIndex, values, selectedValue) {
+        const select = document.createElement("select");
+        select.dataset.optionIndex = optionIndex;
+        select.classList.add('g-product-table__option');
+
+        values.forEach(value => {
+          const opt = document.createElement("option");
+          opt.value = value;
+          opt.textContent = value.split(' ')[0];
+          select.appendChild(opt);
+        });
+
+        if (values.includes(selectedValue)) {
+          select.value = selectedValue;
+        } else {
+          select.value = values[0]; // fallback
+        }
+
+        select.addEventListener("change", () => {
+          updateSelectors(productSelect.value); // re-render on change
+        });
+
+        return select;
+      }
+
+      function updateSelectors(productId) {
+        const product = data[productId];
+        const options = product.options;
+        const availableVariants = product.variants.filter(v => v.available);
+        const prevSelections = getCurrentOptionSelections();
+
+        optionContainer.innerHTML = "";
+        const currentSelections = [];
+
+        options.forEach((optionName, optionIndex) => {
+          const possibleValues = [...new Set(
+            availableVariants
+              .filter(v => {
+                return currentSelections.every((val, i) => !val || v.options[i] === val);
+              })
+              .map(v => v.options[optionIndex])
+          )];
+
+          const preserved = prevSelections[optionIndex];
+          const selectedValue = possibleValues.includes(preserved) ? preserved : possibleValues[0];
+
+          currentSelections[optionIndex] = selectedValue;
+
+          const selectWrapper = createSelect(optionName, optionIndex, possibleValues, selectedValue);
+          optionContainer.appendChild(selectWrapper);
+        });
+
+        // Append placeholder
+        let placeholder = document.createElement('div');
+        placeholder.classList.add('g-product-table__option');
+        if (options.length == 1) {
+          optionContainer.appendChild(placeholder);
+          optionContainer.classList.add('g-product-table__options--placeholder');
+        }
+
+        // Select color, length
+        let productTitle = productSelect.querySelector(`[value="${productId}"]`).innerHTML;
+        if (productTitle.indexOf(' - ') >= 0) {
+          productRow.querySelector('.g-product-table__color select').value = productTitle.split(' - ')[0].replace(' ', '');
+          productRow.querySelector('.g-product-table__length select').value = productTitle.split(' - ')[1].replace('"', '').replace(' ', '');
+        }
+        else {
+          productRow.querySelector('.g-product-table__length select').value = productTitle.replace('"', '').replace(' ', '');
+        }
+
+        // Find matching variant
+        const matchedVariant = availableVariants.find(v =>
+          v.options.every((val, i) => val === currentSelections[i])
+        );
+
+        if (matchedVariant) {
+          variantIdInput.value = matchedVariant.id;
+          addToCartBtn.disabled = false;
+        } else {
+          variantIdInput.value = "";
+          addToCartBtn.disabled = true;
+        }
+      }
+
+      // On product change
+      productSelect.addEventListener("change", function () {
+        if (this.value) {
+          updateSelectors(this.value);
+        } else {
+          optionContainer.innerHTML = "";
+          variantIdInput.value = "";
+          addToCartBtn.disabled = true;
+        }
+      });
+
+      // ✅ Auto-select first product on load
+      const firstProductId = productSelect.options[1]?.value;
+      if (firstProductId) {
+        productSelect.value = firstProductId;
+        productSelect.dispatchEvent(new Event("change"));
+      }
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Gondola Builder",
+    "tag": "section",
+    "class": "gondola-builder-wrapper",    
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "Block",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Gondola Builder"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,366 @@
+<div class="accordion-with-image-container accordion-with-image--{{ section.id }}" data-wetheme-section-type="accordion--with-image" data-wetheme-section-id="{{ section.id }}" style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
+  {% if section.blocks.size > 0 %}
+    <div class="main-content-wrapper {{ section.settings.section_width }}">
+      <div class="accordion-wrapper">
+        {% if section.settings.section_title != blank %}
+          <div class="title-bar custom-font">
+            <h2 class="wow">{{ section.settings.section_title | escape }}</h2>
+          </div>
+        {% endif %}
+        {% for block in section.blocks %}
+          <div class="accordion-content" {{ block.shopify_attributes }}>
+            {% render 'collapsible-tab', heading: block.settings.accordion_header, content: block.settings.accordion_content, open_close_icon: section.settings.faq_icon, open_by_default: false %}
+          </div>
+        {% endfor %}
+      </div>
+  
+      {% if section.settings.accordion_image %}
+        <div class="image-wrapper">
+          <div class="content-wrapper">
+            {% unless section.settings.link == blank %}
+              <a href="{{ section.settings.link }}">
+            {% endunless %}
+              <div class="image--container">
+                {% render 'responsive-image' with section.settings.accordion_image, alt: section.settings.accordion_image.alt %}
+              </div>
+              {% unless section.settings.title == blank %}<h2>{{ section.settings.title | strip }}</h2>{% endunless %}
+              {% unless section.settings.text == blank %}<p>{{ section.settings.text | strip }}</p>{% endunless %}
+              {% unless section.settings.button_text == blank %}
+                <button class="btn accordion--button" aria-label="{{ section.settings.button_text }}">
+                  {{ section.settings.button_text }}
+                </button>
+              {% endunless %}
+            {% unless section.settings.link == blank %}
+            </a>
+          {% endunless %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
+{% style %}
+  .accordion-with-image--{{ section.id }} {
+    background-color: {{ section.settings.accordion--background-color }};
+  }
+
+  .main-content-wrapper {
+    display: flex;
+    width: 100%;
+  }
+
+  .accordion-with-image-container .title-bar {
+    text-align: left;
+  }
+
+  .accordion-with-image-container .title-bar h2 {
+    margin-bottom: 0;
+    color: {{ section.settings.accordion--text-color }};
+  }
+
+  .accordion-wrapper {
+    width: 100%;
+  }
+
+  .accordion-wrapper details {
+    color: {{ section.settings.accordion--text-color }};
+  }
+
+  .accordion-wrapper a {
+    text-decoration: underline;
+    color: {{ section.settings.accordion--text-color }};
+  }
+
+  .accordion-wrapper a:hover {
+    text-decoration: none;
+  }
+
+  .accordion-with-image--{{ section.id }} .feather-x,
+  .accordion-with-image--{{ section.id }} .feather-chevron-down {
+    color: {{ section.settings.accordion--text-color }};
+  }
+
+  .image-wrapper {
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    object-fit: cover;
+    max-width: 350px;
+    height: 200px;
+  }
+
+  .accordion-with-image--{{ section.id }} .content-wrapper {
+    padding: 16px;
+    background-color: {{ section.settings.image--background-color }};
+  }
+
+  .content-wrapper a {
+    text-decoration: none;
+  }
+
+  .accordion-with-image--{{ section.id }} .accordion--button {
+    display: block;
+    margin-left: auto;
+    width: 150px;
+    max-width: 100%;
+    align-self: flex-end;
+    margin-top: 20px;
+    background-color: {{ section.settings.image--text-color }};
+    color: {{ section.settings.image--background-color }};
+    border: 1px solid transparent;
+  }
+
+  .accordion-with-image--{{ section.id }} .accordion--button:hover,
+  .accordion-with-image--{{ section.id }} .accordion--button:active {
+    background-color: {{ section.settings.image--background-color }} !important;
+    color: {{ section.settings.image--text-color }} !important;
+    border: 1px solid {{ section.settings.image--text-color }};
+  }
+
+  @media (max-width: 768px) {
+    .main-content-wrapper, .accordion-with-image-container .title-bar {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-wrapper {
+      margin-top: 30px;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .accordion-wrapper {
+      padding-right: 16px;
+    }
+
+    .image-wrapper {
+      padding-right: 16px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+    "name": {
+        "en": "Accordion with image"
+    },
+    "class": "product-template--accordion-with-image wow",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "color",
+        "id": "accordion--background-color",
+        "label": {
+            "en": "Section background color"
+        },
+        "default": "#EEEEEE"
+      },
+      {
+        "type": "color",
+        "id": "accordion--text-color",
+        "label": {
+            "en": "Section text color"
+        },
+        "default": "#333333"
+      },
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": {
+            "en": "Heading",
+            "de": "Überschrift",
+            "es": "Encabezado",
+            "fr": "Rubrique",
+            "pt-PT": "Título"
+        },
+        "default": {
+          "en": "Share your story",
+          "de": "Teilen Sie Ihre Geschichte",
+          "es": "Comparte tu historia",
+          "fr": "Partagez votre histoire",
+          "pt-PT": "Partilhe a sua história"
+        }
+      },
+      {
+        "type": "radio",
+        "id": "faq_icon",
+        "label": {
+            "en": "Icon style"
+        },
+        "options": [
+            {
+                "value": "plus_minus",
+                "label": {
+                    "en": "Plus/minus"
+                }
+            },
+            {
+                "value": "caret",
+                "label": {
+                    "en": "Caret"
+                }
+            }
+        ],
+        "default": "plus_minus"
+      },
+      {
+        "type": "image_picker",
+        "id": "accordion_image",
+        "label": {
+            "en": "Image (optional)",
+            "de": "Bild (optional)",
+            "es": "Imagen (opcional)",
+            "fr": "Image (en option)",
+            "pt-PT": "Imagem (Opcional)"
+        },
+        "info": {
+            "en": "1400 x 1400px recommended",
+            "de": "1400 x 1400 px empfohlen",
+            "es": "Recomendado 1400 x 1400 px",
+            "fr": "1400 x 1400 px recommandé",
+            "pt-PT": "1400 x 1400px, recomendado"
+        }
+      },
+      {
+        "type": "color",
+        "id": "image--background-color",
+        "label": {
+            "en": "Image background color"
+        },
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "image--text-color",
+        "label": {
+            "en": "Image text color"
+        },
+        "default": "#333333"
+      },
+      {
+          "type": "text",
+          "id": "title",
+          "label": {
+              "en": "Heading",
+              "de": "Überschrift",
+              "es": "Encabezado",
+              "fr": "Rubrique",
+              "pt-PT": "Título"
+          }
+      },
+      {
+        "type": "text",
+        "id": "text",
+        "label": {
+            "en": "Description"
+        }
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": {
+            "en": "Image link"
+        }
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": {
+            "en": "Button label",
+            "de": "Buttontext",
+            "es": "Texto del botón",
+            "fr": "Texte des boutons",
+            "pt-PT": "Texto do botão"
+        }
+      },
+      {
+        "type": "header",
+        "content": "Section spacing"
+      },
+      {
+        "type": "select",
+        "id": "section_width",
+        "label": "Width",
+        "options": [
+            {
+              "value": "container-full-width",
+              "label": "Full width"
+            },
+            {
+              "value": "container",
+              "label": "Page width"
+            }
+        ],
+        "default": "container"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding top",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding bottom",
+        "min": 0,
+        "max": 200,
+        "step": 2,
+        "unit": "px",
+        "default": 50
+      }
+    ],
+    "blocks": [
+      {
+        "type": "accordion",
+        "name": "Accordion item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "accordion_header",
+            "label": "Accordion heading",
+            "default": "About us"
+          },
+          {
+            "type": "richtext",
+            "id": "accordion_content",
+            "label": "Accordion content",
+            "default": "<p>Place some content here to describe this topic.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Accordion with image"
+            },
+            "category": {
+                "en": "Text"
+            },
+            "blocks": [
+                {
+                    "type": "accordion"
+                },
+                {
+                    "type": "accordion"
+                },
+                {
+                  "type": "accordion"
+              }
+            ]
+        }
+    ],
+    "enabled_on": {
+      "templates": ["product"]
+    }
+}
+{% endschema %}

@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "f1a3ced4-4d22-4b62-9904-b1f7d4a1d0b4": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "9fd7f199-b504-41f5-bb25-5d7de01e4c71": {
+      "type": "store-vision-details",
+      "blocks": {
+        "8111b508-8eb7-4575-8a0a-8230d0ba3d43": {
+          "type": "block-1",
+          "settings": {
+            "vision_image": "{{ page.metafields.custom.first_image.value }}",
+            "vision_text": "{{ page.metafields.custom.first_description | metafield_tag }}"
+          }
+        },
+        "741ab89c-4067-4dd0-b12b-f83acbc34090": {
+          "type": "block-1",
+          "settings": {
+            "vision_image": "{{ page.metafields.custom.second_image.value }}",
+            "vision_text": "{{ page.metafields.custom.second_description | metafield_tag }}"
+          }
+        },
+        "047444c6-1d58-45b6-9886-0329cbea220d": {
+          "type": "block-1",
+          "settings": {
+            "vision_image": "{{ page.metafields.custom.third_image.value }}",
+            "vision_text": "{{ page.metafields.custom.third_description | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "8111b508-8eb7-4575-8a0a-8230d0ba3d43",
+        "741ab89c-4067-4dd0-b12b-f83acbc34090",
+        "047444c6-1d58-45b6-9886-0329cbea220d"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "f1a3ced4-4d22-4b62-9904-b1f7d4a1d0b4",
+    "9fd7f199-b504-41f5-bb25-5d7de01e4c71"
+  ]
+}

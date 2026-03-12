@@ -1,0 +1,415 @@
+{% if section.settings.enable %}
+  {% if section.settings.message_text != empty %}
+    <style>
+      .notification-bar{
+        background-color: {{ section.settings.notification-bar--background-colour }};
+        color: {{ section.settings.notification-bar--text-colour }};
+      }
+
+      .notification-bar a{
+        color: {{ section.settings.notification-bar--text-colour }};
+      }
+    </style>
+
+    <style>
+      .site-header__logo-image img,
+      .overlay-logo-image {
+        max-width: {{ section.settings.logo_max_width }}px;
+      }
+
+      @media(max-width:768px) {
+        .site-header__logo-image img,
+        .overlay-logo-image {
+          max-width: {{ section.settings.logo_max_width_mobile }}px;
+        }
+
+        .site-header__logo-image img,
+        .overlay-logo-image {
+          width: {{ section.settings.logo_max_width_mobile }}px;
+        }
+
+        .logo-placement-within-wrapper--logo {
+          width: {{ section.settings.logo_max_width_mobile }}px;
+          flex-basis: {{ section.settings.logo_max_width_mobile }}px;
+        }
+      }
+
+        .site-header__logo-image img,
+        .overlay-logo-image {
+          width: {{ section.settings.logo_max_width }}px;
+        }
+
+        .logo-placement-within-wrapper--logo {
+          width: {{ section.settings.logo_max_width }}px;
+          flex-basis: {{ section.settings.logo_max_width }}px;
+        }
+
+
+      #site-header svg:not(.icon-caret), .sticky-header-wrapper svg {
+        height: {{ section.settings.icon-size }}px;
+      }
+
+      @media screen and (max-width: 767px) {
+        #site-header svg, .sticky-header-wrapper svg {
+            height: 24px;
+        }
+      }
+
+      .top-search #search-wrapper {
+        background: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--page-background){% else %}var(--header-background){% endif %}!important;
+        border-bottom: 1px solid {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--page-background){% else %}var(--header-background){% endif %}!important;
+
+      }
+
+      #top-search-wrapper svg {
+        stroke: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %}!important;
+      }
+
+      .top-search input {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %}!important;
+      }
+
+      #top-search-wrapper #search_text::placeholder {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+      }
+
+      #top-search-wrapper #search_text::-webkit-input-placeholder {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+      }
+
+      #top-search-wrapper #search_text:-ms-input-placeholder {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+      }
+
+      #top-search-wrapper #search_text::-moz-placeholder {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+      }
+
+      #top-search-wrapper #search_text:-moz-placeholder {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+      }
+
+      .top-search  {
+        border-bottom: solid 1px {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-border-color){% endif %}!important;
+      }
+
+      .predictive-search-group {
+        background-color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--page-background){% else %}var(--header-background){% endif %}!important;
+      }
+
+      .search-results__meta {
+        background: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--page-background){% else %}var(--header-background){% endif %}!important;
+      }
+
+      .search-results__meta .search-results__meta-clear {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+      }
+
+      .search-results-panel .predictive-search-group h2 {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+        border-bottom: solid 1px {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-border-color){% endif %};
+      }
+
+      .search-results-panel .predictive-search-group .search-vendor, .search-results-panel .predictive-search-group .money {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+      }
+
+      .search--result-group h5 a, .search--result-group h5 a mark {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %};
+      }
+
+      .predictive-loading {
+        color: {% if settings.header-background-color == "rgba(0,0,0,0)" %}var(--color-primary){% else %}var(--header-text){% endif %}!important;
+      }
+    </style>
+
+    <style>
+       /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 100% !important;
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+    <div class="notification-bar custom-font">
+      <div class="container">
+        <div class="top-bar-wrap">
+          <div class="ancrght_otr">
+            <div class="rght_inr">
+              {% if section.settings.timer != blank %}
+                <img src="{{ section.settings.timer | img_url: 'icon' }}" class="icon-image">
+              {% endif %}
+              {% if section.settings.time != blank %}
+                <a href="#" class="time_menu">{{ section.settings.time }}</a>
+              {% endif %}
+
+              <div class="time_dropdown">
+                <div class="location_otr">
+                  <h5>{{ section.settings.address_label }}</h5>
+                  {{ section.settings.adrress_text }}
+                </div>
+                <div class="location_otr">
+                    <h5>{{ section.settings.venue_label }}</h5>
+                  {{ section.settings.venue_details }} 
+                </div>
+
+              </div>
+            </div>
+            <div class="rght_inr">
+              {% if section.settings.page_icon != blank %}
+                <img src="{{ section.settings.page_icon | img_url: 'icon' }}" class="icon-image">
+              {% endif %}
+              {% if section.settings.page != blank %}
+                <a href="{{ section.settings.message_link }}">{{ section.settings.page }}</a>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="ancleft_otr">
+            <div class="left_inr d-lg-none">
+              <!-- Trigger/Open The Modal -->
+              <a href="javascript:void(0);" id="myBtn"
+                ><img
+                  src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/header-search.png?v=1689948486"
+                  alt="icon"
+                  class="icon-image"
+                  data-toggle="myBtn"
+              ></a>
+            </div>
+            <div class="left_inr">
+              <!--
+                <div class="header-icons cart-link">
+                  <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/header-search.png?v=1689948486" alt="icon" class="icon-image" data-toggle="modal" data-target="#exampleModal">
+                </div>
+              -->
+
+              {% if section.settings['search-enable'] %}
+                {% render 'search-bar' %}
+              {% endif %}
+
+              {% if section.settings.mobile_icon != blank %}
+                <a href="tel:{{ section.settings.mobile_number }}">
+                  <img src="{{ section.settings.mobile_icon | img_url: 'icon' }}" class="icon-image">
+                </a>
+              {% endif %}
+              {% if section.settings.mobile_number != blank %}
+                <a href="tel:{{ section.settings.mobile_number }}">{{ section.settings.mobile_number }}</a>
+              {% endif %}
+            </div>
+            <div class="left_inr">
+              {% if section.settings.email_icon != blank %}
+                <a href="mailto:{{ section.settings.email }}">
+                  <img src="{{ section.settings.email_icon | img_url: 'icon' }}" class="icon-image">
+                </a>
+              {% endif %}
+              {% if section.settings.email != blank %}
+                <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+              {% endif %}
+            </div>
+          </div>
+          {% comment %}
+            {% if section.settings.message_link != blank %}
+              <a href="{{ section.settings.message_link }}" class="notification-bar__message">
+                <p>{{ section.settings.message_text | escape }}</p>
+              </a>
+            {% else %}
+              <p class="notification-bar__message">{{ section.settings.message_text | escape }}</p>
+            {% endif %}
+          {% endcomment %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}
+<!-- The Modal(Start) -->
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="logo-placement-within-wrapper__item header-search-bar">
+        <form action="{{ routes.search_url }}">
+          <input
+            type="text"
+            placeholder="Search"
+            name="q"
+            value="{{ search.terms | escape }}"
+          >
+          <input type="submit" value="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- The Modal(End) -->
+
+<script>
+  var modal = document.getElementById("myModal");
+
+  var icon = document.getElementById("myBtn");
+
+  var span = document.getElementsByClassName("close")[0];
+
+  icon.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".time_menu").forEach(function(menu) {
+        menu.addEventListener("click", function() {
+            document.querySelectorAll(".time_dropdown").forEach(function(dropdown) {
+                dropdown.classList.toggle("show-dropdown");
+            });
+        });
+    });
+});
+
+</script>
+{% schema %}
+{
+    "name": "Announcement bar",
+  "settings": [
+    {
+            "type": "checkbox",
+            "id": "search-enable",
+            "label": {
+                "en": "Show search",
+                "de": "Suche aktivieren",
+                "es": "Habilitar búsqueda",
+                "fr": "Activer la recherche",
+                "pt-PT": "Ativar pesquisa"
+            },
+            "default": true
+        },
+    {
+       "type": "checkbox",
+       "id": "enable",
+       "default": true,
+       "label": "Show announcement"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_icon",
+      "label": "Select Mobile Icon"
+    },
+
+    {
+      "type": "text",
+      "id": "mobile_number",
+      "label": "Mobile number"
+    },
+    {
+      "type": "text",
+      "id": "address_label",
+      "label": "Address label"
+    },
+    {
+      "type": "textarea",
+      "id": "adrress_text",
+      "label": "Address"
+    },
+    {
+      "type": "text",
+      "id": "venue_label",
+      "label": "Venue label"
+    },
+    {
+      "type": "textarea",
+      "id": "venue_details",
+      "label": "Venue details"
+    },
+    {
+      "type": "image_picker",
+      "id": "email_icon",
+      "label": "Select Email Icon"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "EmailId"
+    },
+    {
+      "type": "image_picker",
+      "id": "timer",
+      "label": "Select Time Icon"
+    },
+    {
+      "type": "text",
+      "id": "time",
+      "label": "Time"
+    },
+    {
+      "type": "image_picker",
+      "id": "page_icon",
+      "label": "Select Contact Icon"
+    },
+    {
+      "type": "text",
+      "id": "page",
+      "label": "Page Title"
+    },
+    {
+      "type": "url",
+      "id": "message_link",
+      "label": "Page link"
+    },
+    {
+      "type": "color",
+      "id": "notification-bar--background-colour",
+      "label": "Announcement background",
+      "default": "#464646"
+    },
+    {
+      "type": "color",
+      "id": "notification-bar--text-colour",
+      "label": "Announcement text",
+      "default": "#fff"
+    }
+  ]
+      
+}
+{% endschema %}

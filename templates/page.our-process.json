@@ -1,0 +1,176 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "6649d1a8-bf8b-415f-88c2-3769d256016d": {
+      "type": "our-process",
+      "blocks": {
+        "61002854-805d-4e53-9b66-ee6aa4a4b6af": {
+          "type": "process",
+          "settings": {
+            "main_image": "shopify://shop_images/Mask_group_25.png",
+            "layout": "right",
+            "background_image": "shopify://shop_images/Group_533.png",
+            "process_head": "<h2>Analysis of the project</h2>",
+            "process_desc": "<p>We take the time to listen to your ideas to offer you a solution that fits your vision and needs, and will improve your customers’ shopping experience.</p>"
+          }
+        },
+        "ca69758a-31c3-43f7-9730-a74298de5c8d": {
+          "type": "process",
+          "settings": {
+            "main_image": "shopify://shop_images/Mask_group_20.png",
+            "layout": "left",
+            "background_image": "shopify://shop_images/5e9f07b93152d5611d059513_pro-brain-icon_1.png",
+            "process_head": "<h2>Brainstorming</h2>",
+            "process_desc": "<p>With the help of our designers, we will align your needs with your brand guidelines, the needs of your customers and the experience you want them to have.</p>"
+          }
+        },
+        "d9a6377f-31c1-4325-9560-bf5ce7b331a5": {
+          "type": "process",
+          "settings": {
+            "main_image": "shopify://shop_images/Mask_group_21.png",
+            "layout": "right",
+            "background_image": "shopify://shop_images/5eda747cbca2fa687589ac79_pro-con-icon_1.png",
+            "process_head": "<h2>Design</h2>",
+            "process_desc": "<p>The Vic Store Fixtures team will present you with an optimal custom solution in 3D rendering so you can visualize the result.</p>"
+          }
+        },
+        "45e9f185-a7ab-40d2-9a41-1e00c92fb159": {
+          "type": "process",
+          "settings": {
+            "main_image": "shopify://shop_images/5ed93afb41de2fe1cc2d1054_5ed92ef691770918abbf9cd8_pro-ana-img.jpg",
+            "layout": "left",
+            "background_image": "shopify://shop_images/5eda747cbca2fa687589ac79_pro-con-icon_1.png",
+            "process_head": "<h2>Complete support</h2>",
+            "process_desc": "<p>Throughout the process, you will be accompanied by an account manager who will be dedicated to your project from A to Z. He or she will work alongside you, never losing sight of your needs, goals and vision for your current project and future needs.</p>"
+          }
+        },
+        "fe9d16de-cabd-4155-a941-b5a14a9e44d0": {
+          "type": "process",
+          "settings": {
+            "main_image": "shopify://shop_images/5ed93afe46153030922e0d71_5ed92eeb13326e0938a7adf8_pro-pro-img.jpg",
+            "layout": "right",
+            "background_image": "shopify://shop_images/5eda747cbca2fa687589ac79_pro-con-icon_1.png",
+            "process_head": "<h2>Production and delivery</h2>",
+            "process_desc": "<p>Using our versatile and efficient production methods and our extensive market experience, we always deliver products that meet the highest quality standards on time, regardless of the size of the project.</p>"
+          }
+        },
+        "8691fa1d-fe44-4480-9687-bf6bebebfdd8": {
+          "type": "process",
+          "settings": {
+            "main_image": "shopify://shop_images/5ed93afef81380ddc34551a9_5ed92ed6fd9f3268ce5f0f3d_pro-ins-img.jpg",
+            "layout": "left",
+            "background_image": "shopify://shop_images/5eda747cbca2fa687589ac79_pro-con-icon_1.png",
+            "process_head": "<h2>Installation</h2>",
+            "process_desc": "<p>We have certified installation teams across Canada to serve you quickly and efficiently.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "61002854-805d-4e53-9b66-ee6aa4a4b6af",
+        "ca69758a-31c3-43f7-9730-a74298de5c8d",
+        "d9a6377f-31c1-4325-9560-bf5ce7b331a5",
+        "45e9f185-a7ab-40d2-9a41-1e00c92fb159",
+        "fe9d16de-cabd-4155-a941-b5a14a9e44d0",
+        "8691fa1d-fe44-4480-9687-bf6bebebfdd8"
+      ],
+      "settings": {
+        "heading": "<p>Our approach to finding THE solution to your needs.</p>"
+      }
+    },
+    "cf64a901-fa7b-40c8-8cc1-d410f43248c7": {
+      "type": "our-projects",
+      "disabled": true,
+      "blocks": {
+        "3355eb2e-3109-45db-a7d2-d0a8337bebec": {
+          "type": "projects",
+          "settings": {
+            "project_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "project_name": "Mobile privacy"
+          }
+        },
+        "68454a97-3ef0-4cb0-a43f-b2d6e9e44e06": {
+          "type": "projects",
+          "settings": {
+            "project_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "project_name": "Mobile privacy"
+          }
+        },
+        "2cf8fc50-7a14-4876-9c0e-98ed2dda52b5": {
+          "type": "projects",
+          "settings": {
+            "project_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "project_name": "Mobile privacy"
+          }
+        },
+        "cc10b64f-6b16-403d-b4c1-5674ce8eb64f": {
+          "type": "projects",
+          "settings": {
+            "project_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "project_name": "Mobile privacy"
+          }
+        },
+        "481221f9-274b-44b0-90d3-328aae67215b": {
+          "type": "projects",
+          "settings": {
+            "project_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "project_name": "Mobile privacy"
+          }
+        },
+        "be45456c-b072-4ea8-9773-adb683028d70": {
+          "type": "projects",
+          "settings": {
+            "project_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "project_name": "Mobile privacy"
+          }
+        },
+        "72dec524-ec0e-41b3-8e4a-525f54da4bcd": {
+          "type": "projects",
+          "settings": {
+            "project_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "project_name": "Mobile privacy"
+          }
+        },
+        "d9e75ded-7259-4523-ac2e-cce4c5426762": {
+          "type": "projects",
+          "settings": {
+            "project_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "project_name": "Mobile privacy"
+          }
+        }
+      },
+      "block_order": [
+        "3355eb2e-3109-45db-a7d2-d0a8337bebec",
+        "68454a97-3ef0-4cb0-a43f-b2d6e9e44e06",
+        "2cf8fc50-7a14-4876-9c0e-98ed2dda52b5",
+        "cc10b64f-6b16-403d-b4c1-5674ce8eb64f",
+        "481221f9-274b-44b0-90d3-328aae67215b",
+        "be45456c-b072-4ea8-9773-adb683028d70",
+        "72dec524-ec0e-41b3-8e4a-525f54da4bcd",
+        "d9e75ded-7259-4523-ac2e-cce4c5426762"
+      ],
+      "settings": {
+        "project_head": "Our projects",
+        "btn_text": "View All Projects",
+        "btn_link": "shopify://pages/store-solution"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "6649d1a8-bf8b-415f-88c2-3769d256016d",
+    "cf64a901-fa7b-40c8-8cc1-d410f43248c7"
+  ]
+}

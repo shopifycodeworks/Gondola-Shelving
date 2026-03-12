@@ -1,0 +1,199 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "single-product",
+      "blocks": {
+        "product-title": {
+          "type": "product-title",
+          "settings": {}
+        },
+        "product_description_block_4T8VPa": {
+          "type": "product-description-block",
+          "disabled": true,
+          "settings": {
+            "collapsible_tab": false,
+            "heading": "Description",
+            "open_close_icon": "plus_minus"
+          }
+        },
+        "product-options": {
+          "type": "product-options",
+          "settings": {
+            "show_variant_labels": true,
+            "hide_out_of_stock": false,
+            "pick_an_option": false
+          }
+        },
+        "stock-level-indicator": {
+          "type": "stock-level-indicator",
+          "disabled": true,
+          "settings": {
+            "stock-level-indicator-style": "classic",
+            "bar-indicator-color": "text",
+            "stock_indicator_animation": false,
+            "stock-range": 20,
+            "show-stock-count": false,
+            "stock-level-notice": "always",
+            "in-stock-message": "In stock",
+            "low-stock-message": "Selling fast",
+            "out-of-stock-message": "Back in soon!"
+          }
+        },
+        "product-price": {
+          "type": "product-price",
+          "settings": {
+            "show_discount": "value",
+            "tax_included": false,
+            "shipping_policy": false
+          }
+        },
+        "quantity-selector": {
+          "type": "quantity-selector",
+          "settings": {}
+        },
+        "payment-buttons": {
+          "type": "payment-buttons",
+          "settings": {
+            "show_smart_checkout": false
+          }
+        },
+        "7decc27f-c6fb-451b-9679-c1a9a2093421": {
+          "type": "product-contact",
+          "settings": {}
+        },
+        "867756d7-db61-4a99-aae7-b9b78bd2cde0": {
+          "type": "additional-info",
+          "settings": {}
+        },
+        "tel_input_j7hPUj": {
+          "type": "tel_input",
+          "settings": {
+            "required": false
+          }
+        }
+      },
+      "block_order": [
+        "product-title",
+        "product_description_block_4T8VPa",
+        "product-options",
+        "stock-level-indicator",
+        "product-price",
+        "quantity-selector",
+        "payment-buttons",
+        "7decc27f-c6fb-451b-9679-c1a9a2093421",
+        "867756d7-db61-4a99-aae7-b9b78bd2cde0",
+        "tel_input_j7hPUj"
+      ],
+      "settings": {
+        "short_desc": "",
+        "model_no": "",
+        "show_out_of_stock_email": true,
+        "form_position": "below-payment-buttons",
+        "size_guide_link": "",
+        "size_guide_message": "What's my size?",
+        "size_guide_variant": "Size",
+        "image_size": "small",
+        "thumbnail_position": "below",
+        "enable_zoom": false,
+        "enable_video_loop": false
+      }
+    },
+    "template_product_description_d4XUHM": {
+      "type": "template--product-description",
+      "disabled": true,
+      "settings": {}
+    },
+    "pdf_file_LWwzHK": {
+      "type": "pdf--file",
+      "settings": {}
+    },
+    "product_other_info_cFgXPA": {
+      "type": "product-other-info",
+      "blocks": {
+        "description_Hbiayt": {
+          "type": "description",
+          "settings": {}
+        },
+        "card_pef36V": {
+          "type": "card",
+          "settings": {
+            "heading": "Store Setup & Large Orders",
+            "content": "<p>Vanguard Store Fixtures is more than an online seller of commercial equipment. We are the direct partners to retail store owners that need help succesfuly setting up their new store with the highest quality products of the industry. </p><p>Our company's products line go way past commercial equipment. We also offer custom commercial solutions that include:</p><ul><li>Custom Millwork</li><li>Metal Fabrication</li><li>Gondola Shelving Systems</li></ul><p>We understand the importance of crafting a retail space that not only meets your functional needs but also embodies the essence of your brand's vision and aesthetics, all while saving as much as possible on costs. With our extensive experience and commitment to excellence, we take pride in delivering quality craftsmanship and personalized service to bring your vision to life. </p><p>Partner with Vanguard Store Fixtures to have the best help creating functional locations that leave a lasting impression on everyone around it.</p>"
+          }
+        },
+        "card_XGViRG": {
+          "type": "card",
+          "settings": {
+            "heading": "Returns & Refunds",
+            "content": "<p>If you need to exchange your product, you may do so. You, as the customer, are responsible for any shipping costs throughout any returns and exchange processes. </p><p>Any outright returns will incur around a 25% restocking fee + return shipping costs. If you are replacing the product with something else, we may be able to help you cover some of the costs depending on the product. </p><p>Vanguard Store Fixtures will help accommodate all customers throughout the process.</p><p>If the delivered item is defective due to a manufacturing flaw, we will pick-up the defective item and send a replacement free of charge. If the size does not perfectly fit which requires a replacement of the product, Vanguard Store Fixtures will help accommodate the customer's situations to the best of their  abilities, by replacing the product with no restocking fee while the customer pays for the shipment of the product back to the warehouse and the new product shipped to them. However, if the customer's return request is not due to a reason of a defective product or needed replacement due to size accommodation, a restocking fee of around 25% will be applied. This is due to the massive amount of logistical inconvenience caused that disrupted the daily operations of all companies involved in the sale of the product, which includes Vanguard Store Fixtures and the manufacturer of the product in question.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "description_Hbiayt",
+        "card_pef36V",
+        "card_XGViRG"
+      ],
+      "settings": {
+        "button_lebel": ""
+      }
+    },
+    "specifications_table_4ATViG": {
+      "type": "specifications-table",
+      "settings": {
+        "button_lebel": "Specifications",
+        "dimensions_lebel": "Dimensions",
+        "details_lebel": "Details",
+        "warranty_lebel": "WARRANTY / CERTIFICATIONS"
+      }
+    },
+    "17075053446f7bf17f": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ftpWgb": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ftpWgb"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendation",
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "Customers Also Bought"
+      }
+    },
+    "gandola-products": {
+      "type": "gandola-products",
+      "settings": {
+        "title": "Compatible Gondola Fixtures",
+        "gondola_collection": "gondola"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "template_product_description_d4XUHM",
+    "pdf_file_LWwzHK",
+    "product_other_info_cFgXPA",
+    "specifications_table_4ATViG",
+    "17075053446f7bf17f",
+    "product-recommendations",
+    "gandola-products"
+  ]
+}

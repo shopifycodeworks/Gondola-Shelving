@@ -1,0 +1,241 @@
+{{ 'section-featured-product.min.css' | asset_url | stylesheet_tag }}
+{{ 'theme-product.min.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign scope = scope
+  assign quick_view_product = quick_view_product
+  assign show_discount = show_discount
+  assign current_variant = quick_view_product.selected_or_first_available_variant
+
+  assign on_sale = false
+  if current_variant.compare_at_price > current_variant.price
+    assign on_sale = true
+  endif
+%}
+
+{% style %}
+  #quickViewSlideoutWrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  #quickViewSlideoutWrapper #product-box {
+    padding-bottom: 0;
+  }
+
+  .swiper-controls {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .swiper-controls .swiper-pagination.swiper-pagination-bullets {
+    position: relative;
+    bottom: unset;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
+
+  .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+    background-color: var(--color-primary);
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+  }
+
+  .thumbs-direction-nav {
+    cursor: pointer;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .thumbs-direction-nav--next,
+  .thumbs-direction-nav--prev {
+    color: var(--color-primary);
+  }
+
+  .thumbs-direction-nav--next:hover,
+  .thumbs-direction-nav--prev:hover {
+    color: #{rgba(var(--color-primary), 0.8)};
+  }
+{% endstyle %}
+
+<quick-view-item class="d-none" data-product-url="{{ quick_view_product.url | within: collection }}">
+  <template id="quick-view-item-{{ quick_view_product.id }}">
+    <div id="product-box">
+      <div class="w-full position-relative wow fadeIn">
+        {% if settings.sale_badge %}
+          <div class="envy-badge sale-badge product-price__sale-label-{{ scope }}{% unless on_sale %} hide{% endunless %}">{{ 'products.general.sale' | t }}</div>
+        {% endif %}
+        {% if quick_view_product != empty and quick_view_product.media.size > 0 %}
+          <div class="position-relative">
+            <div class="quick_view_slider swiper-container">
+              <div class="slides swiper-wrapper">
+                {% assign featured_media = current_variant.featured_media | default: quick_view_product.featured_media %}
+                {% render 'product-media', product: quick_view_product, section_id: scope, featured_media_id: featured_media.id, enable_image_zoom: false, enable_video_loop: false, autoplay: false, is_quick_view: true %}
+              </div>
+            </div>
+            <div class="swiper-controls">
+              <div class="thumbs-direction-nav">
+                <span class="thumbs-direction-nav--prev" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </span>
+              </div>
+
+              <div class="swiper-pagination"></div>
+
+              <div class="thumbs-direction-nav">
+                <span class="thumbs-direction-nav--next" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <div>
+            <ul class="slides">
+              <li>
+                {{ 'product-1' | append: current | placeholder_svg_tag: 'icon--placeholder' }}
+              </li>
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if quick_view_product == empty %}
+        <div>
+          <h2>{{ 'general.onboarding.product_title' | t }}</h2>
+        </div>
+      {% else %}
+        <a href="{{ quick_view_product.url }}">
+          <h2>{{ quick_view_product.title }}</h2>
+        </a>
+      {% endif %}
+
+      {% unless quick_view_product == empty %}
+
+        {% form 'product', quick_view_product, id: "add-to-cart-form" %}
+          <input type="hidden" id="cart-link" value="{{ routes.cart_url }}" />
+
+          <ul class="product-page--pricing{% unless show_discount == 'hide' %} discount-badge{% endunless %}">
+            {% render 'product-pricing', current_variant: current_variant %}
+            {% render 'unit-price-measurement-variant', current_variant: current_variant %}
+          </ul>
+
+          {% if show_product_description %}
+            {% unless quick_view_product == empty %}
+              <div>
+                {{ quick_view_product.description }}
+              </div>
+            {% else %}
+              <p>
+                {{ 'general.onboarding.product_description' | t }}
+              </p>
+            {% endunless %}
+          {% endif %}
+
+          {% unless show_discount == 'hide' %}
+          <div class="product-page--pricing--discount">
+              {% if show_discount == 'percentage' %}
+                <span class="variant-percentage-wrapper hide">
+                  - <span class="variant-percentage">{{ current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price | money_without_currency | times: 100 | remove: '.0'}}%</span>
+                </span>
+              {% endif %}
+              {% if show_discount == 'value' %}
+                <span class="variant-value-wrapper hide">
+                  - <span class="variant-value"><span class="money">{{ current_variant.compare_at_price | minus: current_variant.price | money }}</span></span>
+                </span>
+              {% endif %}
+          </div>
+          {% endunless %}
+
+          {% assign hide_default_title = false %}
+          {% if quick_view_product.variants.size == 1 and quick_view_product.variants.first.title contains 'Default' %}
+            {% assign hide_default_title = true %}
+          {% endif %}
+
+          <div>
+
+              {% if quick_view_product.variants.size > 0  %}
+
+                {% unless quick_view_product.has_only_default_variant %}
+                  {% for option in quick_view_product.options %}
+                    {% render 'swatch' with option, product: quick_view_product, section: section, show_swatch_title: show_variant_labels, show_sold_out_variants: show_sold_out_variants %}
+                  {% endfor %}
+                {% endunless %}
+
+              {% endif %}
+
+              {% render 'product-select', section_id: section.id, variants: quick_view_product.variants %}
+
+              <div class="quantity-controls__outer swatches-wrapper">
+                <label for="quantity">{{ 'products.product.quantity' | t }}</label>
+
+                <div class="quantity-controls">
+                    <button
+                      type="button"
+                      class="qty-minus alt-focus"
+                      aria-label="Reduce item quantity by one"
+                    >-</button>
+                    <input
+                      id="quantity"
+                      class="quantity-selector"
+                      value="1"
+                      min="1"
+                      type="text"
+                      name="quantity"
+                    >
+                    <button
+                      type="button"
+                      class="qty-plus alt-focus"
+                      aria-label="Increase item quantity by one"
+                    >+</button>
+                </div>
+              </div>
+
+              <div class="w-full featured-product--submit-action">
+                <button type="submit" name="add" id="purchase" class="btn {% if show_dynamic_checkout_button and quick_view_product.selling_plan_groups.size == 0 %} secondary-button{% endif %}" data-cart-action="{% if template == 'cart' %}cart{% else %}{{ settings.cart-action }}{% endif %}">
+                    {{ 'products.product.add_to_cart' | t }}
+                </button>
+
+                {% if show_dynamic_checkout_button %}
+                  {{ form | payment_button }}
+                {% endif %}
+
+              </div>
+          </div>
+        {% endform %}
+
+      {% else %}
+
+        <span class="money">$16.99</span>
+        <div class="onboarding--sold-out">
+          <a class="btn" href="#">
+            {{ 'products.product.sold_out' | t }}
+          </a>
+        </div>
+
+      {% endunless %}
+
+      <a href="{{ quick_view_product.url }}">{{ 'products.product.view_all_details' | t }}</a>
+
+      {% unless product == empty %}
+        <script type="application/json" class="product-json" id="ProductJson-{{ section.id }}">
+          {{ product | json }}
+        </script>
+      {% endunless %}
+    </div>
+  </template>
+</quick-view-item>
+
+<script src="{{ 'component-quick-view-item.js' | asset_url}}" defer></script>

@@ -1,0 +1,96 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--collections-list",
+      "blocks": {
+        "grid-card-title": {
+          "type": "grid-card-title",
+          "settings": {}
+        },
+        "grid-card-price": {
+          "type": "grid-card-price",
+          "settings": {}
+        },
+        "grid-card-swatches": {
+          "type": "grid-card-swatches",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "grid-card-title",
+        "grid-card-price",
+        "grid-card-swatches"
+      ],
+      "settings": {
+        "images-per-row": 6,
+        "collections_per_page": 18,
+        "layout": "grid"
+      }
+    },
+    "logo-list": {
+      "type": "image--logo-list",
+      "blocks": {
+        "logo-list-1": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo-list-2": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo-list-3": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo-list-0": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo-list-4": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo-list-1",
+        "logo-list-2",
+        "logo-list-3",
+        "logo-list-0",
+        "logo-list-4"
+      ],
+      "disabled": true,
+      "settings": {
+        "colors": "light",
+        "width": 150,
+        "subheading": "Subheading",
+        "title": "As seen in",
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "logo-list"
+  ]
+}

@@ -1,0 +1,155 @@
+<style>
+  .request-a-quote__heading {
+    font-size: var(--heading-font-size);
+    line-height: var(--heading-line-height);
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .request-a-quote__text {
+    text-align: center;
+  }
+  .request-a-quote__text a {
+    text-decoration: underline;
+  }
+  .request-a-quote__text a:hover {
+    text-decoration: none;
+  }
+  .request-a-quote__form {
+    text-align: left;
+  }
+  .request-a-quote__form .form-control {
+    background: transparent;
+    border-color: var(--border-color);
+    border-radius: 0;
+    color: var(--color-primary);
+  }
+  .request-a-quote__button-wrapper {
+    padding: 0 !important;
+    margin: 0;
+  }
+  .request-a-quote__button-wrapper input {
+    margin: 0 !important;
+  }
+  .request-a-quote__form p[data-spam-detection-disclaimer] {
+    font-size: 12px;
+  }
+  .success-msg.request-a-quote__success-message.form-success {
+    border: 1px solid #008a22;
+    color: #008a22;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+</style>
+
+{% assign modal_string = 'general.modal.modal' | t %}
+
+<envy-modal data-modal-id="request-a-quote__{{ section.id }}" data-block-id="{{ block_id }}">
+  <div class="modal__container">
+    <div class="modal__background">
+      <div id="modal__prompt" class="modal__prompt" role="dialog">
+        <a class="modal__close-btn" tabindex="-1" aria-label="Close {{ heading | default: modal_string }}">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </span>
+        </a>
+        <div class="modal-initial-content">
+          <div id="modal__content" class="modal-content__wrapper" tabindex="-1" aria-label="{{ heading | default: modal_string }}">
+            {% if heading != blank %}
+              <h2 class="request-a-quote__heading">{{ heading }}</h2>
+            {% endif %}
+            
+            {% if text != blank %}
+              <div class="request-a-quote__text rte">{{ text }}</div>
+            {% endif %}
+            
+            {% form 'contact' %}
+              <p class="success-msg request-a-quote__success-message form-success{% unless form.posted_successfully? %} hide{% endunless %}">
+                {{ 'contact.form.post_success' | t }}
+              </p>
+            
+              {% render 'form-errors-custom', form: form %}
+            
+              <input type="hidden" name="contact[request_type]" value="{{ 'products.product.quote' | t }}">
+              <input type="hidden" name="contact[product]" value="{{ product.title }}">
+            
+              <div id="contact-form" class="request-a-quote__form">
+                <div class="row">
+                  {% unless name_input_type == 'hide' %}
+                    <div class="col-md-6 col-12">
+                      <div class="form-group">
+                        <label for="name">{% if name_input_type == 'required' %}*{% endif %}{{ 'contact.form.name' | t }}</label>
+                        <input type="text"
+                          name="contact[name]"
+                          id="name"
+                          class="form-control"
+                          {% if name_input_type == 'required' %}required{% endif %}
+                          value="{% if customer %}{{ customer.name }}{% endif %}">
+                      </div>
+                    </div>
+                  {% endunless %}
+                  <div class="{% if name_input_type == 'hide' %}col-md-12{% else %}col-md-6 col-12{% endif %}">
+                    <div class="form-group">
+                      <label for="email">*{{ 'contact.form.email' | t }}</label>
+                      <input type="email"
+                        name="contact[email]"
+                        id="email"
+                        class="form-control"
+                        required
+                        value="{% if customer %}{{ customer.email }}{% endif %}"
+                        spellcheck="false"
+                        autocomplete="off"
+                        autocapitalize="off">
+                    </div>
+                  </div>
+                </div>
+                {% unless phone_input_type == 'hide' %}
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="phone">{% if phone_input_type == 'required' %}*{% endif %}{{ 'contact.form.phone' | t }}</label>
+                        <input type="tel"
+                          name="contact[phone]"
+                          class="form-control"
+                          id="phone"
+                          {% if phone_input_type == 'required' %}required{% endif %}
+                          value="{% if customer %}{{ customer.phone }}{% endif %}"
+                          pattern="[0-9\-]*">
+                      </div>
+                    </div>
+                  </div>
+                {% endunless %}
+                {% unless message_input_type == 'hide' %}
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="message">{% if message_input_type == 'required' %}*{% endif %}{{ 'contact.form.message' | t }}</label>
+                        <textarea id="message" rows="10" class="form-control"{% if message_input_type == 'required' %} required{% endif %} name="contact[body]"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                {% endunless %}
+            
+                {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
+                
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <div class="form-group request-a-quote__button-wrapper" id="newsletter-wrapper">
+                      <input type="submit" class="btn" value="{{ 'contact.form.send' | t }}" />
+                    </div>
+                    <div class="lds-dual-ring newsletter-spinner hide"></div>
+                  </div>
+                </div>
+              </div>
+            {% endform %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</envy-modal>
+
+<safe-load-scripts>
+  <script src="{{ 'component-modal.js' | asset_url }}" type="module" defer="defer" data-envy-load-key="component-modal"></script>
+</safe-load-scripts>

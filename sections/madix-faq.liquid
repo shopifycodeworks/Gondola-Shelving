@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="logo">
+    <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/madix_logo.png?v=1686658230" alt="madix-about-logo" />
+  </div>
+  <div class="faq-cont">
+    <div class="faq-image">
+      {% if section.settings.faq-image != blank %}
+        <img src="{{ section.settings.faq-image | img_url: 'master' }}" />
+      {% endif %}
+    </div>
+    <div class="faqs">
+      {% if section.settings.faq-heading != blank %}
+        <h3>{{ section.settings.faq-heading }}</h3>
+      {% endif %}
+      <div class="faq">
+        {% for block in section.blocks %}
+          {% if block.settings.question != blank %}
+            <div class="faq-head">
+              <h5>{{ block.settings.question }}</h5>
+            </div>
+          {% endif %}
+          {% if block.settings.ans != blank %}
+          <div class="faq-ans">
+            <p>{{ block.settings.ans }}</p>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Madix faq",
+    "tag": "section",
+    "class": "madix-faq comm-padd",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "faq-image",
+        "label": "select image"
+      },
+      {
+        "type": "text",
+        "id": "faq-heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "faq",
+        "name": "faq",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "ans",
+            "label": "Answer"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Madix faq"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

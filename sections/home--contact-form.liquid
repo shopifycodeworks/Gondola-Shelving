@@ -1,0 +1,497 @@
+{{ 'section-contact-form.min.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign submit_btn_text = 'contact.form.send' | t
+  assign submit_btn_attrs = 'aria-label="' | append: submit_btn_text | append: '"'
+%}
+
+<section class="section-contact-form homepage-sections-wrapper--{{ section.settings.section_color_scheme }}" data-wetheme-section-type="contact-form" data-wetheme-section-id="{{ section.id }}">
+  <div class="contact-form--wrapper {{ section.settings.section_width }}">
+
+      {% assign content_header = false %}
+      {% if section.settings.section_heading != '' or section.settings.section_subheading != '' %}
+        {% assign content_header = true %}
+
+        <div class="contact-form--header{% if settings.animations_enabled %} wow fadeIn{% endif %}">
+
+            {% if section.settings.section_heading != '' %}
+            <h2>{{ section.settings.section_heading | escape }}</h2>
+          {% endif %}
+        
+          {% if section.settings.section_subheading != '' %}
+            <h3 class="type-subheading type-subheading--1">{{ section.settings.section_subheading | escape }}</h3>
+          {% endif %}
+
+        
+        </div>
+
+      {% endif %}
+
+      {% unless section.blocks.size == 0 %}
+        <div class="{% if settings.animations_enabled %} wow fadeIn{% if content_header %} delay-1{% endif %}{% endif %}">
+          {% form 'contact', id: 'ContactForm', class: 'contact-form--form' %}
+
+            {% render 'form-errors-custom', form: form %}
+            {% if form.posted_successfully? %}
+              <div class="w-full">
+                <p class="note form-success">
+                  {{ 'contact.form.post_success' | t }}
+                </p>
+              </div>
+            {% endif %}
+
+            {% for block in section.blocks %}
+              {% liquid
+                assign input_wrapper = 'input-wrapper '
+                case block.settings.input_width
+                  when 'partial'
+                    assign input_width = 'w-partial' | prepend: input_wrapper
+                  when 'full'
+                    assign input_width = 'w-full' | prepend: input_wrapper
+                endcase
+
+                assign requiredSymbol = ''
+                if block.settings.required
+                  assign requiredSymbol = '*'
+                endif
+              %}
+              
+              {% case block.type %}
+
+                {% when 'name_input' %}
+                  <div class="{{ input_width }}">
+                    {% liquid
+                      assign nameInputString = 'contact.form.name' | t
+                      assign formName = 'contact[' | append: nameInputString | append: ']'
+                      assign labelInput = nameInputString | prepend: requiredSymbol
+                      assign formId = 'form_' | append: nameInputString | downcase | handleize
+                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="name-input"'
+                      if form.name
+                        assign nameInputVal = form.name
+                      elsif customer
+                        assign nameInputVal = customer.name
+                      endif
+
+                      render 'form-input' with type: 'text',classes:'form-control',placeholder: labelInput, has_label: false, animate_label: false, label_text: labelInput, id: formId, value: nameInputVal, name: formName, required: block.settings.required, attributes: input_attr 
+                    %}
+                  </div>
+
+
+
+                 {% when 'email_input' %}
+                  <div class="{{ input_width }}">
+                    {% liquid
+                      assign emailInputString = 'contact.form.email' | t
+                      assign formEmailName = 'contact[' | append: emailInputString | downcase | append: ']'
+                      assign labelInput = emailInputString | prepend: requiredSymbol
+                      assign formId = 'form_' | append: emailInputString | downcase | handleize
+                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="email-input"'
+                      if form.email
+                        assign emailInputVal = form.email
+                      elsif customer
+                        assign emailInputVal = customer.email
+                      endif
+
+                      render 'form-input' with type: 'email', classes:'form-control', placeholder: labelInput, has_label: false, animate_label: false, label_text: labelInput, id: formId, value: emailInputVal, name: formEmailName, required: block.settings.required, attributes: input_attr 
+                    %}
+                  </div>
+                
+                {% when 'tel_input' %}
+                  <div class="{{ input_width }}">
+                    {% liquid
+                      assign telInputString = 'contact.form.phone' | t
+                      assign formTelName = 'contact[' | append: telInputString | append: ']'
+                      assign labelInput = telInputString | prepend: requiredSymbol
+                      assign formId = 'form_' | append: telInputString | downcase | handleize
+                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="tel-input"'
+                      if form.phone
+                        assign phoneInputVal = form.phone
+                      elsif customer
+                        assign phoneInputVal = customer.phone
+                      endif
+
+                      render 'form-input' with type: 'tel', classes:'form-control contactPhone',placeholder: labelInput,has_label: false, animate_label: false, label_text: labelInput, id: formId, value: phoneInputVal, name: formTelName, required: block.settings.required, attributes: input_attr 
+                    %}
+                  </div>
+
+                {% when 'message_input' %}
+                  <div class="{{ input_width }}">
+                    {% liquid
+                      assign msgInputString = 'contact.form.message' | t
+                      assign formMsgName = 'contact[' | append: msgInputString | append: ']'
+                      assign labelInput = msgInputString | prepend: requiredSymbol
+                      assign formId = 'form_' | append: msgInputString | downcase | handleize
+                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="message-input"'
+
+                      render 'form-input--textarea' with id: formId, classes:'form-control',placeholder: labelInput,name: formMsgName, has_label: false, animate_label: false, label_text: labelInput, attributes: input_attr, required: block.settings.required, content: form.body 
+                    %}
+                  </div>
+
+                {% when 'custom_input' %}
+                  <div class="{{ input_width }}">
+                    {% liquid
+                      assign labelInput = block.settings.input_label | prepend: requiredSymbol
+                      assign labelHandleize = labelInput | downcase | handleize
+                      assign formId = 'form_' | append: labelHandleize 
+                      assign inputName = 'contact[' | append: labelHandleize | append: ']'
+                      assign input_attr = 'aria-labelledby="' | append: formId | append: '" data-aid="' | append: formId | append: '"'
+                    %}
+                    {% render 'form-input' with type: 'text', classes:'form-control',placeholder: labelInput, has_label: false, animate_label: false, label_text: labelInput, id: formId, value: form.body, name: inputName, required: block.settings.required, attributes: input_attr %}
+
+                  </div>
+
+              {% endcase %}
+
+            {% endfor %}
+
+            {{ 'shopify.online_store.spam_detection.disclaimer_html' | t }}
+
+            <div class="contact-form--submit-wrapper w-full">
+              <input type="submit" class="btn btnLg" value="{{ 'contact.form.send' | t }}">
+            </div>
+
+          {% endform %}
+        </div>
+      {% else %}
+        <div class="placeholder-noblocks{% if settings.animations_enabled %} wow fadeIn{% if content_header %} delay-1{% endif %}{% endif %}">
+          {{ 'general.onboarding.no_content' | t }}
+        </div>
+      {% endunless %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Home Contact form",
+  "class": "shopify-section homContactSec sec-gapTop",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "The contact form sends all submissions to the Sender email address of your store. You can edit this email in your Shopify admin settings > Store details > Contact information."
+    },
+    {
+      "type": "select",
+      "id": "section_color_scheme",
+      "label": {
+        "en": "Color scheme",
+        "de": "Farbschema",
+        "es": "Esquema de colores",
+        "fr": "Palette de couleurs",
+        "pt-PT": "Esquema de cores"
+      },
+      "default": "white",
+      "options": [
+        {
+          "value": "white",
+          "label": {
+            "en": "Minimal",
+            "fr": "Minimal",
+            "de": "Minimal",
+            "es": "Mínimo",
+            "pt-PT": "Mínimo"
+          }
+        },
+        {
+          "value": "light",
+          "label": {
+            "en": "Light",
+            "de": "Licht",
+            "es": "Luz",
+            "fr": "Clair",
+            "pt-PT": "Claro"
+          }
+        },
+        {
+          "value": "accent",
+          "label": {
+            "en": "Feature",
+            "de": "Eigenschaft",
+            "es": "Destacado",
+            "fr": "Caractéristique",
+            "pt-PT": "Funcionalidade"
+          }
+        },
+        {
+          "value": "dark",
+          "label": {
+            "en": "Dark",
+            "de": "Dunkel",
+            "es": "Oscuro",
+            "fr": "Foncé",
+            "pt-PT": "Escuro"
+          }
+        }
+      ]
+    },
+        {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": {
+        "en": "Contact us",
+        "de": "Kontaktiere uns",
+        "es": "Contáctenos",
+        "fr": "Contactez-nous",
+        "pt-PT": "Contate-nos"
+      }
+    },
+    {
+      "type": "text",
+      "id": "section_subheading",
+      "label": {
+        "en": "Subheading",
+        "de": "Unterüberschrift",
+        "es": "Subencabezado",
+        "fr": "Sous-rubrique",
+        "pt-PT": "Subtítulo"
+      },
+      "default": {
+        "en": "Have a question, or want a product recommendation?",
+        "de": "Haben Sie eine Frage oder wünschen Sie eine Produktempfehlung?",
+        "es": "¿Tiene alguna pregunta o desea una recomendación?",
+        "fr": "Vous avez une question ou souhaitez une recommandation de produit?",
+        "pt-PT": "Tem alguma dúvida ou deseja uma recomendação de produto?"
+      }
+    },
+
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+          {
+            "value": "container-full-width",
+            "label": "Full width"
+          },
+          {
+            "value": "container",
+            "label": "Page width"
+          },
+          {
+            "value": "container-narrow",
+            "label": "Narrow"
+          }
+      ],
+      "default": "container-narrow"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Name field",
+      "type": "name_input",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Required",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "Partial"
+            },
+            {
+              "value": "full",
+              "label": "Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    },
+    {
+      "name": "Email field",
+      "type": "email_input",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Required",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "Partial"
+            },
+            {
+              "value": "full",
+              "label": "Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    },
+    {
+      "name": "Telephone field",
+      "type": "tel_input",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Required",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "Partial"
+            },
+            {
+              "value": "full",
+              "label": "Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    },
+    {
+      "name": "Message field",
+      "type": "message_input",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Required",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "Partial"
+            },
+            {
+              "value": "full",
+              "label": "Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    },
+    {
+      "name": "Custom field",
+      "type": "custom_input",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "input_label",
+          "label": "Input name",
+          "default": "Order number"
+        },
+        {
+          "type": "checkbox",
+          "id": "required",
+          "label": "Required",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "input_width",
+          "label": "Input width",
+          "options": [
+            {
+              "value": "partial",
+              "label": "Partial"
+            },
+            {
+              "value": "full",
+              "label": "Full"
+            }
+          ],
+          "default": "full"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Contact form",
+      "settings": {
+      },
+      "blocks": [
+        {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        {
+          "type": "message_input", 
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,250 @@
+<div
+    class="container{% if section.settings.section_width == 'full' %}-fluid homepage-slider-container{% endif %}"
+    data-wetheme-section-type="image--image"
+    data-wetheme-section-id="{{ section.id }}"
+    style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;"
+>
+
+<div class="row">
+  <div class="page-width col-md-12">
+  		<div class="index-section parallax-wrapper">
+  		  <div class="image-section image-section--{{ section.id }} image-section--{{ section.settings.hero_size }}{% if section.settings.parallax %} image-section-parallax parallax{% endif %} wow fadeIn">
+  		    {% if section.settings.image == blank %}
+  		      <div class="placeholder-background img">
+  			      {{ 'lifestyle-1' | placeholder_svg_tag: 'icon--placeholder' }}
+  		      </div>
+          {% else %}
+            <div class="img"></div>
+  		    {% endif %}
+  		  </div>
+  		</div>
+  	</div>
+  </div>
+</div>
+
+<style>
+  {% if section.settings.image != blank %}
+    {% capture selector %}.image-section--{{ section.id }} .img{% endcapture %}
+    {% if section.settings.parallax %}{% assign scale = 2 %}{% else %}{% assign scale = 1 %}{% endif %}
+    {% render 'responsive-background-image' with section.settings.image, selector: selector, scale: scale %}
+  {% endif %}
+
+  .homepage-section--image .img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  {% if section.settings.parallax %}
+    .homepage-section--image .parallax-wrapper {
+      overflow: hidden;
+    }
+
+    .homepage-section--image .parallax:not(.image-section-parallax):before {
+      background-color: var(--color-image-overlay);
+      bottom: 0;
+      content: "";
+      left: 0;
+      opacity: var(--image-overlay-opacity);
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    .img .icon--placeholder {
+      height: 1100px;
+    }
+
+  @media screen and (max-width: 767px) {
+    .homepage-section--image .img {
+      min-height: 100%;
+      background-attachment: scroll;
+      left: 0;
+      right: 0;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  {% endif %}
+
+</style>
+
+{% schema %}
+{
+    "name": {
+        "en": "Image",
+        "de": "Bild",
+        "es": "Imagen",
+        "fr": "Image",
+        "pt-PT": "Imagem"
+    },
+    "class": "homepage-section--image",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "info": {
+                "en": "1800 x 1200px recommended",
+                "de": "1800 x 1200 px empfohlen",
+                "es": "Recomendado 1800 x 1200 px",
+                "fr": "1800 x 1200 px recommandé",
+                "pt-PT": "1800 x 1200px, recomendado"
+            }
+        },
+        {
+            "type": "checkbox",
+            "id": "parallax",
+            "label": {
+                "en": "Enable parallax effect",
+                "de": "Parallaxeneffekt aktivieren",
+                "es": "Habilitar efecto de paralaje",
+                "fr": "Activer l'effet parallaxe",
+                "pt-PT": "Ativar efeito de paralaxe"
+            },
+            "default": true,
+            "info": {
+                "en": "Landscape images will default to a set alignment to best fit screen",
+                "de": "Bilder im Querformat werden standardmäßig auf beste Anpassung an den Bildschirm ausgerichtet",
+                "es": "Las imágenes en apaisado se cambiarán por defecto a una alineación fija para ajustarse mejor a la pantalla",
+                "fr": "Les images du paysage seront alignées par défaut sur l'écran qui leur convient le mieux",
+                "pt-PT": "As imagens paisagísticas terão um alinhamento predefinido que melhor se adeque ao ecrã"
+            }
+        },
+        {
+            "type": "select",
+            "id": "hero_size",
+            "label": {
+                "en": "Section height",
+                "de": "Abschnitthöhe",
+                "es": "Altura de la sección",
+                "fr": "Hauteur de section",
+                "pt-PT": "Altura da secção"
+            },
+            "default": "medium",
+            "options": [
+                {
+                    "label": {
+                        "en": "Extra Small",
+                        "de": "Extra klein",
+                        "es": "Muy pequeño",
+                        "fr": "Extra petite",
+                        "pt-PT": "Extra Pequeno"
+                    },
+                    "value": "x-small"
+                },
+                {
+                    "label": {
+                        "en": "Small",
+                        "de": "Klein",
+                        "es": "Pequeño",
+                        "fr": "Petite",
+                        "pt-PT": "Pequeno"
+                    },
+                    "value": "small"
+                },
+                {
+                    "label": {
+                        "en": "Medium",
+                        "de": "Mittel",
+                        "es": "Mediano",
+                        "fr": "Moyenne",
+                        "pt-PT": "Médio"
+                    },
+                    "value": "medium"
+                },
+                {
+                    "label": {
+                        "en": "Large",
+                        "de": "Groß",
+                        "es": "Grande",
+                        "fr": "Grande",
+                        "pt-PT": "Grande"
+                    },
+                    "value": "large"
+                },
+                {
+                    "label": {
+                        "en": "Extra Large",
+                        "de": "Extra groß",
+                        "es": "Muy grande",
+                        "fr": "Extra grande",
+                        "pt-PT": "Extra Grande"
+                    },
+                    "value": "x-large"
+                }
+            ]
+        },
+        {
+            "type": "header",
+            "content": "Section spacing"
+          },
+          {
+            "type": "select",
+            "id": "section_width",
+            "label": "Width",
+            "options": [
+                {
+                "value": "full",
+                "label": "Full width"
+                },
+                {
+                "value": "page",
+                "label": "Page width"
+                }
+            ],
+            "default": "full"
+          },
+          {
+            "type": "range",
+            "id": "padding_top",
+            "label": "Padding top",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "Padding bottom",
+            "min": 0,
+            "max": 200,
+            "step": 2,
+            "unit": "px",
+            "default": 0
+          }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            },
+            "category": {
+                "en": "Image",
+                "de": "Bild",
+                "es": "Imagen",
+                "fr": "Image",
+                "pt-PT": "Imagem"
+            }
+        }
+    ],
+    "enabled_on": {
+      "templates": ["index", "collection", "list-collections", "blog", "article", "page", "password", "404", "cart", "search", "product"]
+    }
+}
+{% endschema %}

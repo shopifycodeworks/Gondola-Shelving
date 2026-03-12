@@ -1,0 +1,211 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "dea986fb-0272-4851-aeae-3cd07780c292": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "ee6a1785-085b-49a8-b731-803cbe3c959b": {
+      "type": "store-vision",
+      "blocks": {
+        "2cc36a82-a197-4034-830c-7cd8d28509fd": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/DSC_0179-edited-scaled.jpg",
+            "page_title": "hdvshdvh",
+            "page_link": "shopify://pages/jewelry"
+          }
+        },
+        "1a5df29e-ccc7-4540-be89-5e6a3bbc8658": {
+          "type": "article",
+          "settings": {
+            "page_title": "dvdsucghdcbh",
+            "page_link": "shopify://pages/smoke-shop"
+          }
+        },
+        "1d561dc6-98c1-4660-98db-578a38959008": {
+          "type": "article",
+          "settings": {
+            "page_title": "dcsdcs",
+            "page_link": "shopify://pages/restaurant"
+          }
+        },
+        "b9b5c37c-1f94-43e0-84ae-7101570b94a1": {
+          "type": "article",
+          "settings": {
+            "page_title": "",
+            "page_link": "shopify://pages/supermarket"
+          }
+        },
+        "1bc647ad-e5a8-4c49-ad57-5fc6f7cebc28": {
+          "type": "article",
+          "settings": {
+            "page_title": "",
+            "page_link": "shopify://pages/pharmacy"
+          }
+        },
+        "c4e06f63-6ea9-455b-997a-8c5e86cd7b07": {
+          "type": "article",
+          "settings": {
+            "page_title": "",
+            "page_link": "shopify://pages/optical"
+          }
+        },
+        "7e104613-48b2-44e2-9ff1-07fa7e36302e": {
+          "type": "article",
+          "settings": {
+            "page_title": "",
+            "page_link": "shopify://pages/cosmetic"
+          }
+        },
+        "f6288bdc-4039-4d33-985e-8370a5fa62f7": {
+          "type": "article",
+          "settings": {
+            "page_title": "",
+            "page_link": "shopify://pages/clothing"
+          }
+        },
+        "4814b10f-ee84-4689-832b-7f99f1d0c72c": {
+          "type": "article",
+          "settings": {
+            "page_title": "",
+            "page_link": "shopify://pages/pet-store"
+          }
+        }
+      },
+      "block_order": [
+        "2cc36a82-a197-4034-830c-7cd8d28509fd",
+        "1a5df29e-ccc7-4540-be89-5e6a3bbc8658",
+        "1d561dc6-98c1-4660-98db-578a38959008",
+        "b9b5c37c-1f94-43e0-84ae-7101570b94a1",
+        "1bc647ad-e5a8-4c49-ad57-5fc6f7cebc28",
+        "c4e06f63-6ea9-455b-997a-8c5e86cd7b07",
+        "7e104613-48b2-44e2-9ff1-07fa7e36302e",
+        "f6288bdc-4039-4d33-985e-8370a5fa62f7",
+        "4814b10f-ee84-4689-832b-7f99f1d0c72c"
+      ],
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "label_heading": "",
+        "post_limit": 3,
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "2572550b-796c-4377-ac4e-a25e8879ebdf": {
+      "type": "store-vision-blogs-slider",
+      "blocks": {
+        "c9cd7285-6054-4264-8428-4199d9030959": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Supermarket_53.jpg",
+            "page_title": "Supermarket",
+            "page_link": "shopify://pages/supermarket"
+          }
+        },
+        "9ceca8a5-9bbc-44ff-9583-d19794700cf5": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Bakery_51.jpg",
+            "page_title": "Restaurant",
+            "page_link": "shopify://pages/restaurant"
+          }
+        },
+        "4da5d358-1bbc-4e54-b983-88f844767070": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Jewelry_51.jpg",
+            "page_title": "JEWELRY",
+            "page_link": "shopify://pages/jewlery"
+          }
+        },
+        "e92445fe-0126-454f-a9e8-03b7c5bfe07a": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Cosmetic_Store_51.jpg",
+            "page_title": "Cosmetic",
+            "page_link": "shopify://pages/cosmetic"
+          }
+        },
+        "89e79012-4948-4a16-ac27-f654c6e7c533": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Optical_Store_51.jpg",
+            "page_title": "Optical",
+            "page_link": "shopify://pages/optical"
+          }
+        },
+        "3634c380-70a8-4a98-8db5-86b664a60668": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Clothing_Store_51.jpg",
+            "page_title": "Clothing",
+            "page_link": "shopify://pages/clothing"
+          }
+        },
+        "6b49cfdc-6522-4494-8304-156a84e488f5": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Pet_Store_51.jpg",
+            "page_title": "Pet Store",
+            "page_link": "shopify://pages/pet-store"
+          }
+        },
+        "24761c93-bb45-49f6-b74a-aad48386b394": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Pharmacy_53.jpg",
+            "page_title": "Pharmacy",
+            "page_link": "shopify://pages/pharmacy"
+          }
+        },
+        "2354814f-2cba-446d-8010-3838dbc2c72e": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Smoke_Shop_51.jpg",
+            "page_title": "Smoke",
+            "page_link": "shopify://pages/smoke"
+          }
+        }
+      },
+      "block_order": [
+        "c9cd7285-6054-4264-8428-4199d9030959",
+        "9ceca8a5-9bbc-44ff-9583-d19794700cf5",
+        "4da5d358-1bbc-4e54-b983-88f844767070",
+        "e92445fe-0126-454f-a9e8-03b7c5bfe07a",
+        "89e79012-4948-4a16-ac27-f654c6e7c533",
+        "3634c380-70a8-4a98-8db5-86b664a60668",
+        "6b49cfdc-6522-4494-8304-156a84e488f5",
+        "24761c93-bb45-49f6-b74a-aad48386b394",
+        "2354814f-2cba-446d-8010-3838dbc2c72e"
+      ],
+      "settings": {
+        "colors": "white",
+        "label_heading": "",
+        "post_limit": 3,
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "dea986fb-0272-4851-aeae-3cd07780c292",
+    "ee6a1785-085b-49a8-b731-803cbe3c959b",
+    "2572550b-796c-4377-ac4e-a25e8879ebdf"
+  ]
+}

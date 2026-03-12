@@ -1,0 +1,42 @@
+<div data-value="{{ value }}" class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }} {% if available %}available{% else %}soldout{% endif %}">
+  {% if is_color %}
+    <div class="tooltip">{{ value }}</div>
+  {% endif %}
+
+  <input
+    id="{{ section.id }}-swatch-{{ option_index }}-{{ value }}"
+    class="wetheme-custom-radio"
+    data-optionid="{{ option_index }}"
+    type="radio"
+    name="option-{{ option_index }}"
+    value="{{ value }}"
+    {% if checked == true %}
+      checked
+    {% endif %}
+    {% if variation_redirect != blank %}
+      onclick="window.location='{{ variation_redirect }}'; return false;"
+    {% endif %} />
+
+  {% if is_color %}
+    <label
+      for="{{ section.id }}-swatch-{{ option_index }}-{{ value }}"
+      style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.png' | file_url }})"
+      tabindex="0">
+      <span class="sr-only">{{ value }}</span>
+      <img
+        class="crossed-out"
+        src="{{ 'soldout_color.svg' | asset_url }}"
+        alt="" />
+    </label>
+  {% else %}
+    <label
+      for="{{ section.id }}-swatch-{{ option_index }}-{{ value }}"
+      tabindex="0">
+      {{ value }}
+      <img
+        class="crossed-out"
+        src="{{ 'soldout.svg' | asset_url }}"
+        alt="" />
+    </label>
+  {% endif %}
+</div>

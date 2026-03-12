@@ -1,0 +1,58 @@
+<div id="template" class="container comm-padd">
+  <div id="customer">
+	  <!-- Create Customer -->
+	  <div id="create-customer">
+
+        <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        
+        <div class="cus-wrap loginBox">
+	    <div class="title-bar custom-font">
+	      <h2 class="title">{{ 'customer.register.title' | t }}</h2>
+	      <div class="clear"></div>
+	    </div>
+
+        <div class="cus-wrap-regi">
+        
+        <div class="cus-wrap-f">
+        
+        	    {% form 'create_customer' %}
+        	      {{ form.errors | default_errors }}
+        
+        	      <div id="first_name" class="clearfix large_form">
+        	        <label for="first_name" class="login">{{ 'customer.register.first_name' | t }}</label>
+        	        <input type="text" class="form-control"  name="customer[first_name]" id="first_name" class="large" size="30" required/>
+        	      </div>
+        
+        	      <div id="last_name" class="clearfix large_form">
+        	        <label for="last_name" class="login">{{ 'customer.register.last_name' | t }}</label>
+        	        <input type="text" class="form-control"  name="customer[last_name]" id="last_name" class="large" size="30" required/>
+        	      </div>
+        
+        	      <div id="email" class="clearfix large_form">
+        	        <label for="email" class="login">{{ 'customer.register.email' | t }}</label>
+        	        <input type="email" class="form-control"  name="customer[email]" id="email" class="large" size="30" required/>
+        	      </div>
+        
+        	      <div id="password" class="clearfix large_form">
+        	        <label for="password" class="login">{{ 'customer.register.password' | t }}</label>
+        	        <input type="password" class="form-control" name="customer[password]" id="password" size="30" required/>
+        	      </div>
+        
+        	      <div class="action_bottom">
+        	        <input class="btn" type="submit" value="{{ 'customer.register.submit' | t }}" />
+        	      </div>
+        	    {% endform %}
+        
+        
+        	    </div>
+        	    </div>
+
+	  </div><!-- /#create-customer -->
+      </div>
+    </div>
+        </div>
+  </div>
+</div>
+</div>

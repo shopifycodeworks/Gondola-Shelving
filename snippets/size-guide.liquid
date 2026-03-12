@@ -1,0 +1,41 @@
+{% if section.settings.size_guide_link contains 'policies' %}
+  {% assign policy = true %}
+  {% assign size_guide_handle = section.settings.size_guide_link | split: '/' | last | replace: '-', '_' %}
+{% else %}
+  {% assign size_guide_handle = section.settings.size_guide_link | split: '/' | last %}
+  {% assign policy = false %}
+{% endif %}
+
+<envy-modal data-modal-id="size-guide__{{ section.id }}">
+  <div class="modal__container">
+    <div class="modal__background">
+      <div id="modal__prompt" class="modal__prompt" role="dialog">
+        <a class="modal__close-btn" tabindex="-1" aria-label="Close {{ section.settings.size_guide_message }}">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </span>
+        </a>
+        <div class="modal-initial-content">
+          <div id="modal__content" class="modal-content__wrapper" tabindex="-1" aria-label="{{ section.settings.size_guide_message }}">
+              <h3>
+                {% if policy %}
+                  {{ shop[size_guide_handle].title }}
+                {% else %}
+                  {{ pages[size_guide_handle].title }}
+                {% endif %}
+              </h3>
+                {% if policy %}
+                  {{ shop[size_guide_handle].body }}
+                {% else %}
+                  {{ pages[size_guide_handle].content }}
+                {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</envy-modal>
+
+<safe-load-scripts>
+  <script src="{{ 'component-modal.js' | asset_url }}" type="module" defer="defer" data-envy-load-key="component-modal"></script>
+</safe-load-scripts>

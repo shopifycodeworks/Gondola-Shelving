@@ -1,0 +1,27 @@
+<aside id="quickViewDrawer">
+  <div
+    id="quickViewSlideoutWrapper"
+    class="envy-quick-view-right quick-view-right p-0{% if variant_has_label == false %} variant-labels--hidden{% endif %}"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="cart-drawer__top">
+      <div class="cart-close-icon-wrapper">
+        <button
+          class="slide-menu cart-close-icon cart-menu-close alt-focus"
+          aria-label="{{ 'cart.general.close_cart' | t }}"
+          type="button"
+          data-quick-view-close
+        >
+          <i data-feather="x"></i>
+        </button>
+      </div>
+    </div>
+
+    <div data-quick-view-content></div>
+  </div>
+</aside>
+
+<safe-load-scripts>
+  <script src="{{ 'component-quick-view.js' | asset_url }}" defer data-envy-load-key="component-quick-view"></script>
+</safe-load-scripts>

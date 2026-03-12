@@ -1,0 +1,1 @@
+.logo-bar{display:flex;flex-wrap:wrap;justify-content:center;text-align:center;margin-top:-20px;margin-bottom:-20px}.logo-bar__item{display:inline-block;vertical-align:middle;margin:20px var(--column-gap-width-half)}@media screen and (max-width:767px){.logo-bar__item{max-width:100px}}.logo-bar__item img{max-width:100%;margin:0 auto;width:100%;height:auto}

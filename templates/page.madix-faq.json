@@ -1,0 +1,165 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "fbe5205a-5572-48f9-bde7-4772dd92e9ea": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": false,
+        "banner_image": "shopify://shop_images/banner.png",
+        "banner_video": ""
+      }
+    },
+    "f6ef42ee-2ef4-4d6d-9957-849ea83d40a6": {
+      "type": "faq",
+      "disabled": true,
+      "blocks": {
+        "2365e0d3-08ee-4c7c-891b-dc9947081244": {
+          "type": "tab_content",
+          "settings": {
+            "question": "What is Lorem Ipsum?",
+            "text": "<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+          }
+        },
+        "7edcc57e-9e60-4488-8444-b28a08192179": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Why do we use it?",
+            "text": "<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>"
+          }
+        },
+        "45844606-8f45-456a-8725-f5ef3fa6d35b": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Where does it come from?",
+            "text": "<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.</p>"
+          }
+        },
+        "47ac77ce-8bda-4390-bad5-0fb2ea28bd38": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Where can I get some?",
+            "text": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>"
+          }
+        },
+        "e7273fd7-f6c4-4982-b9a2-08895721ac1b": {
+          "type": "tab_content",
+          "settings": {
+            "question": "The standard Lorem Ipsum passage, used since the 1500s",
+            "text": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"</p>"
+          }
+        },
+        "ad3985f3-f0b5-4ddb-a2cd-8262043a5133": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Section 1.10.32 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC",
+            "text": "<p>\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"</p>"
+          }
+        },
+        "449badb4-34aa-4d5d-9e51-4fd982dafe16": {
+          "type": "tab_content",
+          "settings": {
+            "question": "1914 translation by H. Rackham",
+            "text": "<p>\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"</p>"
+          }
+        },
+        "8033b2a3-2d22-475a-ac40-fc6a7a995383": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC",
+            "text": "<p>\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"</p>"
+          }
+        },
+        "3f7124d8-a700-4681-b129-2e7bf4cffaea": {
+          "type": "tab_content",
+          "settings": {
+            "question": "1914 translation by H. Rackham",
+            "text": "<p>\"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.\"</p>"
+          }
+        }
+      },
+      "block_order": [
+        "2365e0d3-08ee-4c7c-891b-dc9947081244",
+        "7edcc57e-9e60-4488-8444-b28a08192179",
+        "45844606-8f45-456a-8725-f5ef3fa6d35b",
+        "47ac77ce-8bda-4390-bad5-0fb2ea28bd38",
+        "e7273fd7-f6c4-4982-b9a2-08895721ac1b",
+        "ad3985f3-f0b5-4ddb-a2cd-8262043a5133",
+        "449badb4-34aa-4d5d-9e51-4fd982dafe16",
+        "8033b2a3-2d22-475a-ac40-fc6a7a995383",
+        "3f7124d8-a700-4681-b129-2e7bf4cffaea"
+      ],
+      "settings": {
+        "title": "FREQUENTLY ASKED QUESTION",
+        "sub_heading": "",
+        "faq_icon": "plus_minus",
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "c920e905-d4e3-4426-a734-bfd84e697f95": {
+      "type": "madix-faq",
+      "blocks": {
+        "652dbea0-f1b0-494c-ad66-d91327bc3ee4": {
+          "type": "faq",
+          "settings": {
+            "question": "WHAT SETS MADIX APART FROM ITS COMPETITORS?",
+            "ans": "<p>Madix is one of the largest manufacturers of store fixtures in the world. It is known for innovative solutions that are customized to client's needs, as well as creative and unique ideas that influence trends in the industry. Madix offers a wide assortment of cataloged products, but also prides itself in being open to custom product development and assisting customers with their individual needs. Madix embraces the implementation of new ideas and the integration of new technology into its products, making Madix the leader in innovation.</p>"
+          }
+        },
+        "833a4c2d-c60e-4ef7-aed8-44411b24ee7c": {
+          "type": "faq",
+          "settings": {
+            "question": "WHAT TECHNICAL CAPABILITIES DIFFERENTIATE MADIX FROM ITS COMPETITORS?",
+            "ans": "<p>Madix has an extensive engineering staff with a \"can-do\" attitude. Both design and manufacturing personnel are experts in production of stamped and formed sheet metal and wire products. We operate several full-scale tool and die facilities that can quickly take a design to volume production. We also have multiple laser centers for rapid prototyping and lower volume production requirements. Madix utilizes SAP management tools to promote collaboration amongst design engineers, industrial engineers, product management, and the sales team.</p>"
+          }
+        },
+        "b8c77441-2cc2-43b3-aa5a-ea0b98a65492": {
+          "type": "faq",
+          "settings": {
+            "question": "WHAT DOES MADIX VALUE MOST IN A CLIENT RELATIONSHIP?",
+            "ans": "<p>Madix strives to truly understand a customer's struggles and challenges, and takes pride in finding innovative solutions that solve the customer's individual needs. At Madix, we understand that to solve the problem, you have to understand it. We listen to our customers and respond to the challenges they describe. We work to understand their business purpose and collaborate to develop an action plan to achieve their goals. As a result, Madix maintains loyal, long-term customers and seeks ways for both companies to succeed. Madix is also constantly looking to expand relationships and create new partnerships among companies.</p>"
+          }
+        },
+        "5d9e1538-4b9d-4c2d-ac1a-b883ca6e77e4": {
+          "type": "faq",
+          "settings": {
+            "question": "HOW DOES MADIX GAIN AND CULTIVATE CLIENT RELATIONSHIPS?",
+            "ans": "<p>Madix has over 50 years of experience in solving retailers' merchandising and design challenges. Madix utilizes sales representatives throughout the world to accommodate the retailers' needs. Madix has also developed thousands of products and built millions of parts to satisfy those customers' needs. Through all of this, Madix upholds its reputation of providing excellent customer service. Especially with new customers, Madix seeks to understand their business and challenges, before suggesting solutions. We appreciate that each company has its own set of obstacles and frustrations, and as a result offer individual solutions at each opportunity.</p>"
+          }
+        },
+        "a991ea75-bbd8-4314-a1cf-5dc8743e8b58": {
+          "type": "faq",
+          "settings": {
+            "question": "HOW DOES MADIX HIRE AND TRAIN EMPLOYEES TO ENSURE A SUSTAINABLE FUTURE?",
+            "ans": "<p>When bringing in a new team member, Madix seeks out creative and well-educated personnel that show enthusiasm in their work. Madix encourages its employees to take pride in their work, and constantly looks for ways to aid their personal and professional development. Madix also encourages its employees to follow LEAN initiatives, which improve efficiency and product quality.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "652dbea0-f1b0-494c-ad66-d91327bc3ee4",
+        "833a4c2d-c60e-4ef7-aed8-44411b24ee7c",
+        "b8c77441-2cc2-43b3-aa5a-ea0b98a65492",
+        "5d9e1538-4b9d-4c2d-ac1a-b883ca6e77e4",
+        "a991ea75-bbd8-4314-a1cf-5dc8743e8b58"
+      ],
+      "settings": {
+        "faq-image": "shopify://shop_images/collage3_453e2d5b-0ef4-48ef-8257-73cd2364e971.png",
+        "faq-heading": "FREQUENTLY ASKED QUESTION"
+      }
+    }
+  },
+  "order": [
+    "fbe5205a-5572-48f9-bde7-4772dd92e9ea",
+    "f6ef42ee-2ef4-4d6d-9957-849ea83d40a6",
+    "c920e905-d4e3-4426-a734-bfd84e697f95"
+  ]
+}

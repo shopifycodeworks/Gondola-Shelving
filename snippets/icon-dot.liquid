@@ -1,0 +1,59 @@
+
+<style>
+  .icon-dot.icon-dot--{{ class }} {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    z-index: 1;
+    background-color: {{ color }};
+  }
+
+  {% if dot_pulsing %}
+    @media screen and (prefers-reduced-motion: no-preference) {
+      .stock-indicator-animations .icon-dot.icon-dot--{{ class }} {
+        box-shadow: 0 1px 10px {{ color }};
+      }
+
+      .stock-indicator-animations .icon-dot.icon-dot--{{ class }}::after {
+        position: absolute;
+        content: "";
+        width: inherit;
+        height: inherit;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        border-radius: 50%;
+        -webkit-animation: 2s pulsatingDot ease-in-out infinite;
+        animation: 2s pulsatingDot ease-in-out infinite;
+        opacity: .4;
+        color: {{ color }};
+      }
+
+      @keyframes pulsatingDot {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0;
+          opacity: 0.7;
+        }
+      
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px;
+          opacity: 0;
+        }
+      
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0;
+          opacity: 0;
+        }
+      }
+    }
+  {% endif %}
+</style>
+
+<div class="icon-dot icon-dot--{{ class }}">
+</div>

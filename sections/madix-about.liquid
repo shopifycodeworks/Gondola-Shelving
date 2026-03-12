@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="logo">
+      <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/madix_logo.png?v=1686658230" alt="madix-about-logo" />
+  </div>
+  <div class="about-content">
+    {% assign a = 1 %}
+    {% for block in section.blocks %}
+      <div class="cont">
+        {% capture img_layout %}
+          {% if block.settings.image != blank %}
+            <div class="cont-img">
+              <img src="{{ block.settings.image | img_url: "master" }}" alt="madix-content-image" />
+            </div>
+          {% endif %}
+        {% endcapture %}
+
+        {% if block.settings.image_alignment == 'top' %}
+          {{ img_layout }}
+        {% endif %}
+        {% if block.settings.content != blank %}
+          <div class="cont-desc{% if a == 2 %} sec-cont-desc{% endif %}">
+            <p>{{ block.settings.content }}</p>
+          </div>
+        {% endif %}
+        {% if block.settings.image_alignment == 'bottom' %}
+          {{ img_layout }}
+        {% endif %}
+      </div>
+      {% assign a = a | plus: 1 %}
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Madix About",
+    "tag": "section",
+    "class": "madix-about comm-padd",
+    "blocks": [
+      {
+        "type": "about-content",
+        "name": "about-content",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Select Image"
+          },
+          {
+            "type": "select",
+            "id": "image_alignment",
+            "label": "Image Position",
+            "default": "left",
+            "options": [
+              {
+                "value": "top",
+                "label": "Top"
+              },
+              {
+                "value": "bottom",
+                "label": "Bottom"
+              }
+            ],
+            "default": "top"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "About Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Madix About"
+      }
+    ]
+  }
+{% endschema %}

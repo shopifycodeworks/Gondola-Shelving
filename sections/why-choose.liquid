@@ -1,0 +1,73 @@
+<div class="container-fluid p-0">
+  {% if section.settings.heading != blank %}
+    <h3>{{ section.settings.heading }}</h3>
+  {% endif %}
+  <div class="row m-0">
+    {% assign a = 1 %}
+    {% for block in section.blocks %}
+      <div class="col-lg-6 p-0">
+        <div
+          class="choose-col-wrap partner{{ a }}"
+          style="background-image: url('{% if block.settings.reason_image != blank %}{{ block.settings.reason_image | img_url:'master' }}{% endif %}');"
+        >
+          <!--
+            <div class="choose-col-img">
+                {% if block.settings.reason_image != blank %}
+              <img src="{{ block.settings.reason_image | img_url:'master' }}">
+            {% endif %}
+              </div>
+          -->
+          {% if block.settings.reason_cont != blank %}
+            <div class="reas">
+              <span class="sl-no">
+                {{ a }}
+              </span>
+              {{ block.settings.reason_cont }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+      {% assign a = a | plus: 1 %}
+      {% if a == 5 %}
+        {% assign a = 1 %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Why choose",
+  "tag": "section",
+  "class": "why-choose",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "reason_image",
+          "label": "Reason Image"
+        },
+        {
+          "type": "richtext",
+          "id": "reason_cont",
+          "label": "Reason Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why choose"
+    }
+  ]
+}
+{% endschema %}

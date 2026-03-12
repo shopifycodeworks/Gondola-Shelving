@@ -1,0 +1,60 @@
+<div class="privacy-wrap">
+  <div class="container">
+    <div class="row">
+      {% for block in section.blocks %}
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-lg-0 mb-4">
+          <div class="policy-sec">
+            {% if block.settings.return_icon != blank %}
+              <div class="icon-img">
+                <img src="{{ block.settings.return_icon | img_url: 'icon' }}">
+              </div>
+            {% endif %}
+            <div class="policy-details">
+              {% if block.settings.return_head != blank %}
+                <h4>{{ block.settings.return_head }}</h4>
+              {% endif %}
+              {% if block.settings.return_desc != blank %}
+                <p>{{ block.settings.return_desc }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Return Policy",
+  "tag": "section",
+  "class": "return-policy",
+  "blocks": [
+    {
+      "type": "policy",
+      "name": "Policy",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "return_icon",
+          "label": "Return Icon"
+        },
+        {
+          "type": "richtext",
+          "id": "return_head",
+          "label": "return Head"
+        },
+        {
+          "type": "richtext",
+          "id": "return_desc",
+          "label": "Return Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Return Policy"
+    }
+  ]
+}
+{% endschema %}

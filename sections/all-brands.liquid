@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
+    {% if section.settings.button_lebel != blank and section.settings.button_link != blank %}
+      <div class="common-btnBtn text-center sec-gapBottomSm">
+        <a href="{{ section.settings.button_link }}" class="common-btn btn btnLg">{{ section.settings.button_lebel }}</a>
+      </div>
+    {% endif %}
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-12">
+      <div id="page-slider" class="owl-carousel owl-theme swiper-wrapper">
+       {%- for block in section.blocks -%}
+         <div class="brand-img-wrap">
+            <img src="{{ block.settings.image | img_url:'master' }}">
+         </div>
+        {% endfor %}
+    </div>
+  </div>
+  </div>
+{% schema %}
+  {
+    "name": "All Brands",
+    "tag":"section",
+    "class":"all-brandsSection sec-gapTopMd sec-gapBottomMd",
+    "settings": [
+       {
+        "type": "text",
+        "id": "button_lebel",
+        "label": "Button Lebel"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      }
+   ],
+
+      "blocks": [
+    {
+      "type": "card",
+      "name": "brands",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+      "presets": [
+    {
+      "name": "All Brands"
+    }
+  ]
+  }
+{% endschema %}
+

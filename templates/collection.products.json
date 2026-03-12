@@ -1,0 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-main--wrapper",
+  "sections": {
+    "ee15da50-4b72-4467-8647-8c88fbe85de5": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "banner_image": "shopify://shop_images/image_25_62fd1162-acfe-4df2-a480-49f5b56812ad.png",
+        "banner_video": ""
+      }
+    },
+    "main": {
+      "type": "all-products",
+      "blocks": {
+        "grid-card-title": {
+          "type": "grid-card-title",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "grid-card-title"
+      ],
+      "settings": {
+        "main_heading": "RETAIL DISPLAY SHELVING",
+        "grid": 4,
+        "rows": 4,
+        "pagination_type": "paged_navigation",
+        "desktop_position": "sidebar",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "collection-sidebar-link": "",
+        "collection-sidebar-title": "",
+        "collection-sidebar-richtext": "",
+        "collection-sidebar-menu_title": "",
+        "collection-sidebar-linklist": ""
+      }
+    }
+  },
+  "order": [
+    "ee15da50-4b72-4467-8647-8c88fbe85de5",
+    "main"
+  ]
+}

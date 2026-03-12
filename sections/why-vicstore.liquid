@@ -1,0 +1,49 @@
+ <div class="vicstore-sec comm-padd">
+<div class="container">
+  <div class="vic-flex">
+   
+  {% if section.settings.vicstor_logo1 != blank %}
+    <div class="logo1">
+      <img src="{{ section.settings.vicstor_logo1 | img_url: 'master' }}">
+    </div>
+  {% endif %}
+  {% if section.settings.vicstor_logo2 != blank %}
+    <div class="logo1">
+      <img src="{{ section.settings.vicstor_logo2 | img_url: 'master' }}">
+    </div>
+  {% endif %}
+  </div>
+  {% if section.settings.content != blank %}
+    <p>{{ section.settings.content }}</p>
+  {% endif %}
+</div>
+</div>
+{% schema %}
+{
+  "name": "Why Vistore",
+  "tag": "section",
+  "class": "why-vicstore",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "vicstor_logo1",
+      "label": "Vicstore Logo 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "vicstor_logo2",
+      "label": "Vicstore Logo 2"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Vicstore Content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Vistore"
+    }
+  ]
+}
+{% endschema %}

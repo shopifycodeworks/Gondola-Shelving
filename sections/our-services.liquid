@@ -1,0 +1,181 @@
+{{ 'section-info-columns.min.css' | asset_url | stylesheet_tag }}
+
+{% capture section_style_attr %}
+  style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;"
+{% endcapture %}
+
+<style>
+  .info-columns .swiper-container {
+    z-index: 0;
+  }
+</style>
+
+{% case section.settings.colors %}
+  {% when 'white' %}
+    {% assign color_scheme_class = 'homepage-sections-wrapper--white' %}
+  {% when 'light' %}
+    {% assign color_scheme_class = 'homepage-sections-wrapper--light' %}
+  {% when 'accent' %}
+    {% assign color_scheme_class = 'homepage-sections-wrapper--accent' %}
+  {% when 'dark' %}
+    {% assign color_scheme_class = 'homepage-sections-wrapper--dark' %}
+{% endcase %}
+
+<section
+  class="homepage-sections-wrapper comm-padd about-service {{ color_scheme_class }}"
+  data-wetheme-section-type="info-columns"
+  data-wetheme-section-id="{{ section.id }}"
+  data-slides-per-row="{{ section.settings.columns_per_row }}"
+  {{ section_style_attr }}
+>
+  <div class="container">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class=" section-header-padding service-heading custom-font text-center">
+        {% if section.settings.heading != blank %}
+          <h2 class="wow fadeIn{% if section.settings.subheading != blank %} delay-1{% endif %}">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+        {% if section.settings.sub_heading != blank %}
+          <p class="type-subheading type-subheading--1 info-columns--title">{{ section.settings.sub_heading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="swiper-container service-box">
+      <div class="row">
+        {% for block in section.blocks %}
+          <div class="col-lg-4 col-md-6 info-column grid__item">
+            <div class="service-col">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | img_url: 'master' }}" class="icon-image">
+              {% endif %}
+              {% if block.settings.record_title != blank %}
+                <h4 class="type-subheading type-subheading--1 info-columns--title">
+                  {{ block.settings.record_title }}
+                </h4>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <div class="info-columns--text">{{ block.settings.description }}</div>
+              {% endif %}
+              {% if block.settings.button_lebel != blank %}
+                <a href="{{ block.settings.button_link }}" class="a-text">{{ block.settings.button_lebel }}</a>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!--
+    <div class="service-after-img">
+
+        <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/Clip-path.png?v=1684221081">
+    </div>
+  -->
+</section>
+
+{% schema %}
+{
+	"name": "Services",
+    "tag": "section",
+	"class": "section--info-columns",
+	"settings": [
+		{
+            "type": "select",
+            "id": "colors",
+            "label": "Select Color",
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "White"
+                },
+                {
+                    "value": "light",
+                    "label": "Light"
+                },
+                {
+                    "value": "accent",
+                    "label": "Accent"
+                },
+                {
+                    "value": "dark",
+                    "label": "Dark"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Track record"
+        },
+      {
+        "type": "textarea",
+        "id": "sub_heading",
+        "label": "Sub Heading"
+      },
+		{
+			"type": "range",
+			"id": "padding_top",
+			"label": "Padding top",
+			"min": 0,
+			"max": 200,
+			"step": 2,
+			"unit": "px",
+			"default": 50
+		},
+		{
+			"type": "range",
+			"id": "padding_bottom",
+			"label": "Padding bottom",
+			"min": 0,
+			"max": 200,
+			"step": 2,
+			"unit": "px",
+			"default": 50
+		}
+	],
+	"blocks": [
+      {
+        "type": "Records",
+        "name": "records",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Record Image"
+          },
+          {
+            "type": "text",
+            "id": "record_title",
+            "label": "Record Title"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Record Description"
+          },
+          {
+            "type": "text",
+            "id": "button_lebel",
+            "label": "Button Lebel"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+          }
+        ]
+      }
+    ],
+	"presets": [
+		{
+			"name": "Services"
+		}
+	],
+	"disabled_on": {
+		"groups": ["header"]
+	}
+}
+{% endschema %}

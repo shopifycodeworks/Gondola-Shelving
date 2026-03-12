@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
+    <div class="related-blogHeading text-center">
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    {% for article in blogs.news.articles limit: 4 %}
+      <div class="col-lg-4 col-md-6 mb-md-5 mb-4">
+        <div class="learningBox">
+          <div class="learningImage">
+            <img src="{{ article | img_url: 'large' }}">
+          </div>
+          <div class="learningContent">
+            <h6>{{ article.title }}</h6>
+            <!-- <p>{{ article.excerpt }}</p> -->
+            <a href="{{ article.url }}" class="a-text">Read More</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if blog.previous_article or blog.next_article %}
+    <div id="paginate" class="blog-pagination-row">
+      {% if blog.previous_article %}
+        <div class="article-previous-article">
+          <a href="{{ blog.previous_article }}" class="btn previous">{{ 'blogs.article.previous_post' | t }}</a>
+        </div>
+      {% endif %}
+
+      {% if blog.next_article %}
+        <div class="article-next-article">
+          <a href="{{ blog.next_article }}" class="btn next">{{ 'blogs.article.next_post' | t }}</a>
+        </div>
+      {% endif %}
+      <div class="clear"></div>
+    </div>
+  {% endif %}
+</div>
+{% schema %}
+{
+  "name": "Related Blog",
+  "tag": "section",
+  "class": "related-blog",
+  "settings": [
+    {
+      "type":"text",
+      "id":"heading",
+      "label":"Heading"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Select Artical"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related Blog"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "6b091212-cc85-46f3-bfb3-365088f0de87": {
+      "type": "upper-footer",
+      "blocks": {
+        "ccedb3de-7386-485d-8740-c0d7e31270fe": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/fifty.png",
+            "heading": "Five decades of excellence",
+            "content": "<p>We started making cookware back 1971,Combining our founder's deep knowledge of metallurgt and love of cooking</p>"
+          }
+        },
+        "4f3afd65-2009-415f-a5fe-9b7b243880fa": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/maple-leaf_b8b0344f-86b6-475c-8de8-bd6e08af51c2.png",
+            "heading": "Bonded,Engineered, & assembled in USA",
+            "content": "<p>We started making cookware back 1971,Combining our founder's deep knowledge of metallurgt and love of cooking</p>"
+          }
+        },
+        "8cd376e0-0061-41b9-9c22-4ca186d900d1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/handshake_1_7086b3e0-aec0-415e-a5b4-b1a2d6c9233e.png",
+            "heading": "Our mission & what we stand for",
+            "content": "<p>We started making cookware back 1971,Combining our founder's deep knowledge of metallurgt and love of cooking</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ccedb3de-7386-485d-8740-c0d7e31270fe",
+        "4f3afd65-2009-415f-a5fe-9b7b243880fa",
+        "8cd376e0-0061-41b9-9c22-4ca186d900d1"
+      ],
+      "disabled": true,
+      "settings": {
+        "button_lebel": ""
+      }
+    },
+    "1ee99ce3-4e43-4dab-9f46-9b0e9c33eec8": {
+      "type": "text--rich-text",
+      "disabled": true,
+      "settings": {
+        "colors": "dark",
+        "subheading": "GET IN TOUCH",
+        "title": "Want to know more about us? Call or email us now!",
+        "text": "<p><a href=\"mailto:contact@vanguardstorefixtures.com\">contact@vanguardstorefixtures.com</a></p><p>360 Magnetic Dr North York, ON M3J 2C4 Canada</p>",
+        "button_link": "shopify://pages/contact",
+        "button_label": "Contact us",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "footer-main": {
+      "type": "footer-main",
+      "blocks": {
+        "f29654ba-0b69-4810-b8fc-c5813c159242": {
+          "type": "block",
+          "settings": {
+            "store_label": "STORE VISION",
+            "visionpage1": "supermarket",
+            "visionpage2": "restaurant",
+            "visionpage3": "jewlery",
+            "view_all_btnxt": "See more",
+            "view_all_btnul": "shopify://pages/store-vision"
+          }
+        },
+        "effda531-ae53-41ee-96b9-a76176cdb244": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Quick Links",
+            "footer_linklist": "new-footer-menu"
+          }
+        },
+        "2e130cc8-15cf-48c3-a799-4a680478b9f1": {
+          "type": "text",
+          "settings": {
+            "title": "HAVE A QUESTION?",
+            "richtext": "<p><i class=\"fas fa-phone-alt\"></i><a href=\"tel:+1(647)%20285-4285\">(647) 285-4285</a></p>\n<p><i class=\"far fa-envelope\"></i><a href=\"mailto:contact@vanguardstorefixtures.com\">contact@vanguardstorefixtures.com</a></p>\n<p><i class=\"fas fa-map-marker-alt\"></i> 1 King Street West, 4800-50, Toronto, ON, M5H 1A1</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f29654ba-0b69-4810-b8fc-c5813c159242",
+        "effda531-ae53-41ee-96b9-a76176cdb244",
+        "2e130cc8-15cf-48c3-a799-4a680478b9f1"
+      ],
+      "settings": {
+        "alignment": "left"
+      }
+    },
+    "footer-bottom": {
+      "type": "footer-bottom",
+      "blocks": {
+        "19bc2c03-6c90-4c3c-b4fb-9a19650c92cc": {
+          "type": "card",
+          "settings": {}
+        },
+        "8ed1fe83-6a67-4098-bfe2-7aa0b6853d30": {
+          "type": "card",
+          "settings": {}
+        },
+        "632ccf59-fc5e-49ee-bc0b-bc36576595f4": {
+          "type": "card",
+          "settings": {}
+        },
+        "dc6f1d35-9475-4d14-8ca6-8fd50c05b5a2": {
+          "type": "card",
+          "settings": {}
+        },
+        "0df54c9e-e7fb-4bd4-9a3a-3f7529fef5d8": {
+          "type": "card",
+          "settings": {}
+        },
+        "5a13a9fc-fc10-4f98-8307-61448e0bf39a": {
+          "type": "card",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "19bc2c03-6c90-4c3c-b4fb-9a19650c92cc",
+        "8ed1fe83-6a67-4098-bfe2-7aa0b6853d30",
+        "632ccf59-fc5e-49ee-bc0b-bc36576595f4",
+        "dc6f1d35-9475-4d14-8ca6-8fd50c05b5a2",
+        "0df54c9e-e7fb-4bd4-9a3a-3f7529fef5d8",
+        "5a13a9fc-fc10-4f98-8307-61448e0bf39a"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_country_selector": true,
+        "enable_locale_selector": false
+      }
+    }
+  },
+  "order": [
+    "6b091212-cc85-46f3-bfb3-365088f0de87",
+    "1ee99ce3-4e43-4dab-9f46-9b0e9c33eec8",
+    "footer-main",
+    "footer-bottom"
+  ]
+}

@@ -1,0 +1,42 @@
+<div class="madix_tabpage tabs">
+  {% assign a = 1 %}
+  {% for block in section.blocks %}
+    {% if block.type == 'block-1' %}
+      <div class="tab tab_list{% if a == 1 %} active{% endif %}" data-tab="{{ block.settings.tabb_url}}">
+        {{ block.settings.tab_title }}
+      </div>
+    {% endif %}
+    {% assign a = a | plus: 1 %}
+  {% endfor %}
+</div>
+
+<div id="content" class="tab_content"></div>
+  
+{% schema %}
+{
+  "name": "Tab area",
+  "blocks":[
+      {
+        "type": "block-1",
+        "name": "Tab items",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tab_title",
+            "label": "Tab Title"
+          },
+          {
+            "type": "url",
+            "id": "tabb_url",
+            "label": "Tab Link"
+          }
+        ]
+      }
+    ],
+   "presets": [
+    {
+      "name": "Tab area"
+    }
+  ]
+}
+{% endschema %}

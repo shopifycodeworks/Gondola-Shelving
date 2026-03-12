@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "779b7339-4db6-4af7-81db-04263cdfaa10": {
+      "type": "banner-with-text",
+      "disabled": true,
+      "settings": {
+        "page_title": false,
+        "page_heading": "",
+        "banner_video": ""
+      }
+    },
+    "33978005-ae51-49ef-a9d1-79e0c4e03b6d": {
+      "type": "madix-catalog",
+      "blocks": {
+        "d6eea5f6-31db-4d0f-b1a9-28e593520d89": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5fc9351171546dd8f8293dff_salle_vaccin_1_003_-p-800.jpg",
+            "catalog_head": "Mobile Privacy",
+            "pdf": "mobile-privacy-screen"
+          }
+        },
+        "0c19992a-63b2-40d0-9518-a757fea4745f": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5faa9aab63e1797f22bd7773_Salle_de_telemedecine__L2.jpg",
+            "catalog_head": "Telemedicine room",
+            "pdf": "telemedicine-room"
+          }
+        },
+        "3a46519c-8604-4cb7-8c84-e56bb2ab930f": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5fa4229a82ba15bf877d5376_Salle_Ouverte3bweb.jpg",
+            "catalog_head": "Privacy Room",
+            "pdf": "private-room"
+          }
+        },
+        "ecc68024-0f96-443d-9014-50cf6ef227bf": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aaba015810125ec5216_5ed9578fff9ca89721377789_TommyGun-Toronto-p-800.jpg",
+            "catalog_head": "Tommy Gun’s Barbershop",
+            "pdf": "tommy-gun-s-barbershop"
+          }
+        },
+        "20540ea9-84f8-46f8-8d7f-79f789d24a2e": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aaa9170021526e5e17f_5ed592f6ed9cf6bc871835e5_20190405-Leafly-NiagaraHerbalist-41-1024x640-p-800.jpg",
+            "catalog_head": "The Herbalist",
+            "pdf": "the-herbalist"
+          }
+        },
+        "47341b11-9b16-408d-927b-0b7608f55422": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aa9050e96311a5fcbb9_5ed95759917709f4f5c0cd36_SynMed_Jean-Coutu_0.jpg",
+            "catalog_head": "SynMed Jean Coutu",
+            "pdf": "synmed-jean-coutu"
+          }
+        },
+        "f69c2ffa-30c1-4e3e-894e-d47046b8d1d9": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aa8959e4f192f2961f1_5ed9574a9a3ce099c553fdab_saq-laval-HQ1-p-800.jpg",
+            "catalog_head": "SAQ Laval",
+            "pdf": "saq-laval"
+          }
+        },
+        "55035b00-2b89-4aba-baae-c4fdcde3aa1b": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aa8b17cb49e08dea55d_5ed9563f9a3ce0b6ec53f92d_02_-Bayview-LCBO-4.jpg",
+            "catalog_head": "Canadian liquor stores",
+            "pdf": "canadian-liquor-stores"
+          }
+        },
+        "927728d3-866e-4abb-bfbd-5a94e3929070": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aa63d5a438e85345a8f_5ed9572ed30b1845e16d0004_Pharmacie-Proxim-Labrie-01-p-1080.jpg",
+            "catalog_head": "Proxim Claude Labrie Pharmacy",
+            "pdf": "proxim-claude-labrie-pharmacy"
+          }
+        },
+        "4a055272-74a8-4d4a-8c48-d196a6409ea1": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aa54eef5528c7d842b6_5ed957089a3ce0439253fc55_Pharmacie-Proxim-Bellemare01-p-1080.jpg",
+            "catalog_head": "Proxim Bellemare Pharmacy",
+            "pdf": "proxim-bellemare-pharmacy"
+          }
+        },
+        "af440768-d40f-4df0-a9b7-1e2baec20be8": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aa4c76b3b7b37116636_5ed956db02f98128e042984e_Familliprix-Nicolet-01-p-1080.jpg",
+            "catalog_head": "Familiprix Nicolet Pharmacy",
+            "pdf": "familiprix-nicolet-pharmacy"
+          }
+        },
+        "7f80cd54-d049-4478-80ce-39b26f600bb6": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aa37025a35411916c97_5ed956bff17e61000786cd01_Soudure-Oxyge80ge-Bois-Francs01-p-1080.jpg",
+            "catalog_head": "Oxygène Bois-Francs",
+            "pdf": "oxygene-bois-francs"
+          }
+        },
+        "bc5e2b31-e8e7-46cd-8b05-d30c8ee37190": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95aa29170025bb9e5e147_5ed9568f02f98113b54293b0_3001-Hospital-Gate-2-Oakville-large-004-7-P7A0942-1492x1000-72dpi-1491x994-p-800.jpg",
+            "catalog_head": "Oakville Hospital – Origins Pharmacy",
+            "pdf": "oakville-hospital-origins-pharmacy"
+          }
+        },
+        "3080abc9-f99b-4b1f-acb9-ab5a70e8885a": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95a9f8018b2e7b641ad08_5ed956266aedf8849dc5526a_Pharmacie-Familiprix_Montre81al-01-p-1080.jpg",
+            "catalog_head": "Familiprix avenue du Parc",
+            "pdf": "familiprix-avenue-du-parc"
+          }
+        },
+        "3229ec02-935f-4286-a4a7-d1a7837ad210": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95a9fb17cb400e9dea4d8_5ed956016f6ea23cb7e2c792_E81picerie-De81panneur-JMartel.jpg",
+            "catalog_head": "Épicerie Dépanneur J. Martel",
+            "pdf": "epicerie-depanneur-j-martel"
+          }
+        },
+        "2c3c9642-58e2-4757-ba99-3fdf4ae5802d": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed955e7fd9f323a47604d91_Buck-Or-Two_Victoriaville_02-p-1080.jpg",
+            "catalog_head": "Dollar ou Deux – Victoriaville",
+            "pdf": "dollar-ou-deux-victoriaville"
+          }
+        },
+        "fb72092a-36ab-4442-89e6-9816fb4472ee": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95a9d4eef553489d842ab_5ed955c0f81380f03546235b_Boutique-De81cathlon--Ste-Foy-Que81bec_01-p-1080.jpg",
+            "catalog_head": "Décathlon – Quebec City",
+            "pdf": "decathlon-quebec-city"
+          }
+        },
+        "0bf1e104-db5b-4bb3-8e2b-3323492400e1": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95a9c8018b244d641acfc_5ed9559e7a82597daff93782_Boutique-De81cathlon--Centre-Eaton-Montre81al_1-p-1080.jpg",
+            "catalog_head": "Décathlon – Montreal",
+            "pdf": "decathlon-montreal"
+          }
+        },
+        "b6012c2c-e1bc-4f36-9d4b-62f06057482b": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95a9bd00c32dbfb7ad5d1_5ed95581f81380a76b4621f4_Clinique-Ve81te81rinaire-CDMV_1-p-1080.jpg",
+            "catalog_head": "Veterinary clinics",
+            "pdf": "veterinary-clinics"
+          }
+        },
+        "f8b86132-fab9-4072-b4bc-82a63dbe9370": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95a9aa0158116c4ec516f_5ed955627a82597f59f9341c_Magasin-Buropro-Citation-Drummondville_-p-800.jpg",
+            "catalog_head": "Buropro Citation",
+            "pdf": "buropro-citation"
+          }
+        },
+        "db186024-1764-4834-b532-229d3b455c71": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ef0bc979879b2668825a0ea_Boutique-Animo-St-Jerome-04-p-800.jpg",
+            "catalog_head": "Animo etc Saint-Jérôme",
+            "pdf": "animo-etc-saint-jerome"
+          }
+        },
+        "5cded0c6-1794-4e6d-96dc-7df7431aca61": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95a98ff3799e388437962_5ed9550b02f9812588427c73_Boutique-Animo_Mirabel-p-1080.jpg",
+            "catalog_head": "Animo etc Mirabel",
+            "pdf": "animo-etc-mirabel"
+          }
+        },
+        "7c75b9c4-5d01-4c0c-8be6-4208420539d4": {
+          "type": "catalogs",
+          "settings": {
+            "catalog_image": "shopify://shop_images/5ed95a979170024d9ae5e10e_5ed954ddf17e612bf986c4da_Bo-Dollar-Magasin-Laval-p-1080.jpg",
+            "catalog_head": "Bo-Dollar",
+            "pdf": "bo-dollar"
+          }
+        }
+      },
+      "block_order": [
+        "d6eea5f6-31db-4d0f-b1a9-28e593520d89",
+        "0c19992a-63b2-40d0-9518-a757fea4745f",
+        "3a46519c-8604-4cb7-8c84-e56bb2ab930f",
+        "ecc68024-0f96-443d-9014-50cf6ef227bf",
+        "20540ea9-84f8-46f8-8d7f-79f789d24a2e",
+        "47341b11-9b16-408d-927b-0b7608f55422",
+        "f69c2ffa-30c1-4e3e-894e-d47046b8d1d9",
+        "55035b00-2b89-4aba-baae-c4fdcde3aa1b",
+        "927728d3-866e-4abb-bfbd-5a94e3929070",
+        "4a055272-74a8-4d4a-8c48-d196a6409ea1",
+        "af440768-d40f-4df0-a9b7-1e2baec20be8",
+        "7f80cd54-d049-4478-80ce-39b26f600bb6",
+        "bc5e2b31-e8e7-46cd-8b05-d30c8ee37190",
+        "3080abc9-f99b-4b1f-acb9-ab5a70e8885a",
+        "3229ec02-935f-4286-a4a7-d1a7837ad210",
+        "2c3c9642-58e2-4757-ba99-3fdf4ae5802d",
+        "fb72092a-36ab-4442-89e6-9816fb4472ee",
+        "0bf1e104-db5b-4bb3-8e2b-3323492400e1",
+        "b6012c2c-e1bc-4f36-9d4b-62f06057482b",
+        "f8b86132-fab9-4072-b4bc-82a63dbe9370",
+        "db186024-1764-4834-b532-229d3b455c71",
+        "5cded0c6-1794-4e6d-96dc-7df7431aca61",
+        "7c75b9c4-5d01-4c0c-8be6-4208420539d4"
+      ],
+      "settings": {
+        "heading": ""
+      }
+    }
+  },
+  "order": [
+    "779b7339-4db6-4af7-81db-04263cdfaa10",
+    "33978005-ae51-49ef-a9d1-79e0c4e03b6d"
+  ]
+}

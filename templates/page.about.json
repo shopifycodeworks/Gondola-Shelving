@@ -1,0 +1,146 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "3dbe7dd2-dc27-42d8-af62-3d5e49690110": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "be948168-1c2e-441a-b130-4596813251e6": {
+      "type": "about-content",
+      "settings": {
+        "image-width": "medium",
+        "main_image": "shopify://shop_images/shopping-mall-construction-2021-09-24-04-15-38-utc.jpg",
+        "layout": "right",
+        "image_text_heading": "THINKERS, DESIGNERS, COLLABORATORS.",
+        "content": "At Vanguard Store Fixtures, we take pride in having the capabilities of outfitting a retail store from start to finish—regardless of its size. Our Canadian-manufactured gondola shelving, custom millwork, and precision metal-fabricated products, combined with strong partnerships with North America’s most trusted food equipment brands, distinguish us in the industry.\n\nWhether you're launching a new store or revitalizing an existing one, our experienced team ensures your space is set up with the highest quality fixtures and equipment in the most efficient and strategic layout. Through detailed floor plans and 3D renderings, we guarantee your store will match expectations—down to the finest detail.\n\nPartnering with us means more than just accessing premium products; it means gaining peace of mind. Our comprehensive, end-to-end solutions are tailored to your unique retail needs, supported by expert guidance every step of the way. With a commitment to quality, innovation, and seamless execution, Vanguard ensures your store is not only fully equipped but also optimized for customer experience and sales performance.\n\nTrust us to bring your retail vision to life—with precision, reliability, and excellence."
+      }
+    },
+    "6f632430-a694-4acc-a318-61493c06e9a3": {
+      "type": "mission-vission",
+      "blocks": {
+        "f686088d-a84f-43f1-ba73-7dd1c929ac5b": {
+          "type": "vision-mission",
+          "settings": {
+            "icon": "shopify://shop_images/vision_1.png",
+            "heading": "Vision",
+            "desc": "<p>To be North America's leading provider of retail solutions for all aspiring business owners looking to setup their store, all in one place.</p>"
+          }
+        },
+        "fd3749e9-021c-481c-abe4-b5c5f64f3f03": {
+          "type": "vision-mission",
+          "settings": {
+            "icon": "shopify://shop_images/mission_1.png",
+            "heading": "Mission",
+            "desc": "<p>We will grant retail store owners peace of mind when designing and setting up their locations with the most efficient layouts and qualitative fixtures.</p>"
+          }
+        },
+        "dd2db3fc-8fa5-4479-88db-06a4386c7512": {
+          "type": "vision-mission",
+          "settings": {
+            "icon": "shopify://shop_images/value.png",
+            "heading": "Values",
+            "desc": "<p>Customer Satisfaction, Superior Quality, Innovation, Integrity, Teamwork, Trust, Transparency.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f686088d-a84f-43f1-ba73-7dd1c929ac5b",
+        "fd3749e9-021c-481c-abe4-b5c5f64f3f03",
+        "dd2db3fc-8fa5-4479-88db-06a4386c7512"
+      ],
+      "settings": {}
+    },
+    "dd1ff148-49c4-415e-bb48-0b2e262edeb6": {
+      "type": "about-content",
+      "settings": {
+        "image-width": "medium",
+        "main_image": "shopify://shop_images/mature-businessman-with-smartphone-in-a-hotel-2022-03-30-20-23-44-utc.jpg",
+        "layout": "right",
+        "image_text_heading": "We Truly care",
+        "content": "At Vanguard Store Fixtures, \"We Truly Care\" is more than a tagline—it’s the foundation of everything we do. We recognize that your retail space is more than just square footage; it’s the first physical expression of your brand and a vital part of the customer experience. That’s why we’re committed to providing high-quality store fixtures that not only optimize your layout but also embody your unique brand identity.\n\nOur dedicated team goes beyond standard service, offering personalized consultations, expert design support, and timely, reliable installations. With Vanguard, you’re not just purchasing fixtures—you’re entering a partnership focused on transforming your retail vision into a functional, compelling reality."
+      }
+    },
+    "e3439e6f-5825-4473-b1a5-c82f117aa208": {
+      "type": "store-about-slider",
+      "blocks": {
+        "61671a44-1d06-4076-a9c7-cd63e59d9a0b": {
+          "type": "store",
+          "settings": {
+            "image": "shopify://shop_images/floor-plan-size-icon.png",
+            "slider-heading": "Store Planning",
+            "desc": "<p>Our store planning process is a vital first step toward realizing your retail vision. It involves meticulous attention to detail and the creation of 2D and 3D drawings that provide a comprehensive layout of the retail space. By laying down a solid foundation, we ensure a well-organized, efficient, and customer-friendly environment that perfectly aligns with your brand.</p>",
+            "btn_text": "Learn more",
+            "btn_link": "#"
+          }
+        },
+        "148aa6e8-f120-456c-a461-ca08c0007453": {
+          "type": "store",
+          "settings": {
+            "image": "shopify://shop_images/architectural-icon.png",
+            "slider-heading": "Interior Design",
+            "desc": "<p>The aesthetic part of your brand comes to life in the interior design phase. We focus on creating a visually appealing environment that encapsulates your brand ethos. Our design professionals select colors, materials, and finishes that not only elevate the customer experience but also align with your brand message, creating a cohesive and inviting ambiance.</p>",
+            "btn_text": "Learn more",
+            "btn_link": "#"
+          }
+        },
+        "a78580d4-2401-449d-a9ea-42834094f183": {
+          "type": "store",
+          "settings": {
+            "image": "shopify://shop_images/manufacturing-production-icon.png",
+            "slider-heading": "Manufacturing Process:",
+            "desc": "<p>Our manufacturing process is an intricate blend of quality and customization. From store fixtures to custom millwork and metal fabrication, each component is manufactured to the highest standards of quality. We employ cutting-edge technology and skilled craftsmen to ensure that every piece we produce is functional, durable, and perfectly in tune with your store's design.</p>",
+            "btn_text": "Learn more",
+            "btn_link": "#"
+          }
+        },
+        "d4958ac9-fffd-490f-9bce-f9ec7cbab404": {
+          "type": "store",
+          "settings": {
+            "image": "shopify://shop_images/toolbox-repairing-icon.png",
+            "slider-heading": "Delivery & Installation:",
+            "desc": "<p>We understand that time is of the essence in the retail world, so we ensure a smooth delivery and installation process. Our expert team handles each aspect meticulously, from logistics to on-site assembly. The fixtures arrive safely, are assembled with precision, and are thoroughly inspected to ensure that they align with your store's planned design and functionality.</p>",
+            "btn_text": "Learn more",
+            "btn_link": "#"
+          }
+        },
+        "07feebbe-98d5-428e-8f3a-cc1630ed2b79": {
+          "type": "store",
+          "settings": {
+            "image": "shopify://shop_images/guarantee-icon.png",
+            "slider-heading": "Guaranteed Satisfaction",
+            "desc": "<p>Customer satisfaction is our ultimate goal and number one priority. We stand behind the quality of our work and offer comprehensive post-installation support. If for any reason you’re not completely satisfied, we commit to making it right. Our mission is to deliver a retail environment that not only meets but exceeds your expectations, ensuring your business thrives.</p>",
+            "btn_text": "Learn more",
+            "btn_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "61671a44-1d06-4076-a9c7-cd63e59d9a0b",
+        "148aa6e8-f120-456c-a461-ca08c0007453",
+        "a78580d4-2401-449d-a9ea-42834094f183",
+        "d4958ac9-fffd-490f-9bce-f9ec7cbab404",
+        "07feebbe-98d5-428e-8f3a-cc1630ed2b79"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "3dbe7dd2-dc27-42d8-af62-3d5e49690110",
+    "be948168-1c2e-441a-b130-4596813251e6",
+    "6f632430-a694-4acc-a318-61493c06e9a3",
+    "dd1ff148-49c4-415e-bb48-0b2e262edeb6",
+    "e3439e6f-5825-4473-b1a5-c82f117aa208"
+  ]
+}

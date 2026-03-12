@@ -1,0 +1,311 @@
+{{ 'section-rich-text.min.css' | asset_url | stylesheet_tag }}
+
+{% capture section_style_attr %}
+  style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;"
+{% endcapture %}
+
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <section class="homepage-sections-wrapper homepage-sections-wrapper--white" {{ section_style_attr }}>
+  {% when 'light' %}
+    <section class="homepage-sections-wrapper homepage-sections-wrapper--light" {{ section_style_attr }}>
+  {% when 'accent' %}
+    <section class="homepage-sections-wrapper homepage-sections-wrapper--accent" {{ section_style_attr }}>
+  {% when 'dark' %}
+    <section class="homepage-sections-wrapper homepage-sections-wrapper--dark home-custom-sec" {{ section_style_attr }}>
+{% endcase %}
+
+{% if section.settings.button_label != blank and section.settings.button_link != blank %}
+  {% assign show_button = true %}
+{% endif %}
+
+{% if section.settings.text != blank or show_button %}
+  {% assign show_text_or_button = true %}
+{% endif %}
+
+  <div class="container">
+    {% comment %}
+    <div class="custom-project-text-wrap">
+    {% if section.settings.title != blank or section.settings.subheading != blank %}
+      <div class="rich-text__header row">
+        <div class="col">
+          <div class="rich-text__title-bar title-bar custom-font">
+            {% if section.settings.subheading != blank %}
+              <h3 class="type-subheading type-subheading--1 wow fadeIn{% if section.settings.title != blank %} typography--padding-bottom{% endif %}">{{ section.settings.subheading | escape }}</h3>
+            {% endif %}
+            {% if section.settings.title != blank %}
+              <h3 class="rich-text__heading wow fadeIn{% if section.settings.subheading != blank %} delay-1{% endif %}">{{ section.settings.title | escape }}</h3>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if show_text_or_button %}
+      <div class="homepage-indiv-section-wrapper grid--full homepage-featured-content-wrapper wow fadeInUp delay-1">
+        <div class="row">
+          <div class="col-md-12 col-12 homepage-featured-rich-text">
+
+            {% if section.settings.text != blank %}
+              <div class="rich-text__text rte featured-row__subtext textarea">{{ section.settings.text }}</div>
+            {% endif %}
+
+            {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+              <div class="rich-text__btn">
+                <a href="{{ section.settings.button_link }}" class="btn">
+                  {{ section.settings.button_label }}
+                </a>
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>{% endcomment %}
+
+    <div class="footer-map-wrap">
+      <div class="responsive-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.9668710395067!2d-79.3781453!3d43.6488576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb3282bfffff%3A0xdb49c756ac1d491d!2s1%20King%20St%20W%20Suite%204800%20-%2050%2C%20Toronto%2C%20ON%20M5H%201A1%2C%20Canada!5e0!3m2!1sen!2sin!4v1689920014712!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="footer-map-after">
+          <div class="footer-r-arrow">
+            <i class="fa fa-arrow-right"></i>
+          </div>
+          <div class="map-right">
+            <h4>{{ section.settings.subheading | escape }}</h4>                        
+            <p>{{ section.settings.title | escape }}</p>
+           <div class="mail-flex">
+            <div class="mail-details">
+            <p>{{ section.settings.text }}</p>            
+          </div>
+          <div class="mail-btn">
+             <a href="{{ section.settings.button_link }}" class="btn">
+                  {{ section.settings.button_label }}
+                </a>
+          </div>
+        </div>        
+      </div>  
+    </div>
+  </div>
+</div>
+</section>
+
+
+{% schema %}
+{
+    "name": {
+        "en": "Rich text",
+        "de": "Rich Text",
+        "es": "Texto enriquecido",
+        "fr": "Texte riche",
+        "pt-PT": "Texto rico"
+    },
+    "class": "homepage-section--rich-text-wrapper",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": {
+                "en": "Color scheme",
+                "de": "Farbschema",
+                "es": "Esquema de colores",
+                "fr": "Palette de couleurs",
+                "pt-PT": "Esquema de cores"
+            },
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": {
+                        "en": "White",
+                        "de": "Weiß",
+                        "es": "Blanco",
+                        "fr": "Blanc",
+                        "pt-PT": "Branco"
+                    }
+                },
+                {
+                    "value": "light",
+                    "label": {
+                        "en": "Light",
+                        "de": "Licht",
+                        "es": "Luz",
+                        "fr": "Clair",
+                        "pt-PT": "Claro"
+                    }
+                },
+                {
+                    "value": "accent",
+                    "label": {
+                        "en": "Feature",
+                        "de": "Eigenschaft",
+                        "es": "Destacado",
+                        "fr": "Caractéristique",
+                        "pt-PT": "Funcionalidade"
+                    }
+                },
+                {
+                    "value": "dark",
+                    "label": {
+                        "en": "Dark",
+                        "de": "Dunkel",
+                        "es": "Oscuro",
+                        "fr": "Foncé",
+                        "pt-PT": "Escuro"
+                    }
+                }
+            ],
+            "info": {
+                "en": "Set your color schemes in 'Theme settings' > 'Colors'",
+                "de": "Legen Sie Ihre Farbschemata in 'Themeneinstellungen' > 'Farben' fest",
+                "es": "Configurar las combinaciones de color en 'Configuración del tema' > 'Colores'",
+                "fr": "Définissez vos jeux de couleurs dans « Paramètres du thème » > « Couleurs »",
+                "pt-PT": "Defina os seus esquemas de cor em 'Definições de tema' > 'Cores'"
+            }
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": {
+            "en": "Subheading",
+            "de": "Unterüberschrift",
+            "es": "Subencabezado",
+            "fr": "Sous-rubrique",
+            "pt-PT": "Subtítulo"
+          }
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": {
+                "en": "Heading",
+                "de": "Überschrift",
+                "es": "Encabezado",
+                "fr": "Rubrique",
+                "pt-PT": "Título"
+            },
+            "default": {
+                "en": "Welcome to our store",
+                "de": "Willkommen in unserem Store",
+                "es": "Bienvenido a nuestra tienda",
+                "fr": "Bienvenue dans notre magasin",
+                "pt-PT": "Bem-vindo/a à nossa loja"
+            }
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            },
+            "default": {
+                "en": "<p>Use this text block to show store announcements, advertise products and collections, or simply welcome visitors to your store.</p>",
+                "de": "<p>Verwenden Sie diesen Textblock, um Ankündigungen zu zeigen, Produkte und Kollektionen zu bewerben oder einfach Besucher in Ihrem Store willkommen zu heißen.</p>",
+                "es": "<p>Utilice este bloque de texto para mostrar avisos de la tienda, anunciar productos y colecciones o, simplemente, para dar la bienvenida a los visitantes. </p>",
+                "fr": "<p>Utilisez ce bloc de texte pour afficher les annonces en magasin, annoncer des produits et des collections ou simplement accueillir les visiteurs dans votre magasin. </p>",
+                "pt-PT": "<p>Utilize este bloco de texto para exibir anúncios da loja, publicitar produtos e coleções, ou apenas dar as boas-vindas às pessoas que visitam a sua loja.</p>"
+            }
+        },
+        {
+            "type": "url",
+            "id": "button_link",
+            "label": {
+                "en": "Button link",
+                "de": "Buttonlink",
+                "es": "Enlace del botón",
+                "fr": "Lien du bouton",
+                "pt-PT": "Ligação do botão"
+            },
+            "info": {
+                "en": "Required to show the button",
+                "de": "Notwendig, den Button zu zeigen",
+                "es": "Es necesario mostrar el botón",
+                "fr": "Requis pour afficher le bouton",
+                "pt-PT": "Necessário para exibir o botão"
+            }
+        },
+        {
+            "type": "text",
+            "id": "button_label",
+            "label": {
+                "en": "Button label",
+                "de": "Button-Bezeichnung",
+                "es": "Etiqueta del botón",
+                "fr": "Étiquette du bouton",
+                "pt-PT": "Etiqueta do botão"
+            }
+        },
+        {
+          "type": "header",
+          "content": "Section spacing"
+        },
+        {
+          "type": "select",
+          "id": "section_width",
+          "label": "Width",
+          "options": [
+              {
+                "value": "container-full-width",
+                "label": "Full width"
+              },
+              {
+                "value": "container",
+                "label": "Page width"
+              },
+              {
+                "value": "container-narrow",
+                "label": "Narrow"
+              }
+          ],
+          "default": "container-narrow"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "label": "Padding top",
+          "min": 0,
+          "max": 200,
+          "step": 2,
+          "unit": "px",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "label": "Padding bottom",
+          "min": 0,
+          "max": 200,
+          "step": 2,
+          "unit": "px",
+          "default": 50
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "en": "Rich text",
+                "de": "Rich Text",
+                "es": "Texto enriquecido",
+                "fr": "Texte riche",
+                "pt-PT": "Texto rico"
+            },
+            "category": {
+                "en": "Text",
+                "de": "Text",
+                "es": "Texto",
+                "fr": "Texte",
+                "pt-PT": "Texto"
+            }
+        }
+    ],
+    "enabled_on": {
+      "groups": ["footer"],
+      "templates": ["index", "collection", "list-collections", "blog", "article", "page", "password", "404", "cart", "search", "product"]
+    }
+}
+{% endschema %}

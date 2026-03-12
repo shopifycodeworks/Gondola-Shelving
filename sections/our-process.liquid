@@ -1,0 +1,117 @@
+<div class="comm-padd video-sec">
+  <div class="container-fluid p-0">
+    <div class="row m-0">
+      <div class="index-section col-md-12 p-0">
+        <div class="page-width feature-row homepage-featured-content">
+          <div class="feature-row__container">
+            {% for block in section.blocks %}
+              <div class="row align-items-center m-0">
+                {% capture image_layout %}
+                <div class="feature-row__item col-md-6 p-0">
+                  <div class="process">
+                    {% if block.settings.main_image != blank %}
+                      <div class="section-homepage-video">
+                        {% include 'responsive-image' with block.settings.main_image, alt: block.settings.main_image.alt, class:
+                        'feature-row__image feature-block-image' %}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+                {% endcapture %}
+
+                {% if block.settings.layout == 'left' %}
+                  {{ image_layout }}
+                {% endif %}
+
+                <div class="col-md-6 p-0">
+                  <div class="process-details">
+                    {% if block.settings.background_image != blank %}
+                      <div class="process-bg-pic">
+                        <img src="{{ block.settings.background_image | img_url:'master' }}">
+                      </div>
+                    {% endif %}
+                    <div class="cont">
+                      {% if block.settings.process_head != blank %}
+                        {{ block.settings.process_head }}
+                      {% endif %}
+                      {% if block.settings.process_desc != blank %}
+                        {{ block.settings.process_desc }}
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+
+                {% if block.settings.layout == 'right' %}
+                  {{ image_layout }}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Our Process",
+  "tag": "section",
+  "class": "process",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Main Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "process",
+      "name": "Process",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image"
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Layout",
+          "default": "left",
+          "options": [
+              {
+                  "value": "left",
+                  "label": "Image on left"
+              },
+              {
+                  "value": "right",
+                  "label":"Image on right"
+              }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "richtext",
+          "id": "process_head",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "process_desc",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Process"
+    }
+  ]
+}
+{% endschema %}

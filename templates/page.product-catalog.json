@@ -1,0 +1,39 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "e3a99e3c-1c7e-45a8-9661-29e45bb26a78": {
+      "type": "product-catalogs-pdf",
+      "settings": {
+        "heading": "Vic Global Gondola Shelving",
+        "btn_text": "OPEN NOW",
+        "btn_link": "https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Vic_Global_Gondola_Shelving.pdf?v=1692863560"
+      }
+    },
+    "5686106c-7f2b-42c2-8bbe-e5cb3c242125": {
+      "type": "product-catalogs-pdf",
+      "settings": {
+        "heading": "Vic Pharmacy RxZone2",
+        "btn_text": "OPEN NOW",
+        "btn_link": "https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Vic_Pharmacy_RxZone2.pdf?v=1692863560"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "e3a99e3c-1c7e-45a8-9661-29e45bb26a78",
+    "5686106c-7f2b-42c2-8bbe-e5cb3c242125"
+  ]
+}

@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row collection-row">
+    <div class="page-width col-md-12">
+      {% if section.settings.heading != blank %}
+        <div class="title-bar custom-font">
+          <h2>
+            <span>{{ section.settings.heading | escape }}</span>
+          </h2>
+          <div class="clear"></div>
+        </div>
+      {% endif %}
+
+      <div class="collection-grid">
+        <div class="row">
+          {% for block in section.blocks %}
+            <div class="col-lg-4 col-md-6 indiv-collection-grid-homepage">
+              <div class="homepage-collection-grid-inner">
+                <div class="grid-image">
+                  <a href="{{ block.settings.pdf }}" class="grid-image--centered">
+                    {% if block.settings.catalog_image != blank %}
+                      <img src="{{ block.settings.catalog_image | img_url: 'master' }}">
+                    {% endif %}
+                  </a>
+                </div>
+              </div>
+
+              <div class="hp-title homepage-collection-link collection-text-wrap ">
+                {% if block.settings.catalog_head != blank %}
+                  <a href="{{ block.settings.pdf }}" class="collection-item__title custom-font">
+                    {{- block.settings.catalog_head -}}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Madix catalog",
+  "class": "madix-catalog comm-padd",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "catalogs",
+      "name": "catalogs",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "catalog_image",
+          "label": "Select Image"
+        },
+        {
+          "type": "text",
+          "id": "catalog_head",
+          "label": "Heading"
+        },
+        {
+          "type": "page",
+          "id": "pdf",
+          "label": "Select Page"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Madix catalog"
+    }
+  ]
+}
+{% endschema %}

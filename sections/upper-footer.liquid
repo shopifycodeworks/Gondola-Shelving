@@ -1,0 +1,79 @@
+<div
+  class="footer-conBg commonBg sec-gapTop sec-gapBottom"
+  style="background-image:url('https://cdn.shopify.com/s/files/1/0784/4941/0346/files/ftrBg.jpg?v=1703057595');"
+>
+  <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+      <div class="ftrRow">
+      {%- for block in section.blocks -%}
+        <div class="footer-conBox">
+          <div class="footer-conBox-inner">
+            <div class="footer-conBoxTop">
+              {% if block.settings.image != blank %}
+                <div class="footer-conIcon">
+                  <img src="{{ block.settings.image | img_url:'master' }}">
+                </div>
+              {% endif %}
+              {% if block.settings.heading != blank %}
+                <div class="footer-conTitle">
+                  <h5>{{ block.settings.heading }}</h5>
+                </div>
+              {% endif %}
+            </div>
+            {% if block.settings.content != blank %}
+              <div class="footer-conBottom">
+                <p>{{ block.settings.content }}</p>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Upper Footer",
+  "tag":"section",
+  "class":"upper-footerSec",
+  "settings": [
+     {
+      "type": "text",
+      "id": "button_lebel",
+      "label": "Button Lebel"
+    }
+ ],
+
+    "blocks": [
+  {
+    "type": "card",
+    "name": "content",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      }
+    ]
+  }
+],
+    "presets": [
+  {
+    "name": "Upper Footer"
+  }
+]
+}
+{% endschema %}

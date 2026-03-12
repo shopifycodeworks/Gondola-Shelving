@@ -1,0 +1,9 @@
+
+{% comment %} This nav have no submenu dropdowns and is used only for the top bar navigation {% endcomment %}
+<ul class="nav {{ class }}">
+  {% for link in linklists[nav--top].links %}
+    <li>
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

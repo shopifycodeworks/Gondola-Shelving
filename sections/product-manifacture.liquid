@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="common-btnBtn">
+    <a href="#" class="common-btn">{{ section.settings.button_lebel }}</a>
+  </div>
+
+  <div class="product-other-info-tabs">
+    {%- for block in section.blocks -%}
+      <div class="productTitle-wrap">
+        <p>{{ block.settings.heading }}</p>
+      </div>
+    
+      <div class="productInfo-wrap">
+        <p>{{ block.settings.content }}</p>
+      </div>
+
+      <div class="manifacture-img-wrap">
+        <img src="{{ block.settings.image | img_url:'master' }}">
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Product Manifacture",
+  "tag":"section",
+  "class":"product-manifacture section",
+  "settings": [
+     {
+      "type": "text",
+      "id": "button_lebel",
+      "label": "Button Lebel"
+    }
+ ],
+
+   "blocks": [
+  {
+    "type": "card",
+    "name": "info",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading"
+      },
+       {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+
+    ]
+  }
+],
+"presets": [
+  {
+    "name": "Products manifacture"
+  }
+]
+}
+{% endschema %}

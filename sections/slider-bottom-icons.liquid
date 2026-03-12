@@ -1,0 +1,169 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="companyOtherDetails">
+        <ul>
+          <li>
+            {% if section.settings.free_shippingIcon != blank %}
+              <div class="otherDetsilaIcon freeIcon">
+                <img src="{{ section.settings.free_shippingIcon | img_url: 'master' }}" alt="Free Shipping Icon">
+              </div>
+            {% endif %}
+            <div class="otherdetsila">
+              {% if section.settings.free_ship_text != blank %}
+                <h5>{{ section.settings.free_ship_text }}</h5>
+              {% endif %}
+              {% if section.settings.free_ship_title != blank %}
+                <p>{{ section.settings.free_ship_title }}</p>
+              {% endif %}
+            </div>
+          </li>
+
+          <li>
+            {% if section.settings.expertIcon != blank %}
+              <div class="otherDetsilaIcon">
+                <img src="{{ section.settings.expertIcon | img_url: 'master' }}">
+              </div>
+            {% endif %}
+            <div class="otherdetsila">
+              {% if section.settings.expert_text != blank %}
+                <h5>{{ section.settings.expert_text }}</h5>
+              {% endif %}
+              {% if section.settings.expert_title != blank %}
+                <p>{{ section.settings.expert_title }}</p>
+              {% endif %}
+            </div>
+          </li>
+
+          <li>
+            {% if section.settings.canadianIcon != blank %}
+              <div class="otherDetsilaIcon canadianIcon">
+                <img src="{{ section.settings.canadianIcon | img_url: 'master' }}">
+              </div>
+            {% endif %}
+            <div class="otherdetsila">
+              {% if section.settings.canadian_text != blank %}
+                <h5>{{ section.settings.canadian_text }}</h5>
+              {% endif %}
+              {% if section.settings.canadian_title != blank %}
+                <p>{{ section.settings.canadian_title }}</p>
+              {% endif %}
+            </div>
+          </li>
+
+          <li>
+            {% if section.settings.matchingIcon != blank %}
+              <div class="otherDetsilaIcon">
+                <img src="{{ section.settings.matchingIcon | img_url: 'master' }}">
+              </div>
+            {% endif %}
+            <div class="otherdetsila">
+              {% if section.settings.matching_text != blank %}
+                <h5>{{ section.settings.matching_text }}</h5>
+              {% endif %}
+              {% if section.settings.matching_title != blank %}
+                <p>{{ section.settings.matching_title }}</p>
+              {% endif %}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Slider Bottom Section",
+  "tag":"section",
+  "class":"banner-bottom-sec",
+  "settings": [
+           {
+              "type": "header",
+              "content": "After Banner Slider Content"
+            },
+            {
+              "type": "header",
+              "content": "Free Shipping"
+            },
+          {
+            "type": "image_picker",
+            "id": "free_shippingIcon",
+            "label": "Free Shipping Icon"
+          },
+          {
+            "type": "text",
+            "id": "free_ship_text",
+            "label": "Free Shipping Text"
+          },
+          {
+            "type": "text",
+            "id": "free_ship_title",
+            "label": "Free Shipping Title"
+          },
+          {
+                "type": "header",
+                "content": "Expert help"
+            },
+          {
+            "type": "image_picker",
+            "id": "expertIcon",
+            "label": "Expert help Icon"
+          },
+          {
+            "type": "text",
+            "id": "expert_text",
+            "label": "Expert help Text"
+          },
+          {
+            "type": "text",
+            "id": "expert_title",
+            "label": "Expert help Title"
+          },
+          {
+                "type": "header",
+                "content": "CANADIAN"
+            },
+          {
+            "type": "image_picker",
+            "id": "canadianIcon",
+            "label": "CANADIAN Icon"
+          },
+          {
+            "type": "text",
+            "id": "canadian_text",
+            "label": "CANADIAN Text"
+          },
+          {
+            "type": "text",
+            "id": "canadian_title",
+            "label": "CANADIAN Title"
+          },
+          {
+                "type": "header",
+                "content": "PRICE MATCHING"
+            },
+          {
+            "type": "image_picker",
+            "id": "matchingIcon",
+            "label": "PRICE MATCHING Icon"
+          },
+          {
+            "type": "text",
+            "id": "matching_text",
+            "label": "PRICE MATCHING Text"
+          },
+          {
+            "type": "text",
+            "id": "matching_title",
+            "label": "PRICE MATCHING Title"
+          }
+     ],
+
+    "presets": [
+  {
+    "name": "Slider Bottom Section"
+  }
+]
+}
+{% endschema %}

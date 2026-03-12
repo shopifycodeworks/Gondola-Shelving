@@ -1,0 +1,55 @@
+<section class="Restaurant-sec comm-padd">
+  <!-- <div class="container"> -->
+  <div class="">
+    <div class="Restaurant-sec-row">
+      {% for block in section.blocks %}
+        {% if block.type == 'block-1' %}
+          <div class="row">
+            <div class="col-md-6">
+              <div class="rest-col-right">
+                <img
+                  src="{{ block.settings.vision_image | img_url: 'master' }}"
+                  alt="{{ block.settings.vision_image.alt }}"
+                >
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="rest-col-left">
+                {{ block.settings.vision_text }}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Store vision details",
+  "blocks":[
+    {
+      "type": "block-1",
+      "name": "Block 1",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "vision_image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "vision_text",
+          "label": "textarea"
+        }
+      ]
+    }
+  ],
+  "presets": [
+      {
+          "name": "Store vision details"
+      }
+  ]
+}
+{% endschema %}

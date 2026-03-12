@@ -1,0 +1,196 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "single-product",
+      "blocks": {
+        "product-title": {
+          "type": "product-title",
+          "settings": {}
+        },
+        "rich_text_UfaaAq": {
+          "type": "rich_text",
+          "settings": {
+            "text": "<p>Build custom-length store aisles for retail, grocery and hardware stores.</p><ul><li>Simple - Purchase one starter unit and the desired number of add-on units to build each aisle. Built-in grooves to connect multiple units together.</li><li>Steel base with 1/4\" ck pegboard panel.</li><li>Assembles in minutes. No tools required.</li><li><strong>Single-Sided Units</strong> - Perfect for placement against walls. Shelves sold separately.</li><li><strong>Double-Sided Units</strong> - Display product on both sides in hallways and main aisles. (2) 16\" shelves included.</li><li><strong>Shelves - 500 lb.</strong> capacity. Powder-coat finish. Built-in price channel.</li><li><a href=\"/collections\" target=\"_blank\" title=\"All collections\">Gondola Shelving Accessories</a> sold separately.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "product-title",
+        "rich_text_UfaaAq"
+      ],
+      "settings": {
+        "short_desc": "",
+        "model_no": "",
+        "show_out_of_stock_email": false,
+        "form_position": "below-payment-buttons",
+        "warrenty_image": "shopify://shop_images/Scene1_1.png",
+        "country_image": "shopify://shop_images/Scene1_1.png",
+        "size_guide_link": "",
+        "size_guide_message": "What's my size?",
+        "size_guide_variant": "Size",
+        "image_size": "small",
+        "thumbnail_position": "below",
+        "enable_zoom": false,
+        "enable_video_loop": false
+      }
+    },
+    "godola_builder_UJAR9h": {
+      "type": "godola-builder",
+      "blocks": {
+        "block_ztTntX": {
+          "type": "block",
+          "settings": {
+            "collection": "double-sided-gondola-starter"
+          }
+        },
+        "block_VYwhaQ": {
+          "type": "block",
+          "settings": {
+            "collection": "gondola-double-sided-add-on"
+          }
+        },
+        "block_nRnYEQ": {
+          "type": "block",
+          "settings": {
+            "collection": "gondola-end-cap"
+          }
+        },
+        "block_YzRdch": {
+          "type": "block",
+          "settings": {
+            "collection": "gondola-single-sided-wall-starter"
+          }
+        },
+        "block_UAJVLW": {
+          "type": "block",
+          "settings": {
+            "collection": "gondola-single-sided-wall-add-on"
+          }
+        },
+        "block_gRzJkF": {
+          "type": "block",
+          "settings": {
+            "collection": "gondola-shelves"
+          }
+        }
+      },
+      "block_order": [
+        "block_ztTntX",
+        "block_VYwhaQ",
+        "block_nRnYEQ",
+        "block_YzRdch",
+        "block_UAJVLW",
+        "block_gRzJkF"
+      ],
+      "name": "Gondola Builder",
+      "settings": {}
+    },
+    "faq_ChHVrt": {
+      "type": "faq",
+      "blocks": {
+        "tab_content_XhXMFc": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Question",
+            "text": "<p>Answer</p>"
+          }
+        },
+        "tab_content_XDJify": {
+          "type": "tab_content",
+          "settings": {
+            "question": "Question",
+            "text": "<p>Answer</p>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_content_XhXMFc",
+        "tab_content_XDJify"
+      ],
+      "custom_css": [
+        ".acc-num {display: none;}"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "title": "Frequently Asked Questions",
+        "sub_heading": "",
+        "faq_icon": "caret",
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "template_contact_form_VzPLmJ": {
+      "type": "template--contact-form",
+      "blocks": {
+        "name_input_hq6r9g": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "email_input_MRXMMC": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "tel_input_6zgRwJ": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "message_input_4tnTRE": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "name_input_hq6r9g",
+        "email_input_MRXMMC",
+        "tel_input_6zgRwJ",
+        "message_input_4tnTRE"
+      ],
+      "name": "Contact form",
+      "settings": {
+        "section_color_scheme": "light",
+        "section_heading": "Need help with your store planning?",
+        "section_subheading": "Have a question, or want a product recommendation?",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendation",
+      "disabled": true,
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "Customers Also Bought"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "godola_builder_UJAR9h",
+    "faq_ChHVrt",
+    "template_contact_form_VzPLmJ",
+    "product-recommendations"
+  ]
+}

@@ -1,0 +1,201 @@
+{{ 'section-image-with-text.min.css' | asset_url | stylesheet_tag }}
+
+{% case section.settings.image-width %}
+  {% when 'extra-small' %}
+    {%- assign image_width_columns = 2 -%}
+    {%- assign content_width_columns = 10 -%}
+  {% when 'small' %}
+    {%- assign image_width_columns = 3 -%}
+    {%- assign content_width_columns = 9 -%}
+  {% when 'medium' %}
+    {%- assign image_width_columns = 4 -%}
+    {%- assign content_width_columns = 8 -%}
+  {% when 'large' %}
+    {%- assign image_width_columns = 5 -%}
+    {%- assign content_width_columns = 7 -%}
+  {% when 'extra-large' %}
+    {%- assign image_width_columns = 6 -%}
+    {%- assign content_width_columns = 6 -%}
+{% endcase %}
+
+{% capture section_style_attr %}
+  style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;"
+{% endcapture %}
+
+{% case section.settings.colors %}
+  {% when 'white' %}
+  <section class="homepage-sections-wrapper homepage-sections-wrapper--white counter-sec" {{ section_style_attr }}>
+  {% when 'light' %}
+  <section class="homepage-sections-wrapper homepage-sections-wrapper--light counter-sec" {{ section_style_attr }}>
+  {% when 'accent' %}
+  <section class="homepage-sections-wrapper homepage-sections-wrapper--accent counter-sec" {{ section_style_attr }}>
+  {% when 'dark' %}
+  <section class="homepage-sections-wrapper homepage-sections-wrapper--dark counter-sec" {{ section_style_attr }}>
+{% endcase %}
+
+    <div class="{{ section.settings.section_width }} container">
+      <div class="counter-heading">
+      {% if section.settings.heading != balnk %}
+        <h2 class="type-heading type-heading--1 wow fadeIn text-center">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.heading != balnk %}
+        <p class="type-subheading type-subheading--1 wow fadeIn text-center">{{ section.settings.sub_heading }}</p>
+      {% endif %}
+      </div>
+    	<div class="row">
+        <div class="index-section col-md-12">
+          <div class="page-width feature-row homepage-featured-content">
+          	<div class="feature-row__container">
+              <div class="row feature-row{% if section.settings.layout == 'right' %} feature-row--image-right{% endif %}">
+                <div class="feature-row__image col-lg-6 col-md-12 col-12 wow fadeIn">
+                  {% if section.settings.main_image != blank %}
+                    {% include 'responsive-image' with section.settings.main_image, alt: section.settings.main_image.alt %}
+                  {% endif %}
+                </div>
+
+                <div class="feature-row__text col-lg-6 col-md-12 mill-work col-12 wow fadeInUp">
+                  <div class="feature-row__text--inner">
+                    {% if section.settings.content != blank %}
+                      <div class="rte featured-row__subtext textarea">{{ section.settings.content }}</div>
+                    <ul>
+                      {% for block in section.blocks %}
+                        <li>{{ block.settings.text }}</li>
+                      {% endfor %}
+                    </ul>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% schema %}
+{
+    "name": "Millwork Image & text",
+    "tag": "section",
+    "class": "homepage-section--text-and-image-wrapper",
+    "settings": [
+        {
+            "type": "select",
+            "id": "colors",
+            "label": "select color",
+            "default": "white",
+            "options": [
+                {
+                    "value": "white",
+                    "label": "White"
+                },
+                {
+                    "value": "light",
+                    "label": "Light"
+                },
+                {
+                    "value": "accent",
+                    "label": "Accent"
+                },
+                {
+                    "value": "dark",
+                    "label": "Dark"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "image-width",
+            "label": {
+                "en": "Image width",
+                "de": "Bildbreite",
+                "es": "Ancho de la imagen",
+                "fr": "Largeur de l'image",
+                "pt-PT": "Largura de imagem"
+            },
+            "default": "medium",
+            "options": [
+                {
+                    "value": "extra-small",
+                    "label": "Extra Small"
+                },
+                {
+                    "value": "small",
+                    "label": "Small"
+                },
+                {
+                    "value": "medium",
+                    "label": "Medium"
+                },
+                {
+                    "value": "large",
+                    "label": "Large"
+                },
+                {
+                    "value": "extra-large",
+                    "label": "Extra large"
+                }
+            ]
+        },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Main Heading"
+      },
+      {
+        "type": "html",
+        "id": "sub_heading",
+        "label": "Sub Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "main_image",
+        "label": "Select Image"
+      },
+      {
+            "type": "select",
+            "id": "layout",
+            "label": "Layout",
+            "default": "left",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Image on left"
+                },
+                {
+                    "value": "right",
+                    "label":"Image on right" 
+                }
+            ]
+        },
+      {
+        "type": "inline_richtext",
+        "id": "content",
+        "label": "Image Text Content"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "list",
+        "name": "milwork content",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Millwork Image & text"
+        }
+    ],
+    "enabled_on": {
+      "groups": ["footer"],
+      "templates": ["index", "collection", "list-collections", "blog", "article", "page", "password", "404", "cart", "search", "product"]
+    }
+}
+{% endschema %}

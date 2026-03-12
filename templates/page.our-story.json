@@ -1,0 +1,55 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "207d5f74-f22c-45d7-9d47-f9a7f8ab104a": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": false,
+        "banner_image": "shopify://shop_images/banner.png",
+        "banner_video": ""
+      }
+    },
+    "053cce52-35bf-4c5a-9a9d-5b8a12804908": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "image-width": "large",
+        "heading": "",
+        "main_image": "shopify://shop_images/Group_647.png",
+        "layout": "left",
+        "image_text_heading": "our story",
+        "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "a0eb636a-7373-4b89-8648-f986316e9800": {
+      "type": "madix-our-story",
+      "settings": {
+        "story_image": "shopify://shop_images/collage3.png",
+        "title": "Our Story",
+        "content": "<p>Formed in 1956, Dixie Craft Manufacturing began as a small, family-owned manufacturer in Alabama. Maytex Store Fixtures, a similar manufacturer in Texas, was established in 1962. The merger of Dixie Craft Manufacturing and Maytex Store Fixtures formed Madix, Inc. in 1982. With the acquisition of Spencer Products in 2003, the family-owned business has expanded its manufacturing facilities to include over 2.3 million square feet of production space.</p><p>Madix claims a rich history of technological innovation honed from extensive field research, cutting edge product development, and world-class delivery and installation solutions. Computer-automated order processing and manufacturing tracking systems control product costs and ensure quality control and speed of delivery. Madix works in partnership with retailers and national brands in a range of industries to design and facilitate the use of fixtures and racks for retail stores. National Installers, an affiliated company, provides installation services.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "207d5f74-f22c-45d7-9d47-f9a7f8ab104a",
+    "053cce52-35bf-4c5a-9a9d-5b8a12804908",
+    "a0eb636a-7373-4b89-8648-f986316e9800"
+  ]
+}

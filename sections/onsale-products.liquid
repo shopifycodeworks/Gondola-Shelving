@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div id="onsale-productImage-slider" class="owl-carousel owl-theme swiper-wrapper">
+      {% for product in section.settings.product_list %}
+        <div
+          class="onsale-productBox onsale-productBg"
+          style="background-image: url('{{ section.settings.background_image | img_url: 'master' }}')"
+        >
+          <div class="sale-icon-wrap">
+            {% if section.settings.show_button %}
+              Sale
+            {% endif %}
+          </div>
+
+          {% if product.featured_image != blank %}
+            <div class="img-wrap onsale-product-left">
+              <img src="{{ product.featured_image | img_url:'master' }}">
+            </div>
+          {% endif %}
+
+          <div class="onsale-product-right">
+            {% if product.title != blank %}
+              <div class="product-title-wrap">
+                <h4>{{ product.title }}</h4>
+              </div>
+            {% endif %}
+
+            <div class="collection-title-wrap">
+              {% for collection in product.collections %}
+                <p class="collection-title">{{ collection.title }}</p>
+              {% endfor %}
+
+              <p>{{ product.type }}</p>
+              <h6>{{ product.price | money }}</h6>
+              {% if product.url != blank %}
+              <div class="common-btnBtn">
+                <a href="{{ product.url }}" class="common-btn btnShop">Shop Now</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+    "name": "Onsale Products",
+    "tag": "section",
+    "class": "onsale-products-wrapper",
+    "settings": [
+      {
+        "type":"image_picker",
+        "id":"background_image",
+        "label":"Background Image"
+      },
+      {
+      "type": "checkbox",
+      "id": "show_button",
+      "default": true,
+      "label": "Show Sale Text"
+    },
+      {
+        "type": "product_list",
+        "id": "product_list",
+        "label": "Products"
+      }
+    ],
+    "presets": [
+        {
+            "name": "Onsale Products"
+
+        }
+    ]
+}
+{% endschema %}

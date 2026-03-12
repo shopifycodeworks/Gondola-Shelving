@@ -1,0 +1,75 @@
+<div class="store-about-slider-wrap comm-padd ">
+  
+<div class="container">
+  <div class="owl-carousel owl-theme" id="store-slider">
+    {% for block in section.blocks %}
+      <div class="item">
+        <div class="service-col">
+          {% if block.settings.image != blank %}
+            <img src="{{ block.settings.image | img_url: 'master' }}" class="icon-image">
+          {% endif %}
+          {% if block.settings['slider-heading'] != blank %}
+            <h4 class="type-subheading type-subheading--1 info-columns--title">
+              {{ block.settings['slider-heading'] }}
+            </h4>
+          {% endif %}
+          <div class="info-columns--text">
+            {% if block.settings.desc != blank %}
+              <p>{{ block.settings.desc }}</p>
+            {% endif %}
+            {% if block.settings.btn_text != blank %}
+              <a href="{{ block.settings.btn_link }}" class="a-text">{{ block.settings.btn_text }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+</div>
+{% schema %}
+{
+  "name": "Store About Slider",
+  "tag": "section",
+  "class": "store-about",
+  "blocks": [
+    {
+      "type": "store",
+      "name": "Store",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Select Image"
+        },
+        {
+          "type": "text",
+          "id": "slider-heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "button Lebel"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Store About Slider"
+    }
+  ]
+}
+{% endschema %}

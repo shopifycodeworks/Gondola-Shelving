@@ -1,0 +1,110 @@
+<div class="footer-bottom" data-wetheme-section-type="footer-bottom" data-wetheme-section-id="{{ section.id }}">
+  <div class="bottom-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="bottom-footer-row">
+           
+            <div class="pay-get-boxWrapper">
+              {%- for block in section.blocks -%}
+                <div class="pay-get-box">
+                  <img src="{{ block.settings.image | img_url:'master' }}">
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="copyright">
+              <p>
+                <a href="{{ routes.root_url }}"
+                  >&copy; {{ 'now' | date: '%Y' }}
+                  {{ shop.name -}}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Footer bottom"
+  },
+  "settings": [
+
+    {
+      "type": "header",
+      "content": {
+        "en": "Country\/region selector",
+        "de": "Auswahl für Land\/Region",
+        "es": "Selector de país\/región",
+        "fr": "Sélecteur de pays\/région",
+        "pt-PT": "Seletor de país\/região"
+      },
+      "info": {
+        "en": "To add a country\/region, go to your [market settings.](\/admin\/settings\/markets)",
+        "de": "Gehe zu den [Markteinstellungen](\/admin\/settings\/markets), um ein Land \/ eine Region hinzuzufügen.",
+        "es": "Para agregar un país\/región, ve a tu [configuración de mercado.](\/admin\/settings\/markets)",
+        "fr": "Pour ajouter un pays\/une région, allez à vos [paramètres du marché.](\/admin\/settings\/markets)",
+        "pt-PT": "Para adicionar um país\/região, vá a [configurações de mercado.](\/admin\/settings\/markets)"
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "label": {
+        "en": "Enable country\/region selector",
+        "de": "Auswahl für Land\/Region aktivieren",
+        "es": "Activar selector de país\/región",
+        "fr": "Activer le sélecteur de pays\/région",
+        "pt-PT": "Ativar seletor de país\/região"
+      },
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": {
+        "en": "Language Selector",
+        "de": "Sprachauswahl",
+        "es": "Selector de idioma",
+        "fr": "Sélecteur de langue",
+        "pt-PT": "Seletor de Idioma"
+      },
+      "info": {
+        "en": "To add a language, go to your [language settings.](/admin/settings/languages)",
+        "de": "Gehen Sie zu Ihren [Spracheinstellungen](/admin/settings/languages), um eine Sprache hinzuzufügen.",
+        "es": "Para agregar un idioma, ve a tu[configuración de idioma](/admin/settings/languages)",
+        "fr": "Pour ajouter une langue, allez dans vos [paramètres de langue.](/admin/settings/languages).",
+        "pt-PT": "Para adicionar um idioma, aceda a [definições de idioma.](/admin/settings/languages)"
+      }
+    }, {
+      "type": "checkbox",
+      "id": "enable_locale_selector",
+      "label": {
+        "en": "Enable language selector",
+        "de": "Sprachauswahl aktivieren",
+        "es": "Activar selector de idioma",
+        "fr": "Activer le sélecteur de langue",
+        "pt-PT": "Ativar seletor de idioma"
+      },
+      "default": false
+    }
+  ],
+     "blocks": [
+    {
+      "type": "card",
+      "name": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

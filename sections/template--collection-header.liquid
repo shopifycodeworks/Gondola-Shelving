@@ -1,0 +1,337 @@
+<!--
+  <style>
+    .add-read-more.show-less-content .second-section,
+    .add-read-more.show-less-content .read-less {
+      display: none;
+    }
+
+    .add-read-more.show-more-content .read-more {
+      display: none;
+    }
+
+    .add-read-more .read-more,
+    .add-read-more .read-less {
+      font-weight: bold;
+      margin-left: 2px;
+      color: blue;
+      cursor: pointer;
+    }
+
+    .add-read-more {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  </style>
+-->
+
+<div data-wetheme-section-type="template--collection-header" data-wetheme-section-id="{{ section.id }}">
+ 
+  {% assign has_collection_image = false %}
+
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'collection-image' %}
+        {% if collection.image %}
+          {% assign has_collection_image = true %}
+
+          <div class="collection-image-wrapper" {{ block.shopify_attributes }}>
+            {% if block.settings.collection_image_size == 'original' %}
+              {% render 'responsive-image' with collection.image, alt: collection.image.alt %}
+            {% else %}
+              <style>
+                {% capture selector %}.collection-image-wrapper .img{% endcapture %}
+                {% render 'responsive-background-image' with collection.image, selector: selector %}
+
+                .collection-image-wrapper .img {
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  height: {{ block.settings.collection_image_size }};
+                }
+              </style>
+              <div class="img"></div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+      {% when 'collection-title' %}
+        <div class="{{ collection.handle }} collection-title container" {{ block.shopify_attributes }}>
+           {% render 'breadcrumbs' %}
+          <div class="title-bar custom-font collection-header{% if collection.image and has_collection_image %} collection-header--with-image{% endif %}">
+            {% if collection.handle == 'all' %}
+              <h2>{{ 'products.general.products_title' | t }}</h2>
+            {% else %}
+              <h2>{{ collection.title }}</h2>
+            {% endif %}
+            <div class="clear"></div>
+          </div>
+        </div>
+
+      {% when 'collection-description' %}
+        {% if collection.description != empty %}
+          <div class="description-contents container">
+            <!-- {% if collection.description != empty %} -->
+              {% assign word_count = collection.description | split: ' ' | size %}
+            <div class="addReadMore showlesscontent halfcontent">
+              {{ collection.description | truncatewords: 54, '' -}}
+
+              {% if word_count > 54 %}
+              <a class="read-moreBtn" href="javascript:void(0);" onclick="readMore()">
+                <span><i class="fa-solid fa-caret-right"></i></span>
+                Read More
+              </a>
+                {% endif %}
+            </div>
+            <div class="addReadMore showlesscontent fullcontent" style="display: none;">
+              {{ collection.description }}
+              
+              <a class="read-lessBtn" href="javascript:void(0);" onclick="readLess()">
+                <span><i class="fa-solid fa-caret-up"></i></span>
+                Read Less
+              </a>
+            </div>
+            <!-- {% endif %} -->
+          </div>
+        {% endif %}
+    {% endcase %}
+  {% endfor %}
+</div>
+
+
+<script>
+  function readMore() {
+      var halfContent = document.querySelector('.halfcontent');
+      var fullContent = document.querySelector('.fullcontent');
+
+      halfContent.style.display = 'none';
+      fullContent.style.display = 'block';
+  }
+
+  function readLess() {
+      var halfContent = document.querySelector('.halfcontent');
+      var fullContent = document.querySelector('.fullcontent');
+
+      halfContent.style.display = 'block';
+      fullContent.style.display = 'none';
+  }
+</script>
+
+<!--
+  <script>
+      function readMore(){
+          var textState = document.querySelector('.fullcontent').style.display;
+          var buttonText = document.querySelector('.read-moreBtn').innerHTML;
+
+          if (textState === "none"){
+              buttonText = "Read Less";
+              textState = "block";
+          } else {
+              buttonText = "Read More";
+              textState = "none";
+          }
+
+          document.querySelector('.fullcontent').style.display = textState;
+          document.querySelector('.read-moreBtn').innerHTML = buttonText;
+      }
+  </script>
+-->
+
+<!--
+  <script>
+      function readMore() {
+          var halfContent = document.querySelector('.halfcontent');
+          var fullContent = document.querySelector('.fullcontent');
+
+          halfContent.style.display = 'none';
+          fullContent.style.display = 'block';
+      }
+  </script>
+-->
+
+
+
+<!--
+  <script>
+     document.addEventListener("DOMContentLoaded", function() {
+          var readMoreButtons = document.querySelectorAll('.halfcontent .read-moreBtn');
+          var readLessButtons = document.querySelectorAll('.fullcontent .read-lessBtn');
+
+          readMoreButtons.forEach(function(button) {
+              button.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  var parent = this.closest('.addReadMore');
+                  if (parent) {
+                      parent.classList.remove('showlesscontent', 'halfcontent');
+                      parent.classList.add('showmorecontent', 'fullcontent');
+                  }
+              });
+          });
+
+          readLessButtons.forEach(function(button) {
+              button.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  var parent = this.closest('.addReadMore');
+                  if (parent) {
+                      parent.classList.remove('showmorecontent', 'fullcontent');
+                      parent.classList.add('showlesscontent', 'halfcontent');
+                  }
+              });
+          });
+      });
+  </script>
+-->
+<!--
+  <script>
+      function toggleContent() {
+          var showLessContent = document.getElementById("showLessContent");
+          var showMoreContent = document.getElementById("showMoreContent");
+
+          if (showLessContent.style.display === 'none') {
+              showLessContent.style.display = 'block';
+              showMoreContent.style.display = 'none';
+          } else {
+              showLessContent.style.display = 'none';
+              showMoreContent.style.display = 'block';
+              read-moreBtn.style.display = 'none';
+          }
+      }
+  </script>
+-->
+
+<!--
+  <script>
+  jQuery(document).ready(function($){
+    $('.halfcontent .read-moreBtn').on('click', function(){
+      $('.halfcontent').hide();
+      $('.fullcontent').show();
+    });
+
+    $('.fullcontent .read-lessBtn').on('click', function(){
+      $('.fullcontent').hide();
+      $('.halfcontent').show();
+    });
+  });
+  </script>
+-->
+<!--
+  <script>
+     document.addEventListener("DOMContentLoaded", function() {
+        var readMoreButtons = document.querySelectorAll('.halfcontent .read-moreBtn');
+        var readLessButtons = document.querySelectorAll('.fullcontent .read-lessBtn');
+
+        readMoreButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                document.querySelector('.halfcontent').style.display = 'none';
+                document.querySelector('.fullcontent').style.display = 'block';
+            });
+        });
+
+        readLessButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                document.querySelector('.fullcontent').style.display = 'none';
+                document.querySelector('.halfcontent').style.display = 'block';
+            });
+        });
+    });
+  </script>
+-->
+{% schema %}
+{
+  "name": {
+    "en": "Collection header"
+  },
+  "class": "collection-header-wrapper",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "name": "Collection image",
+      "type": "collection-image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "This block determines the position of the collection image."
+        },
+        {
+            "type": "select",
+            "id": "collection_image_size",
+            "label": {
+                "en": "Collection image size",
+                "de": "Größe des Kollektionsbilds",
+                "es": "Tamaño de la imagen de la colección",
+                "fr": "Taille de l'image de la collection",
+                "pt-PT": "Tamanho da imagem da coleção"
+            },
+            "options": [
+              {
+                "value": "20vh",
+                "label": {
+                    "en": "Small",
+                    "de": "Klein",
+                    "es": "Pequeño",
+                    "fr": "Petite",
+                    "pt-PT": "Pequeno"
+                }
+              },
+              {
+                "value": "30vh",
+                "label": {
+                    "en": "Medium",
+                    "de": "Mittel",
+                    "es": "Mediano",
+                    "fr": "Moyenne",
+                    "pt-PT": "Médio"
+                }
+              },
+              {
+                "value": "40vh",
+                "label": {
+                    "en": "Large",
+                    "de": "Groß",
+                    "es": "Grande",
+                    "fr": "Grande",
+                    "pt-PT": "Grande"
+                }
+              },
+              {
+                "value": "original",
+                "label": {
+                    "en": "Original",
+                    "de": "Original",
+                    "es": "Original",
+                    "fr": "D'origine",
+                    "pt-PT": "Original"
+                }
+              }
+            ],
+            "default": "original"
+        }
+      ]
+    },
+    {
+        "name": "Collection title",
+        "type": "collection-title",
+        "limit": 1,
+        "settings": [
+          {
+              "type": "paragraph",
+              "content": "This block determines the position of the collection title."
+          }
+        ]
+    },
+    {
+        "name": "Collection description",
+        "type": "collection-description",
+        "limit": 1,
+        "settings": [
+          {
+              "type": "paragraph",
+              "content": "This block determines the position of the collection description."
+          }
+        ]
+    }
+  ]
+}
+{% endschema %}

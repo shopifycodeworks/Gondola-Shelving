@@ -1,0 +1,45 @@
+{% assign pdf_label = product.metafields.custom.pdf_label_.value | split: ',' %}
+{% assign pdf_links = product.metafields.custom.pdf_links_.value  %}
+{%- if pdf_links.size > 0 -%}
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-md-6">
+      <h4>Files</h4>
+      <div class="pdfFilesRow" id="pdfFilesRow-wrapp">
+        {%- if pdf_links.size > 0 -%}
+          {% for pdf_url in pdf_links %}
+            <div class="pdfIcon">
+              <a href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer">
+                <img class="pdfImg" src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/icon-doc-pdf.png?v=1710481706">
+              </a>
+              {%- if pdf_label.size > forloop.index0 -%}
+                 <p>{{ product.metafields.custom.pdf_label_.value[forloop.index0] | strip_html }}</p> 
+              {% endif %} 
+            </div>
+          {% endfor %}
+        {% endif %} 
+      </div>
+    </div>
+  </div>
+</div>
+ {% endif %} 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var ulElement = document.querySelector('.pdfFilesRow');
+    var imageCount = ulElement.querySelectorAll('.pdfIcon').length;
+    ulElement.classList.add('count-' + imageCount);
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "pdf Files",
+    "tag":"section",
+    "class":"pdf section sec-gapBottom",
+    "presets": [
+      {
+        "name": "pdf Files"
+      }
+    ]
+  }
+{% endschema %}

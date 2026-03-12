@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "f85e3833-5191-4f48-950e-429670ca90c1": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "90152e17-93d6-489d-b448-68314946b201": {
+      "type": "madix-cont",
+      "disabled": true,
+      "blocks": {
+        "e8daba7d-8550-47ed-9147-22f9c93a15ac": {
+          "type": "video",
+          "settings": {
+            "url": "",
+            "image1": "shopify://shop_images/mobile-banner1.jpg",
+            "image2": "shopify://shop_images/Refrigeration-Books.webp",
+            "image3": "shopify://shop_images/revolution-and-the-rise-of-refrigeration.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>From the initial design concept to site assessment, installation, logistics, and ongoing maintenance, we take pride in ensuring that your space maintains its pristine appearance from the very first day it opened. When you entrust your project to Vanguard, we treat your space as if it were our own, allowing us to meticulously manage every aspect of the project from start to finish. Our commitment to excellence extends to every detail, enabling us to deliver exceptional results that align with your vision. With Vanguard, you can rest assured that your retail space will receive the highest level of attention and care throughout the entire process.</p>"
+          }
+        },
+        "2146d1c7-541e-4170-89f4-75cd78927edf": {
+          "type": "video",
+          "settings": {
+            "url": "",
+            "image1": "shopify://shop_images/download.jpg",
+            "image2": "shopify://shop_images/images.jpg",
+            "image3": "shopify://shop_images/download_1.jpg",
+            "video_alignment": "right",
+            "title": "",
+            "video_description": "<p>From the initial design concept to site assessment, installation, logistics, and ongoing maintenance, we take pride in ensuring that your space maintains its pristine appearance from the very first day it opened. When you entrust your project to Vanguard, we treat your space as if it were our own, allowing us to meticulously manage every aspect of the project from start to finish. Our commitment to excellence extends to every detail, enabling us to deliver exceptional results that align with your vision. With Vanguard, you can rest assured that your retail space will receive the highest level of attention and care throughout the entire process.</p>"
+          }
+        },
+        "53652d1a-e4b4-4dd9-8fd1-443d0b2f933c": {
+          "type": "video",
+          "settings": {
+            "url": "",
+            "image1": "shopify://shop_images/download_f0981c82-62c8-4647-b522-7284018e4372.jpg",
+            "image2": "shopify://shop_images/images.jpg",
+            "image3": "shopify://shop_images/revolution-and-the-rise-of-refrigeration_0a076953-a2a9-4b3f-a099-5b8380956148.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>From the initial design concept to site assessment, installation, logistics, and ongoing maintenance, we take pride in ensuring that your space maintains its pristine appearance from the very first day it opened. When you entrust your project to Vanguard, we treat your space as if it were our own, allowing us to meticulously manage every aspect of the project from start to finish. Our commitment to excellence extends to every detail, enabling us to deliver exceptional results that align with your vision. With Vanguard, you can rest assured that your retail space will receive the highest level of attention and care throughout the entire process.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "e8daba7d-8550-47ed-9147-22f9c93a15ac",
+        "2146d1c7-541e-4170-89f4-75cd78927edf",
+        "53652d1a-e4b4-4dd9-8fd1-443d0b2f933c"
+      ],
+      "settings": {}
+    },
+    "0a252f52-f617-41d9-9bec-e157e32c0d3a": {
+      "type": "services-content",
+      "blocks": {
+        "1a8a982e-c236-42c0-840e-d010dc0d175b": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/mobile-banner1_277c7717-c547-421c-8f0c-f924b86b846c.jpg",
+            "video_alignment": "right",
+            "title": "Embrace Freshness with Trusted Refrigeration Brands at Vanguard Store Fixtures",
+            "video_description": "<p>Welcome to Vanguard Store Fixtures, your one-stop destination for cutting-edge refrigeration solutions across various renowned brands. In the fast-paced retail industry, the right refrigeration is key to maintaining product quality and safety. We offer a curated selection of the finest refrigeration systems, each designed to meet the diverse needs of retail environments. Your success is our goal, and our experts are here to guide you to the perfect refrigeration solution for your store.</p>"
+          }
+        },
+        "b22d6d8f-906a-4928-b5fb-34e504c44760": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/fridge-with-drinks-isolated-on-white-set-of-showc-2021-08-26-16-57-05-utc_61.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>Refrigeration is essential for different retail sectors, and we provide options for every need:</p><ul><li><strong>Grocery Stores:</strong> From fresh produce to frozen sections, we have brand selections that suit your requirements.</li><li><strong>Convenience Stores:</strong> Explore our range for cold beverages, snacks, and dairy products.</li><li><strong>Pharmacies:</strong> Trusted brands to store temperature-sensitive medications and vaccines.</li><li><strong>Bakeries:</strong> Discover solutions to keep cakes, pastries, and other perishables fresh.</li><li><strong>Liquor Stores:</strong> Browse our chilled options for wines, beers, and spirits.</li><li><strong>Floral Shops:</strong> Preserve the beauty of flowers with our specialized refrigeration options.</li><li><strong>Restaurants and Cafés:</strong> Wide variety of refrigeration for ingredients, desserts, and drinks.</li><li><strong>Meat and Seafood Markets:</strong> Safety and quality ensured with our top-tier refrigeration brands.</li></ul>"
+          }
+        },
+        "6e58ef2f-2907-423e-8e1e-54d5272edace": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/business-woman-shopping-at-the-grocery-store-2022-11-17-00-19-05-utc_72edf4f8-29a6-4264-9a12-ad9166bb138f.jpg",
+            "video_alignment": "right",
+            "title": "",
+            "video_description": "<p>At Vanguard Store Fixtures, we understand that the right refrigeration is more than just a preservation tool; it's a key component of your retail success. With our extensive selection of top brands and a keen understanding of retail dynamics, we guide you to the solutions that not only fit your needs but also resonate with your customers' expectations. Partner with us today, and let's create a retail space where quality meets innovation, guided by a team dedicated to your growth and success.</p>"
+          }
+        },
+        "0e2b1222-c93e-4b5b-8b19-105e5471e465": {
+          "type": "Image",
+          "disabled": true,
+          "settings": {
+            "image1": "shopify://shop_images/business-woman-shopping-at-the-grocery-store-2022-11-17-00-19-05-utc.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>Discover our high-quality store fixtures designed and made for modern grocery stores. Our versatile shelving units and custom-built display cases enhance product visibility and organization, delivering a seamless and visually appealing shopping experience. Some of the qualitative products we provide that all supermarkets need include:</p><ul><li>GONDOLA SHELVING</li><li>SLATWALL</li><li>VEGETABLE TABLES</li><li>CUSTOM COUNTERS</li><li>STOCKROOM SHELVING</li><li>SHOPPING CARTS</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "1a8a982e-c236-42c0-840e-d010dc0d175b",
+        "b22d6d8f-906a-4928-b5fb-34e504c44760",
+        "6e58ef2f-2907-423e-8e1e-54d5272edace",
+        "0e2b1222-c93e-4b5b-8b19-105e5471e465"
+      ],
+      "settings": {}
+    },
+    "9e9d1e45-42e5-476b-b4df-699b6db136b1": {
+      "type": "how-we-can-help",
+      "blocks": {
+        "c5a403c6-8d80-43fc-8d99-23750b940c15": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "8f2f682d-df3e-44ff-bf73-3a43e78a5542": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "52030ce0-a7d0-49ba-af34-2cdeeedcbd49": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "3eef5e5c-9dff-48d5-bde3-415d933d18ee": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "c5a403c6-8d80-43fc-8d99-23750b940c15",
+        "8f2f682d-df3e-44ff-bf73-3a43e78a5542",
+        "52030ce0-a7d0-49ba-af34-2cdeeedcbd49",
+        "3eef5e5c-9dff-48d5-bde3-415d933d18ee"
+      ],
+      "settings": {
+        "form_head": "<h3>LET US KNOW HOW WE CAN HELP</h3>",
+        "form_desc": "<p>Contact us today to create the perfect environment for your retail space, that not only attracts and retains customers, but also promotes efficient business operations.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "f85e3833-5191-4f48-950e-429670ca90c1",
+    "90152e17-93d6-489d-b448-68314946b201",
+    "0a252f52-f617-41d9-9bec-e157e32c0d3a",
+    "9e9d1e45-42e5-476b-b4df-699b6db136b1"
+  ]
+}

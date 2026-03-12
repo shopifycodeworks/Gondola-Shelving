@@ -1,0 +1,100 @@
+<div class="comm-padd video-sec">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="index-section col-md-12">
+        <div class="page-width feature-row homepage-featured-content">
+          <div class="feature-row__container">
+            {% for block in section.blocks %}
+              <div class="row">
+                {% capture video_layout %}
+              <div class="feature-row__item col-md-6">
+                <div class="wrapper video-img-wrap">
+                  {% if block.settings.image1 != blank %}
+                  <div class="item section-homepage-">
+                      {% include 'responsive-image' with block.settings.image1, alt: block.settings.image1.alt, class:
+                      'feature-row__image feature-block-image' %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              {% endcapture %}
+
+                {% if block.settings.video_alignment == 'left' %}
+                  {{ video_layout }}
+                {% endif %}
+
+                <div class="col-md-6">
+                  <div class=" section-header-padding custom-font">
+                    <div class="custom-fontWraper">
+                      {% if block.settings.title != blank %}
+                        <h2 class="type-heading type-heading--1 wow fadeIn">{{ block.settings.title | escape }}</h2>
+                      {% endif %}
+                      {% if block.settings.video_description != blank %}
+                        <p>{{ block.settings.video_description }}</p>
+                      {% endif %}
+                     </div>
+                  </div>
+                </div>
+
+                {% if block.settings.video_alignment == 'right' %}
+                  {{ video_layout }}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Services Content",
+  "tag": "section",
+  "class": "service-cont comm-padd",
+  "blocks": [
+    {
+      "type": "Image",
+      "name": "Image & text",
+      "settings": [
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Select Image"
+          },
+          {
+            "type": "select",
+            "id": "video_alignment",
+            "label": "Image Position",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "inline_richtext",
+            "id": "title",
+            "label": "Image Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "video_description",
+            "label": "Image Description"
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Content"
+    }
+  ]
+}
+{% endschema %}

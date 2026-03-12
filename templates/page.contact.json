@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "2255fb1c-9392-4bcc-a1a4-810d23b64b79": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "ec91c162-114b-4fda-ab2b-07d73574bffb": {
+      "type": "custom-inquire-form",
+      "blocks": {
+        "template--14661718540385__ec91c162-114b-4fda-ab2b-07d73574bffb-16837934707cf1b359-0": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "template--14661718540385__ec91c162-114b-4fda-ab2b-07d73574bffb-16837934707cf1b359-1": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "template--14661718540385__ec91c162-114b-4fda-ab2b-07d73574bffb-16837934707cf1b359-2": {
+          "type": "tel_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "template--14661718540385__ec91c162-114b-4fda-ab2b-07d73574bffb-16837934707cf1b359-3": {
+          "type": "message_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "template--14661718540385__ec91c162-114b-4fda-ab2b-07d73574bffb-16837934707cf1b359-0",
+        "template--14661718540385__ec91c162-114b-4fda-ab2b-07d73574bffb-16837934707cf1b359-1",
+        "template--14661718540385__ec91c162-114b-4fda-ab2b-07d73574bffb-16837934707cf1b359-2",
+        "template--14661718540385__ec91c162-114b-4fda-ab2b-07d73574bffb-16837934707cf1b359-3"
+      ],
+      "custom_css": [],
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "GET A FREE CONSULTATION",
+        "sub_heading": "By submitting the form below, you agree to receive SMS, email, or a phone call from the experts at Vanguard Store Fixtures\nwithin 24 hours.",
+        "location": "<p><strong>Vanguard Store Fixtures Inc.</strong><br/>1 King Street West, 4800-50, Toronto, ON, M5H 1A1</p>",
+        "timing": "<p><strong>Monday to Friday</strong> 9:00AM - 5:00PM EST<br/><strong>Saturday & Sunday</strong> - CLOSED</p>",
+        "number": "<p><strong>TOLL FREE LINE</strong></p><p><a href=\"tel:1-888-828-1688\" title=\"tel:1-888-828-1688\">1-888-828-1688</a></p>",
+        "email": "<p>WILL RESPOND WITHIN 24 HOURS</p>",
+        "section_width": "container-narrow",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "2255fb1c-9392-4bcc-a1a4-810d23b64b79",
+    "ec91c162-114b-4fda-ab2b-07d73574bffb"
+  ]
+}

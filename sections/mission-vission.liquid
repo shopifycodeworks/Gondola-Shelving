@@ -1,0 +1,60 @@
+<div class="mission-vission-sec"
+<div class="container-fluid">
+  <div class="row m-0">
+    {% for block in section.blocks %}
+      <div class="col-md-4 p-0">
+        <div class="mission-vission-col">
+        <div class="mission-vission-col-img">
+          {% if block.settings.icon != blank %}
+          <img src="{{ block.settings.icon | img_url:'master' }}">
+        {% endif %}
+        </div>
+        <div class="details">
+          {% if block.settings.heading != blank %}
+            <h4>{{ block.settings.heading }}</h4>
+          {% endif %}
+          {% if block.settings.desc != blank %}
+            <p>{{ block.settings.desc }}</p>
+          {% endif %}
+        </div>
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+</div>
+{% schema %}
+{
+  "name": "Mission Vision",
+  "tag": "section",
+  "class": "mission-vission",
+  "blocks": [
+    {
+      "type": "vision-mission",
+      "name": "Vission-Mission",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Select Icon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Icon Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Message"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mission Vision"
+    }
+  ]
+}
+{% endschema %}

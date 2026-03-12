@@ -1,0 +1,68 @@
+<div class="inner-banner">
+  <div class="inner-banner-img">
+    {% if section.settings.banner_image != blank %}
+      <img src="{{ section.settings.banner_image | img_url:'master' }}">
+    {% endif %}
+    {% if section.settings.banner_video != blank %}
+      <video class="banner_video" autoplay loop muted playsinline>
+        <source src="{{ section.settings.banner_video }}" type="video/mp4">
+      </video>
+    {% endif %}
+  </div>
+  <div class="inner-text">
+    <div class="container">
+      {% if section.settings.page_title != false %}
+        <h1>{{ page.title }}</h1>
+        <h1>{{ collection.title }}</h1>
+        <h1>{{ blog.title }}</h1>
+      {% else %}
+        {% if section.settings.page_heading != blank %}
+          <h1>{{ section.settings.page_heading }}</h1>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner",
+  "tag": "section",
+  "class": "banner-section-wrapper bannerInner",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "page_title",
+      "label": "Show Page Title",
+      "default": true,
+      "info": "If You want page title then check this field"
+    },
+    {
+      "type": "text",
+      "id": "page_heading",
+      "label": "Page Heading",
+      "info": "If You want custom page title then put in field"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "paragraph",
+      "content": "------------image or video----------------"
+    },
+    {
+      "type": "text",
+      "id": "banner_video",
+      "label": "Banner Video Link",
+      "info": "After Upload the downloaded video file in 'file section' then copy the link from file then upload the link here"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner"
+    }
+  ]
+}
+{% endschema %}

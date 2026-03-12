@@ -1,0 +1,176 @@
+{{ 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' | script_tag }}
+{{ 'section-video.min.css' | asset_url | stylesheet_tag }}
+
+{% case section.settings.image-width %}
+  {% when 'extra-small' %}
+    {%- assign image_width_columns = 2 -%}
+    {%- assign content_width_columns = 10 -%}
+  {% when 'small' %}
+    {%- assign image_width_columns = 3 -%}
+    {%- assign content_width_columns = 9 -%}
+  {% when 'medium' %}
+    {%- assign image_width_columns = 4 -%}
+    {%- assign content_width_columns = 8 -%}
+  {% when 'large' %}
+    {%- assign image_width_columns = 5 -%}
+    {%- assign content_width_columns = 7 -%}
+  {% when 'extra-large' %}
+    {%- assign image_width_columns = 6 -%}
+    {%- assign content_width_columns = 6 -%}
+{% endcase %}
+<div class="comm-padd video-sec">
+<div class="container">
+	<div class="row">
+      <div class="index-section col-md-12">
+          <div class="page-width feature-row homepage-featured-content">
+            <div class="feature-row__container">
+          {% for block in section.blocks %}
+            <div class="row align-items-center">
+              {% capture video_layout %}
+                <div class="feature-row__item col-md-6">
+                      <div class="wrapper video-img-wrap">
+                        {% if block.settings.url != blank %}
+                          <div class="section-homepage-video">
+<!--                             <video class="video">
+                              <source src="{{ block.settings.url }}" type="video/mp4">
+                            </video>
+                            <div class="playpause">
+                              <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/play_f58b3ee9-3056-4b5f-af3a-a31c5d439fb8.png?v=1683704187" title="Play" alt="Play">
+                            </div> -->
+                            {% if block.settings.image != blank %}
+                              {% include 'responsive-image' with block.settings.image, alt: block.settings.image.alt, class: 'feature-row__image feature-block-image' %}
+                            {% endif %}
+                          </div>
+                        {% endif %}
+                      </div>
+                </div>
+              {% endcapture %}
+
+          {% if block.settings.video_alignment == 'left' %}
+            {{ video_layout }}
+          {% endif %}
+            
+            <div class="col-md-6">
+                <div class=" section-header-padding custom-font">
+                {% if block.settings.title != blank %}
+                    <h2 class="type-heading type-heading--1 wow fadeIn">{{ block.settings.title | escape }}</h2>
+                {% endif %}
+                {% if block.settings.video_description != blank %}
+                    <p>{{ block.settings.video_description }}</p>
+                {% endif %}
+                </div>
+            </div>
+
+            {% if block.settings.video_alignment == 'right' %}
+              {{ video_layout }}
+            {% endif %}
+            </div>
+          {% endfor %}
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+{% schema %}
+{
+    "name": "Video with text",
+    "tag": "section",
+    "class": "aboutus-section--video-wrapper wow fadeIn",
+    "settings": [
+        {
+        "type": "select",
+        "id": "image-width",
+        "label": "Image width",
+        "default": "medium",
+        "options": [
+          {
+            "value": "extra-small",
+            "label": "Extra small"
+          },
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "extra-large",
+            "label": "Extra large"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "type": "video",
+        "name": "video & text",
+        "settings": [
+            {
+              "type": "text",
+              "id": "url",
+              "label": "Video URL"
+            },
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Select Image"
+            },
+            {
+              "type": "select",
+              "id": "video_alignment",
+              "label": "Image Position",
+              "default": "left",
+              "options": [
+                {
+                  "value": "left",
+                  "label": "Left"
+                },
+                {
+                  "value": "right",
+                  "label": "Right"
+                }
+              ]
+            },
+            {
+              "type": "inline_richtext",
+              "id": "title",
+              "label": "Video Heading"
+            },
+            {
+              "type": "richtext",
+              "id": "video_description",
+              "label": "Video Description"
+            }
+        ]
+      }      
+    ],
+    "presets": [
+        {
+            "name": "Video with text"
+        }
+    ],
+    "enabled_on": {
+        "templates": ["index", "collection", "list-collections", "blog", "article", "page", "password", "404", "cart", "search", "product"]
+    }
+}
+{% endschema %}
+
+<script>
+ /* jQuery('.video').parent().click(function() {
+    if (jQuery(this).children(".video").get(0).paused) {
+      jQuery(this).children(".video").get(0).play();
+      jQuery(this).children(".playpause").fadeOut();
+    } else {
+      jQuery(this).children(".video").get(0).pause();
+      jQuery(this).children(".playpause").fadeIn();
+    }
+  });*/
+</script>

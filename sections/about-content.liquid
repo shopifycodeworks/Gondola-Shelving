@@ -1,0 +1,122 @@
+{{ 'section-image-with-text.min.css' | asset_url | stylesheet_tag }}
+
+<section class="homepage-sections-wrapper homepage-sections-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="index-section col-md-12">
+        <div class="page-width feature-row homepage-featured-content">
+          <div class="feature-row__container">
+            <div class="row feature-row{% if section.settings.layout == 'right' %} feature-row--image-right{% endif %}">
+              <div class="feature-row__image col-lg-6 col-md-12 col-12 wow fadeIn">
+                <div class="im-left">
+                  {% if section.settings.main_image != blank %}
+                    {% include 'responsive-image' with section.settings.main_image,
+                      alt: section.settings.main_image.alt
+                    %}
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="feature-row__text col-lg-6 col-md-12 wow fadeInUp">
+                <div class="feature-row__text--inner im-right">
+                  <div class="title-bar custom-font">
+                    {% if section.settings.image_text_heading != blank %}
+                      <h2 class="wow fadeIn">{{ section.settings.image_text_heading }}</h2>
+                    {% endif %}
+                  </div>
+                  {% if section.settings.content != blank %}
+                    <div class="rte featured-row__subtext textarea">{{ section.settings.content }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+    "name": "About Content",
+    "tag": "section",
+    "class": "about-content-text",
+    "settings": [
+        {
+            "type": "select",
+            "id": "image-width",
+            "label": {
+                "en": "Image width",
+                "de": "Bildbreite",
+                "es": "Ancho de la imagen",
+                "fr": "Largeur de l'image",
+                "pt-PT": "Largura de imagem"
+            },
+            "default": "medium",
+            "options": [
+                {
+                    "value": "extra-small",
+                    "label": "Extra Small"
+                },
+                {
+                    "value": "small",
+                    "label": "Small"
+                },
+                {
+                    "value": "medium",
+                    "label": "Medium"
+                },
+                {
+                    "value": "large",
+                    "label": "Large"
+                },
+                {
+                    "value": "extra-large",
+                    "label": "Extra large"
+                }
+            ]
+        },
+      {
+        "type": "image_picker",
+        "id": "main_image",
+        "label": "Select Image"
+      },
+      {
+            "type": "select",
+            "id": "layout",
+            "label": "Layout",
+            "default": "left",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Image on left"
+                },
+                {
+                    "value": "right",
+                    "label":"Image on right"
+                }
+            ]
+        },
+      {
+        "type": "text",
+        "id": "image_text_heading",
+        "label": "Image Text Heading"
+      },
+      {
+        "type": "html",
+        "id": "content",
+        "label": "Image Text Content"
+      }
+    ],
+    "presets": [
+        {
+            "name": "About Content"
+        }
+    ],
+    "enabled_on": {
+      "groups": ["footer"],
+      "templates": ["index", "collection", "list-collections", "blog", "article", "page", "password", "404", "cart", "search", "product"]
+    }
+}
+{% endschema %}

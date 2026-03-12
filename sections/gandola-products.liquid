@@ -1,0 +1,76 @@
+{% assign test_product = all_products['end-cap-gondola'] %}
+{% assign gondola_collection = collections[section.settings.gondola_collection] %}
+
+<div class="product-type-a-wrapper" style="padding: 40px 0;">
+  <h2 style="font-size: 28px; font-weight: bold;">{{ section.settings.title }}</h2>
+  {% if gondola_collection and gondola_collection.products.size > 0 %}
+    {% for related_product in gondola_collection.products %}
+      <div class="product-type-a-block" style="margin-bottom: 60px; border-top: 1px solid #ddd; padding-top: 30px;">
+        <h3 style="font-size: 22px;">{{ related_product.title }}</h3>
+        <p style="margin-bottom: 20px;">Every aisle must have 1x STARTER</p>
+        <form method="post" action="/cart/add" enctype="multipart/form-data" id="product-form-{{ related_product.id }}">
+          <input type="hidden" name="id" value="{{ related_product.variants.first.id }}">
+          
+          <!-- Zepto widget placeholder -->
+          <div data-product-personalizer data-product-id="{{ related_product.id  }}"></div>
+        </form>
+      </div>
+    {% endfor %}
+    {% else %}
+      <p>No gondola products found in this collection.</p>
+  {% endif %}
+</div>
+
+
+<div class="zepto-test-wrapper" style="padding: 40px;">
+  <h2>Test Zepto Personalizer for One Product</h2>
+
+  {% if test_product %}
+    <h3>{{ test_product.title }}</h3>
+
+    <form method="post" action="/cart/add" enctype="multipart/form-data" id="product-form-{{ test_product.id }}">
+      <input type="hidden" name="id" value="{{ test_product.variants.first.id }}">
+      
+      <!-- Zepto widget placeholder -->
+      <div data-product-personalizer data-product-id="{{ test_product.id }}"></div>
+
+      <div style="margin-top: 20px;">
+        <label for="quantity" style="font-weight: bold;">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" style="width: 60px; margin-left: 10px;">
+      </div>
+
+      <button type="submit" style="margin-top: 15px; background-color: #d42027; color: white; padding: 10px 25px; font-weight: bold;">
+        Add to Cart
+      </button>
+    </form>
+  {% else %}
+    <p>Test product not found. Make sure the handle is correct.</p>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Gondola Collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Compatible Gondola Fixtures"
+    },
+    {
+      "type": "collection",
+      "id": "gondola_collection",
+      "label": "Select Gondola Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gondola Fixture Group",
+      "category": "Product"
+    }
+  ]
+}
+{% endschema %}
+

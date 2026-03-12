@@ -1,0 +1,68 @@
+<section class="home-blog comm-padd position-relative">
+  <div class="container">
+    {% if section.settings.head %}
+      <h2 class="wow fadeIn{% if section.settings.subheading != blank %} delay-1{% endif %}">
+        {{ section.settings.head | escape }}
+      </h2>
+    {% endif %}
+    <div class="row">
+      {% assign selected_blog = blogs[section.settings.blog] %}
+      {% for article in selected_blog.articles limit: 3 %}
+        <div class="col-md-4">
+          <div class="home-blog-col-wrap">
+            <div class="blog-img-wrap">
+              <img
+                src="{{ article | img_url: 'large' }}"
+              >
+            </div>
+            <div class="blog-content">
+              <div class="blog-publish-date">
+                <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/calender.png?v=1689068613">
+                <time
+                  class="updated blog--indiv-date"
+                  datetime="{{ article.published_at | date: format: 'long' }}"
+                  pubdate=""
+                >
+                  {{ article.published_at | date: '%d %b,%Y' }}
+                </time>
+              </div>
+              <h3>
+                <a href="{{ article.url }}">{{ article.title }}</a>
+              </h3>
+              <a href="{{ article.url }}" class="a-text">Read more</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="text-center wow fadeIn delay-1" style="margin: 0 auto">
+      <a href="{{ selected_blog.url }}" class="btn">
+        {{ 'blogs.general.view_all' | t }}
+      </a>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Home Custom Blog",
+  "tag": "section",
+  "class": "home-blog",
+  "settings": [
+    {
+      "type": "text",
+      "id": "head",
+      "label": "heading"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Select Blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Custom Blog"
+    }
+  ]
+}
+{% endschema %}

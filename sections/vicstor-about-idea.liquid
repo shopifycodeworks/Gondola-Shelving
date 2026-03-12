@@ -1,0 +1,68 @@
+<div class="container-fluid p-0">
+  <div class="header-cont text-center">
+    {% if section.settings.main_head != blank %}
+      {{ section.settings.main_head }}
+    {% endif %}
+    {% if section.settings.sec_head != blank %}
+      {{ section.settings.sec_head }}
+    {% endif %}
+  </div>
+  <div class="ideaRow">
+    <div class="row m-0">
+      {% for block in section.blocks %}
+        <div class="col-lg-3 col-sm-6">
+          <div class="idea-box">
+            {% if block.settings.idea_heading != blank %}
+              <h4>{{ block.settings.idea_heading }}</h4>
+            {% endif %}
+            {% if block.settings.desc != blank %}
+              {{ block.settings.desc }}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Vicstore About Idea",
+  "tag": "section",
+  "class": "about-idea",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "main_head",
+      "label": "Main Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "sec_head",
+      "label": "Another Main Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "idea",
+      "name": "idea",
+      "settings": [
+        {
+          "type": "text",
+          "id": "idea_heading",
+          "label": "Idea Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vicstore About Idea"
+    }
+  ]
+}
+{% endschema %}

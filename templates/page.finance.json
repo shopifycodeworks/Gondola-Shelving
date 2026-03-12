@@ -1,0 +1,232 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "71eef8a3-f8cf-4ca3-b8cd-dde52095a173": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": false,
+        "page_heading": "Financing",
+        "banner_image": "shopify://shop_images/Mask_group_1.png",
+        "banner_video": ""
+      }
+    },
+    "134d8920-fb3f-4caa-8f32-3d61a4e01316": {
+      "type": "perfect-equipment-finance",
+      "blocks": {
+        "c4fdfb26-0a52-4c2c-a45b-b76dcadf147d": {
+          "type": "list",
+          "settings": {
+            "finace_image": "shopify://shop_images/2023-07-25_11-24.png",
+            "finace_head": "Lease",
+            "finance_desc": "Get pre-approved while sourcing your equipment. Already know the equipment you are getting? Apply online today and receive your equipment tomorrow.",
+            "finance_terms": "<ul><li>Best terms & rates</li><li>Lease to own​</li><li>Any equipment</li></ul>"
+          }
+        },
+        "a5a40aa6-0b9e-4c7f-b68b-711644ebd4a4": {
+          "type": "list",
+          "settings": {
+            "finace_image": "shopify://shop_images/2023-07-25_11-24_1.png",
+            "finace_head": "Rent",
+            "finance_desc": "Unsure of a specific piece of equipment? Not sure if it will work for your business? Renting your kitchen equipment allows the versatility to adapt your business more than ever before.",
+            "finance_terms": "<ul><li>Term flexibility​</li><li>Low weekly payments</li><li>Open contract</li></ul>"
+          }
+        },
+        "162ed7b5-bc1d-483f-89a4-cceaeed287b3": {
+          "type": "list",
+          "settings": {
+            "finace_image": "shopify://shop_images/2023-07-25_11-30.png",
+            "finace_head": "Loan",
+            "finance_desc": "Has your business existed for over three months? Our working capital loans allows you to unlock cash for your business that can be used for non-asset-based lending.",
+            "finance_terms": "<ul><li>Daily & weekly payment terms</li><li>6-12 months</li><li>Up to $300,000</li></ul>"
+          }
+        },
+        "99b4d66b-6438-4824-98df-63f4f2c9dbda": {
+          "type": "list",
+          "settings": {
+            "finace_image": "shopify://shop_images/2023-07-25_11-30_1.png",
+            "finace_head": "BuyNowPayLater",
+            "finance_desc": "Introducing 0% financing designed for food service operators. Instant online approvals and digital documentation. Thousands of products including major brands.",
+            "finance_terms": "<ul><li>Online financing</li><li>Short terms</li><li>0% interest</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "c4fdfb26-0a52-4c2c-a45b-b76dcadf147d",
+        "a5a40aa6-0b9e-4c7f-b68b-711644ebd4a4",
+        "162ed7b5-bc1d-483f-89a4-cceaeed287b3",
+        "99b4d66b-6438-4824-98df-63f4f2c9dbda"
+      ],
+      "settings": {
+        "main_heading": "Pick your perfect Equipment financing solution",
+        "peragraph": "Financing restaurant equipment can be essential to help scale your foodservice business. We want to be there when you open your doors for the first time, for single equipment purchases, replacements, renovations, expanding to a multi-unit operation and more. We customize financial options based on your needs. Don’t limit yourself to just <a href=\"https://www.econolease.com/lease/\" target=\"_blank\">lease</a>, <a href=\"https://www.econolease.com/loan/\" target=\"_blank\">loan</a> or <a href=\"https://www.econolease.com/rent/\" target=\"_blank\">rent</a>. Some businesses require all three to get to the finish line and we do it the fastest with our innovative technology and custom automation."
+      }
+    },
+    "fc1624ae-1863-4409-9838-93d10af8e12a": {
+      "type": "about-numbers",
+      "blocks": {
+        "8c789f8b-d4c6-413a-95e2-bb583ee11ad3": {
+          "type": "number",
+          "settings": {
+            "number": "+90%",
+            "number_text": "Approval rating"
+          }
+        },
+        "94ec6a3c-8f73-404b-a956-4401a99ae55f": {
+          "type": "number",
+          "settings": {
+            "number": "$1,000 - $2M+",
+            "number_text": "Purchases from $1,000 – $2M+"
+          }
+        },
+        "329658aa-35ad-4983-a488-38081dc628a1": {
+          "type": "number",
+          "settings": {
+            "number": "$825M+",
+            "number_text": "$825 million in processed applications"
+          }
+        },
+        "f5b799df-e12f-4e9d-b3c3-c12cd7db4cba": {
+          "type": "number",
+          "settings": {
+            "number": "30,000+",
+            "number_text": "Over 30,000 customers and counting"
+          }
+        },
+        "bed2cf67-4368-4a82-a0b3-f94c4fed60ba": {
+          "type": "number",
+          "settings": {
+            "number": "24 hours",
+            "number_text": "24 Hours or less approval turnaround time"
+          }
+        }
+      },
+      "block_order": [
+        "8c789f8b-d4c6-413a-95e2-bb583ee11ad3",
+        "94ec6a3c-8f73-404b-a956-4401a99ae55f",
+        "329658aa-35ad-4983-a488-38081dc628a1",
+        "f5b799df-e12f-4e9d-b3c3-c12cd7db4cba",
+        "bed2cf67-4368-4a82-a0b3-f94c4fed60ba"
+      ],
+      "settings": {
+        "number_heading": "We're all about the numbers"
+      }
+    },
+    "ccd09edc-395c-487d-9478-3862987ac595": {
+      "type": "calculator",
+      "settings": {
+        "cost": "Calculate Your Costs",
+        "count": "Because Every Penny Counts",
+        "count_desc": "Getting lease, loan and rental payment quotes has never been easier. Input the pre-tax equipment cost and select your business category and term to get an estimate. When you speak to your Econolease rep let us know your monthly or budget – we will always work our hardest to get your payments where you need them to be."
+      }
+    },
+    "97bdc90c-d755-4b07-aa02-43e58300f05f": {
+      "type": "image--logo-list",
+      "blocks": {
+        "template--20019802013994__97bdc90c-d755-4b07-aa02-43e58300f05f-logo_image-1": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/AW-Logo-300x146-1-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        },
+        "template--20019802013994__97bdc90c-d755-4b07-aa02-43e58300f05f-logo_image-2": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Starbucks-Logo-296x300-1-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        },
+        "template--20019802013994__97bdc90c-d755-4b07-aa02-43e58300f05f-logo_image-3": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Meltwich-Logo-300x157-1-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        },
+        "template--20019802013994__97bdc90c-d755-4b07-aa02-43e58300f05f-logo_image-4": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Taco-Time-Logo-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        },
+        "42ce735e-c682-4cbd-811a-8d3a28acf26f": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Second-Cup-Logo-300x133-1-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        },
+        "3aee215a-2096-45f5-b57d-2deb515deafc": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Edible-Arrangements-Logo-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        },
+        "d2bfeb43-01e6-4fc1-b967-1163001609e7": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Pita-Pit-Logo-300x300-1-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        },
+        "92b256c9-d601-45a0-89c3-b9808cea580f": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Freshii-Logo-300x300-1-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        },
+        "2bda0670-cb02-4bab-b664-ae13c390853d": {
+          "type": "logo_image",
+          "settings": {
+            "image": "shopify://shop_images/Paramount-2-pyvjmw5zd1plp25i4mc2vvq0lc3cc9vbzm6bfu80f6.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--20019802013994__97bdc90c-d755-4b07-aa02-43e58300f05f-logo_image-1",
+        "template--20019802013994__97bdc90c-d755-4b07-aa02-43e58300f05f-logo_image-2",
+        "template--20019802013994__97bdc90c-d755-4b07-aa02-43e58300f05f-logo_image-3",
+        "template--20019802013994__97bdc90c-d755-4b07-aa02-43e58300f05f-logo_image-4",
+        "42ce735e-c682-4cbd-811a-8d3a28acf26f",
+        "3aee215a-2096-45f5-b57d-2deb515deafc",
+        "d2bfeb43-01e6-4fc1-b967-1163001609e7",
+        "92b256c9-d601-45a0-89c3-b9808cea580f",
+        "2bda0670-cb02-4bab-b664-ae13c390853d"
+      ],
+      "settings": {
+        "colors": "white",
+        "width": 150,
+        "subheading": "",
+        "title": "Trusted By Thousands Of Canadian Foodservice Businesses",
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "71eef8a3-f8cf-4ca3-b8cd-dde52095a173",
+    "134d8920-fb3f-4caa-8f32-3d61a4e01316",
+    "fc1624ae-1863-4409-9838-93d10af8e12a",
+    "ccd09edc-395c-487d-9478-3862987ac595",
+    "97bdc90c-d755-4b07-aa02-43e58300f05f"
+  ]
+}

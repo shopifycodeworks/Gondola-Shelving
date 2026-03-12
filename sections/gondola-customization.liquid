@@ -1,0 +1,150 @@
+<style>
+  .gondola-customization .main_heading {
+    width: 55%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .gondola-customization .main_heading p {
+    font-size: 12px;
+  }
+  .gondola-customization .row.m-0 {
+    margin-top: 30px !important;
+  }
+  .gondola-customization .customization_data {
+    text-align: center;
+  }
+  .gondola-customization .customization_data span.customization_block_heading {
+    color: #fff;
+    background: #CC0000;
+    width: 100%;
+    display: block;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .gondola-customization .row.m-0 .customization-col-wrap.partner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .gondola-customization .customization_data span.customization_content p {
+    padding: 10px !important;
+    font-size: 12px;
+  }
+  /*.gondola-customization .image_content img {
+    -webkit-mask-image: url("https://cookesales.ca/wp-content/plugins/fusion-builder//assets/images/masks/mask-17.svg");
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: url("https://cookesales.ca/wp-content/plugins/fusion-builder//assets/images/masks/mask-17.svg");
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+  }
+  .gondola-customization .img_con {
+    z-index: 1;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    max-width: 100%;
+    line-height: 1;
+    filter: none;
+    transition: all;
+  }*/
+  @media only screen and (max-width: 767px){
+    .gondola-customization .main_heading {
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+</style>
+<div class="container p-0">
+  <div class="main_heading">
+    {% if section.settings.customization_heading != blank %}
+      <h3 class="heading">{{ section.settings.customization_heading }}</h3>
+    {% endif %}
+    {% if section.settings.customization_block_sub != blank %}
+      <p class="sub_heading">{{ section.settings.customization_block_sub }}</p>
+    {% endif %}
+  </div>
+  <div class="row m-0">
+    {% for block in section.blocks %}
+      <div class="col-lg-3 p-0">
+        <div
+          class="customization-col-wrap partner"
+          
+        >
+          <div class="image_content" style="--awb-mask-url: url('https://cookesales.ca/wp-content/plugins/fusion-builder//assets/images/masks/mask-17.svg')">
+            <span class="img_con">
+              {% render 'responsive-image' with block.settings.custom_image, alt: block.settings.custom_image.alt, class: 'customization-icon__image' %}
+            </span>
+          </div>
+          {% comment %}
+          <img src="{{ block.settings.custom_image | img_url: 'master' }}" class="customization-icon__image">
+          {% endcomment %}
+          <div class="customization_data">
+            {% if block.settings.customization_block_heading != blank %}
+              <span class="customization_block_heading">
+                {{ block.settings.customization_block_heading }}
+              </span>
+            {% endif %}
+            {% if block.settings.customization_block_desc != blank %}
+              <span class="customization_content">
+                {{ block.settings.customization_block_desc }}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+        
+      </div>
+    {% endfor %}    
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Gondola Customization",
+    "tag": "section",
+    "class": "gondola-customization",    
+    "settings": [
+      {
+        "type": "text",
+        "id": "customization_heading",
+        "label": "Customization Heading"
+      },
+      {
+         "type": "richtext",
+         "id": "customization_block_sub",
+         "label": "Customization Sub-Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "customization",
+        "name": "Customization",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "custom_image",
+            "label": "Select Image"
+          },
+          {
+            "type": "text",
+            "id": "customization_block_heading",
+            "label": "Customization Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "customization_block_desc",
+            "label": "Customization Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Gondola Customization"
+      }
+    ]
+  }
+{% endschema %}

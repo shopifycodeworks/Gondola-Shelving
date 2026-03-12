@@ -1,0 +1,158 @@
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+<style>
+.infinite_slider{
+  height:auto;
+  }
+.infinite_slider img{
+  width: 100%;
+  height:100%;
+  }
+  .infinite-slider{
+	clear: both;
+}
+  .slick-next, .slick-prev{
+    display: none !important;
+  }
+  .slick-list.draggable {
+    height: auto;
+}
+</style>
+{%- capture post_limit_grid -%}
+  {%- case post_limit -%}
+    {%- when 1 -%}
+      {%- assign grid_item_width = 'col-md-6 offset-md-3' -%}
+    {%- when 2 -%}
+      {%- assign grid_item_width = 'col-md-6' -%}
+    {%- when 3 -%}
+      {%- assign grid_item_width = 'col-md-4' -%}
+    {%- when 4 -%}
+      {%- assign grid_item_width = 'col-md-3' -%}
+  {%- endcase -%}
+{%- endcapture -%}
+
+{% capture section_style_attr %}
+  style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;"
+{% endcapture %}
+    <section class="infinite-slider {{ section.settings.section_width }} {{ section.id }}" {{ section_style_attr }}>
+
+  {% if section.settings.label_heading != blank %}
+    <h2 class="text-center">{{ section.settings.label_heading }}</h2>
+  {% endif %}
+  <div class="infinite_slider">
+        {% for block in section.blocks %}
+          <img src="{{ block.settings.page_image | image_url: width: 1600,height: 560 }}" />
+        {% endfor %}
+      </div>
+    </section>
+<script>
+  $('.infinite_slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    speed: 10000,
+    pauseOnHover: false,
+    cssEase: 'linear',
+    centerMode: true,
+    focusOnSelect: true,
+    pauseOnHover:false
+  });
+</script>
+{% schema %}
+  {
+    "name": "Infinite Slider",
+    "tag": "section",
+    "class": "gandola-infinite-slider",
+    "settings": [
+      {
+        "type": "text",
+        "id": "label_heading",
+        "label": "Heading"
+      },
+        {
+          "type": "header",
+          "content": "Section spacing"
+        },
+        {
+          "type": "select",
+          "id": "section_width",
+          "label": "Width",
+          "options": [
+              {
+                "value": "container-full-width",
+                "label": "Full width"
+              },
+              {
+                "value": "container",
+                "label": "Page width"
+              }
+          ],
+          "default": "container"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "label": "Padding top",
+          "min": 0,
+          "max": 200,
+          "step": 2,
+          "unit": "px",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "label": "Padding bottom",
+          "min": 0,
+          "max": 200,
+          "step": 2,
+          "unit": "px",
+          "default": 50
+        },
+      {
+        "type": "url",
+        "id": "gallery_link",
+        "label": "Gallery Link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "article",
+        "name": "Select Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "page_image",
+            "label": "Scroll Image"
+          },
+          {
+            "type": "url",
+            "id": "page_link",
+            "label": "Scroll Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Infinite Slider",
+            "blocks": [
+              {
+                "type": "article"
+              },
+              {
+                "type": "article"
+              },
+              {
+                "type": "article"
+              }
+            ]
+
+        }
+    ]
+  }
+{% endschema %}

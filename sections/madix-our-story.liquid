@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="logo">
+      <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/madix_logo.png?v=1686658230" alt="madix-about-logo" />
+  </div>
+  <div class="story-cont">
+    <div class="story-image">
+    {% if section.settings.story_image != blank %}
+      <img src="{{ section.settings.story_image | img_url: 'master' }}" alt="madix-about-logo" />
+    {% endif %}
+    </div>
+    <div class="story-cont">
+      {% if section.settings.title != blank %}
+        <h4>{{ section.settings.title }}</h4>
+      {% endif %}
+      {% if section.settings.content != blank %}
+        <p>{{ section.settings.content }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Madix our story",
+    "tag": "section",
+    "class": "our-story comm-padd",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "story_image",
+        "label": "Story Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Madix our story"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,283 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "theme.shop",
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "5984349f-fd5b-4d95-9772-fc7f3f6170eb": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "9dcdb089-062d-48dc-9b11-75a604f4dc41": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "image-width": "medium",
+        "heading": "",
+        "main_image": "shopify://shop_images/133_01_shops_animation_Juwelry_fin1.RGB_color.0002.jpg",
+        "layout": "left",
+        "image_text_heading": "",
+        "content": "Indulge in the world of opulence and sophistication with our exquisite store fixtures designed for jewelry stores. We are dedicated to delivering highly qualitative products and ensuring a seamless customer experience that will elevate your jewelry boutique to new levels of luxury. With our expertise in the industry, we offer a comprehensive range of top-of-the-line fixtures tailored specifically to meet the unique needs of jewelry retailers.\n\nSome of the products we provide that all jewelry stores need include:\n\n<ul class=\"list-bg-img\">\n<li>GLASS DISPLAY CASES</li>\n<li>CUSTOM DISPLAY CASES</li>\n<li>FULL ENGINEER DESIGN</li>\n<li>INTERIOR DESIGN PLANNING</li>\n<li>EXTERIOR SIGNAGE</li>\n<li>CUSTOM MILLWORK</li>\n<li>&amp; SO MUCH MORE!</li>\n</ul>",
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "5eef255f-30a1-412f-9880-fbbf379b5e69": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "image-width": "medium",
+        "heading": "",
+        "main_image": "shopify://shop_images/133_01_shops_animation_Juwelry_fin1.RGB_color.0001.jpg",
+        "layout": "right",
+        "image_text_heading": "",
+        "content": "At our store fixtures company, we understand the importance of creating a captivating and elegant environment for jewelry stores. Our fixtures are meticulously crafted to showcase your precious pieces in the most exquisite and enticing way possible. From beautifully designed display cases that provide a stunning backdrop for your jewelry collections to custom-built jewelry counters that exude luxury and sophistication, our solutions are designed to surpass your expectations.",
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "250c7ad4-75f6-4376-9c0d-e4c4bad99ecf": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "image-width": "medium",
+        "heading": "",
+        "main_image": "shopify://shop_images/133_01_shops_animation_Juwelry_fin1.RGB_color.0000.jpg",
+        "layout": "left",
+        "image_text_heading": "",
+        "content": "Quality is our utmost priority when it comes to jewelry store fixtures. We emphasize the use of premium materials and impeccable craftsmanship to ensure durability and longevity. Our fixtures not only enhance the aesthetic appeal of your store but also optimize functionality and security. With our store fixtures, you can create a shopping experience that resonates with your discerning customers, leaving a lasting impression and enhancing the value of your jewelry offerings. Elevate your jewelry store to unparalleled levels of luxury with our highly qualitative and customer-centric store fixtures.",
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "9f6a9383-3920-48a2-9820-2449ae6d863f": {
+      "type": "store-vision-details",
+      "blocks": {
+        "5037410b-1781-4e77-8089-d3d7a54c7dee": {
+          "type": "block-1",
+          "settings": {
+            "vision_image": "{{ page.metafields.custom.first_image.value }}",
+            "vision_text": "{{ page.metafields.custom.first_description | metafield_tag }}"
+          }
+        },
+        "d7ef20c4-436e-49a0-b319-4aed7bb50ef5": {
+          "type": "block-1",
+          "settings": {
+            "vision_image": "{{ page.metafields.custom.second_image.value }}",
+            "vision_text": "{{ page.metafields.custom.second_description | metafield_tag }}"
+          }
+        },
+        "dcd449be-789c-4124-8087-49f76fa94b94": {
+          "type": "block-1",
+          "settings": {
+            "vision_image": "{{ page.metafields.custom.third_image.value }}",
+            "vision_text": "{{ page.metafields.custom.third_description | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "5037410b-1781-4e77-8089-d3d7a54c7dee",
+        "d7ef20c4-436e-49a0-b319-4aed7bb50ef5",
+        "dcd449be-789c-4124-8087-49f76fa94b94"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "150579db-a00d-40de-b8d1-5aeea8f7a760": {
+      "type": "all-brands",
+      "blocks": {
+        "21f90b71-eae6-4b78-a25c-256e52194a5f": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Image_96.png"
+          }
+        },
+        "ea59bb1a-52ce-474d-a68e-f5f42aa51113": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/equipment-logo2.png"
+          }
+        },
+        "0765c0cc-665d-4ba6-9ffd-e98f27e029f4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/equipment-logo3.png"
+          }
+        }
+      },
+      "block_order": [
+        "21f90b71-eae6-4b78-a25c-256e52194a5f",
+        "ea59bb1a-52ce-474d-a68e-f5f42aa51113",
+        "0765c0cc-665d-4ba6-9ffd-e98f27e029f4"
+      ],
+      "settings": {
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "d7f60b20-3ffc-4bdb-ae1b-d6ecd1c6bbcd": {
+      "type": "equipment-collection-list",
+      "blocks": {
+        "f7a974d2-db02-43a3-89fa-5006e1aad7b1": {
+          "type": "equipment_collection",
+          "settings": {
+            "image": "shopify://shop_images/freezer-pic1.jpg",
+            "heading": "Commercial Ice Cream Freezers",
+            "content": "<p>Shop 14 categories</p>",
+            "product_link": "shopify://products/jura-z10-automatic-hot-cold-coffee-brewer-diamond-black-with-fr-1"
+          }
+        },
+        "8a95ada6-1efb-4a23-bfa8-4cec7437249b": {
+          "type": "equipment_collection",
+          "settings": {
+            "image": "shopify://shop_images/refrigerator-pic2.jpg",
+            "heading": "Commercial Ice Cream Freezers",
+            "content": "<p>Shop 14 categories</p>",
+            "product_link": "shopify://products/jura-z10-automatic-hot-cold-coffee-brewer-diamond-black-with-fr-1"
+          }
+        },
+        "1e2c581c-de73-48ce-b977-51ee0ff7ab53": {
+          "type": "equipment_collection",
+          "settings": {
+            "image": "shopify://shop_images/freezer-pic3.jpg",
+            "heading": "Commercial Ice Cream Freezers",
+            "content": "<p>Shop 14 categories</p>",
+            "product_link": "shopify://products/jura-z10-automatic-hot-cold-coffee-brewer-diamond-black-with-fr-1"
+          }
+        },
+        "e4bb231b-7bdc-4503-83c9-3e179b3f8b67": {
+          "type": "equipment_collection",
+          "settings": {
+            "image": "shopify://shop_images/chiller-pic4.jpg",
+            "heading": "Commercial Ice Cream Freezers",
+            "content": "<p>Shop 14 categories</p>",
+            "product_link": "shopify://products/jura-z10-automatic-hot-cold-coffee-brewer-diamond-black-with-fr-1"
+          }
+        },
+        "2791793d-5ce0-491c-8c8c-2c25e6ff083c": {
+          "type": "equipment_collection",
+          "settings": {
+            "image": "shopify://shop_images/chiller-pic4.jpg",
+            "heading": "Commercial Ice Cream Freezers",
+            "content": "<p>Shop 14 categories</p>",
+            "product_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "f7a974d2-db02-43a3-89fa-5006e1aad7b1",
+        "8a95ada6-1efb-4a23-bfa8-4cec7437249b",
+        "1e2c581c-de73-48ce-b977-51ee0ff7ab53",
+        "e4bb231b-7bdc-4503-83c9-3e179b3f8b67",
+        "2791793d-5ce0-491c-8c8c-2c25e6ff083c"
+      ],
+      "settings": {
+        "title": "Filter Menu",
+        "main_linklist": "filter-menu"
+      }
+    },
+    "956d7fa5-7d02-4dd3-9664-a0c2e5f2694d": {
+      "type": "see-best-seller",
+      "settings": {
+        "title": "",
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "99901bd0-7d30-4a5f-8ed5-43396ba280a4": {
+      "type": "related-blog",
+      "disabled": true,
+      "settings": {
+        "heading": "Learning Center",
+        "blog": "how-to-start-a-retail-business-a-step-by-step-guide"
+      }
+    },
+    "home_contact_form_myLgUV": {
+      "type": "home--contact-form",
+      "blocks": {
+        "name_input_rXrR4B": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "custom_input_wKqqtK": {
+          "type": "custom_input",
+          "settings": {
+            "input_label": "Business Name",
+            "required": false,
+            "input_width": "partial"
+          }
+        },
+        "email_input_CKCKBL": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "tel_input_dyPEie": {
+          "type": "tel_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "message_input_UCA9Fb": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "name_input_rXrR4B",
+        "custom_input_wKqqtK",
+        "email_input_CKCKBL",
+        "tel_input_dyPEie",
+        "message_input_UCA9Fb"
+      ],
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "LET US KNOW HOW WE CAN HELP",
+        "section_subheading": "Contact us today to create the perfect environment for your retail space,that not only attracts and retains customers,but also promotes efficient business operations",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "5984349f-fd5b-4d95-9772-fc7f3f6170eb",
+    "9dcdb089-062d-48dc-9b11-75a604f4dc41",
+    "5eef255f-30a1-412f-9880-fbbf379b5e69",
+    "250c7ad4-75f6-4376-9c0d-e4c4bad99ecf",
+    "9f6a9383-3920-48a2-9820-2449ae6d863f",
+    "150579db-a00d-40de-b8d1-5aeea8f7a760",
+    "d7f60b20-3ffc-4bdb-ae1b-d6ecd1c6bbcd",
+    "956d7fa5-7d02-4dd3-9664-a0c2e5f2694d",
+    "99901bd0-7d30-4a5f-8ed5-43396ba280a4",
+    "home_contact_form_myLgUV"
+  ]
+}

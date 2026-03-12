@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="top-content">
+    {% if section.settings.project_head != blank %}
+      <h2>{{ section.settings.project_head }}</h2>
+    {% endif %}
+    {% if section.settings.btn_text != blank %}
+      <a href="{{ section.settings.btn_link }}">{{ section.settings.btn_text }}</a>
+    {% endif %}
+  </div>
+  <!-- <div class="buttom-content"> -->
+    <div class="owl-carousel owl-theme project-slider">
+      {% for block in section.blocks %}
+        <div class="item">
+          <div class="iteam-content">
+            {% if block.settings.project_image != blank %}
+              <img src="{{ block.settings.project_image | img_url:'master' }}" />
+            {% endif %}
+            {% if block.settings.project_name != blank %}
+              <h2>{{ block.settings.project_name }}</h2>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  <!-- </div> -->
+</div>
+{% schema %}
+  {
+    "name": "Our Projects",
+    "tag": "section",
+    "class": "our-projects comm-padd",
+    "settings": [
+      {
+        "type": "text",
+        "id": "project_head",
+        "label": "Project Heading"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "btn_link",
+        "label": "Button Link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "projects",
+        "name": "projects",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "project_image",
+            "label": "Project Image"
+          },
+          {
+            "type": "text",
+            "id": "project_name",
+            "label": "Project Name"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Our Projects"
+      }
+    ]
+  }
+{% endschema %}

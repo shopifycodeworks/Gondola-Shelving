@@ -1,0 +1,44 @@
+<div data-value="{{ value }}" class="swatch-element swatch-element-{{ size }} {{ aspect_ratio }} {{ value | handle }} {% if available %}available{% else %}soldout{% endif %}">
+  {% if image_url != blank %}
+    <div class="tooltip">{{ value }}</div>
+  {% endif %}
+  
+  <input
+    id="{{ section.id }}-swatch-{{ option_index }}-{{ value }}"
+    type="radio"
+    value="{{ value }}"
+    {% if product_swatch %}
+      name="option-{{ option_index }}"
+    {% endif %}
+    {% if checked == true %}
+      checked
+    {% endif %}
+    {% if variation_redirect != blank %}
+      onclick="window.location='{{ variation_redirect }}'; return false;"
+    {% endif %} />
+  
+  {% if image_url != blank %}
+    <label
+      class="image-swatch-{{ size }} aspect-ratio--{{ aspect_ratio }}"
+      for="{{ section.id }}-swatch-{{ option_index }}-{{ value }}"
+      style="background-position: center; background-image: url({{ image_url }});"
+      tabindex="0">
+      <span class="sr-only">{{ value }}</span>
+      <img
+        class="crossed-out"
+        src="{{ 'soldout_color.svg' | asset_url }}"
+        alt="" />
+    </label>
+  {% else %}
+    <label
+      class="image-swatch-{{ size }}"
+      for="{{ section.id }}-swatch-{{ option_index }}-{{ value }}"
+      tabindex="0">
+      {{ value }}
+      <img
+        class="crossed-out"
+        src="{{ 'soldout.svg' | asset_url }}"
+        alt="" />
+    </label>
+  {% endif %}
+</div>

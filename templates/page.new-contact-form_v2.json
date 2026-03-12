@@ -1,0 +1,169 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "5984349f-fd5b-4d95-9772-fc7f3f6170eb": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "9dcdb089-062d-48dc-9b11-75a604f4dc41": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "image-width": "medium",
+        "heading": "",
+        "main_image": "shopify://shop_images/133_01_shops_animation_Juwelry_fin1.RGB_color.0002.jpg",
+        "layout": "left",
+        "image_text_heading": "",
+        "content": "Indulge in the world of opulence and sophistication with our exquisite store fixtures designed for jewelry stores. We are dedicated to delivering highly qualitative products and ensuring a seamless customer experience that will elevate your jewelry boutique to new levels of luxury. With our expertise in the industry, we offer a comprehensive range of top-of-the-line fixtures tailored specifically to meet the unique needs of jewelry retailers.\n\nSome of the products we provide that all jewelry stores need include:\n\n<ul class=\"list-bg-img\">\n<li>GLASS DISPLAY CASES</li>\n<li>CUSTOM DISPLAY CASES</li>\n<li>FULL ENGINEER DESIGN</li>\n<li>INTERIOR DESIGN PLANNING</li>\n<li>EXTERIOR SIGNAGE</li>\n<li>CUSTOM MILLWORK</li>\n<li>&amp; SO MUCH MORE!</li>\n</ul>",
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "5eef255f-30a1-412f-9880-fbbf379b5e69": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "image-width": "medium",
+        "heading": "",
+        "main_image": "shopify://shop_images/133_01_shops_animation_Juwelry_fin1.RGB_color.0001.jpg",
+        "layout": "right",
+        "image_text_heading": "",
+        "content": "At our store fixtures company, we understand the importance of creating a captivating and elegant environment for jewelry stores. Our fixtures are meticulously crafted to showcase your precious pieces in the most exquisite and enticing way possible. From beautifully designed display cases that provide a stunning backdrop for your jewelry collections to custom-built jewelry counters that exude luxury and sophistication, our solutions are designed to surpass your expectations.",
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "250c7ad4-75f6-4376-9c0d-e4c4bad99ecf": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "colors": "white",
+        "image-width": "medium",
+        "heading": "",
+        "main_image": "shopify://shop_images/133_01_shops_animation_Juwelry_fin1.RGB_color.0000.jpg",
+        "layout": "left",
+        "image_text_heading": "",
+        "content": "Quality is our utmost priority when it comes to jewelry store fixtures. We emphasize the use of premium materials and impeccable craftsmanship to ensure durability and longevity. Our fixtures not only enhance the aesthetic appeal of your store but also optimize functionality and security. With our store fixtures, you can create a shopping experience that resonates with your discerning customers, leaving a lasting impression and enhancing the value of your jewelry offerings. Elevate your jewelry store to unparalleled levels of luxury with our highly qualitative and customer-centric store fixtures.",
+        "button_lebel": "",
+        "button_link": ""
+      }
+    },
+    "955c0fa2-fe0f-4222-b586-2a492c6adad9": {
+      "type": "template--contact-form",
+      "blocks": {
+        "template--21814593061162__955c0fa2-fe0f-4222-b586-2a492c6adad9-name_input-1": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "template--21814593061162__955c0fa2-fe0f-4222-b586-2a492c6adad9-email_input-1": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "template--21814593061162__955c0fa2-fe0f-4222-b586-2a492c6adad9-tel_input-1": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "partial"
+          }
+        },
+        "c99ea3dd-fe84-4c0b-9fd0-12c9672a88af": {
+          "type": "custom_input",
+          "settings": {
+            "input_label": "Address",
+            "required": true,
+            "input_width": "partial"
+          }
+        },
+        "template--21814593061162__955c0fa2-fe0f-4222-b586-2a492c6adad9-message_input-1": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "template--21814593061162__955c0fa2-fe0f-4222-b586-2a492c6adad9-name_input-1",
+        "template--21814593061162__955c0fa2-fe0f-4222-b586-2a492c6adad9-email_input-1",
+        "template--21814593061162__955c0fa2-fe0f-4222-b586-2a492c6adad9-tel_input-1",
+        "c99ea3dd-fe84-4c0b-9fd0-12c9672a88af",
+        "template--21814593061162__955c0fa2-fe0f-4222-b586-2a492c6adad9-message_input-1"
+      ],
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "LET US HELP FINANCE YOUR PROJECT",
+        "section_subheading": "Partnered with industry leaders, our team's financing capabilities are limitless.",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "4037b146-16eb-40e4-8d16-15bf9d589dee": {
+      "type": "contact-us-icons",
+      "blocks": {
+        "12987255-51c2-4359-ac55-5929e063db13": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Icon_ionic-md-call.png",
+            "heading": "<p><a href=\"tel:+92 311 7562252\" target=\"_blank\" title=\"tel:+92 311 7562252\">+92 311 7562252</a></p>"
+          }
+        },
+        "abebb995-d576-416b-a718-dfe9307cada9": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Icon_material-email.png",
+            "heading": "<p><a href=\"mailto:info@saunacompany.com\" target=\"_blank\" title=\"mailto:info@saunacompany.com\">info@saunacompany.com</a></p>"
+          }
+        },
+        "2cc2cde8-8c46-45cb-8f8e-1a27daee94e6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Icon_material-location-on.png",
+            "heading": "<p>420 N lorem Ave, Suite 500 lipsum, IL 60611</p>"
+          }
+        }
+      },
+      "block_order": [
+        "12987255-51c2-4359-ac55-5929e063db13",
+        "abebb995-d576-416b-a718-dfe9307cada9",
+        "2cc2cde8-8c46-45cb-8f8e-1a27daee94e6"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "5984349f-fd5b-4d95-9772-fc7f3f6170eb",
+    "9dcdb089-062d-48dc-9b11-75a604f4dc41",
+    "5eef255f-30a1-412f-9880-fbbf379b5e69",
+    "250c7ad4-75f6-4376-9c0d-e4c4bad99ecf",
+    "955c0fa2-fe0f-4222-b586-2a492c6adad9",
+    "4037b146-16eb-40e4-8d16-15bf9d589dee"
+  ]
+}
