@@ -1298,6 +1298,7 @@ body#contact-us .homContactSec .btn {
 }
 
 .money-styling h6,
+.money-styling .free_shipping,
 .hp-subtitle .indiv-product__link.gsvalidated h6 {
   margin-bottom: 6px;
   /* color: #005736; */
@@ -2414,7 +2415,7 @@ a.read-moreBtn {
   margin: 0;
   height: 100%;
 }
-
+.listOfCollections .bestSeller-bottom h2.type-subheading,
 .listOfCollections .bestSeller-bottom h3.type-subheading {
   margin: 0 0 10px 0;
   font-size: 14px;
@@ -2427,7 +2428,7 @@ a.read-moreBtn {
   overflow: hidden;
   text-overflow: ellipsis;*/
 }
-
+.listOfCollections .bestSeller-bottom h2.type-subheading a,
 .listOfCollections .bestSeller-bottom h3.type-subheading a {
   color: #000;
 }
@@ -3979,6 +3980,7 @@ a.read-moreBtn {
   /* .priceRow h6, .priceRow span.money-styling .money, .recommend-products .hp-subtitle span.money { font-size: 15px;}
   .priceRow h6 span, .priceRow span.money-styling .compare-at-price .money, .hp-subtitle .indiv-product__link.gsvalidated .compare-at-price .money { font-size: 14px;} */
   .money-styling h6,
+  .money-styling .free_shipping,
   .hp-subtitle .indiv-product__link.gsvalidated h6 {
     margin-bottom: 4px;
     font-size: 13px;

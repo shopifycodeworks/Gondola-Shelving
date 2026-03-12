@@ -1,6 +1,6 @@
 <style>
   @media only screen and (min-width: 3601px) {
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       font-size: 6.5em !important;
     }
     .shopify-section.gondola-text-half span.text_content p {
@@ -8,7 +8,7 @@
     }
   }
   @media only screen and (min-width: 3401px) and (max-width: 3600px) {
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       font-size: 6em !important;
     }
     .shopify-section.gondola-text-half span.text_content p {
@@ -16,7 +16,7 @@
     }
   }
   @media only screen and (min-width: 3201px) and (max-width: 3400px) {
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       font-size: 5.5em !important;
     }
     .shopify-section.gondola-text-half span.text_content p {
@@ -24,7 +24,7 @@
     }
   }
   @media only screen and (min-width: 2900px) and (max-width: 3200px) {
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       font-size: 4.5em !important;
     }
     .shopify-section.gondola-text-half span.text_content p {
@@ -32,7 +32,7 @@
     }
   }
   @media only screen and (min-width: 2600px) and (max-width: 2899px) {
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       font-size: 4em !important;
     }
     .shopify-section.gondola-text-half span.text_content p {
@@ -40,7 +40,7 @@
     }
   }
   @media only screen and (min-width: 2401px) and (max-width: 2599px) {
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       font-size: 3.5em !important;
     }
     .shopify-section.gondola-text-half span.text_content p {
@@ -48,7 +48,7 @@
     }
   }
   @media only screen and (min-width: 2100px) and (max-width: 2400px) {
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       font-size: 3em !important;
     }
     .shopify-section.gondola-text-half span.text_content p {
@@ -56,7 +56,7 @@
     }
   }
   @media only screen and (min-width: 2000px) and (max-width: 2099px) {
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       font-size: 2.5em !important;
     }
     .shopify-section.gondola-text-half span.text_content p {
@@ -69,7 +69,7 @@
       display: flex;
       padding: 50px 40px 20px 0;
     }
-    .shopify-section.gondola-text-half h1.benefits_heading {
+    .shopify-section.gondola-text-half h1.benefits_heading, .shopify-section.gondola-text-half h2.benefits_heading {
       width: 80%;
       line-height: 1.5;
     }
@@ -459,9 +459,9 @@
   <div class="col-lg-12 p-0">
     <div class="half_data">
       {% if section.settings.heading != blank %}
-        <h1 class="benefits_heading">
+        <h2 class="benefits_heading">
           {{ section.settings.heading }}
-        </h1>
+        </h2>
       {% endif %}
       {% if section.settings.text_cont != blank %}
         <span class="text_content">

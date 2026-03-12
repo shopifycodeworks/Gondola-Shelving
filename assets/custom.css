@@ -69,6 +69,7 @@ h4 {
   font-size: 22px;
 }
 
+.gondola_half_anchor .text_content h3,
 h5 {
   font-size: 12px;
 }
@@ -1358,7 +1359,7 @@ footer.footer-main {
   object-fit: contain;
 }
 
-.service-col h4 {
+.service-col h4, .service-col h3 {
   font-size: 16px;
   color: #e90809;
   font-weight: 700;
@@ -3085,7 +3086,8 @@ button.multiguote-action.remove {
   padding: 0 !important;
 }
 
-.mission-vission-col .details h4 {
+.mission-vission-col .details h4,
+.mission-vission-col .details h3 {
   color: #fff;
   font-size: 32px;
   font-style: normal;
