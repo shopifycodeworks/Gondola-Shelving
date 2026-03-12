@@ -17,18 +17,16 @@
   <div class="contact-form--wrapper container">
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-12">
+        <div class="contact-form--header{% if settings.animations_enabled %} wow fadeIn{% endif %}">
+          {% if section.settings.section_heading != '' %}
+            <h2>{{ section.settings.section_heading }}</h2>
+          {% endif %}
 
-      <div class="contact-form--header{% if settings.animations_enabled %} wow fadeIn{% endif %}">
-            {% if section.settings.section_heading != '' %}
-              <h2>{{ section.settings.section_heading }}</h2>
-            {% endif %}
-
-            {% if section.settings.sub_heading != '' %}
-              <p class="type-subheading type-subheading--1">{{ section.settings.sub_heading }}</p>
-            {% endif %}
-          </div>
-      
-    </div>
+          {% if section.settings.sub_heading != '' %}
+            <p class="type-subheading type-subheading--1">{{ section.settings.sub_heading }}</p>
+          {% endif %}
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class="col-lg-6 col-md-12">
@@ -44,7 +42,7 @@
               {% form 'contact', id: 'ContactForm', class: 'contact-form--form' %}
                 {%- if form.posted_successfully? -%}
                   <script>
-                    window.location.replace("https://vanguardstorefixtures.com/pages/thank-you");
+                    window.location.replace('https://vanguardstorefixtures.com/pages/thank-you');
                   </script>
                 {%- endif -%}
                 {% render 'form-errors-custom', form: form %}
@@ -171,15 +169,13 @@
         {% if section.settings.section_heading != '' or section.settings.sub_heading != '' %}
           {% assign content_header = true %}
 
-          
-
           <ul>
             {% if section.settings.location != blank %}
               <li>
                 <div class="contact-info-img">
                   <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/map.png?v=1689256102">
                 </div>
-                <h2>OUR LOCATION</h2>
+                <h3>OUR LOCATION</h3>
                 <p>{{ section.settings.location }}</p>
               </li>
             {% endif %}
@@ -188,7 +184,7 @@
                 <div class="contact-info-img">
                   <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Vector_5.png?v=1689256101">
                 </div>
-                <h2>HOURS OF OPERATION:</h2>
+                <h3>HOURS OF OPERATION:</h3>
                 <p>{{ section.settings.timing }}</p>
               </li>
             {% endif %}
@@ -197,7 +193,7 @@
                 <div class="contact-info-img">
                   <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Vector_6.png?v=1689256101">
                 </div>
-                <h2>PHONE:</h2>
+                <h3>PHONE:</h3>
                 <p>{{ section.settings.number }}</p>
               </li>
             {% endif %}
@@ -206,7 +202,7 @@
                 <div class="contact-info-img">
                   <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Group_71.png?v=1689256101">
                 </div>
-                <h2>EMAIL:</h2>
+                <h3>EMAIL:</h3>
                 <p>{{ section.settings.email }}</p>
               </li>
             {% endif %}
@@ -296,18 +292,18 @@
       "id": "section_width",
       "label": "Width",
       "options": [
-          {
-            "value": "container-full-width",
-            "label": "Full width"
-          },
-          {
-            "value": "container",
-            "label": "Page width"
-          },
-          {
-            "value": "container-narrow",
-            "label": "Narrow"
-          }
+        {
+          "value": "container-full-width",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Page width"
+        },
+        {
+          "value": "container-narrow",
+          "label": "Narrow"
+        }
       ],
       "default": "container-narrow"
     },
@@ -488,8 +484,7 @@
   "presets": [
     {
       "name": "Inquery form",
-      "settings": {
-      },
+      "settings": {},
       "blocks": [
         {
           "type": "name_input",
