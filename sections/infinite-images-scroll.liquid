@@ -1,122 +1,120 @@
 <style>
-  
-  section.infinite-images.{{ section.id }} .scroller {
-   max-width: 100%;
+    section.infinite-images.{{ section.id }} .scroller {
+     max-width: 100%;
+    }
+
+    section.infinite-images.{{ section.id }} .scroller__inner {
+      //padding-block: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      //gap: 1rem;
+    }
+
+    section.infinite-images.{{ section.id }} .scroller[data-animated="true"] {
+      overflow: hidden;
+      /*-webkit-mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+      );
+      mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);*/
+    }
+
+  section.infinite-images.{{ section.id }} .scroller[data-animated="true"] .scroller__inner:hover {
+    animation-play-state: paused;
   }
 
-  section.infinite-images.{{ section.id }} .scroller__inner {
-    //padding-block: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    //gap: 1rem;
+    section.infinite-images.{{ section.id }} .scroller[data-animated="true"] .scroller__inner {
+      width: max-content;
+      flex-wrap: nowrap;
+      animation: scroll var(--_animation-duration, 40s)
+        var(--_animation-direction, forwards) linear infinite;
+    }
+
+    section.infinite-images.{{ section.id }} .scroller[data-direction="right"] {
+      --_animation-direction: reverse;
+    }
+
+    section.infinite-images.{{ section.id }} .scroller[data-direction="left"] {
+      --_animation-direction: forwards;
+    }
+
+    section.infinite-images.{{ section.id }} .scroller[data-speed="fast"] {
+      --_animation-duration: 80s;
+    }
+
+    section.infinite-images.{{ section.id }} .scroller[data-speed="slow"] {
+      --_animation-duration: 60s;
+    }
+
+    @keyframes scroll {
+      to {
+        transform: translate(calc(-50% - 0.5rem));
+      }
+    }
+
+    section.infinite-images.{{ section.id }} .scroller[data-animated="true"] .scroller__inner img {
+       // min-width: 25% !important;
+    }
+    /* general styles */
+
+    :root {
+      --clr-neutral-100: hsl(0, 0%, 100%);
+      --clr-primary-100: hsl(205, 15%, 58%);
+      --clr-primary-400: hsl(215, 25%, 27%);
+      --clr-primary-800: hsl(217, 33%, 17%);
+      --clr-primary-900: hsl(218, 33%, 9%);
+    }
+
+    section.infinite-images.{{ section.id }} .tag-list {
+      margin: 0;
+      padding-inline: 0;
+      list-style: none;
+    }
+
+    section.infinite-images.{{ section.id }} .tag-list li {
+      padding: 1rem;
+      background: var(--clr-primary-400);
+      border-radius: 0.5rem;
+      box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900);
+    }
+
+  .shopify-section.gondola-images-scroll {
+      clear: both;
   }
 
-  section.infinite-images.{{ section.id }} .scroller[data-animated="true"] {
-    overflow: hidden;
-    /*-webkit-mask: linear-gradient(
-      90deg,
-      transparent,
-      white 20%,
-      white 80%,
-      transparent
-    );
-    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);*/
+  .shopify-section.gondola-images-scroll section.infinite-images.{{ section.id }} {
+      padding-left: 0;
+      padding-right: 0;
   }
-
-section.infinite-images.{{ section.id }} .scroller[data-animated="true"] .scroller__inner:hover {
-  animation-play-state: paused;
-}
-
-  section.infinite-images.{{ section.id }} .scroller[data-animated="true"] .scroller__inner {
-    width: max-content;
-    flex-wrap: nowrap;
-    animation: scroll var(--_animation-duration, 40s)
-      var(--_animation-direction, forwards) linear infinite;
+  .shopify-section.gondola-images-scroll section.infinite-images.{{ section.id }} .scroller__inner img {
+      border-top: 2px solid #000;
+      border-bottom: 2px solid #000;
   }
-
-  section.infinite-images.{{ section.id }} .scroller[data-direction="right"] {
-    --_animation-direction: reverse;
+  section.infinite-images.{{ section.id }} a.full_gallery {
+      position: relative;
+      color: #000;
+      background: #fff;
+      border: 1px solid #000;
+      border-radius: 10px;
+      padding: 5px 10px;
+      text-transform: uppercase;
+      bottom: 50px;
+      text-align: right;
+      float: right;
+      right: 15px;
   }
-
-  section.infinite-images.{{ section.id }} .scroller[data-direction="left"] {
-    --_animation-direction: forwards;
-  }
-
-  section.infinite-images.{{ section.id }} .scroller[data-speed="fast"] {
-    --_animation-duration: 80s;
-  }
-
-  section.infinite-images.{{ section.id }} .scroller[data-speed="slow"] {
-    --_animation-duration: 60s;
-  }
-
-  @keyframes scroll {
-    to {
-      transform: translate(calc(-50% - 0.5rem));
+  @media only screen and (max-width: 600px){
+         section.infinite-images.{{ section.id }} .scroller[data-animated="true"] .scroller__inner img {
+          width: 200px !important;
+          height: 200px;
+      }
+    section.infinite-images.{{ section.id }} .scroller[data-speed="fast"] {
+      --_animation-duration: 50s !important;
     }
   }
-
-  section.infinite-images.{{ section.id }} .scroller[data-animated="true"] .scroller__inner img {
-     // min-width: 25% !important;
-  }
-  /* general styles */
-
-  :root {
-    --clr-neutral-100: hsl(0, 0%, 100%);
-    --clr-primary-100: hsl(205, 15%, 58%);
-    --clr-primary-400: hsl(215, 25%, 27%);
-    --clr-primary-800: hsl(217, 33%, 17%);
-    --clr-primary-900: hsl(218, 33%, 9%);
-  }
-
-  section.infinite-images.{{ section.id }} .tag-list {
-    margin: 0;
-    padding-inline: 0;
-    list-style: none;
-  }
-
-  section.infinite-images.{{ section.id }} .tag-list li {
-    padding: 1rem;
-    background: var(--clr-primary-400);
-    border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1rem -0.25rem var(--clr-primary-900);
-  }
-
-.shopify-section.gandola-images-scroll {
-    clear: both;
-}
-
-.shopify-section.gandola-images-scroll section.infinite-images.{{ section.id }} {
-    padding-left: 0;
-    padding-right: 0;
-}
-.shopify-section.gandola-images-scroll section.infinite-images.{{ section.id }} .scroller__inner img {
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
-}
-section.infinite-images.{{ section.id }} a.full_gallery {
-    position: relative;
-    color: #000;
-    background: #fff;
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 5px 10px;
-    text-transform: uppercase;
-    bottom: 50px;
-    text-align: right;
-    float: right;
-    right: 15px;
-}
-@media only screen and (max-width: 600px){
-       section.infinite-images.{{ section.id }} .scroller[data-animated="true"] .scroller__inner img {
-        width: 200px !important;
-        height: 200px;
-    }
-  section.infinite-images.{{ section.id }} .scroller[data-speed="fast"] {
-    --_animation-duration: 50s !important;
-  }
-}
-
 </style>
 {%- capture post_limit_grid -%}
   {%- case post_limit -%}
@@ -134,16 +132,15 @@ section.infinite-images.{{ section.id }} a.full_gallery {
 {% capture section_style_attr %}
   style="padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;"
 {% endcapture %}
-    <section class="infinite-images {{ section.settings.section_width }} {{ section.id }}" {{ section_style_attr }}>
-
+<section class="infinite-images {{ section.settings.section_width }} {{ section.id }}" {{ section_style_attr }}>
   {% if section.settings.label_heading != blank %}
     <h2 class="text-center">{{ section.settings.label_heading }}</h2>
   {% endif %}
-<div class="scroller scroll_{{ section.id }}" data-direction="left" data-speed="fast">
-  <div class="scroller__inner">
-        {% for block in section.blocks %}
-          <img src="{{ block.settings.page_image | img_url: 'large' }}" />
-          {% comment %}
+  <div class="scroller scroll_{{ section.id }}" data-direction="left" data-speed="fast">
+    <div class="scroller__inner">
+      {% for block in section.blocks %}
+        <img src="{{ block.settings.page_image | img_url: 'large' }}">
+        {% comment %}
           <img src = "{{ block.settings.page_image | img_url }}" class=""/>
           <div class="item info-column grid__item">
             <div class="infinite-image-col">
@@ -159,134 +156,135 @@ section.infinite-images.{{ section.id }} a.full_gallery {
               </a>
             </div>
           </div>
-          {% endcomment %}
-        {% endfor %}
-      </div>
-      </div>
-          {% comment %}
-      <a href="{{ section.settings.gallery_link }}" class="full_gallery">View Full Gallery ></a>
-          {% endcomment %}
-    </section>
+        {% endcomment %}
+      {% endfor %}
+    </div>
+  </div>
+  {% comment %}
+    <a href="{{ section.settings.gallery_link }}" class="full_gallery">View Full Gallery ></a>
+  {% endcomment %}
+</section>
 <script>
-var scrollers = document.querySelectorAll("section.infinite-images.{{ section.id }} .scroller.scroll_{{ section.id }}");
-console.log(scrollers);
+  var scrollers = document.querySelectorAll(
+    'section.infinite-images.{{ section.id }} .scroller.scroll_{{ section.id }}'
+  );
+  console.log(scrollers);
   // If a user hasn't opted in for recuded motion, then we add the animation
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     addAnimation();
   }
-  
+
   function addAnimation() {
     scrollers.forEach((scroller) => {
       // add data-animated="true" to every `.scroller` on the page
-      scroller.setAttribute("data-animated", true);
-  
+      scroller.setAttribute('data-animated', true);
+
       // Make an array from the elements within `.scroller-inner`
-      var scrollerInner = scroller.querySelector("section.infinite-images.{{ section.id }} .scroller__inner");
+      var scrollerInner = scroller.querySelector('section.infinite-images.{{ section.id }} .scroller__inner');
       var scrollerContent = Array.from(scrollerInner.children);
-  
+
       // For each item in the array, clone it
       // add aria-hidden to it
       // add it into the `.scroller-inner`
       scrollerContent.forEach((item) => {
         var duplicatedItem = item.cloneNode(true);
-        duplicatedItem.setAttribute("aria-hidden", true);
+        duplicatedItem.setAttribute('aria-hidden', true);
         scrollerInner.appendChild(duplicatedItem);
       });
     });
   }
 </script>
-    
-{% schema %}
-  {
-    "name": "Infinite Images Scroll",
-    "tag": "section",
-    "class": "gandola-images-scroll",
-    "settings": [
-      {
-        "type": "text",
-        "id": "label_heading",
-        "label": "Heading"
-      },
-        {
-          "type": "header",
-          "content": "Section spacing"
-        },
-        {
-          "type": "select",
-          "id": "section_width",
-          "label": "Width",
-          "options": [
-              {
-                "value": "container-full-width",
-                "label": "Full width"
-              },
-              {
-                "value": "container",
-                "label": "Page width"
-              }
-          ],
-          "default": "container"
-        },
-        {
-          "type": "range",
-          "id": "padding_top",
-          "label": "Padding top",
-          "min": 0,
-          "max": 200,
-          "step": 2,
-          "unit": "px",
-          "default": 50
-        },
-        {
-          "type": "range",
-          "id": "padding_bottom",
-          "label": "Padding bottom",
-          "min": 0,
-          "max": 200,
-          "step": 2,
-          "unit": "px",
-          "default": 50
-        },
-      {
-        "type": "url",
-        "id": "gallery_link",
-        "label": "Gallery Link"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "article",
-        "name": "Select Image",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "page_image",
-            "label": "Scroll Image"
-          },
-          {
-            "type": "url",
-            "id": "page_link",
-            "label": "Scroll Image"
-          }
-        ]
-      }
-    ],
-    "presets": [
-        {
-            "name": "Infinite Images Scroll",
-            "blocks": [
-              {
-                "type": "article"
-              },
-              {
-                "type": "article"
-              },
-              {
-                "type": "article"
-              }
-            ]
 
+{% schema %}
+{
+  "name": "Infinite Images Scroll",
+  "tag": "section",
+  "class": "gondola-images-scroll",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "container-full-width",
+          "label": "Full width"
+        },
+        {
+          "value": "container",
+          "label": "Page width"
         }
-    ]
-  }
+      ],
+      "default": "container"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "url",
+      "id": "gallery_link",
+      "label": "Gallery Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Select Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "page_image",
+          "label": "Scroll Image"
+        },
+        {
+          "type": "url",
+          "id": "page_link",
+          "label": "Scroll Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Infinite Images Scroll",
+      "blocks": [
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        },
+        {
+          "type": "article"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

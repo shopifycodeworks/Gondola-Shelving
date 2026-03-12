@@ -43,7 +43,7 @@
         "enable_video_loop": false
       }
     },
-    "godola_builder_UJAR9h": {
+    "gondola_builder_UJAR9h": {
       "type": "gondola-builder",
       "blocks": {
         "block_ztTntX": {
@@ -188,7 +188,7 @@
   },
   "order": [
     "main",
-    "godola_builder_UJAR9h",
+    "gondola_builder_UJAR9h",
     "faq_ChHVrt",
     "template_contact_form_VzPLmJ",
     "product-recommendations"
