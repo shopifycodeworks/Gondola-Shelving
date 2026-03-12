@@ -1,0 +1,159 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.collection-main--wrapper",
+  "sections": {
+    "64350cb7-3649-4814-b87c-3056c09f16c6": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": false,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/e3c174dbb1e948e88b100ab9a6b304ad.mp4"
+      }
+    },
+    "171471576150563abc": {
+      "type": "apps",
+      "blocks": {
+        "category_breadcrumbs_category_breadcrumbs_NtJMaY": {
+          "type": "shopify://apps/breadcrumbs/blocks/category-breadcrumbs/dba51573-4328-452d-90db-1ad2dc5be363",
+          "settings": {
+            "override_linktext_colour": false,
+            "linktext_colour": "#0000ee",
+            "separator_colour": "#555555",
+            "producttitle_colour": "#555555",
+            "spacing_above": 0,
+            "spacing_below": 0,
+            "sep_plus_class": "breadcrumb__sep_plus5",
+            "separator_char_code": "rsaquo;",
+            "hide_old_breadcrumb": true,
+            "show_catroot": true,
+            "link_catroot": "/",
+            "text_catroot": "Home",
+            "show_tags": true,
+            "show_finalbread_as_textonly": false,
+            "insert_jsonld": true,
+            "insert_shortlinkfix": false,
+            "prod_multicat_sel": "leastprod",
+            "link_catall": "/collections/all",
+            "text_catall": "All Products",
+            "show_product_title": true,
+            "truncate_limit": 0,
+            "prod_ignore_referrer": false,
+            "old_breadcrumb_class": "breadcrumb"
+          }
+        }
+      },
+      "block_order": [
+        "category_breadcrumbs_category_breadcrumbs_NtJMaY"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "collection_header": {
+      "type": "template--collection-header",
+      "blocks": {
+        "7f5f8d2f-79a0-4fbb-8cde-5dec9d1b7936": {
+          "type": "collection-title",
+          "settings": {}
+        },
+        "f1f71385-42ef-491f-957d-29f84a817911": {
+          "type": "collection-description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "7f5f8d2f-79a0-4fbb-8cde-5dec9d1b7936",
+        "f1f71385-42ef-491f-957d-29f84a817911"
+      ],
+      "settings": {}
+    },
+    "0ec884d9-0294-4730-a47f-657dbb050559": {
+      "type": "todays-ships",
+      "blocks": {
+        "db0aef58-81b5-45e2-9baf-6d7e2d4f0a26": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": ""
+          }
+        },
+        "8cbf0f5f-8bb2-40c7-b714-1b23227d14bb": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "db0aef58-81b5-45e2-9baf-6d7e2d4f0a26",
+        "8cbf0f5f-8bb2-40c7-b714-1b23227d14bb"
+      ],
+      "disabled": true,
+      "settings": {
+        "ships-today-title": "Most Popular",
+        "ships-today-content": "",
+        "featured-title": ""
+      }
+    },
+    "main": {
+      "type": "template--collection",
+      "blocks": {
+        "grid-card-title": {
+          "type": "grid-card-title",
+          "settings": {}
+        },
+        "9ee5e42e-7342-41b0-b7f8-c6788148aa4a": {
+          "type": "grid-card-price",
+          "settings": {}
+        },
+        "collection_list_cGkAYN": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "bar-refrigeration"
+          }
+        },
+        "collection_list_fFrkHM": {
+          "type": "collection_list",
+          "settings": {
+            "featured_collection": "blast-chillers"
+          }
+        }
+      },
+      "block_order": [
+        "grid-card-title",
+        "9ee5e42e-7342-41b0-b7f8-c6788148aa4a",
+        "collection_list_cGkAYN",
+        "collection_list_fFrkHM"
+      ],
+      "settings": {
+        "grid": 4,
+        "rows": 4,
+        "pagination_type": "paged_navigation",
+        "popular_heading": "Most Popular",
+        "collection_list": "{{ collection.metafields.custom.popular_collection.value }}",
+        "desktop_position": "sidebar",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "collection-sidebar-link": "",
+        "collection-sidebar-title": "",
+        "collection-sidebar-richtext": "",
+        "collection-sidebar-menu_title": "",
+        "collection-sidebar-linklist": ""
+      }
+    }
+  },
+  "order": [
+    "64350cb7-3649-4814-b87c-3056c09f16c6",
+    "171471576150563abc",
+    "collection_header",
+    "0ec884d9-0294-4730-a47f-657dbb050559",
+    "main"
+  ]
+}

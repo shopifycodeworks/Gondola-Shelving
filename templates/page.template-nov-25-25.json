@@ -1,0 +1,382 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "df6e9143-f008-4855-8cdd-dd6f27eccc73": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": false,
+        "page_heading": "RETAIL STORE LAYOUT DESIGN",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "hover_over_button_half_qNw4bx": {
+      "type": "hover-over-button-half",
+      "settings": {
+        "hover_image": "shopify://shop_images/Scene_4_3.png",
+        "custom_class": "hover_buttons_half"
+      }
+    },
+    "gandola_text_half_rFWwiJ": {
+      "type": "gondola-text-half",
+      "settings": {
+        "heading": "Retail Layout Design To Maximize Sales and Customer Flow",
+        "text_cont": "<p>Investing in a professional layout design is one of the smartest steps you can take when opening a retail store. Instead of guessing what will fit, you get a clear, accurate plan that shows you exactly how your space will work <em>before</em> you buy a single fixture.</p><p>With a custom layout design, you:</p><p>✅ Know <strong>exactly how much equipment</strong> you need<br/>✅ Choose the <strong>right sizes, types, and fittings</strong> for every fixture<br/>✅ <strong>Maximize every square foot</strong> so there’s no wasted space<br/>✅ Create a <strong>smooth, comfortable flow</strong> for customers and staff<br/>✅ <strong>Increase sales potential</strong> with strategic product and fixture placement<br/>✅ Gain long-term <strong>ROI from a store that’s built to perform</strong><br/></p><p>Without a proper floor plan, it’s easy to:</p><p>❌ Order <strong>too little equipment</strong>, then pay extra shipping to fill gaps<br/>❌ Order <strong>too much equipment</strong>, then lose money on returns and restocking fees<br/>❌ End up with an <strong>inefficient, inconsistent layout</strong> that confuses customers and hurts sales<br/></p><p>Vanguard uses industry-standard best practices to design layouts that are efficient, sales-focused, and tailored to your store. You’ll see your complete, properly equipped store on paper before you spend a dollar on fixtures—so every decision is confident, intentional, and profitable.</p>",
+        "button_label": "Book A Consultation",
+        "button_link": "https://vanguardstorefixtures.com/pages/contact",
+        "custom_class": "gandola_half_anchor"
+      }
+    },
+    "gandola_extra_features_hWUYYP": {
+      "type": "gondola-extra-features",
+      "blocks": {
+        "feature_R9N4U7": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Longos.png",
+            "slider-heading": "30K SQ FT GROCERY STORE",
+            "desc": "<p>A high-performing grocery layout featuring remote refrigeration, walk-in coolers, fresh vegetable tables, and efficient gondola shelving—seamlessly integrated with an in-store café, bakery, and prep kitchen to boost dwell time, basket size, and overall sales.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_yd3f39": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Tehran.png",
+            "slider-heading": "3K SQ FT GROCERY",
+            "desc": "<p>A cost-efficient convenience-focused layout featuring a full deli area, strategic shelving, and self-contained refrigeration units—designed to lower upfront and operating costs while still delivering strong product visibility, easy traffic flow, and high-margin food sales.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_PYAjFt": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/Your.png",
+            "slider-heading": "1K SQ FT CONVENIENCE",
+            "desc": "<p>A high-impact convenience store layout featuring a custom checkout counter for fast, efficient transactions, eye-catching ice cream chest freezers, reliable self-contained refrigeration, and durable Canadian-made shelving—designed to drive impulse purchases, streamline flow, and showcase products beautifully in a compact footprint.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_pfiRrP": {
+          "type": "feature",
+          "settings": {
+            "image": "shopify://shop_images/2_a641cb74-0e83-4239-bb4e-f1a6810bbc02.png",
+            "slider-heading": "2K SQ FT PHARMACY",
+            "desc": "<p><br/>A modern pharmacy layout featuring an optimized dispensary area for fast, accurate prescription fulfillment, custom millwork for a clean, professional look, and well-planned customer flow with gondola shelving—designed to reduce wait times, increase basket size, and create a calm, trustworthy shopping experience.</p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_R9N4U7",
+        "feature_yd3f39",
+        "feature_PYAjFt",
+        "feature_pfiRrP"
+      ],
+      "settings": {
+        "heading": "LAYOUT DESIGNS FOR STORES ALL SHAPES AND SIZES",
+        "button_label": "",
+        "button_link": ""
+      }
+    },
+    "image_gallery_aqE98G": {
+      "type": "image--gallery",
+      "blocks": {
+        "image_gzYRg4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Longos.png",
+            "link": "",
+            "title": "",
+            "description": ""
+          }
+        },
+        "image_MV7mng": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Tehran.png",
+            "link": "",
+            "title": "",
+            "description": ""
+          }
+        },
+        "image_AUqBdP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Efe.png",
+            "link": "",
+            "title": "",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_gzYRg4",
+        "image_MV7mng",
+        "image_AUqBdP"
+      ],
+      "disabled": true,
+      "name": "Gallery",
+      "settings": {
+        "colors": "white",
+        "subheading": "",
+        "title": "",
+        "section_width": "container",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "gondola_customization_Azqz6w": {
+      "type": "gondola-customization",
+      "blocks": {
+        "customization_q8zLpr": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/Gondola_51c24df9-9f04-4d72-88b6-850828c887e9.png",
+            "customization_block_heading": "Solid Construction",
+            "customization_block_desc": "<p>Canadian made, versatile, high-capacity shelving that makes it easy to merchandise any product category, maximize vertical space, and create clear, shoppable aisles that guide customers through your store.</p>"
+          }
+        },
+        "customization_DAJURB": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/Millwork.png",
+            "customization_block_heading": "CUSTOM MILLWORK",
+            "customization_block_desc": "<p>Custom-built counters, cabinets, and display units designed to fit your space perfectly, elevate your brand, and create a polished, professional look that builds trust and improves the customer experience.</p>"
+          }
+        },
+        "customization_GXmajA": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/123.png",
+            "customization_block_heading": "REMOTE REFRIGERATION",
+            "customization_block_desc": "<p>High-performance Canadian made remote refrigeration systems to reduce noise and heat in-store, improve energy efficiency, and support larger, continuous refrigerated lineups for a premium shopping experience.</p>"
+          }
+        },
+        "customization_UJYAWr": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/Ref_a0425f59-c013-4730-b902-1de6276ad178.png",
+            "customization_block_heading": "SELF-CONTAINED REFRIGERATION",
+            "customization_block_desc": "<p>Plug-and-play refrigeration units with built-in compressors that are easy to install, move, and service—ideal for smaller stores or cost-conscious projects that still need reliable, attractive cold display.</p>"
+          }
+        },
+        "customization_wXBH4z": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/Walkin.png",
+            "customization_block_heading": "WALK-IN COOLERS & FREEZERS",
+            "customization_block_desc": "<p>Large-capacity refrigerated rooms designed for bulk storage and easy access—keeping product at consistent temperatures, simplifying inventory management, and supporting high-volume operations in grocery, convenience, and foodservice environments.</p>"
+          }
+        },
+        "customization_VheNTL": {
+          "type": "customization",
+          "settings": {
+            "custom_image": "shopify://shop_images/racking.png",
+            "customization_block_heading": "PALLET RACKING",
+            "customization_block_desc": "<p>Heavy-duty racking designed for safe, organized backroom or warehouse storage—allowing you to stock more product, improve picking efficiency, and keep inventory accessible and under control.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "customization_q8zLpr",
+        "customization_DAJURB",
+        "customization_GXmajA",
+        "customization_UJYAWr",
+        "customization_wXBH4z",
+        "customization_VheNTL"
+      ],
+      "settings": {
+        "customization_heading": "WE OFER ONE STOP SHOP SOLUTIONS",
+        "customization_block_sub": "<p>We've put together a selection of configuration options and features to give you an idea of the possibilities of our custom gondola shelving systems. These are just a few examples, and there are many more available. Contact us to discuss which options will best suit your needs.</p>"
+      }
+    },
+    "infinite_slider_FJ9JxH": {
+      "type": "infinite-slider",
+      "blocks": {
+        "article_nGWXEf": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/Supermarket_2_b70c20cd-70de-4cf9-8bd6-1a2d9917d716.jpg",
+            "page_link": ""
+          }
+        },
+        "article_fzxn6K": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/2024-07-24_3.jpg",
+            "page_link": ""
+          }
+        },
+        "article_B6bLbp": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/VICINITY_MART_3.jpg",
+            "page_link": ""
+          }
+        },
+        "article_YNQTRK": {
+          "type": "article",
+          "settings": {
+            "page_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "article_nGWXEf",
+        "article_fzxn6K",
+        "article_B6bLbp",
+        "article_YNQTRK"
+      ],
+      "disabled": true,
+      "settings": {
+        "label_heading": "",
+        "section_width": "container-full-width",
+        "padding_top": 0,
+        "padding_bottom": 30,
+        "gallery_link": ""
+      }
+    },
+    "gandola_benefits_ReXqTC": {
+      "type": "gondola-benefits",
+      "blocks": {
+        "benefits_H4jzM6": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/marker.png",
+            "benefits_heading": "Made In Canada",
+            "benefits_cont": "<p>Manufactured locally guaranteeing a superior quality with fast production times.</p>"
+          }
+        },
+        "benefits_3GnFAR": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/games-podium-with-trophy-for-number-one.png",
+            "benefits_heading": "Competitive Pricing",
+            "benefits_cont": "<p>We ensure real savings compared compared to other North American brands.</p>"
+          }
+        },
+        "benefits_zitGEa": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/customizable.png",
+            "benefits_heading": "Customizable",
+            "benefits_cont": "<p>All gondola shelving systems are made to order, meaning all sizes, colors, and parts are tailored to your store's layout and its brand.</p>"
+          }
+        },
+        "benefits_MGPK68": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/laser-cutting-machine.png",
+            "benefits_heading": "Precise Vision",
+            "benefits_cont": "<p>We guarantee the final results will be as envisioned, by providing engineered floor plans & 3D renders before manufacturing.</p>"
+          }
+        },
+        "benefits_GpQYby": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/trustworthiness.png",
+            "benefits_heading": "Client Satistaction",
+            "benefits_cont": "<p>Your happiness is our top priority, and we strive to exceed your expectations with every interaction.</p>"
+          }
+        },
+        "benefits_i9UFqP": {
+          "type": "benefits",
+          "settings": {
+            "benefits_image": "shopify://shop_images/stone.png",
+            "benefits_heading": "Superior Quality",
+            "benefits_cont": "<p>Our gondola shelving, made from durable steel, is built to last a lifetime, ensuring you won't need to replace it anytime soon.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefits_H4jzM6",
+        "benefits_3GnFAR",
+        "benefits_zitGEa",
+        "benefits_MGPK68",
+        "benefits_GpQYby",
+        "benefits_i9UFqP"
+      ],
+      "settings": {
+        "heading": "WHY CHOOSE VANGUARD?",
+        "button_label": "",
+        "button_link": "https://vanguardstorefixtures.com/pages/contact",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "custom_inquire_form_Pzk3Ed": {
+      "type": "custom-inquire-form",
+      "blocks": {
+        "name_input_Mzy3EA": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "email_input_4dj4Cg": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "tel_input_wDGbtg": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "message_input_7ATGLh": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "name_input_Mzy3EA",
+        "email_input_4dj4Cg",
+        "tel_input_wDGbtg",
+        "message_input_7ATGLh"
+      ],
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "RECEIVE A FREE CONSULTATION",
+        "sub_heading": "Contact us today to receive help in creating the perfect retail space for your business, that not only attracts and retains customers, but also promotes efficient business operations. \n\n\nReceive your free consultation within within 24 hours.",
+        "location": "<p><strong>Vanguard Store Fixtures Inc.</strong></p><p>1 King Street West, 4800-50, Toronto, ON, M5H 1A1</p>",
+        "timing": "<p><strong>Monday to Friday</strong>9:00AM - 5:00PM EST<br/><strong>Saturday & Sunday</strong>- CLOSED</p>",
+        "number": "<p><strong>TOLL FREE LINE</strong></p><p><a href=\"tel:1-888-828-1688\" title=\"tel:1-888-828-1688\">1-888-828-1688</a></p>",
+        "email": "<p>WILL RESPOND WITHIN 24 HOURS</p>",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "df6e9143-f008-4855-8cdd-dd6f27eccc73",
+    "hover_over_button_half_qNw4bx",
+    "gandola_text_half_rFWwiJ",
+    "gandola_extra_features_hWUYYP",
+    "image_gallery_aqE98G",
+    "gondola_customization_Azqz6w",
+    "infinite_slider_FJ9JxH",
+    "gandola_benefits_ReXqTC",
+    "custom_inquire_form_Pzk3Ed"
+  ]
+}
