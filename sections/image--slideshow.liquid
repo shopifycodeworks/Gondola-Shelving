@@ -50,7 +50,7 @@
                                        <div class="banner-wrapper">
                                         {% if block.settings.left_image != blank %}
                                       <div class="left-image">
-                                        <img src="{{ block.settings.left_image | img_url: 'master' }}" alt="banner-left-image" />    
+                                         <img src="{{ block.settings.left_image | img_url: 'master' }}" alt="{{ block.settings.left_image.alt | default: 'Banner left image' | escape }}" />    
                                       </div>
                                         {% endif %}
                                       

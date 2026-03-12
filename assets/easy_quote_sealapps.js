@@ -777,7 +777,7 @@
                             </div>
                             <div class="quote-product-block">
                                 <div class="quote-product-image">
-                                    <img src="${productImg}" alt="">
+                                    <img src="${productImg}" alt="${currentVariant.name}">
                                 </div>
                                 <div class="quote-product-info">
                                     <div class="quote-product-title">${currentVariant.name}</div>

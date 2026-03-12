@@ -127,6 +127,7 @@
                       <a href="{{ settings.sm_twitter_link }}" target="_blank">
                         <img
                           src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/New_Project.png?v=1707488631"
+                          alt="Twitter"
                         >
                       </a>
                     </li>
@@ -334,7 +335,7 @@
                 -->
                 {% if section.settings.footer_logo != blank %}
                   <div class="footer_logo2">
-                    <img src="{{ section.settings.footer_logo | img_url: 'medium' }}">
+                    <img src="{{ section.settings.footer_logo | img_url: 'medium' }}" alt="{{ section.settings.footer_logo.alt | default: shop.name }}">
                   </div>
                 {% endif %}
               </div>
