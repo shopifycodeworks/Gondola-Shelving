@@ -4,7 +4,7 @@
       <div class="col-md-4 mb-3">
         {% if block.settings.image != blank %}
           <div class="contactIcon-image-wrapper">
-            <img src="{{ block.settings.image | img_url:'master' }}">
+            <img src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.image.alt }}">
           </div>
         {% endif %}
 

@@ -347,7 +347,7 @@
                     class="icons--inline alt-focus header-link btn-normalize slide-menu{% if settings.cart-type == 'drawer' %} slide-menu-cart{% endif %}"
                     title="{{ 'layout.header.your_cart' | t }}"
                     aria-label="{{ 'cart.general.open_cart' | t }}"
-                    aria-controls="cartSlideoutAside1"
+                    {% comment %} aria-controls="cartSlideoutAside1" {% endcomment %}
                   >
                     <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/cart.png?v=1689947635" />
                     {% if section.settings.label-enable %}

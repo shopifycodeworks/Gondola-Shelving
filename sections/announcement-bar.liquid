@@ -169,7 +169,7 @@
           <div class="ancrght_otr">
             <div class="rght_inr">
               {% if section.settings.timer != blank %}
-                <img src="{{ section.settings.timer | img_url: 'icon' }}" class="icon-image">
+                <img src="{{ section.settings.timer | img_url: 'icon' }}" class="icon-image" alt="clock">
               {% endif %}
               {% if section.settings.time != blank %}
                 <a href="#" class="time_menu">{{ section.settings.time }}</a>
@@ -189,7 +189,7 @@
             </div>
             <div class="rght_inr">
               {% if section.settings.page_icon != blank %}
-                <img src="{{ section.settings.page_icon | img_url: 'icon' }}" class="icon-image">
+                <img src="{{ section.settings.page_icon | img_url: 'icon' }}" class="icon-image" alt="contact">
               {% endif %}
               {% if section.settings.page != blank %}
                 <a href="{{ section.settings.message_link }}">{{ section.settings.page }}</a>
@@ -221,7 +221,7 @@
 
               {% if section.settings.mobile_icon != blank %}
                 <a href="tel:{{ section.settings.mobile_number }}">
-                  <img src="{{ section.settings.mobile_icon | img_url: 'icon' }}" class="icon-image">
+                  <img src="{{ section.settings.mobile_icon | img_url: 'icon' }}" class="icon-image" alt="phone">
                 </a>
               {% endif %}
               {% if section.settings.mobile_number != blank %}
@@ -231,7 +231,7 @@
             <div class="left_inr">
               {% if section.settings.email_icon != blank %}
                 <a href="mailto:{{ section.settings.email }}">
-                  <img src="{{ section.settings.email_icon | img_url: 'icon' }}" class="icon-image">
+                  <img src="{{ section.settings.email_icon | img_url: 'icon' }}" class="icon-image" alt="email">
                 </a>
               {% endif %}
               {% if section.settings.email != blank %}
