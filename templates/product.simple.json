@@ -179,7 +179,7 @@
       }
     },
     "gandola-products": {
-      "type": "gandola-products",
+      "type": "gondola-products",
       "settings": {
         "title": "Compatible Gondola Fixtures",
         "gondola_collection": "gondola"

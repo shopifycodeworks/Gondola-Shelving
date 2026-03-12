@@ -25,7 +25,7 @@
       }
     },
     "gandola_text_half_rFWwiJ": {
-      "type": "gandola-text-half",
+      "type": "gondola-text-half",
       "settings": {
         "heading": "GONDOLA SHELVING SYSTEMS MANUFACTURED IN CANADA",
         "text_cont": "<p>At Vanguard Store Fixtures, we deliver gondola shelving solutions manufactured to the highest standards of quality—ensuring exceptional aesthetics, durability, and longevity.</p><p>With a wide range of colors, sizes, and fully customizable metal-fabricated products, we offer tailored solutions to match your exact needs. Whether you're looking for standard configurations or entirely new features, our capabilities are virtually limitless—guaranteeing a perfect fit for every fixture in your retail space.</p><p><strong>CLICK HERE FOR THE CATALOG &gt; </strong><a href=\"#\" title=\"#\"><strong>Gondola Shelving Catalog</strong></a></p><p><strong>Contact us today for a free consultation with our trusted store fixtures experts.</strong></p>",
@@ -199,7 +199,7 @@
       }
     },
     "gandola_benefits_ReXqTC": {
-      "type": "gandola-benefits",
+      "type": "gondola-benefits",
       "blocks": {
         "benefits_H4jzM6": {
           "type": "benefits",
@@ -314,7 +314,7 @@
       }
     },
     "gandola_extra_features_hWUYYP": {
-      "type": "gandola-extra-features",
+      "type": "gondola-extra-features",
       "blocks": {
         "feature_R9N4U7": {
           "type": "feature",

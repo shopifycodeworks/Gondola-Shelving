@@ -13,22 +13,22 @@
       "type": "banner-with-text",
       "settings": {
         "page_title": false,
-        "page_heading": "GONDOLA SHELVING",
+        "page_heading": "COMMERCIAL MILLWORK",
         "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
       }
     },
     "hover_over_button_half_qNw4bx": {
       "type": "hover-over-button-half",
       "settings": {
-        "hover_image": "shopify://shop_images/Scene_1_2.jpg",
+        "hover_image": "shopify://shop_images/1_2.jpg",
         "custom_class": "hover_buttons_half"
       }
     },
     "gandola_text_half_rFWwiJ": {
-      "type": "gandola-text-half",
+      "type": "gondola-text-half",
       "settings": {
         "heading": "At Vanguard Store Fixtures, we care about your project's success.",
-        "text_cont": "<p><strong>Set up your store with the highest quality gondola shelving systems in North America. </strong>We offer store fixture solutions that are manufactured to the highest standards of quality, ensuring the aesthetics, durability, and longevity of all your store fixtures. From a wide variety of colors and sizes to completely new metal-fabricated products and features, we can customize everything you need. Our capabilities are limitless to guarantee a perfect fit for all the fixtures in your store.</p><p><strong>Companies that use our fixtures include</strong>: LCBO, Dollarama, Canadian Tire, NAPA Autoparts, Circle K, and others. </p><p><strong>Contact us today for a free consultation </strong>with our trusted store fixtures experts.</p>",
+        "text_cont": "<p><strong>Set up your store with the finest custom millwork in North America. </strong>Our millwork is crafted to the highest standards, ensuring exceptional aesthetics, durability, and longevity for all your store fixtures. From an extensive selection of colors and finishes to entirely new metal-fabricated features, we can customize every detail to meet your needs. Our capabilities are limitless, ensuring a flawless fit for all your store fixtures.</p><p><strong>Contact us today for a free consultation </strong>with our trusted store fixtures experts.</p>",
         "button_label": "Book A Consultation",
         "button_link": "https://vanguardstorefixtures.com/pages/contact",
         "custom_class": ""
@@ -40,7 +40,7 @@
         "article_xYgUQn": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/scene_2psd.jpg",
+            "page_image": "shopify://shop_images/Vicinity_Mart_Interior_1.jpg",
             "page_link": ""
           }
         },
@@ -54,7 +54,7 @@
         "article_benCkB": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/CENTER_DISPLAY_3psd.jpg",
+            "page_image": "shopify://shop_images/INTERIOR_BAKERY_PACKAGE_1.jpg",
             "page_link": ""
           }
         },
@@ -68,42 +68,49 @@
         "article_M6aexG": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/Supermarket_2_b70c20cd-70de-4cf9-8bd6-1a2d9917d716.jpg",
+            "page_image": "shopify://shop_images/PS2.jpg",
             "page_link": ""
           }
         },
         "article_jx3jWY": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/5ed95aa4c76b3b0084116639_5ed956df917709b412c0c65f_Familliprix-Nicolet-04.jpg",
+            "page_image": "shopify://shop_images/FIT_SQUAD_8.jpg",
             "page_link": ""
           }
         },
         "article_bxGxVH": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/5ed95aa8b17cb478b6dea55e_5ed956417a8259b4e9f93c50_Bayview-LCBO_3f6b9965-c03d-4a3f-8ec4-546f2a48f3df.jpg",
+            "page_image": "shopify://shop_images/Design_1.jpg",
             "page_link": ""
           }
         },
         "article_M38CHj": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/5ed95aa37025a35411916c97_5ed956bff17e61000786cd01_Soudure-Oxyge80ge-Bois-Francs01.jpg",
+            "page_image": "shopify://shop_images/Custom_16.jpg",
+            "page_link": ""
+          }
+        },
+        "article_GTBUVX": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/2024-07-24_2.jpg",
             "page_link": ""
           }
         },
         "article_Rb9gDE": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/scene_3psd.jpg",
+            "page_image": "shopify://shop_images/AV18.webp",
             "page_link": ""
           }
         },
         "article_9EcMNy": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/5ed95aa54eef55d329d842b8_5ed9570b6aedf81af6c55aa4_Pharmacie-Proxim-Bellemare03.jpg",
+            "page_image": "shopify://shop_images/FIT_SQUAD_15.jpg",
             "page_link": ""
           }
         },
@@ -117,14 +124,14 @@
         "article_3YtnCJ": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/5ed95aa29170025bb9e5e147_5ed9568f02f98113b54293b0_3001-Hospital-Gate-2-Oakville-large-004-7-P7A0942-1492x1000-72dpi-1491x994_9e29806c-b153-4fd2-a93b-550fb3f5f9b7.jpg",
+            "page_image": "shopify://shop_images/FIT_SQUAD_15.jpg",
             "page_link": ""
           }
         },
         "article_hkfCLE": {
           "type": "article",
           "settings": {
-            "page_image": "shopify://shop_images/5ef0bc979879b2668825a0ea_Boutique-Animo-St-Jerome-04.jpg",
+            "page_image": "shopify://shop_images/FIT_SQUAD_10.jpg",
             "page_link": ""
           }
         },
@@ -145,6 +152,7 @@
         "article_jx3jWY",
         "article_bxGxVH",
         "article_M38CHj",
+        "article_GTBUVX",
         "article_Rb9gDE",
         "article_9EcMNy",
         "article_AL8pQ3",
@@ -161,7 +169,7 @@
       }
     },
     "gandola_benefits_ReXqTC": {
-      "type": "gandola-benefits",
+      "type": "gondola-benefits",
       "blocks": {
         "benefits_H4jzM6": {
           "type": "benefits",
@@ -235,32 +243,32 @@
           "type": "customization",
           "settings": {
             "custom_image": "shopify://shop_images/gondola-structure-1.jpg",
-            "customization_block_heading": "Solid Construction",
-            "customization_block_desc": "<p>Gondola shelving is the backbone of retail display, widely used across the industry as a top choice for showcasing products. Our gondola shelving systems are built at the highest standards of quality, and offer various height and depth options, along with a diverse selection of shelves, cases, stands, and hooks. Additionally, it comes in a range of finishes and colors to suit any store's aesthetic.</p>"
+            "customization_block_heading": "Millwork Gondolas",
+            "customization_block_desc": ""
           }
         },
         "customization_a8JcHe": {
           "type": "customization",
           "settings": {
             "custom_image": "shopify://shop_images/backing-choices.jpg",
-            "customization_block_heading": "Panel Options",
-            "customization_block_desc": "<p>From slat wall and plain panels, to perforated and metal grids, our custom gondola shelving back panel solutions are limitless. All backpanels are extremely sturdy and can hold hundreds of pounds of weight so you can rest assured your store is always in safe operations, while maintaining a beautiful aesthetic.</p>"
+            "customization_block_heading": "Checkout Counters",
+            "customization_block_desc": ""
           }
         },
         "customization_wXBH4z": {
           "type": "customization",
           "settings": {
             "custom_image": "shopify://shop_images/gondola-shelving-choices.jpg",
-            "customization_block_heading": "Shelving & Display Choices",
-            "customization_block_desc": "<p>Our solid steel gondola shelves that can securely hold up to 500lbs of weight with ease. Dozens of alternative gondola shelving attachments are available, like display cases, magaize displays, baskets, slanted shelves, and many more for you to explore in our catalog.</p>"
+            "customization_block_heading": "Retail Displays",
+            "customization_block_desc": ""
           }
         },
         "customization_VheNTL": {
           "type": "customization",
           "settings": {
             "custom_image": "shopify://shop_images/Custom-Color-Chart.jpg",
-            "customization_block_heading": "Custom Colors",
-            "customization_block_desc": "<p>We understand the importance of branding and are dedicated to matching the branding of your company. Our color options range from standard White, Beige, Gray, and Black to specialty choices like Charcoal, Yellow, Nickel, Light Grey, Blue, Shiny Grey, Red, Pure White, and Hammertone. Let us help you create a cohesive and impactful brand presence.</p>"
+            "customization_block_heading": "Unlimited Budget Options",
+            "customization_block_desc": ""
           }
         }
       },
@@ -270,13 +278,14 @@
         "customization_wXBH4z",
         "customization_VheNTL"
       ],
+      "disabled": true,
       "settings": {
-        "customization_heading": "Gondola Shelving Customizations",
-        "customization_block_sub": "<p>We've put together a selection of configuration options and features to give you an idea of the possibilities of our custom gondola shelving systems. These are just a few examples, and there are many more available. Contact us to discuss which options will best suit your needs.</p>"
+        "customization_heading": "Custom Millwork Manufacturing",
+        "customization_block_sub": "<p>We've put together a selection of millwork products and features to give you an idea of the possibilities of our custom millwork manufacturing offers. These are just a few examples, rest assure that our capabilities are limitless.</p>"
       }
     },
     "gandola_extra_features_hWUYYP": {
-      "type": "gandola-extra-features",
+      "type": "gondola-extra-features",
       "blocks": {
         "feature_R9N4U7": {
           "type": "feature",
@@ -369,6 +378,7 @@
         "feature_x78Ur8",
         "feature_dDN7yg"
       ],
+      "disabled": true,
       "settings": {
         "heading": "",
         "button_label": "",

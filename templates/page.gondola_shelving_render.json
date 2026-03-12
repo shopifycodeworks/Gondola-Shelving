@@ -20,18 +20,18 @@
     "hover_over_button_half_qNw4bx": {
       "type": "hover-over-button-half",
       "settings": {
-        "hover_image": "shopify://shop_images/SHELF_5psd.jpg",
+        "hover_image": "shopify://shop_images/Scene_1_2.jpg",
         "custom_class": "hover_buttons_half"
       }
     },
     "gandola_text_half_rFWwiJ": {
-      "type": "gandola-text-half",
+      "type": "gondola-text-half",
       "settings": {
         "heading": "At Vanguard Store Fixtures, we care about your project's success.",
-        "text_cont": "<p><strong>Set up your store with the highest quality gondola shelving systems in North America. </strong>We offer store fixture solutions that are manufactured to the highest standards of quality, ensuring the aesthetics, durability, and longevity of all your store fixtures. From a wide variety of colors and sizes to completely new metal-fabricated products and features, we can customize everything you need. Our capabilities are limitless to guarantee a perfect fit for all the fixtures in your store.</p><p><strong>CLICK HERE FOR THE CATALOG &gt; </strong><a href=\"#\" title=\"#\"><strong>Gondola Shelving Catalog</strong></a></p><p><strong>Contact us today for a free consultation </strong>with our trusted store fixtures experts.</p>",
+        "text_cont": "<p><strong>Set up your store with the highest quality gondola shelving systems in North America. </strong>We offer store fixture solutions that are manufactured to the highest standards of quality, ensuring the aesthetics, durability, and longevity of all your store fixtures. From a wide variety of colors and sizes to completely new metal-fabricated products and features, we can customize everything you need. Our capabilities are limitless to guarantee a perfect fit for all the fixtures in your store.</p><p><strong>Companies that use our fixtures include</strong>: LCBO, Dollarama, Canadian Tire, NAPA Autoparts, Circle K, and others. </p><p><strong>Contact us today for a free consultation </strong>with our trusted store fixtures experts.</p>",
         "button_label": "Book A Consultation",
         "button_link": "https://vanguardstorefixtures.com/pages/contact",
-        "custom_class": "gandola_half_anchor"
+        "custom_class": ""
       }
     },
     "infinite_images_scroll_bmdtjC": {
@@ -127,6 +127,13 @@
             "page_image": "shopify://shop_images/5ef0bc979879b2668825a0ea_Boutique-Animo-St-Jerome-04.jpg",
             "page_link": ""
           }
+        },
+        "article_fpzgPp": {
+          "type": "article",
+          "settings": {
+            "page_image": "shopify://shop_images/5ed95aa8b17cb4ce4cdea565_5ed956757a82593d8cf94266_NSLC--Bay1.jpg",
+            "page_link": ""
+          }
         }
       },
       "block_order": [
@@ -142,7 +149,8 @@
         "article_9EcMNy",
         "article_AL8pQ3",
         "article_3YtnCJ",
-        "article_hkfCLE"
+        "article_hkfCLE",
+        "article_fpzgPp"
       ],
       "settings": {
         "label_heading": "",
@@ -152,54 +160,8 @@
         "gallery_link": ""
       }
     },
-    "infinite_slider_FJ9JxH": {
-      "type": "infinite-slider",
-      "blocks": {
-        "article_nGWXEf": {
-          "type": "article",
-          "settings": {
-            "page_image": "shopify://shop_images/Supermarket_2_b70c20cd-70de-4cf9-8bd6-1a2d9917d716.jpg",
-            "page_link": ""
-          }
-        },
-        "article_fzxn6K": {
-          "type": "article",
-          "settings": {
-            "page_image": "shopify://shop_images/2024-07-24_3.jpg",
-            "page_link": ""
-          }
-        },
-        "article_B6bLbp": {
-          "type": "article",
-          "settings": {
-            "page_image": "shopify://shop_images/VICINITY_MART_3.jpg",
-            "page_link": ""
-          }
-        },
-        "article_YNQTRK": {
-          "type": "article",
-          "settings": {
-            "page_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "article_nGWXEf",
-        "article_fzxn6K",
-        "article_B6bLbp",
-        "article_YNQTRK"
-      ],
-      "disabled": true,
-      "settings": {
-        "label_heading": "",
-        "section_width": "container-full-width",
-        "padding_top": 0,
-        "padding_bottom": 30,
-        "gallery_link": ""
-      }
-    },
     "gandola_benefits_ReXqTC": {
-      "type": "gandola-benefits",
+      "type": "gondola-benefits",
       "blocks": {
         "benefits_H4jzM6": {
           "type": "benefits",
@@ -314,7 +276,7 @@
       }
     },
     "gandola_extra_features_hWUYYP": {
-      "type": "gandola-extra-features",
+      "type": "gondola-extra-features",
       "blocks": {
         "feature_R9N4U7": {
           "type": "feature",
@@ -470,7 +432,6 @@
     "hover_over_button_half_qNw4bx",
     "gandola_text_half_rFWwiJ",
     "infinite_images_scroll_bmdtjC",
-    "infinite_slider_FJ9JxH",
     "gandola_benefits_ReXqTC",
     "gondola_customization_Azqz6w",
     "gandola_extra_features_hWUYYP",
