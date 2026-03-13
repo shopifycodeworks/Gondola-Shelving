@@ -1,85 +1,36 @@
 <div class="table_info_outer">
-          <div class="product-page--submit-action"> 
-                      {% assign disabled = pick_an_option %}
-                      {% unless current_variant.available %}
-                        {% assign disabled = true %}
-                      {% endunless %}
-                      {% if product.tags contains 'used-product' %}
-                        <a href="https://vanguardstorefixtures.com/pages/contact" class="btn">Contact Us</a>
-                      {% else %}
-                        <button
-                          type="submit"
-                          name="add"
-                          id="purchase"
-                          class="btn {% if block.settings.show_smart_checkout and product.selling_plan_groups.size == 0 %} secondary-button{% endif %}"
-                          {% if disabled %}
-                            disabled
-                          {% endif %}
-                          data-cart-action="{{ settings.cart-action }}"
-                        >
-                          <!-- {% if pick_an_option or current_variant.available %}
-                            {{ 'products.product.add_to_cart' | t }}
-                          {% else %}
-                            {{ 'products.product.sold_out' | t }}
-                          {% endif %} -->
-                          cart
-                        </button>
-                      {% endif %}
+  <div class="product-page--submit-action">
+    {% assign disabled = pick_an_option %}
+    {% unless current_variant.available %}
+      {% assign disabled = true %}
+    {% endunless %}
+    {% if product.tags contains 'used-product' %}
+      <a href="https://vanguardstorefixtures.com/pages/contact" class="btn">Contact Us</a>
+    {% else %}
+      <button
+        type="submit"
+        name="add"
+        id="purchase"
+        class="btn {% if block.settings.show_smart_checkout and product.selling_plan_groups.size == 0 %} secondary-button{% endif %}"
+        {% if disabled %}
+          disabled
+        {% endif %}
+        data-cart-action="{{ settings.cart-action }}"
+      >
+        <!--
+          {% if pick_an_option or current_variant.available %}
+            {{ 'products.product.add_to_cart' | t }}
+          {% else %}
+            {{ 'products.product.sold_out' | t }}
+          {% endif %}
+        -->
+        cart
+      </button>
+    {% endif %}
 
-                      {% if block.settings.show_smart_checkout %}
-                        {{ form | payment_button }}
-                      {% endif %}
-                    </div>
-                    </div>
-                    {% render 'product-select', section_id: section.id, variants: product.variants %}
-
-
-{% comment %}
-{% schema %}
-{
-    "name": {
-        "en": "Custom Product form",
-        "de": "Produktseiten",
-        "es": "Páginas de producto",
-        "fr": "Pages des produits",
-        "pt-PT": "Páginas de produtos"
-    },
-    "tag":"section",
-    "class": "shopify-section proDetailSec sec-gapTopMd",
-    "settings": [     
-       ],
-    "blocks": [
-        {
-          "type": "@app"
-        },
-
-         {
-          "name": "Payment buttons",
-          "type": "payment-buttons",
-          "limit": 1,
-          "settings": [
-            {
-                "type": "checkbox",
-                "id": "show_smart_checkout",
-                "label": {
-                    "en": "Show dynamic checkout button",
-                    "de": "Dynamischen Bezahlbutton anzeigen",
-                    "es": "Mostar el botón de compra dinámica",
-                    "fr": "Afficher le bouton de paiement dynamique",
-                    "pt-PT": "Mostrar botão de checkout dinâmico"
-                },
-                "default": true,
-                "info": {
-                    "en": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
-                    "de": "Lässt Kunden direkt unter Verwendung einer bekannten Zahlungsmethode bezahlen. [Mehr erfahren](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
-                    "es": "Permita a los clientes finalizar su compra directamente utilizando un método de pago que les sea familiar. [Aprenda más](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
-                    "fr": "Permet aux clients de payer directement en utilisant un mode de paiement familier. [En savoir plus](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)",
-                    "pt-PT": "Permita que os clientes façam checkout diretamente utilizando um método de pagamento familiar. [Saber mais](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
-                }
-            }
-          ]
-        }
-    ]
-}
-{% endschema %}
-   {% endcomment %}   
+    {% if block.settings.show_smart_checkout %}
+      {{ form | payment_button }}
+    {% endif %}
+  </div>
+</div>
+{% render 'product-select', section_id: section.id, variants: product.variants %}

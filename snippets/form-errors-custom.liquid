@@ -9,20 +9,22 @@
   <div class="note form-error">
     <p>{{ 'general.forms.post_error' | t }}</p>
 
-    <!-- <ul class="disc">
-      {% for field in form.errors %}
+    <!--
+      <ul class="disc">
+       {% for field in form.errors %}
 
-        {% if field == 'form' %}
-          <li>
-            {{ form.errors.messages[field] }}
-          </li>
-        {% else %}
-          <li>
-            The <strong>{{ field | replace: 'body', 'Message' }}</strong> field {{ form.errors.messages[field] }}
-          </li>
-        {% endif %}
+         {% if field == 'form' %}
+           <li>
+             {{ form.errors.messages[field] }}
+           </li>
+         {% else %}
+           <li>
+             The <strong>{{ field | replace: 'body', 'Message' }}</strong> field {{ form.errors.messages[field] }}
+           </li>
+         {% endif %}
 
-      {% endfor %}
-     </ul> -->
+       {% endfor %}
+      </ul>
+    -->
   </div>
 {% endif %}

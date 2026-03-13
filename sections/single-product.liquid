@@ -75,20 +75,6 @@
       <div class="category-breadcrumbs__wrap">
         {% render 'breadcrumbs' %}
       </div>
-      {% comment %}
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-          <a href="{{ routes.root_url }}" title="{{ 'general.breadcrumbs.back_home' | t }}">
-            {{- 'general.breadcrumbs.home' | t -}}
-          </a>
-
-          {% if collection.url %}
-            <span aria-hidden="true">&rsaquo;</span>
-            {{ collection.title | link_to: collection.url }}
-          {% endif %}
-          <span aria-hidden="true">&rsaquo;</span>
-          <span>{{ product.title }}</span>
-        </nav>
-      {% endcomment %}
     </div>
   </div>
 
@@ -101,9 +87,7 @@
   {% if product.media.size <= 5 %} no-arrows{% endif %}
   horizontal
 {% endif %}">
-  {% comment %} {% if settings.sale_badge %}
-    <div class="sale-badge mobile product-price__sale-label-{{ section.id }}{% unless on_sale %} hide{% endunless %}">{{ 'products.general.sale' | t }}</div>
-  {% endif %} {% endcomment %}
+
   {% if product.media.size > 0 %}
     <div class="thumbs-direction-nav">
       <a class="thumbs-direction-nav--prev" href="#">

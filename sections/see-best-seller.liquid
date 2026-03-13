@@ -1,5 +1,7 @@
 <style>
-  .tabcontent{display:none;}
+  .tabcontent {
+    display: none;
+  }
 </style>
 {% assign brandLogo = product.metafields.custom.brand_logo.file %}
 <div class="container">
@@ -15,13 +17,13 @@
     </div>
   </div>
 
-   <div class="row">
+  <div class="row">
     <div class="col-md-12">
       <!-- <div id="coll-tab-slider" class="sell-tab-sec owl-carousel owl-theme swiper-wrapper"> -->
       <div class="sell-tab-sec ">
         <!-- <div class="container"> -->
         <div class="sell-tab">
-           <div class="tab tabBtnList"> 
+          <div class="tab tabBtnList">
             {% assign a = 1 %}
             <ul class="owl-carousel owl-theme" id="tabslider">
               {% for block in section.blocks %}
@@ -30,10 +32,9 @@
                     class="tablinks {% if a == 1 %} active {% endif %}"
                     onclick="openCity(event, '{{ block.settings.choose_collection }}')"
                   >
-                   <!-- {{ block.settings.choose_collection | capitalize }} -->
-                {{ block.settings.choose_collection | replace: '-', ' ' | capitalize }}
-
-                  </button> 
+                    <!-- {{ block.settings.choose_collection | capitalize }} -->
+                    {{ block.settings.choose_collection | replace: '-', ' ' | capitalize }}
+                  </button>
                 </li>
                 {% assign a = a | plus: 1 %}
               {% endfor %}
@@ -49,67 +50,66 @@
                 style="display: block;"
               {% endif %}
             >
-               <div class="bestSeller-row">
-                  {% comment %}{% for product in block.settings.choose_collection.products limit:10 %} {% endcomment %}
-                     {% for product in block.settings.product_list %}
+              <div class="bestSeller-row">
+                {% for product in block.settings.product_list %}
                   <div class="bestSeller-box">
                     <a href="{{ product.url }}">
                       <div class="collections-product-image">
-                        <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt | default: product.title | escape }}">
+                        <img
+                          src="{{ product.featured_image | img_url: 'master' }}"
+                          alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                        >
 
-                         {%- if product.metafields.custom.brand_logo != blank -%}
+                        {%- if product.metafields.custom.brand_logo != blank -%}
                           <div class="bestSeller-floatingLogo">
-                            <img src="{{ product.metafields.custom.brand_logo.value | img_url:'master' }}" alt="Brand Logo">
+                            <img
+                              src="{{ product.metafields.custom.brand_logo.value | img_url:'master' }}"
+                              alt="Brand Logo"
+                            >
                           </div>
                         {% endif %}
-
                       </div>
                     </a>
                     <a href="{{ product.url }}">
-                    <div class="bestSeller-bottom">
-                      <h6>{{ product.title }}</h6>
+                      <div class="bestSeller-bottom">
+                        <h6>{{ product.title }}</h6>
 
-                      
-                      <div class="price priceRow">
+                        <div class="price priceRow">
                           <span class="money-styling">
                             <div class="free_shipping">Free Shipping</div>
                             {% if product.compare_at_price > product.price %}
-                            <span class="money">{{ product.price | money }}</span>
+                              <span class="money">{{ product.price | money }}</span>
                             {% else %}
-                            <h6 class="no-strike-price money"> 
-                            {{ product.price | money }}
-                          </h6>
+                              <h6 class="no-strike-price money">
+                                {{ product.price | money }}
+                              </h6>
                             {% endif %}
                           </span>
 
+                          <!--
+                            {% if product.compare_at_price > product.price %}
+                              <h6>
+                                {{ product.price | money }}
+                                <span class="compare-at-price">
+                                  <span class="money">{{ product.compare_at_price | money }}</span>
+                                </span>
+                              </h6>
+                            {% else %}
+                              <h6 class="no-strike-price">
+                                {{ product.price | money }}
+                              </h6>
+                            {% endif %}
+                          -->
+                        </div>
 
-                        
-                        <!-- {% if product.compare_at_price > product.price %}
-                          <h6>
-                            {{ product.price | money }}
-                            <span class="compare-at-price">
-                              <span class="money">{{ product.compare_at_price | money }}</span>
-                            </span>
-                          </h6>
-                        {% else %}
-                          <h6 class="no-strike-price"> 
-                            {{ product.price | money }}
-                          </h6>
-                        {% endif %} -->
-
-                        
+                        <form method="post" action="/cart/add" class="add-to-cart-form">
+                          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                          <input min="1" type="hidden" id="quantity" name="quantity" value="1">
+                          <button class="btn">ADD TO CART</button>
+                        </form>
                       </div>
-
-                      
-                      <form method="post" action="/cart/add" class="add-to-cart-form">
-                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                        <input min="1" type="hidden" id="quantity" name="quantity" value="1">
-                        <button class="btn">ADD TO CART</button>
-                      </form>
-                    </div>
-                      </a>
+                    </a>
                   </div>
-                
                 {% endfor %}
               </div>
             </div>
@@ -121,7 +121,6 @@
     </div>
   </div>
 
-  
   {% if section.settings.button_lebel != blank and section.settings.button_link != blank %}
     <div class="row">
       <div class="col-md-12">
@@ -137,34 +136,34 @@
 <script>
   function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName('tabcontent');
     for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+      tabcontent[i].style.display = 'none';
     }
-    tablinks = document.getElementsByClassName("tablinks");
+    tablinks = document.getElementsByClassName('tablinks');
     for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].classList.remove("active");
+      tablinks[i].classList.remove('active');
     }
     // Add 'active' class only to the button
-    if (evt.target.tagName === "BUTTON") {
-      evt.target.classList.add("active");
+    if (evt.target.tagName === 'BUTTON') {
+      evt.target.classList.add('active');
     }
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(cityName).style.display = 'block';
   }
 </script>
 
 {% schema %}
 {
   "name": "See Best Seller",
-  "tag":"section",
-  "class":"see-best-sellerSec sec-gapTopSm sec-gapBottom",
+  "tag": "section",
+  "class": "see-best-sellerSec sec-gapTopSm sec-gapBottom",
   "settings": [
-   {
-     "type":"text",
-     "id":"title",
-     "label":"Title"
-   },
-     {
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
       "type": "text",
       "id": "button_lebel",
       "label": "Button Lebel"
@@ -175,63 +174,62 @@
       "label": "Button Link"
     }
   ],
-  "blocks":[
+  "blocks": [
     {
-      "type":"card",
-      "name":"Choose Collection",
-       "settings": [
-          {
-            "type": "text",
-            "id": "choose_collection",
-            "label": "Collection Title"
-          },
-          {
+      "type": "card",
+      "name": "Choose Collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "choose_collection",
+          "label": "Collection Title"
+        },
+        {
           "type": "product_list",
           "id": "product_list",
           "label": "Products",
           "limit": 10
-         }
-    ]
+        }
+      ]
     },
     {
-            "name": "Grid card heading",
-            "type": "grid-card-title",
-            "limit": 1,
-            "settings": [
-                {
-                    "type": "paragraph",
-                    "content": "This block determines the position of the product grid item heading."
-                }
-            ]
-        },
+      "name": "Grid card heading",
+      "type": "grid-card-title",
+      "limit": 1,
+      "settings": [
         {
-            "name": "Grid card price",
-            "type": "grid-card-price",
-            "limit": 1,
-            "settings": [
-                {
-                    "type": "paragraph",
-                    "content": "This block determines the position of the product grid item price."
-                }
-            ]
-        },
-        {
-            "name": "Grid card swatches",
-            "type": "grid-card-swatches",
-            "limit": 1,
-            "settings": [
-                {
-                    "type": "paragraph",
-                    "content": "This block determines the position of the product grid item swatches."
-                }
-            ]
+          "type": "paragraph",
+          "content": "This block determines the position of the product grid item heading."
         }
-
+      ]
+    },
+    {
+      "name": "Grid card price",
+      "type": "grid-card-price",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "This block determines the position of the product grid item price."
+        }
+      ]
+    },
+    {
+      "name": "Grid card swatches",
+      "type": "grid-card-swatches",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "This block determines the position of the product grid item swatches."
+        }
+      ]
+    }
   ],
-   "presets": [
-  {
-    "name": "See Best Seller"
-  }
-]
+  "presets": [
+    {
+      "name": "See Best Seller"
+    }
+  ]
 }
 {% endschema %}

@@ -249,7 +249,6 @@
 
             {% endcase %}
 
-            {% comment %} Set flags {% endcomment %}
             {% if block.settings.url != blank and block.settings.button_label == blank %}
               {% assign block_is_link = true %}
             {% else %}
@@ -268,7 +267,6 @@
               {% assign has_mobile_video = false %}
             {% endif %}
 
-            {% comment %} Collage grid item content and styles (block type agnostic) {% endcomment %}
             <div class="collage-builder__grid-item collage-builder__grid-item--{{ section.id }}--{{ forloop.index }} collage-builder__grid-item--{{ block.type }} collage-builder__grid-item--{{ block.id }}{% if has_mobile_image %} collage-builder__grid-item--mobile-image{% endif %}{% if has_mobile_video %} collage-builder__grid-item--mobile-video{% endif %}{% if mobile_type == 'mp4' %} collage-builder__grid-item--mobile-video-mp4{% endif %} wow fadeInUp{% unless forloop.first %} delay-{{ forloop.index0 }}{% endunless %}" {{ block.shopify_attributes }}>
               <div class="collage-builder__grid-item--inner">
                 <div class="collage-builder__content">
