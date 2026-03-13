@@ -1,7 +1,13 @@
 <div class="about-banner home-page">
   <div class="inner-banner-img">
     {% if section.settings.banner_image != blank %}
-      <img src="{{ section.settings.banner_image | img_url:'master' }}" alt="{{ section.settings.banner_image.alt | escape }}">
+      <img 
+        src="{{ section.settings.banner_image | image_url: width: 2000 }}" 
+        alt="{{ section.settings.banner_image.alt | default: shop.name | escape }}"
+        width="{{ section.settings.banner_image.width | default: 1920 }}"
+        height="{{ section.settings.banner_image.height | default: 800 }}"
+        fetchpriority="high"
+      >
     {% endif %}
     {% if section.settings.video_url != blank %}
       <video class="banner_video" autoplay loop muted playsinline aria-label="Banner Video">

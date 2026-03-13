@@ -51,7 +51,12 @@
                                        <div class="banner-wrapper">
                                         {% if block.settings.left_image != blank %}
                                       <div class="left-image">
-                                         <img src="{{ block.settings.left_image | img_url: 'master' }}" alt="{{ block.settings.left_image.alt | default: 'Banner left image' | escape }}" />    
+                                         <img src="{{ block.settings.left_image | image_url: width: 1000 }}" 
+                                              alt="{{ block.settings.left_image.alt | default: 'Banner left image' | escape }}"
+                                              width="{{ block.settings.left_image.width | default: 500 }}"
+                                              height="{{ block.settings.left_image.height | default: 500 }}"
+                                              {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                                         />    
                                       </div>
                                         {% endif %}
                                       
