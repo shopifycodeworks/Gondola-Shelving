@@ -174,16 +174,12 @@
           </div>
         {% endif %}
         <div class="sticky-header-menu d-none d-lg-block">
-          {% comment %}#main-navigation-wrapper will be copied here{% endcomment %}
         </div>
         <div class="sticky-header-icons d-none d-lg-flex">
-          {% comment %}icons from .cart-link will be copied here{% endcomment %}
         </div>
         <div class="sticky-header-search d-none d-lg-block">
-          {% comment %}Search box will be copied here{% endcomment %}
         </div>
         <div class="sticky-mobile-header d-lg-none">
-          {% comment %}Mobile menu will be copied here{% endcomment %}
         </div>
       </div>
     </div>
@@ -327,10 +323,7 @@
                         <a href="{{ routes.account_url }}" class="icons--inline alt-focus header-link" title="{{ 'customer.account.title' | t }}">
                             <i data-feather="user"></i>
                             {% if section.settings.label-enable %}
-                              <span class="header--supporting-text">
-                              <!-- {{ 'layout.header.account' | t }} -->
-                                My Account
-                              </span>
+                              <span class="header--supporting-text">My Account</span>
                               {% endif %}
                         </a>
                     </li>
@@ -355,7 +348,6 @@
                     <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_ionic-md-cart.svg?v=1702473357" alt="" width="24" height="24" />
                     {% if section.settings.label-enable %}
                         <span class="header--supporting-text">
-                      {% comment %} {{ 'layout.header.your_cart' | t }} {% endcomment %}
                       My Cart 
                             {% case section.settings.cart-number %}
                             {% when 'quantity' %}

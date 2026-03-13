@@ -211,11 +211,7 @@
               ></button>
             </div>
             <div class="left_inr">
-              <!--
-                <div class="header-icons cart-link">
-                  <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/header-search.png?v=1689948486" alt="icon" class="icon-image" data-toggle="modal" data-target="#exampleModal">
-                </div>
-              -->
+
 
               {% if section.settings['search-enable'] %}
                 {% render 'search-bar' %}
@@ -241,15 +237,7 @@
               {% endif %}
             </div>
           </div>
-          {% comment %}
-            {% if section.settings.message_link != blank %}
-              <a href="{{ section.settings.message_link }}" class="notification-bar__message">
-                <p>{{ section.settings.message_text | escape }}</p>
-              </a>
-            {% else %}
-              <p class="notification-bar__message">{{ section.settings.message_text | escape }}</p>
-            {% endif %}
-          {% endcomment %}
+
         </div>
       </div>
     </div>

@@ -24,45 +24,7 @@
 {% endif %}
 
   <div class="container">
-    {% comment %}
-    <div class="custom-project-text-wrap">
-    {% if section.settings.title != blank or section.settings.subheading != blank %}
-      <div class="rich-text__header row">
-        <div class="col">
-          <div class="rich-text__title-bar title-bar custom-font">
-            {% if section.settings.subheading != blank %}
-              <h3 class="type-subheading type-subheading--1 wow fadeIn{% if section.settings.title != blank %} typography--padding-bottom{% endif %}">{{ section.settings.subheading | escape }}</h3>
-            {% endif %}
-            {% if section.settings.title != blank %}
-              <h3 class="rich-text__heading wow fadeIn{% if section.settings.subheading != blank %} delay-1{% endif %}">{{ section.settings.title | escape }}</h3>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    {% endif %}
 
-    {% if show_text_or_button %}
-      <div class="homepage-indiv-section-wrapper grid--full homepage-featured-content-wrapper wow fadeInUp delay-1">
-        <div class="row">
-          <div class="col-md-12 col-12 homepage-featured-rich-text">
-
-            {% if section.settings.text != blank %}
-              <div class="rich-text__text rte featured-row__subtext textarea">{{ section.settings.text }}</div>
-            {% endif %}
-
-            {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-              <div class="rich-text__btn">
-                <a href="{{ section.settings.button_link }}" class="btn">
-                  {{ section.settings.button_label }}
-                </a>
-              </div>
-            {% endif %}
-
-          </div>
-        </div>
-      </div>
-    {% endif %}
-  </div>{% endcomment %}
 
     <div class="footer-map-wrap">
       <div class="responsive-map">

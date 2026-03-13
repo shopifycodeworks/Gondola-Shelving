@@ -24,7 +24,6 @@
         <div class="collage-builder__grid-container collage-builder__grid-container--{{ section.id }}">
           {% for block in section.blocks %}
 
-            {% comment %} Text overlay content (image, background video, text and html blocks) {% endcomment %}
             {% capture text_content %}
               <div class="collage-builder__text-container collage-builder__text-container--{{ block.id }} {{ block.settings.desktop_position }} {{ block.settings.mobile_position }}">
                 <div class="collage-builder__text-container--inner">
@@ -44,11 +43,9 @@
               </div>
             {% endcapture %}
 
-            {% comment %} Block width/height setting id {% endcomment %}
             {% assign width_setting_id = 'width_' | append: forloop.index %}
             {% assign height_setting_id = 'height_' | append: forloop.index %}
 
-            {% comment %} Video blocks type assignment {% endcomment %}
             {% if block.type == 'background_video' or block.type == 'video' %}
               {% assign type = 'mp4' %}
               {% if block.settings.video_url contains "youtube.com" %}
@@ -79,7 +76,6 @@
 
               {% when 'image' %}
 
-                {% comment %} Image block content and styles {% endcomment %}
                 {% capture block_content %}
                   <div class="collage-builder__media-wrapper">
                     {{ text_content }}
@@ -132,7 +128,6 @@
 
               {% when 'background_video' %}
 
-                {% comment %} Determine whether the block aspect ratio is narrower than or wider than the 16:9 video aspect ratio, and expand iframe height or width accordingly to fill the available space {% endcomment %}
                 {% assign block_aspect = section.settings[height_setting_id] | divided_by: section.settings[width_setting_id] %}
                 {% if block_aspect > 1.78 %}
                   {% assign block_aspect_type = 'wide' %}
@@ -140,7 +135,6 @@
                   {% assign block_aspect_type = 'narrow' %}
                 {% endif %}
 
-                {% comment %} Background video block content and styles {% endcomment %}
                 {% capture block_content %}
                   <div class="collage-builder__media-wrapper">
                     
@@ -193,7 +187,6 @@
 
               {% when 'video' %}
 
-                {% comment %} Video block content and styles {% endcomment %}
                 {% capture block_content %}
                   <div class="collage-builder__media-wrapper">
                     <div class="collage-builder__video collage-builder__video--desktop type-{{ type }}">
@@ -243,7 +236,6 @@
 
               {% when 'text' or 'html' %}
 
-                {% comment %} Text and html blocks content and styles {% endcomment %}
                 {% capture block_content %}
                   {{ text_content }}
 
