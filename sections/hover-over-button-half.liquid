@@ -219,7 +219,7 @@
 
 <div class="hover-over-image {{ section.settings.custom_class }}">  
   <div class='container'>
-    <img src="{{ section.settings.hover_image | img_url: 'master' }}" class="main_hotspot_image">
+    <img src="{{ section.settings.hover_image | img_url: 'master' }}" class="main_hotspot_image" alt="{{ section.settings.hover_image.alt | escape }}">
     {% for block in section.blocks %}
    {% assign styles = '' %}
       {% if block.settings.space_bottom != 0 %}{% assign styles = styles | append: 'bottom:' | append: block.settings.space_bottom | append: '%;' %}{% endif %}

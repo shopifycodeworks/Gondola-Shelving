@@ -9,7 +9,7 @@
               <div class="rest-col-right">
                 <img
                   src="{{ block.settings.vision_image | img_url: 'master' }}"
-                  alt="{{ block.settings.vision_image.alt }}"
+                  alt="{{ block.settings.vision_image.alt | default: 'Vision Image' | escape }}"
                 >
               </div>
             </div>

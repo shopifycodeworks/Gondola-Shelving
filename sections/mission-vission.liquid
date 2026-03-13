@@ -6,7 +6,7 @@
         <div class="mission-vission-col">
         <div class="mission-vission-col-img">
           {% if block.settings.icon != blank %}
-          <img src="{{ block.settings.icon | img_url:'master' }}">
+          <img src="{{ block.settings.icon | img_url:'master' }}" alt="{{ block.settings.icon.alt | escape }}">
         {% endif %}
         </div>
         <div class="details">

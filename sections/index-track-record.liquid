@@ -49,7 +49,11 @@
           <div class="col-md-4 info-column icon-col grid__item">
             {% if block.settings.image != blank %}
               <div class="icon-img-wrap">
-                <img src="{{ block.settings.image | img_url: 'master' }}" class="icon-image">
+                <img
+                  src="{{ block.settings.image | img_url: 'master' }}"
+                  class="icon-image"
+                  alt="{{ block.settings.image.alt | default: 'Icon image' | escape }}"
+                >
               </div>
             {% endif %}
             <div class="icon-col-content">

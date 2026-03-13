@@ -55,11 +55,11 @@
                   <div class="bestSeller-box">
                     <a href="{{ product.url }}">
                       <div class="collections-product-image">
-                        <img src="{{ product.featured_image | img_url: 'master' }}">
+                        <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt | default: product.title | escape }}">
 
                          {%- if product.metafields.custom.brand_logo != blank -%}
                           <div class="bestSeller-floatingLogo">
-                            <img src="{{ product.metafields.custom.brand_logo.value | img_url:'master' }}">
+                            <img src="{{ product.metafields.custom.brand_logo.value | img_url:'master' }}" alt="Brand Logo">
                           </div>
                         {% endif %}
 

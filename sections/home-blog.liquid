@@ -11,13 +11,14 @@
         <div class="col-md-4">
           <div class="home-blog-col-wrap">
             <div class="blog-img-wrap">
-              <img
-                src="{{ article | img_url: 'large' }}"
-              >
+                <img
+                  src="{{ article | img_url: 'large' }}"
+                  alt="{{ article.image.alt | default: article.title | escape }}"
+                >
             </div>
             <div class="blog-content">
               <div class="blog-publish-date">
-                <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/calender.png?v=1689068613">
+                <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/calender.png?v=1689068613" alt="Calendar Icon">
                 <time
                   class="updated blog--indiv-date"
                   datetime="{{ article.published_at | date: format: 'long' }}"

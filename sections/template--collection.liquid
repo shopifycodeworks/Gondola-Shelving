@@ -59,11 +59,11 @@ transition: 0.3s;
                 <div class="featured-box text-center">
                   {% if collectionsMeta.image.src != blank %}
                      <div class="featured-img-wrap">
-                      <img src="{{ collectionsMeta.image.src | img_url:'master' }}" alt="{{ collectionsMeta.title | escape }}">
+                      <img src="{{ collectionsMeta.image.src | img_url:'master' }}" alt="{{ collectionsMeta.title | default: 'Collection Image' | escape }}">
                     </div>
                    {% else %}
                      <div class="featured-img-wrap">
-                       <img src="{{ 'No_Image_Placeholder.png' | asset_url }}" alt="{{ collectionsMeta.title | escape }}">
+                       <img src="{{ 'No_Image_Placeholder.png' | asset_url }}" alt="{{ collectionsMeta.title | default: 'No Image Placeholder' | escape }}">
                   </div>
                   {% endif %}
                   {% if collectionsMeta.title != blank %}
@@ -86,11 +86,11 @@ transition: 0.3s;
                 <div class="featured-box text-center">
                   {% if collection.collection_list != blank %}
                     <div class="featured-img-wrap">
-                      <img src="{{ collection.collection_list | img_url:'master' }}">
+                      <img src="{{ collection.collection_list | img_url:'master' }}" alt="{{ collection.title | default: 'Collection Image' | escape }}">
                     </div>
                   {% else %}
                      <div class="featured-img-wrap">
-                       <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/default-image.png?v=1706777675" >
+                       <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/default-image.png?v=1706777675" alt="{{ collection.title | default: 'Default Image' | escape }}">
                   </div>
                   {% endif %}
                   {% if collection.title != blank %}
@@ -119,7 +119,7 @@ transition: 0.3s;
                  <div class="featured-box text-center">
                   {% if block.settings.featured_collection.featured_image != blank %}
                     <div class="featured-img-wrap">
-                      <img src="{{ block.settings.featured_collection.featured_image | img_url:'master' }}">
+                      <img src="{{ block.settings.featured_collection.featured_image | img_url:'master' }}" alt="{{ block.settings.featured_collection.title | default: 'Featured Collection Image' | escape }}">
                     </div>
                   
                   {% endif %}

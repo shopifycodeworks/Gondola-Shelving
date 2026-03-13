@@ -18,7 +18,7 @@
                 <div class="grid-image">
                   <a href="{{ block.settings.pdf }}" class="grid-image--centered">
                     {% if block.settings.catalog_image != blank %}
-                      <img src="{{ block.settings.catalog_image | img_url: 'master' }}">
+                      <img src="{{ block.settings.catalog_image | img_url: 'master' }}" alt="{{ block.settings.catalog_image.alt | default: block.settings.catalog_head | escape }}">
                     {% endif %}
                   </a>
                 </div>

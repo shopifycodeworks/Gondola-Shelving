@@ -17,7 +17,7 @@
         <div class="equipemnet-wrapper">
           {% if block.settings.finace_image != blank %}
             <div class="fin-img">
-              <img src="{{ block.settings.finace_image | img_url:'master' }}">
+              <img src="{{ block.settings.finace_image | img_url: 'master' }}" class="icon-image" alt="{{ block.settings.finace_image.alt | default: block.settings.finace_head | escape }}">
             </div>
           {% endif %}
           <div class="fin_content">
