@@ -50,9 +50,12 @@
             {% if block.settings.image != blank %}
               <div class="icon-img-wrap">
                 <img
-                  src="{{ block.settings.image | img_url: 'master' }}"
+                  src="{{ block.settings.image | image_url: width: 300 }}"
                   class="icon-image"
                   alt="{{ block.settings.image.alt | default: 'Icon image' | escape }}"
+                  width="{{ block.settings.image.width | default: 100 }}"
+                  height="{{ block.settings.image.height | default: 100 }}"
+                  loading="lazy"
                 >
               </div>
             {% endif %}

@@ -4,8 +4,9 @@
       <img src="{{ section.settings.banner_image | img_url:'master' }}" alt="{{ section.settings.banner_image.alt | escape }}">
     {% endif %}
     {% if section.settings.video_url != blank %}
-      <video class="banner_video" autoplay loop muted playsinline>
+      <video class="banner_video" autoplay loop muted playsinline aria-label="Banner Video">
         <source src="{{ section.settings.video_url }}" type="video/mp4">
+        <track kind="captions" srclang="en" label="English">
       </video>
     {% endif %}
   </div>
