@@ -1,45 +1,20 @@
 {{ 'gondola-builder-v2.css' | asset_url | stylesheet_tag }}
 
-<script>
-  window.gondolaBuilderV2Data = {
-    {% for block in section.blocks %}
-      "{{ block.settings.product.id }}": {
-        "productId": {{ block.settings.product.id | json }},
-        "productTitle": {{ block.settings.product.title | json }},
-        "featuredImage": {% if block.settings.product.featured_image %}{{ block.settings.product.featured_image | img_url: '200x200' | json }}{% else %}null{% endif %},
-        "isShelves": {% if block.settings.product.tags contains 'gondola-shelves' %}true{% else %}false{% endif %},
-        "options": {{ block.settings.product.options | json }},
-        "variants": [
-          {% for variant in block.settings.product.variants %}
-            {
-              "id": {{ variant.id }},
-              "available": {{ variant.available | json }},
-              "option1": {{ variant.option1 | json }},
-              "option2": {{ variant.option2 | json }},
-              "option3": {{ variant.option3 | json }},
-              "price": {{ variant.price | json }},
-              "compare_at_price": {{ variant.compare_at_price | default: 0 | json }}
-            }{% unless forloop.last %},{% endunless %}
-          {% endfor %}
-        ],
-        "hasColour": {% if block.settings.product.metafields.custom.colour_variant_options.value != blank %}true{% else %}false{% endif %},
-        "firstColour": {% assign colors = block.settings.product.metafields.custom.colour_variant_options.value %}{% if colors != blank %}{{ colors[0] | json }}{% else %}null{% endif %},
-        "hasBacking": {% assign bt = block.settings.product.metafields.custom.backing_type.value %}{% assign bo = block.settings.product.metafields.custom.backing_options.value %}{% if bt != blank or bo != blank %}true{% else %}false{% endif %}
-      }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  };
-</script>
-
 <div id="section_{{ section.id }}" class="gondola-builder-v2-section">
   <div class="page-width">
     {% for block in section.blocks %}
       {% assign product = block.settings.product %}
+
+      {%- comment -%} Resolve colour metafield {%- endcomment -%}
       {% assign colors = product.metafields.custom.colour_variant_options.value %}
-      {% comment %}Backing: prefer metaobject list (custom.backing_type), fallback to legacy backing_options, then hardcoded {% endcomment %}
+
+      {%- comment -%} Resolve backing: prefer metaobject list, fallback to legacy options {%- endcomment -%}
       {% assign backing_list = product.metafields.custom.backing_type.value %}
       {% if backing_list == blank %}
         {% assign backing_list = product.metafields.custom.backing_options.value %}
       {% endif %}
+
+      {%- comment -%} Hide backing for gondola-shelves / no-backing tagged products {%- endcomment -%}
       {% assign hide_backing = false %}
       {% for tag in product.tags %}
         {% if tag == 'gondola-shelves' or tag == 'no-backing' %}
@@ -50,11 +25,72 @@
       {% if hide_backing %}
         {% assign backing_list = blank %}
       {% endif %}
+
+      {%- comment -%} Resolve default variant and its option values {%- endcomment -%}
+      {% assign default_variant = product.selected_or_first_available_variant %}
+
+      {%- comment -%}
+        Build a map: option name → position index (1-based) so we can
+        look up the correct optionN slot on the variant.
+      {%- endcomment -%}
+      {% assign opt_depth_pos   = nil %}
+      {% assign opt_length_pos  = nil %}
+      {% assign opt_height_pos  = nil %}
+      {% for opt in product.options_with_values %}
+        {% assign opt_lower = opt.name | downcase %}
+        {% if opt_lower == 'depth'  %}{% assign opt_depth_pos  = opt.position %}{% endif %}
+        {% if opt_lower == 'length' %}{% assign opt_length_pos = opt.position %}{% endif %}
+        {% if opt_lower == 'height' %}{% assign opt_height_pos = opt.position %}{% endif %}
+      {% endfor %}
+
+      {% assign default_depth  = '' %}
+      {% assign default_length = '' %}
+      {% assign default_height = '' %}
+      {% if opt_depth_pos %}
+        {% assign depth_key  = 'option' | append: opt_depth_pos %}
+        {% assign default_depth  = default_variant[depth_key] %}
+      {% endif %}
+      {% if opt_length_pos %}
+        {% assign length_key = 'option' | append: opt_length_pos %}
+        {% assign default_length = default_variant[length_key] %}
+      {% endif %}
+      {% if opt_height_pos %}
+        {% assign height_key = 'option' | append: opt_height_pos %}
+        {% assign default_height = default_variant[height_key] %}
+      {% endif %}
+
+      {%- comment -%} Resolve default colour (first in metafield list) {%- endcomment -%}
+      {% assign default_colour = '' %}
+      {% if colors != blank %}
+        {% assign default_colour = colors[0] %}
+      {% endif %}
+
+      {%- comment -%} Resolve default backing (first in backing_list) {%- endcomment -%}
+      {% assign default_backing = '' %}
+      {% if backing_list != blank %}
+        {% assign first_backing_entry = backing_list[0] %}
+        {% if first_backing_entry.backing_type %}
+          {% assign default_backing = first_backing_entry.backing_type %}
+        {% else %}
+          {% assign default_backing = first_backing_entry %}
+        {% endif %}
+      {% endif %}
+
+      {%- comment -%} Badge from tag {%- endcomment -%}
+      {% assign badge = '' %}
+      {% for tag in product.tags %}
+        {% if tag contains 'gondola-' %}
+          {% assign badge = tag | remove: 'gondola-' %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
       <div
         class="pcard{% unless forloop.first %} pcard--collapsed{% endunless %}"
         data-id="{{ product.id }}"
         data-product-id="{{ product.id }}"
       >
+        {%- comment -%} ── Card Header ── {%- endcomment -%}
         <div
           class="pcard_header"
           role="button"
@@ -67,25 +103,18 @@
             <div class="pcard_header_stepnum">{{ forloop.index }}</div>
             <div class="pcard_product_image">
               <img
-                src="{{ block.settings.product.featured_image | img_url: 'master' }}"
-                alt="{{ block.settings.product.title }}"
+                src="{{ product.featured_image | img_url: 'master' }}"
+                alt="{{ product.title | escape }}"
                 width=""
                 height=""
               >
             </div>
             <div class="pcard_product_info">
-              <div class="pcard_product_title">{{ block.settings.product.title }}</div>
-              <div class="pcard_product_sub">{{ block.settings.product.metafields.custom.sort_text }}</div>
+              <div class="pcard_product_title">{{ product.title }}</div>
+              <div class="pcard_product_sub">{{ product.metafields.custom.sort_text }}</div>
             </div>
           </div>
           <div class="pcard_header_right_wrapper">
-            {% assign badge = '' %}
-            {% for tag in block.settings.product.tags %}
-              {% if tag contains 'gondola-' %}
-                {% assign badge = tag | remove: 'gondola-' %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
             <div class="pcard_product_badges">
               <span class="badge badge--{{ badge }}">{{ badge }}</span>
             </div>
@@ -98,19 +127,22 @@
             </div>
           </div>
         </div>
+
+        {%- comment -%} ── Card Body ── {%- endcomment -%}
         <div class="pcard_body" id="pcard-body-{{ product.id }}">
           <div class="pcard_body_inner">
             <div class="pcard_variant_options">
-              <div class="pvo_row pvo_row_product_variants">
-                <div class="pvo_col pvo_col--colors">
-                  {% assign colors = block.settings.product.metafields.custom.colour_variant_options.value %}
-                  {% if colors != blank %}
+
+              {%- comment -%} Colour Swatches — rendered by Liquid, first colour pre-selected {%- endcomment -%}
+              {% if colors != blank %}
+                <div class="pvo_row pvo_row_product_variants">
+                  <div class="pvo_col pvo_col--colors">
                     <div class="option_label">Colour</div>
                     <div class="option_values">
                       {% for color in colors %}
                         <button
                           type="button"
-                          class="color_swatch"
+                          class="color_swatch{% if forloop.first %} active{% endif %}"
                           data-opt="colour"
                           data-val="{{ color }}"
                           data-pid="{{ product.id }}"
@@ -118,33 +150,29 @@
                           style="background-color: {{ color }} !important;"
                         >
                           <span class="swatch__check">
-                            <svg
-                              width="18"
-                              height="13"
-                              viewBox="0 0 18 13"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M5.03684 11.7738L4.61202 12.0375L4.93236 12.5536L5.37726 12.14L5.03684 11.7738ZM17.5051 0.866213C17.7074 0.678203 17.7189 0.361831 17.5309 0.159577C17.3429 -0.042677 17.0265 -0.0542237 16.8243 0.133787L17.1647 0.5L17.5051 0.866213ZM0.424805 4.34332L-1.47521e-05 4.607L4.61202 12.0375L5.03684 11.7738L5.46166 11.5101L0.849624 4.07964L0.424805 4.34332ZM5.03684 11.7738L5.37726 12.14L17.5051 0.866213L17.1647 0.5L16.8243 0.133787L4.69642 11.4076L5.03684 11.7738Z" fill="{%if color == 'Black' %}white{% else %}black{% endif %}"/>
+                            <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M5.03684 11.7738L4.61202 12.0375L4.93236 12.5536L5.37726 12.14L5.03684 11.7738ZM17.5051 0.866213C17.7074 0.678203 17.7189 0.361831 17.5309 0.159577C17.3429 -0.042677 17.0265 -0.0542237 16.8243 0.133787L17.1647 0.5L17.5051 0.866213ZM0.424805 4.34332L-1.47521e-05 4.607L4.61202 12.0375L5.03684 11.7738L5.46166 11.5101L0.849624 4.07964L0.424805 4.34332ZM5.03684 11.7738L5.37726 12.14L17.5051 0.866213L17.1647 0.5L16.8243 0.133787L4.69642 11.4076L5.03684 11.7738Z" fill="{% if color == 'Black' %}white{% else %}black{% endif %}"/>
                             </svg>
                           </span>
                           <span class="swatch__tip">{{ color }}</span>
                         </button>
                       {% endfor %}
                     </div>
-                  {% endif %}
+                  </div>
                 </div>
-              </div>
-              <div class="pvo_row pvo_row_product_variants">
-                {% for option in product.options_with_values %}
-                  {% if option.name == 'Depth' %}
+              {% endif %}
+
+              {%- comment -%} Depth pills — default variant depth pre-selected by Liquid {%- endcomment -%}
+              {% for option in product.options_with_values %}
+                {% if option.name == 'Depth' %}
+                  <div class="pvo_row pvo_row_product_variants">
                     <div class="pvo_col pvo_col--Depth">
                       <div class="option_label">{{ option.name }}</div>
                       <div class="option_values">
                         {% for value in option.values %}
                           <button
                             type="button"
-                            class="Depth_pill pill-group alt-focus"
+                            class="Depth_pill pill-group alt-focus{% if value == default_depth %} active{% endif %}"
                             data-opt="{{ option.name | downcase }}"
                             data-val="{{ value }}"
                             data-pid="{{ product.id }}"
@@ -155,21 +183,24 @@
                         {% endfor %}
                       </div>
                     </div>
-                  {% endif %}
-                {% endfor %}
-              </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
 
+              {%- comment -%} Length + Height pills — default variant values pre-selected by Liquid {%- endcomment -%}
               <div class="pvo_row pvo_row_product_variants half_width">
                 {% for option in product.options_with_values %}
                   {% if option.name == 'Length' or option.name == 'Height' %}
+                    {% assign this_default = '' %}
+                    {% if option.name == 'Length' %}{% assign this_default = default_length %}{% endif %}
+                    {% if option.name == 'Height' %}{% assign this_default = default_height %}{% endif %}
                     <div class="pvo_col pvo_col--{{ option.name | handle }}">
                       <div class="option_label">{{ option.name }}</div>
-
                       <div class="option_values">
                         {% for value in option.values %}
                           <button
                             type="button"
-                            class="variant_pill pill-group alt-focus"
+                            class="variant_pill pill-group alt-focus{% if value == this_default %} active{% endif %}"
                             data-opt="{{ option.name | downcase }}"
                             data-val="{{ value }}"
                             data-pid="{{ product.id }}"
@@ -184,6 +215,7 @@
                 {% endfor %}
               </div>
 
+              {%- comment -%} Backing pills — first entry pre-selected by Liquid {%- endcomment -%}
               {% if backing_list != blank %}
                 <div class="pvo_row pvo_row_product_variants">
                   <div class="pvo_col pvo_col--backing">
@@ -191,34 +223,28 @@
                     <div class="option_values">
                       {% for entry in backing_list %}
                         {% if entry.backing_type %}
-                          {% assign backing_val = entry.backing_type %}
-                          {% assign backing_svg = entry.svg_code | default: '' %}
-                          {% assign backing_img = entry.image %}
+                          {% assign backing_val       = entry.backing_type %}
+                          {% assign backing_svg       = entry.svg_code | default: '' %}
+                          {% assign backing_img       = entry.image %}
                           {% assign backing_sort_text = entry.sort_text | default: '' %}
                         {% else %}
-                          {% assign backing_val = entry %}
-                          {% assign backing_svg = '' %}
-                          {% assign backing_img = blank %}
+                          {% assign backing_val       = entry %}
+                          {% assign backing_svg       = '' %}
+                          {% assign backing_img       = blank %}
                           {% assign backing_sort_text = '' %}
                         {% endif %}
                         <button
                           type="button"
-                          class="variant_pill pill-group backing_pill alt-focus"
+                          class="variant_pill pill-group backing_pill alt-focus{% if forloop.first %} active{% endif %}"
                           data-opt="backing"
                           data-val="{{ backing_val }}"
                           data-pid="{{ product.id }}"
                           title="{{ backing_val }}"
-                          {% if backing_svg != '' %}
-                            data-svg="{{ backing_svg | escape }}"
-                          {% endif %}
-                          {% if backing_img != blank %}
-                            data-image="{{ backing_img | img_url: 'master' }}"
-                          {% endif %}
+                          {% if backing_svg != '' %}data-svg="{{ backing_svg | escape }}"{% endif %}
+                          {% if backing_img != blank %}data-image="{{ backing_img | img_url: 'master' }}"{% endif %}
                         >
                           {% if backing_img != blank %}
-                            <span class="backing_pill_icon"
-                              ><img src="{{ backing_img | img_url: 'master' }}" alt="" width="" height="" loading="lazy"
-                            ></span>
+                            <span class="backing_pill_icon"><img src="{{ backing_img | img_url: 'master' }}" alt="" width="" height="" loading="lazy"></span>
                           {% elsif backing_svg != '' %}
                             <span class="backing_pill_icon">{{ backing_svg | escape }}</span>
                           {% endif %}
@@ -230,7 +256,10 @@
                   </div>
                 </div>
               {% endif %}
-            </div>
+
+            </div>{%- comment -%} /.pcard_variant_options {%- endcomment -%}
+
+            {%- comment -%} ── Colour Preview — all default values set by Liquid ── {%- endcomment -%}
             <div class="pcard_product_preview">
               <div class="pcard_product_preview_inner">
                 <div class="pcard_product_preview_inner_title">
@@ -242,16 +271,16 @@
                       <img
                         class="pcard_preview_img"
                         data-preview-image
-                        src="{{ block.settings.product.featured_image | img_url: 'master' }}"
-                        alt="{{ block.settings.product.title }}"
+                        src="{{ product.featured_image | img_url: 'master' }}"
+                        alt="{{ product.title | escape }}"
                         width=""
                         height=""
                       >
                     </div>
                     {% if colors != blank %}
                       <div class="pcard_selected_color">
-                        <span class="pcard_selected_color_value" data-preview="colour-name">{{ colors[0] }}</span>
-                        <span class="pcard_selected_color_code" data-preview="colour-code">{{ colors[0] }}</span>
+                        <span class="pcard_selected_color_value" data-preview="colour-name">{{ default_colour }}</span>
+                        <span class="pcard_selected_color_code" data-preview="colour-code">{{ default_colour }}</span>
                       </div>
                     {% endif %}
                   </div>
@@ -259,51 +288,50 @@
                     {% if colors != blank %}
                       <div class="table_row table_row_color">
                         <span class="table_row_color_label">Colour</span>
-                        <span class="table_row_color_value" data-preview="colour">{{ colors[0] }}</span>
+                        <span class="table_row_color_value" data-preview="colour">{{ default_colour }}</span>
                       </div>
                     {% endif %}
                     <div class="table_row table_row_length">
                       <span class="table_row_length_label">Length</span>
-                      <span class="table_row_length_value" data-preview="length">—</span>
+                      <span class="table_row_length_value" data-preview="length">{{ default_length | default: '—' }}</span>
                     </div>
                     <div class="table_row table_row_depth">
                       <span class="table_row_depth_label">Depth</span>
-                      <span class="table_row_depth_value" data-preview="depth">—</span>
+                      <span class="table_row_depth_value" data-preview="depth">{{ default_depth | default: '—' }}</span>
                     </div>
                     <div class="table_row table_row_height">
                       <span class="table_row_height_label">Height</span>
-                      <span class="table_row_height_value" data-preview="height">—</span>
+                      <span class="table_row_height_value" data-preview="height">{{ default_height | default: '—' }}</span>
                     </div>
                     {% if backing_list != blank %}
-                      {% assign first_backing = backing_list[0] %}
-                      {% if first_backing.backing_type %}
-                        {% assign first_backing_val = first_backing.backing_type %}
-                      {% else %}
-                        {% assign first_backing_val = first_backing %}
-                      {% endif %}
                       <div class="table_row table_row_backing">
                         <span class="table_row_backing_label">Backing</span>
-                        <span class="table_row_backing_value" data-preview="backing">{{ first_backing_val }}</span>
+                        <span class="table_row_backing_value" data-preview="backing">{{ default_backing | default: '—' }}</span>
                       </div>
                     {% endif %}
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <form method="post" action="/cart/add" class="pcard_atc-form" data-product-id="{{ product.id }}">
-          <input type="hidden" name="id" class="pcard_variant_id" value="">
-          <input type="hidden" name="quantity" class="pcard_quantity" value="1">
-          <input type="hidden" name="properties[Colour]" class="pcard_prop_colour" value="" data-prop="colour">
-          <input type="hidden" name="properties[Backing]" class="pcard_prop_backing" value="" data-prop="backing">
+
+          </div>{%- comment -%} /.pcard_body_inner {%- endcomment -%}
+        </div>{%- comment -%} /.pcard_body {%- endcomment -%}
+
+        {%- comment -%} ── ATC Form — variant id + props seeded server-side ── {%- endcomment -%}
+        <form method="post" action="{{ routes.cart_add_url }}" class="pcard_atc-form" data-product-id="{{ product.id }}">
+          <input type="hidden" name="id"                   class="pcard_variant_id"   value="{{ default_variant.id }}">
+          <input type="hidden" name="quantity"             class="pcard_quantity"     value="1">
+          <input type="hidden" name="properties[Colour]"   class="pcard_prop_colour"  value="{{ default_colour }}" data-prop="colour">
+          <input type="hidden" name="properties[Backing]"  class="pcard_prop_backing" value="{{ default_backing }}" data-prop="backing">
 
           <div class="pcard_footer">
             <div class="pcard_footer_left">
               <div class="pcard_footer_left_price" data-price-wrapper>
-                <span class="pcard_footer_left_price_old" data-compare-price style="display: none;"></span>
+                <span class="pcard_footer_left_price_old" data-compare-price{% unless default_variant.compare_at_price > default_variant.price %} style="display:none;"{% endunless %}>
+                  {% if default_variant.compare_at_price > default_variant.price %}{{ default_variant.compare_at_price | money }}{% endif %}
+                </span>
                 <span class="pcard_footer_left_price_new" data-variant-price>
-                  {{- product.selected_or_first_available_variant.price | money -}}
+                  {{ default_variant.price | money }}
                 </span>
               </div>
             </div>
@@ -333,16 +361,44 @@
                   </span>
                 </button>
               </div>
-              <button type="button" class="pcard_add-btn" data-add-to-build="{{ product.id }}" disabled>
+              <button type="button" class="pcard_add-btn" data-add-to-build="{{ product.id }}">
                 <span class="add_btn_label">Add</span>
               </button>
             </div>
           </div>
         </form>
-      </div>
+
+        {%- comment -%}
+          Variant data embedded as a scoped JSON block — no global JS object needed.
+          JS reads this per-card instead of a shared window variable.
+        {%- endcomment -%}
+        <script type="application/json" data-product-json>
+          {
+            "productId": {{ product.id | json }},
+            "productTitle": {{ product.title | json }},
+            "featuredImage": {% if product.featured_image %}{{ product.featured_image | img_url: '200x200' | json }}{% else %}null{% endif %},
+            "isShelves": {% if product.tags contains 'gondola-shelves' %}true{% else %}false{% endif %},
+            "options": {{ product.options | json }},
+            "variants": [
+              {% for variant in product.variants %}
+                {
+                  "id": {{ variant.id }},
+                  "available": {{ variant.available | json }},
+                  "option1": {{ variant.option1 | json }},
+                  "option2": {{ variant.option2 | json }},
+                  "option3": {{ variant.option3 | json }},
+                  "price": {{ variant.price | json }},
+                  "compare_at_price": {{ variant.compare_at_price | default: 0 | json }}
+                }{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            ]
+          }
+        </script>
+
+      </div>{%- comment -%} /.pcard {%- endcomment -%}
     {% endfor %}
 
-    {% comment %} Your Build - Items added via Add button only {% endcomment %}
+    {%- comment -%} ── Your Build Panel ── {%- endcomment -%}
     <div class="pcard pcard--your-build pcard--collapsed" id="gondola-your-build" data-your-build>
       <div
         class="pcard_header"
@@ -390,583 +446,494 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
 <script>
-  (function () {
-    const data = window.gondolaBuilderV2Data || {};
-    var buildItems = [];
+(function () {
+  'use strict';
 
-    function parseDepth(val) {
-      if (val == null || val === '') return null;
-      var s = String(val)
-        .replace(/["\u201C\u201D\u2033″]/g, '')
-        .trim();
-      var n = parseInt(s, 10);
-      return isNaN(n) ? null : n;
+  /* ─── Helpers ─────────────────────────────────────────────────────── */
+  function parseDepth(val) {
+    if (val == null || val === '') return null;
+    var n = parseInt(String(val).replace(/["\u201C\u201D\u2033″]/g, '').trim(), 10);
+    return isNaN(n) ? null : n;
+  }
+
+  function normVal(s) {
+    return (s || '').toString().replace(/["\u2033]/g, '').trim();
+  }
+
+  function formatMoney(cents) {
+    if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+      return Shopify.formatMoney(cents);
     }
+    return '$' + (cents / 100).toFixed(2);
+  }
 
-    function getSelectedGondolaDepth() {
-      var pcards = document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)');
-      for (var i = 0; i < pcards.length; i++) {
-        var pid = pcards[i].dataset.productId;
-        var pd = data[pid];
-        if (!pd || pd.isShelves) continue;
-        var depthBtn = pcards[i].querySelector('[data-opt="depth"].active');
-        if (depthBtn && depthBtn.dataset.val) {
-          var d = parseDepth(depthBtn.dataset.val);
-          if (d != null) return d;
-        }
+  function generateGID() {
+    return 'gondola-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+  }
+
+  function escapeHtml(s) {
+    if (!s) return '';
+    var d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  /* ─── Build Items Array ───────────────────────────────────────────── */
+  var buildItems = [];
+
+  /* ─── Shelf depth cross-filter ───────────────────────────────────── */
+  function getSelectedGondolaDepth() {
+    var pcards = document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)');
+    for (var i = 0; i < pcards.length; i++) {
+      var pd = readProductJson(pcards[i]);
+      if (!pd || pd.isShelves) continue;
+      var btn = pcards[i].querySelector('[data-opt="depth"].active');
+      if (btn && btn.dataset.val) {
+        var d = parseDepth(btn.dataset.val);
+        if (d != null) return d;
       }
-      return null;
+    }
+    return null;
+  }
+
+  function applyShelfDepthFilter() {
+    var maxDepth = getSelectedGondolaDepth();
+    document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)').forEach(function (pcard) {
+      var pd = readProductJson(pcard);
+      if (!pd || !pd.isShelves) return;
+      var firstValid = null;
+      var currentInvalid = false;
+      pcard.querySelectorAll('[data-opt="depth"]').forEach(function (pill) {
+        var d = parseDepth(pill.dataset.val);
+        var allowed = maxDepth == null || (d != null && d <= maxDepth);
+        if (allowed) {
+          pill.classList.remove('gondola-depth-disabled');
+          pill.disabled = false;
+          pill.setAttribute('aria-disabled', 'false');
+          if (!firstValid) firstValid = pill;
+        } else {
+          pill.classList.add('gondola-depth-disabled');
+          pill.disabled = true;
+          pill.setAttribute('aria-disabled', 'true');
+          if (pill.classList.contains('active')) currentInvalid = true;
+        }
+      });
+      if (currentInvalid && firstValid) firstValid.click();
+    });
+  }
+
+  /* ─── Read per-card JSON (replaces global window object) ─────────── */
+  function readProductJson(pcard) {
+    var el = pcard.querySelector('[data-product-json]');
+    if (!el) return null;
+    try { return JSON.parse(el.textContent); } catch (e) { return null; }
+  }
+
+  /* ─── Variant matching ────────────────────────────────────────────── */
+  function findMatchingVariant(productData, selected) {
+    var options = productData.options || [];
+    var optionMap = {};
+    options.forEach(function (name, i) { optionMap[name.toLowerCase()] = i + 1; });
+
+    for (var i = 0; i < productData.variants.length; i++) {
+      var v = productData.variants[i];
+      if (!v.available) continue;
+      var match = true;
+
+      ['depth', 'length', 'height'].forEach(function (key) {
+        if (!match || !selected[key]) return;
+        var idx = optionMap[key];
+        var vNorm = normVal(idx ? v['option' + idx] : null);
+        var sNorm = normVal(selected[key]);
+        if (idx) {
+          if (vNorm !== sNorm) match = false;
+        } else {
+          if ([v.option1, v.option2, v.option3].map(normVal).indexOf(sNorm) < 0) match = false;
+        }
+      });
+
+      if (match) return v;
+    }
+    return null;
+  }
+
+  /* ─── Per-card initialisation ────────────────────────────────────── */
+  function initCard(pcard) {
+    var productData = readProductJson(pcard);
+    if (!productData) return;
+
+    var productId      = String(productData.productId);
+    var form           = pcard.querySelector('.pcard_atc-form');
+    var variantInput   = form && form.querySelector('.pcard_variant_id');
+    var qtyInput       = pcard.querySelector('.pcard_qty_input');
+    var qtyHidden      = form && form.querySelector('.pcard_quantity');
+    var addBtn         = pcard.querySelector('[data-add-to-build]');
+    var priceEl        = pcard.querySelector('[data-variant-price]');
+    var comparePriceEl = pcard.querySelector('[data-compare-price]');
+    var propInputs     = {
+      colour:  form && form.querySelector('.pcard_prop_colour'),
+      backing: form && form.querySelector('.pcard_prop_backing'),
+    };
+
+    function getSelectedOptions() {
+      var opts = {};
+      pcard.querySelectorAll('[data-opt][data-pid="' + productId + '"]').forEach(function (btn) {
+        if (btn.classList.contains('active')) opts[btn.dataset.opt] = btn.dataset.val;
+      });
+      return opts;
     }
 
-    function applyShelfDepthFilter() {
-      var maxDepth = getSelectedGondolaDepth();
-      var pcards = document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)');
-      pcards.forEach(function (pcard) {
-        var pid = pcard.dataset.productId;
-        var pd = data[pid];
-        if (!pd || !pd.isShelves) return;
-        var depthPills = pcard.querySelectorAll('[data-opt="depth"]');
-        var firstValid = null;
-        var currentInvalid = false;
-        depthPills.forEach(function (pill) {
-          var d = parseDepth(pill.dataset.val);
-          var allowed = maxDepth == null || (d != null && d <= maxDepth);
-          if (allowed) {
-            pill.classList.remove('gondola-depth-disabled');
-            pill.disabled = false;
-            pill.setAttribute('aria-disabled', 'false');
-            if (!firstValid) firstValid = pill;
+    function updateUI() {
+      var selected = getSelectedOptions();
+      var variant  = findMatchingVariant(productData, selected);
+
+      if (variant) {
+        if (variantInput) variantInput.value = variant.id;
+        if (addBtn) addBtn.disabled = false;
+        if (priceEl) priceEl.textContent = formatMoney(variant.price);
+        if (comparePriceEl) {
+          if (variant.compare_at_price && variant.compare_at_price > variant.price) {
+            comparePriceEl.textContent = formatMoney(variant.compare_at_price);
+            comparePriceEl.style.display = '';
+            comparePriceEl.style.textDecoration = 'line-through';
+            comparePriceEl.style.color = '#666';
           } else {
-            pill.classList.add('gondola-depth-disabled');
-            pill.disabled = true;
-            pill.setAttribute('aria-disabled', 'true');
-            if (pill.classList.contains('active')) currentInvalid = true;
+            comparePriceEl.style.display = 'none';
           }
-        });
-        if (currentInvalid && firstValid) {
-          firstValid.click();
         }
-      });
-    }
-
-    function formatMoney(cents) {
-      if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
-        return Shopify.formatMoney(cents);
-      }
-      return '$' + (cents / 100).toFixed(2);
-    }
-
-    function generateGID() {
-      return 'gondola-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
-    }
-
-    function escapeHtml(s) {
-      if (!s) return '';
-      var div = document.createElement('div');
-      div.textContent = s;
-      return div.innerHTML;
-    }
-
-    function getItemFromCard(pcard) {
-      var productId = pcard.dataset.productId;
-      var productData = data[productId];
-      if (!productData) return null;
-
-      var form = pcard.querySelector('.pcard_atc-form');
-      var variantInput = form ? form.querySelector('.pcard_variant_id') : null;
-      var qtyInput = pcard.querySelector('.pcard_qty_input');
-      var optionButtons = pcard.querySelectorAll('[data-opt][data-pid="' + productId + '"]');
-      var propColour = form ? form.querySelector('.pcard_prop_colour') : null;
-      var propBacking = form ? form.querySelector('.pcard_prop_backing') : null;
-
-      var variantId = variantInput ? variantInput.value : '';
-      var qty = parseInt(qtyInput ? qtyInput.value : 0, 10) || 0;
-      if (!variantId || qty <= 0) return null;
-
-      var selected = {};
-      optionButtons.forEach(function (btn) {
-        if (btn.classList.contains('active')) {
-          selected[btn.dataset.opt] = btn.dataset.val;
-        }
-      });
-
-      var variant = productData.variants.find(function (v) {
-        return String(v.id) === String(variantId);
-      });
-      if (!variant || !variant.available) return null;
-
-      var properties = {};
-      if (propColour && propColour.value) properties['Colour'] = propColour.value;
-      if (propBacking && propBacking.value) properties['Backing'] = propBacking.value;
-
-      var previewImg = pcard.querySelector('[data-preview-image]');
-      var headerImg = pcard.querySelector('.pcard_product_image img');
-      var imageUrl =
-        previewImg && previewImg.src
-          ? previewImg.src
-          : headerImg && headerImg.src
-          ? headerImg.src
-          : productData.featuredImage || '';
-
-      return {
-        productId: productId,
-        productTitle: productData.productTitle || productData.title || 'Product',
-        variantId: variantId,
-        quantity: qty,
-        price: variant.price,
-        properties: properties,
-        selected: selected,
-        imageUrl: imageUrl,
-      };
-    }
-
-    function showAddedToast() {
-      var existing = document.querySelector('.gondola-add-toast');
-      if (existing) existing.remove();
-      var toast = document.createElement('div');
-      toast.className = 'gondola-add-toast';
-      toast.setAttribute('role', 'status');
-      toast.innerHTML =
-        '<span class="gondola-add-toast-icon">✓</span> <span class="gondola-add-toast-text">Added to Your Build</span>';
-      document.body.appendChild(toast);
-      requestAnimationFrame(function () {
-        toast.classList.add('gondola-add-toast--visible');
-      });
-      setTimeout(function () {
-        toast.classList.remove('gondola-add-toast--visible');
-        setTimeout(function () {
-          toast.remove();
-        }, 300);
-      }, 2500);
-    }
-
-    function scrollToYourBuild() {
-      var yourBuild = document.querySelector('#gondola-your-build');
-      if (yourBuild) {
-        yourBuild.classList.add('gondola-your-build--highlight');
-        yourBuild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        setTimeout(function () {
-          yourBuild.classList.remove('gondola-your-build--highlight');
-        }, 2000);
-      }
-    }
-
-    function addItemToBuild(pcard) {
-      var item = getItemFromCard(pcard);
-      if (!item) return;
-
-      var existing = buildItems.find(function (b) {
-        return b.variantId === item.variantId && JSON.stringify(b.properties) === JSON.stringify(item.properties);
-      });
-      if (existing) {
-        existing.quantity += item.quantity;
-        if (!existing.imageUrl && item.imageUrl) existing.imageUrl = item.imageUrl;
       } else {
-        buildItems.push({
-          productId: item.productId,
-          productTitle: item.productTitle,
-          variantId: item.variantId,
-          quantity: item.quantity,
-          price: item.price,
-          properties: item.properties,
-          selected: item.selected,
-          imageUrl: item.imageUrl,
-        });
-      }
-      refreshYourBuild();
-      showAddedToast();
-      scrollToYourBuild();
-    }
-
-    function removeItemFromBuild(index) {
-      buildItems.splice(index, 1);
-      refreshYourBuild();
-    }
-
-    function refreshYourBuild() {
-      var listEl = document.querySelector('[data-your-build-list]');
-      var emptyEl = document.querySelector('[data-your-build-empty]');
-      var totalEl = document.querySelector('[data-your-build-total-value]');
-      var atcBtn = document.querySelector('[data-your-build-atc]');
-
-      if (!listEl || !emptyEl || !totalEl || !atcBtn) return;
-
-      listEl.innerHTML = '';
-      if (buildItems.length === 0) {
-        emptyEl.style.display = '';
-        totalEl.textContent = '—';
-        atcBtn.disabled = true;
-        return;
+        if (variantInput) variantInput.value = '';
+        if (addBtn) addBtn.disabled = true;
       }
 
-      emptyEl.style.display = 'none';
-      var totalCents = 0;
-      buildItems.forEach(function (item, index) {
-        totalCents += item.price * item.quantity;
-        var spec = [
-          item.selected.colour,
-          item.selected.length,
-          item.selected.height,
-          item.selected.depth,
-          item.selected.backing,
-        ]
-          .filter(Boolean)
-          .join(' · ');
-        var imgSrc = item.imageUrl || '';
-        var imgHtml = imgSrc ? '<img src="' + escapeHtml(imgSrc) + '" alt="" loading="lazy">' : '';
-        var priceLine =
-          formatMoney(item.price) + ' × ' + item.quantity + ' = ' + formatMoney(item.price * item.quantity);
-        var li = document.createElement('li');
-        li.className = 'your-build-list-item';
-        li.innerHTML =
-          '<div class="your-build-item-image">' +
-          imgHtml +
-          '</div>' +
-          '<div class="your-build-item-content">' +
-          '<div class="your-build-item-title">' +
-          escapeHtml(item.productTitle) +
-          '</div>' +
-          (spec ? '<div class="your-build-item-spec">' + escapeHtml(spec) + '</div>' : '') +
-          '<div class="your-build-item-price-line">' +
-          escapeHtml(priceLine) +
-          '</div>' +
-          '</div>' +
-          '<button type="button" class="your-build-item-remove" data-remove-index="' +
-          index +
-          '" title="Remove">×</button>';
-        listEl.appendChild(li);
+      if (qtyHidden) qtyHidden.value = qtyInput ? qtyInput.value : '1';
+      if (propInputs.colour)  propInputs.colour.value  = selected.colour  || '';
+      if (propInputs.backing) propInputs.backing.value = selected.backing || '';
 
-        li.querySelector('.your-build-item-remove').addEventListener('click', function () {
-          removeItemFromBuild(index);
-        });
-      });
-      totalEl.textContent = formatMoney(totalCents);
-      atcBtn.disabled = false;
-    }
-
-    function addBuildToCart() {
-      if (!buildItems.length) return;
-      var atcBtn = document.querySelector('[data-your-build-atc]');
-      if (atcBtn) {
-        atcBtn.disabled = true;
-        atcBtn.querySelector('.atc_lable').textContent = 'Adding…';
-      }
-
-      var gid = generateGID();
-      var items = buildItems.map(function (item) {
-        var properties = Object.assign({}, item.properties, { 'Group ID': gid });
-        return {
-          id: parseInt(item.variantId, 10),
-          quantity: item.quantity,
-          properties: properties,
-        };
+      pcard.querySelectorAll('[data-preview]').forEach(function (el) {
+        var key = el.dataset.preview;
+        if (key === 'colour'      && selected.colour)  el.textContent = selected.colour;
+        if (key === 'colour-name' && selected.colour)  el.textContent = selected.colour;
+        if (key === 'colour-code' && selected.colour)  el.textContent = selected.colour;
+        if (key === 'length'      && selected.length)  el.textContent = selected.length;
+        if (key === 'depth'       && selected.depth)   el.textContent = selected.depth;
+        if (key === 'height'      && selected.height)  el.textContent = selected.height;
+        if (key === 'backing'     && selected.backing) el.textContent = selected.backing;
       });
 
-      var cartAddUrl =
-        window.Shopify && window.Shopify.routes && window.Shopify.routes.root
-          ? window.Shopify.routes.root + 'cart/add.js'
-          : '/cart/add.js';
-
-      fetch(cartAddUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: items }),
-      })
-        .then(function (res) {
-          return res.json().then(function (json) {
-            if (!res.ok) throw json;
-            return json;
-          });
-        })
-        .then(function () {
-          return fetch(
-            window.Shopify && window.Shopify.routes && window.Shopify.routes.root
-              ? window.Shopify.routes.root + 'cart.js'
-              : '/cart.js'
-          ).then(function (r) {
-            return r.json();
-          });
-        })
-        .then(function (cart) {
-          try {
-            if (window.wetheme && typeof window.wetheme.updateCartDrawer === 'function') {
-              window.wetheme.updateCartDrawer(cart);
-            } else {
-              var cartWrapper = document.querySelector('#cartSlideoutWrapper');
-              if (cartWrapper) {
-                cartWrapper.dispatchEvent(new CustomEvent('cart:open'));
-              }
-            }
-          } catch (e) {
-            console.warn('Gondola: Could not open cart drawer, theme may use different API', e);
-          }
-          buildItems = [];
-          refreshYourBuild();
-        })
-        .catch(function (err) {
-          console.error('Gondola build add to cart error:', err);
-          alert(err && err.description ? err.description : 'Could not add to cart. Please try again.');
-        })
-        .finally(function () {
-          if (atcBtn) {
-            atcBtn.querySelector('.atc_lable').textContent = 'Add Build to Cart';
-            atcBtn.disabled = false;
-          }
-        });
+      applyShelfDepthFilter();
     }
 
-    function initGondolaBuilder() {
-      document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)').forEach(function (pcard) {
-        var productId = pcard.dataset.productId;
-        var productData = data[productId];
-        if (!productData) return;
-
-        var form = pcard.querySelector('.pcard_atc-form');
-        var variantInput = form ? form.querySelector('.pcard_variant_id') : null;
-        var qtyInput = pcard.querySelector('.pcard_qty_input');
-        var qtyHidden = form ? form.querySelector('.pcard_quantity') : null;
-        var addBtn = pcard.querySelector('[data-add-to-build]');
-        var priceEl = pcard.querySelector('[data-variant-price]');
-        var comparePriceEl = pcard.querySelector('[data-compare-price]');
-        var optionButtons = pcard.querySelectorAll('[data-opt][data-pid="' + productId + '"]');
-
-        var propInputs = form
-          ? {
-              colour: form.querySelector('.pcard_prop_colour'),
-              backing: form.querySelector('.pcard_prop_backing'),
-            }
-          : {};
-
-        function getSelectedOptions() {
-          var opts = {};
-          optionButtons.forEach(function (btn) {
-            if (btn.classList.contains('active')) {
-              opts[btn.dataset.opt] = btn.dataset.val;
-            }
-          });
-          return opts;
-        }
-
-        function normVal(s) {
-          return (s || '')
-            .toString()
-            .replace(/["\u2033]/g, '')
-            .trim();
-        }
-
-        function findMatchingVariant() {
-          var selected = getSelectedOptions();
-          var options = productData.options || [];
-          var optionMap = {};
-          options.forEach(function (name, i) {
-            optionMap[name.toLowerCase()] = i + 1;
-          });
-
-          for (var i = 0; i < productData.variants.length; i++) {
-            var v = productData.variants[i];
-            if (!v.available) continue;
-
-            var match = true;
-            if (selected.depth) {
-              var idx = optionMap.depth;
-              var vVal = idx ? v['option' + idx] : null;
-              var vNorm = normVal(vVal);
-              var sNorm = normVal(selected.depth);
-              if (idx && vNorm !== sNorm) match = false;
-              else if (!idx && [v.option1, v.option2, v.option3].map(normVal).indexOf(sNorm) < 0) match = false;
-            }
-            if (match && selected.length) {
-              idx = optionMap.length;
-              vVal = idx ? v['option' + idx] : null;
-              vNorm = normVal(vVal);
-              sNorm = normVal(selected.length);
-              if (idx && vNorm !== sNorm) match = false;
-              else if (!idx && [v.option1, v.option2, v.option3].map(normVal).indexOf(sNorm) < 0) match = false;
-            }
-            if (match && selected.height) {
-              idx = optionMap.height;
-              vVal = idx ? v['option' + idx] : null;
-              vNorm = normVal(vVal);
-              sNorm = normVal(selected.height);
-              if (idx && vNorm !== sNorm) match = false;
-              else if (!idx && [v.option1, v.option2, v.option3].map(normVal).indexOf(sNorm) < 0) match = false;
-            }
-            if (match) return v;
-          }
-          return null;
-        }
-
-        function updateVariantAndUI() {
-          var variant = findMatchingVariant();
-          var selected = getSelectedOptions();
-
-          if (variant) {
-            if (variantInput) variantInput.value = variant.id;
-            if (addBtn) addBtn.disabled = false;
-            if (priceEl) priceEl.textContent = formatMoney(variant.price);
-            if (comparePriceEl) {
-              if (variant.compare_at_price && variant.compare_at_price > variant.price) {
-                comparePriceEl.textContent = formatMoney(variant.compare_at_price);
-                comparePriceEl.style.display = '';
-                comparePriceEl.style.textDecoration = 'line-through';
-                comparePriceEl.style.color = '#666';
-              } else {
-                comparePriceEl.style.display = 'none';
-              }
-            }
-          } else {
-            if (variantInput) variantInput.value = '';
-            if (addBtn) addBtn.disabled = true;
-          }
-
-          if (qtyHidden) qtyHidden.value = qtyInput ? qtyInput.value : '1';
-          if (propInputs.colour) propInputs.colour.value = selected.colour || '';
-          if (propInputs.backing) propInputs.backing.value = selected.backing || '';
-
-          pcard.querySelectorAll('[data-preview]').forEach(function (el) {
-            var key = el.dataset.preview;
-            if (key === 'colour' && selected.colour) el.textContent = selected.colour;
-            if (key === 'colour-name' && selected.colour) el.textContent = selected.colour;
-            if (key === 'colour-code' && selected.colour) el.textContent = selected.colour;
-            if (key === 'length' && selected.length) el.textContent = selected.length;
-            if (key === 'depth' && selected.depth) el.textContent = selected.depth;
-            if (key === 'height' && selected.height) el.textContent = selected.height;
-            if (key === 'backing' && selected.backing) el.textContent = selected.backing;
-          });
-
-          var depthDim = pcard.querySelector('[data-dimension="depth"] [data-dimension-value]');
-          if (depthDim && selected.depth) depthDim.textContent = selected.depth + '"';
-          else if (depthDim) depthDim.textContent = '—';
-
-          applyShelfDepthFilter();
-        }
-
-        function setDefaultSelections() {
-          optionButtons.forEach(function (btn) {
-            var opt = btn.dataset.opt;
-            var sameOptBtns = pcard.querySelectorAll('[data-opt="' + opt + '"][data-pid="' + productId + '"]');
-            var first = sameOptBtns[0];
-            var alreadyActive = pcard.querySelector('[data-opt="' + opt + '"].active');
-            if (first && !alreadyActive) first.classList.add('active');
-          });
-          updateVariantAndUI();
-        }
-
-        optionButtons.forEach(function (btn) {
-          btn.addEventListener('click', function () {
-            if (btn.classList.contains('gondola-depth-disabled') || btn.disabled) return;
-            var opt = btn.dataset.opt;
-            pcard.querySelectorAll('[data-opt="' + opt + '"][data-pid="' + productId + '"]').forEach(function (b) {
-              b.classList.remove('active');
-            });
-            btn.classList.add('active');
-            updateVariantAndUI();
-          });
+    /* Option pill click */
+    pcard.querySelectorAll('[data-opt][data-pid="' + productId + '"]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (btn.classList.contains('gondola-depth-disabled') || btn.disabled) return;
+        var opt = btn.dataset.opt;
+        pcard.querySelectorAll('[data-opt="' + opt + '"][data-pid="' + productId + '"]').forEach(function (b) {
+          b.classList.remove('active');
         });
-
-        if (qtyInput) {
-          qtyInput.addEventListener('change', function () {
-            var maxQty = parseInt(this.getAttribute('max'), 10) || 999;
-            var val = parseInt(this.value, 10) || 1;
-            val = Math.max(1, Math.min(maxQty, val));
-            this.value = val;
-            if (qtyHidden) qtyHidden.value = val;
-            var minusBtn = pcard.querySelector('.qty-minus');
-            var plusBtn = pcard.querySelector('.qty-plus');
-            if (minusBtn) minusBtn.disabled = val <= 1;
-            if (plusBtn) plusBtn.disabled = val >= maxQty;
-          });
-        }
-
-        var minusBtn = pcard.querySelector('.qty-minus');
-        if (minusBtn) {
-          minusBtn.addEventListener('click', function () {
-            var maxQty = parseInt(qtyInput.getAttribute('max'), 10) || 999;
-            var val = parseInt(qtyInput.value, 10) || 1;
-            val = Math.max(1, val - 1);
-            qtyInput.value = val;
-            if (qtyHidden) qtyHidden.value = val;
-            this.disabled = val <= 1;
-            var plusBtn = pcard.querySelector('.qty-plus');
-            if (plusBtn) plusBtn.disabled = val >= maxQty;
-          });
-        }
-
-        var plusBtn = pcard.querySelector('.qty-plus');
-        if (plusBtn) {
-          plusBtn.addEventListener('click', function () {
-            var maxQty = parseInt(qtyInput.getAttribute('max'), 10) || 999;
-            var val = parseInt(qtyInput.value, 10) || 1;
-            val = Math.min(maxQty, val + 1);
-            qtyInput.value = val;
-            if (qtyHidden) qtyHidden.value = val;
-            var mBtn = pcard.querySelector('.qty-minus');
-            if (mBtn) mBtn.disabled = val <= 1;
-            this.disabled = val >= maxQty;
-          });
-        }
-
-        if (addBtn) {
-          addBtn.addEventListener('click', function () {
-            addItemToBuild(pcard);
-          });
-        }
-
-        if (form) {
-          form.addEventListener('submit', function (e) {
-            e.preventDefault();
-          });
-        }
-
-        var toggleHeader = pcard.querySelector('[data-toggle-body]');
-        if (toggleHeader) {
-          toggleHeader.addEventListener('click', function () {
-            pcard.classList.toggle('pcard--collapsed');
-            toggleHeader.setAttribute('aria-expanded', !pcard.classList.contains('pcard--collapsed'));
-          });
-          toggleHeader.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              toggleHeader.click();
-            }
-          });
-        }
-
-        setDefaultSelections();
+        btn.classList.add('active');
+        updateUI();
       });
+    });
 
-      var yourBuildCard = document.querySelector('.pcard--your-build');
-      if (yourBuildCard) {
-        var ybToggle = yourBuildCard.querySelector('[data-toggle-body]');
-        if (ybToggle) {
-          ybToggle.addEventListener('click', function () {
-            yourBuildCard.classList.toggle('pcard--collapsed');
-            ybToggle.setAttribute('aria-expanded', !yourBuildCard.classList.contains('pcard--collapsed'));
-          });
-          ybToggle.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              ybToggle.click();
-            }
-          });
-        }
-        var ybAtc = document.querySelector('[data-your-build-atc]');
-        if (ybAtc) ybAtc.addEventListener('click', addBuildToCart);
-      }
-
-      refreshYourBuild();
+    /* Qty input */
+    if (qtyInput) {
+      qtyInput.addEventListener('change', function () {
+        var max = parseInt(this.getAttribute('max'), 10) || 999;
+        var val = Math.max(1, Math.min(max, parseInt(this.value, 10) || 1));
+        this.value = val;
+        if (qtyHidden) qtyHidden.value = val;
+        var minus = pcard.querySelector('.qty-minus');
+        var plus  = pcard.querySelector('.qty-plus');
+        if (minus) minus.disabled = val <= 1;
+        if (plus)  plus.disabled  = val >= max;
+      });
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initGondolaBuilder);
+    /* Qty minus */
+    var minusBtn = pcard.querySelector('.qty-minus');
+    if (minusBtn) {
+      minusBtn.addEventListener('click', function () {
+        var max = parseInt(qtyInput.getAttribute('max'), 10) || 999;
+        var val = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
+        qtyInput.value = val;
+        if (qtyHidden) qtyHidden.value = val;
+        this.disabled = val <= 1;
+        var plus = pcard.querySelector('.qty-plus');
+        if (plus) plus.disabled = val >= max;
+      });
+    }
+
+    /* Qty plus */
+    var plusBtn = pcard.querySelector('.qty-plus');
+    if (plusBtn) {
+      plusBtn.addEventListener('click', function () {
+        var max = parseInt(qtyInput.getAttribute('max'), 10) || 999;
+        var val = Math.min(max, (parseInt(qtyInput.value, 10) || 1) + 1);
+        qtyInput.value = val;
+        if (qtyHidden) qtyHidden.value = val;
+        var minus = pcard.querySelector('.qty-minus');
+        if (minus) minus.disabled = val <= 1;
+        this.disabled = val >= max;
+      });
+    }
+
+    /* Add to Build */
+    if (addBtn) {
+      addBtn.addEventListener('click', function () { addItemToBuild(pcard, productData); });
+    }
+
+    /* Prevent native form submit */
+    if (form) {
+      form.addEventListener('submit', function (e) { e.preventDefault(); });
+    }
+
+    /* Toggle collapse */
+    var toggleHeader = pcard.querySelector('[data-toggle-body]');
+    if (toggleHeader) {
+      toggleHeader.addEventListener('click', function () {
+        pcard.classList.toggle('pcard--collapsed');
+        toggleHeader.setAttribute('aria-expanded', !pcard.classList.contains('pcard--collapsed'));
+      });
+      toggleHeader.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleHeader.click(); }
+      });
+    }
+
+    /* Run once to sync any state Liquid already set */
+    updateUI();
+  }
+
+  /* ─── Build List ──────────────────────────────────────────────────── */
+  function getItemFromCard(pcard, productData) {
+    var form        = pcard.querySelector('.pcard_atc-form');
+    var variantInput = form && form.querySelector('.pcard_variant_id');
+    var qtyInput    = pcard.querySelector('.pcard_qty_input');
+    var propColour  = form && form.querySelector('.pcard_prop_colour');
+    var propBacking = form && form.querySelector('.pcard_prop_backing');
+    var variantId   = variantInput ? variantInput.value : '';
+    var qty         = parseInt(qtyInput ? qtyInput.value : 0, 10) || 0;
+    if (!variantId || qty <= 0) return null;
+
+    var selected = {};
+    pcard.querySelectorAll('[data-opt][data-pid="' + productData.productId + '"]').forEach(function (btn) {
+      if (btn.classList.contains('active')) selected[btn.dataset.opt] = btn.dataset.val;
+    });
+
+    var variant = productData.variants.find(function (v) { return String(v.id) === String(variantId); });
+    if (!variant || !variant.available) return null;
+
+    var properties = {};
+    if (propColour && propColour.value)  properties['Colour']  = propColour.value;
+    if (propBacking && propBacking.value) properties['Backing'] = propBacking.value;
+
+    var previewImg = pcard.querySelector('[data-preview-image]');
+    var headerImg  = pcard.querySelector('.pcard_product_image img');
+    var imageUrl   = (previewImg && previewImg.src) ? previewImg.src
+                   : (headerImg  && headerImg.src)  ? headerImg.src
+                   : productData.featuredImage || '';
+
+    return {
+      productId: String(productData.productId),
+      productTitle: productData.productTitle || 'Product',
+      variantId: variantId,
+      quantity: qty,
+      price: variant.price,
+      properties: properties,
+      selected: selected,
+      imageUrl: imageUrl,
+    };
+  }
+
+  function addItemToBuild(pcard, productData) {
+    var item = getItemFromCard(pcard, productData);
+    if (!item) return;
+
+    var existing = buildItems.find(function (b) {
+      return b.variantId === item.variantId && JSON.stringify(b.properties) === JSON.stringify(item.properties);
+    });
+    if (existing) {
+      existing.quantity += item.quantity;
+      if (!existing.imageUrl && item.imageUrl) existing.imageUrl = item.imageUrl;
     } else {
-      initGondolaBuilder();
+      buildItems.push(item);
     }
-  })();
+
+    refreshYourBuild();
+    showAddedToast();
+    scrollToYourBuild();
+  }
+
+  function removeItemFromBuild(index) {
+    buildItems.splice(index, 1);
+    refreshYourBuild();
+  }
+
+  function refreshYourBuild() {
+    var listEl  = document.querySelector('[data-your-build-list]');
+    var emptyEl = document.querySelector('[data-your-build-empty]');
+    var totalEl = document.querySelector('[data-your-build-total-value]');
+    var atcBtn  = document.querySelector('[data-your-build-atc]');
+    if (!listEl || !emptyEl || !totalEl || !atcBtn) return;
+
+    listEl.innerHTML = '';
+
+    if (buildItems.length === 0) {
+      emptyEl.style.display = '';
+      totalEl.textContent = '—';
+      atcBtn.disabled = true;
+      return;
+    }
+
+    emptyEl.style.display = 'none';
+    var totalCents = 0;
+
+    buildItems.forEach(function (item, index) {
+      totalCents += item.price * item.quantity;
+      var spec = [item.selected.colour, item.selected.length, item.selected.height, item.selected.depth, item.selected.backing]
+        .filter(Boolean).join(' · ');
+      var imgHtml = item.imageUrl ? '<img src="' + escapeHtml(item.imageUrl) + '" alt="" loading="lazy">' : '';
+      var priceLine = formatMoney(item.price) + ' × ' + item.quantity + ' = ' + formatMoney(item.price * item.quantity);
+
+      var li = document.createElement('li');
+      li.className = 'your-build-list-item';
+      li.innerHTML =
+        '<div class="your-build-item-image">' + imgHtml + '</div>' +
+        '<div class="your-build-item-content">' +
+          '<div class="your-build-item-title">' + escapeHtml(item.productTitle) + '</div>' +
+          (spec ? '<div class="your-build-item-spec">' + escapeHtml(spec) + '</div>' : '') +
+          '<div class="your-build-item-price-line">' + escapeHtml(priceLine) + '</div>' +
+        '</div>' +
+        '<button type="button" class="your-build-item-remove" data-remove-index="' + index + '" title="Remove">×</button>';
+
+      li.querySelector('.your-build-item-remove').addEventListener('click', function () {
+        removeItemFromBuild(index);
+      });
+      listEl.appendChild(li);
+    });
+
+    totalEl.textContent = formatMoney(totalCents);
+    atcBtn.disabled = false;
+  }
+
+  /* ─── Add Build to Cart ───────────────────────────────────────────── */
+  function addBuildToCart() {
+    if (!buildItems.length) return;
+    var atcBtn = document.querySelector('[data-your-build-atc]');
+    if (atcBtn) { atcBtn.disabled = true; atcBtn.querySelector('.atc_lable').textContent = 'Adding…'; }
+
+    var gid   = generateGID();
+    var items = buildItems.map(function (item) {
+      return {
+        id: parseInt(item.variantId, 10),
+        quantity: item.quantity,
+        properties: Object.assign({}, item.properties, { 'Group ID': gid }),
+      };
+    });
+
+    var root = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+
+    fetch(root + 'cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: items }),
+    })
+      .then(function (res) {
+        return res.json().then(function (json) { if (!res.ok) throw json; return json; });
+      })
+      .then(function () {
+        return fetch(root + 'cart.js').then(function (r) { return r.json(); });
+      })
+      .then(function (cart) {
+        try {
+          if (window.wetheme && typeof window.wetheme.updateCartDrawer === 'function') {
+            window.wetheme.updateCartDrawer(cart);
+          } else {
+            var cartWrapper = document.querySelector('#cartSlideoutWrapper');
+            if (cartWrapper) cartWrapper.dispatchEvent(new CustomEvent('cart:open'));
+          }
+        } catch (e) {
+          console.warn('Gondola: Could not open cart drawer', e);
+        }
+        buildItems = [];
+        refreshYourBuild();
+      })
+      .catch(function (err) {
+        console.error('Gondola build add to cart error:', err);
+        alert(err && err.description ? err.description : 'Could not add to cart. Please try again.');
+      })
+      .finally(function () {
+        if (atcBtn) {
+          atcBtn.querySelector('.atc_lable').textContent = 'Add Build to Cart';
+          atcBtn.disabled = false;
+        }
+      });
+  }
+
+  /* ─── Toast & Scroll helpers ──────────────────────────────────────── */
+  function showAddedToast() {
+    var existing = document.querySelector('.gondola-add-toast');
+    if (existing) existing.remove();
+    var toast = document.createElement('div');
+    toast.className = 'gondola-add-toast';
+    toast.setAttribute('role', 'status');
+    toast.innerHTML = '<span class="gondola-add-toast-icon">✓</span> <span class="gondola-add-toast-text">Added to Your Build</span>';
+    document.body.appendChild(toast);
+    requestAnimationFrame(function () { toast.classList.add('gondola-add-toast--visible'); });
+    setTimeout(function () {
+      toast.classList.remove('gondola-add-toast--visible');
+      setTimeout(function () { toast.remove(); }, 300);
+    }, 2500);
+  }
+
+  function scrollToYourBuild() {
+    var el = document.querySelector('#gondola-your-build');
+    if (!el) return;
+    el.classList.add('gondola-your-build--highlight');
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(function () { el.classList.remove('gondola-your-build--highlight'); }, 2000);
+  }
+
+  /* ─── Bootstrap ───────────────────────────────────────────────────── */
+  function initGondolaBuilder() {
+    document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)').forEach(initCard);
+
+    /* Your Build panel toggle */
+    var yourBuildCard = document.querySelector('.pcard--your-build');
+    if (yourBuildCard) {
+      var ybToggle = yourBuildCard.querySelector('[data-toggle-body]');
+      if (ybToggle) {
+        ybToggle.addEventListener('click', function () {
+          yourBuildCard.classList.toggle('pcard--collapsed');
+          ybToggle.setAttribute('aria-expanded', !yourBuildCard.classList.contains('pcard--collapsed'));
+        });
+        ybToggle.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ybToggle.click(); }
+        });
+      }
+      var ybAtc = document.querySelector('[data-your-build-atc]');
+      if (ybAtc) ybAtc.addEventListener('click', addBuildToCart);
+    }
+
+    refreshYourBuild();
+
+    /* Run shelf depth filter once after all cards are initialised */
+    applyShelfDepthFilter();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGondolaBuilder);
+  } else {
+    initGondolaBuilder();
+  }
+
+})();
 </script>
 
 {% schema %}
