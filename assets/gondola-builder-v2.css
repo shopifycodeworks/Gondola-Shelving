@@ -428,6 +428,8 @@
   outline-offset: 2px;
 }
 
+.gondola-builder-v2-section .color_swatch,
+.gondola-builder-v2-section .color_swatch:focus,
 .gondola-builder-v2-section .color_swatch.active {
   box-shadow: 0 0 0 2px #fff, 0 0 0 3px #000 !important;
 }
@@ -519,6 +521,7 @@
   color: #fff !important;
 }
 
+.gondola-builder-v2-section button:not(.variant_pill.active):not(.Depth_pill.active):not(.backing_pill.active):focus,
 body .gondola-builder-v2-section .variant_pill.active:focus,
 body .gondola-builder-v2-section .variant_pill.active:focus-visible,
 body .gondola-builder-v2-section .variant_pill.active.focus-visible,
@@ -1137,7 +1140,7 @@ body .gondola-builder-v2-section .backing_pill.active.focus-visible {
 .gondola-builder-v2-section input:focus-within {
   outline: none !important;
   border-color: inherit !important;
-  background: inherit !important;
+  /* background: inherit !important; */
 }
 
 /* ==========================================================================
