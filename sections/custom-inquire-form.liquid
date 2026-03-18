@@ -12,37 +12,39 @@
   style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
 >
   <div class="contact-left-icon">
-    <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/Clip-path4.png?v=1684234812" alt="" width="220" height="220">
+    <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/Clip-path4.png?v=1684234812">
   </div>
   <div class="contact-form--wrapper container">
     <div class="row justify-content-center">
       <div class="col-lg-6 col-md-12">
-        <div class="contact-form--header{% if settings.animations_enabled %} wow fadeIn{% endif %}">
-          {% if section.settings.section_heading != '' %}
-            <h2>{{ section.settings.section_heading }}</h2>
-          {% endif %}
 
-          {% if section.settings.sub_heading != '' %}
-            <p class="type-subheading type-subheading--1">{{ section.settings.sub_heading }}</p>
-          {% endif %}
-        </div>
-      </div>
+      <div class="contact-form--header{% if settings.animations_enabled %} wow fadeIn{% endif %}">
+            {% if section.settings.section_heading != '' %}
+              <h2>{{ section.settings.section_heading }}</h2>
+            {% endif %}
+
+            {% if section.settings.sub_heading != '' %}
+              <p class="type-subheading type-subheading--1">{{ section.settings.sub_heading }}</p>
+            {% endif %}
+          </div>
+      
+    </div>
     </div>
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="contact-right">
           <div class="contact-1">
-            <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/gary-dots.png?v=1684309306" alt="" width="100" height="100">
+            <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/gary-dots.png?v=1684309306">
           </div>
           <div class="contact-2">
-            <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/gray-dots2.png?v=1684309309" alt="" width="100" height="100">
+            <img src="https://cdn.shopify.com/s/files/1/0091/5413/4113/files/gray-dots2.png?v=1684309309">
           </div>
           {% unless section.blocks.size == 0 %}
             <div class="{% if settings.animations_enabled %} contact-form-wrap wow fadeIn{% if content_header %} delay-1{% endif %}{% endif %}">
               {% form 'contact', id: 'ContactForm', class: 'contact-form--form' %}
                 {%- if form.posted_successfully? -%}
                   <script>
-                    window.location.replace('https://vanguardstorefixtures.com/pages/thank-you');
+                    window.location.replace("https://vanguardstorefixtures.com/pages/thank-you");
                   </script>
                 {%- endif -%}
                 {% render 'form-errors-custom', form: form %}
@@ -169,40 +171,42 @@
         {% if section.settings.section_heading != '' or section.settings.sub_heading != '' %}
           {% assign content_header = true %}
 
+          
+
           <ul>
             {% if section.settings.location != blank %}
               <li>
                 <div class="contact-info-img">
-                  <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/map.png?v=1689256102" alt="Location Icon" width="45" height="45">
+                  <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/map.png?v=1689256102">
                 </div>
-                <h3>OUR LOCATION</h3>
+                <h2>OUR LOCATION</h2>
                 <p>{{ section.settings.location }}</p>
               </li>
             {% endif %}
             {% if section.settings.timing != blank %}
               <li>
                 <div class="contact-info-img">
-                  <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Vector_5.png?v=1689256101" alt="Clock Icon" width="45" height="45">
+                  <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Vector_5.png?v=1689256101">
                 </div>
-                <h3>HOURS OF OPERATION:</h3>
+                <h2>HOURS OF OPERATION:</h2>
                 <p>{{ section.settings.timing }}</p>
               </li>
             {% endif %}
             {% if section.settings.number != blank %}
               <li>
                 <div class="contact-info-img">
-                  <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Vector_6.png?v=1689256101" alt="Phone Icon" width="45" height="45">
+                  <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Vector_6.png?v=1689256101">
                 </div>
-                <h3>PHONE:</h3>
+                <h2>PHONE:</h2>
                 <p>{{ section.settings.number }}</p>
               </li>
             {% endif %}
             {% if section.settings.email != blank %}
               <li>
                 <div class="contact-info-img">
-                  <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Group_71.png?v=1689256101" alt="Email Icon" width="45" height="45">
+                  <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/Group_71.png?v=1689256101">
                 </div>
-                <h3>EMAIL:</h3>
+                <h2>EMAIL:</h2>
                 <p>{{ section.settings.email }}</p>
               </li>
             {% endif %}
@@ -292,18 +296,18 @@
       "id": "section_width",
       "label": "Width",
       "options": [
-        {
-          "value": "container-full-width",
-          "label": "Full width"
-        },
-        {
-          "value": "container",
-          "label": "Page width"
-        },
-        {
-          "value": "container-narrow",
-          "label": "Narrow"
-        }
+          {
+            "value": "container-full-width",
+            "label": "Full width"
+          },
+          {
+            "value": "container",
+            "label": "Page width"
+          },
+          {
+            "value": "container-narrow",
+            "label": "Narrow"
+          }
       ],
       "default": "container-narrow"
     },
@@ -484,7 +488,8 @@
   "presets": [
     {
       "name": "Inquery form",
-      "settings": {},
+      "settings": {
+      },
       "blocks": [
         {
           "type": "name_input",

@@ -152,7 +152,7 @@
                               style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.png' | file_url }};)"
                             >
                               <span class="sr-only">{{ value | handle }}</span>
-                              <img class="crossed-out" src="{{ 'soldout_color.svg' | asset_url }}" alt="Sold out" />
+                              <img class="crossed-out" src="{{ 'soldout_color.svg' | asset_url }}" alt="" />
                             </label>
   
                         {% capture values %}{{ values }}{{ wrapped_value }}{% endcapture %}

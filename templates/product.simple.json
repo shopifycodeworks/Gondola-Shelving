@@ -178,8 +178,8 @@
         "product_recommendations_heading": "Customers Also Bought"
       }
     },
-    "gondola-products": {
-      "type": "gondola-products",
+    "gandola-products": {
+      "type": "gandola-products",
       "settings": {
         "title": "Compatible Gondola Fixtures",
         "gondola_collection": "gondola"
@@ -194,6 +194,6 @@
     "specifications_table_4ATViG",
     "17075053446f7bf17f",
     "product-recommendations",
-    "gondola-products"
+    "gandola-products"
   ]
 }

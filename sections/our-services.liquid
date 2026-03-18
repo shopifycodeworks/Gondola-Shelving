@@ -48,7 +48,7 @@
           <div class="col-lg-4 col-md-6 info-column grid__item">
             <div class="service-col">
               {% if block.settings.image != blank %}
-                <img src="{{ block.settings.image | img_url: 'master' }}" class="icon-image" alt="{{ block.settings.image.alt | default: block.settings.record_title | escape }}">
+                <img src="{{ block.settings.image | img_url: 'master' }}" class="icon-image">
               {% endif %}
               {% if block.settings.record_title != blank %}
                 <h4 class="type-subheading type-subheading--1 info-columns--title">

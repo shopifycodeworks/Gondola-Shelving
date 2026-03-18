@@ -501,7 +501,11 @@
                                 -%}
                             </li>
                         {% else %}
-                         
+                            {% comment %}
+                            Add default products to help with onboarding for collections/all only.
+                            The onboarding styles and products are only loaded if the
+                            store has no products.
+                            {% endcomment %}
                             {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
                                 {% for i in (1..8) %}
                                     {%- capture alphaclasses -%}

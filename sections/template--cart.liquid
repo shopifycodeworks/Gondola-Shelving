@@ -1,5 +1,5 @@
 <div class="title-bar wrapper--page-title">
-	<h1>{{ 'cart.general.title' | t }}</h1>
+	<h2>{{ 'cart.general.title' | t }}</h2>
 </div>
 
 {% if cart.item_count == 0 %}
@@ -11,7 +11,7 @@
 
 	<table class="cart-table full table--responsive" border="0">
 		<thead class="cart__row cart__header-labels">
-			<th colspan="2" scope="col"></th>
+			<th colspan="2" scope="col">Product</th>
 			<th class="cart--price-column" scope="col">{{ 'cart.general.price' | t }}</th>
 			<th scope="col">{{ 'cart.general.quantity' | t }}</th>
 			<th class="cart--final-column" scope="col">{{ 'cart.general.total' | t }}</th>
@@ -54,7 +54,9 @@
 							{% for p in item.properties %}
 								{% if p.last != blank and p.first.first != '_' %}
 									{{ p.first }}:
-							
+									{% comment %}
+									Check if there was an uploaded file associated
+									{% endcomment %}
 									{% if p.last contains '/uploads/' %}
 										<a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
 									{% else %}

@@ -1,13 +1,19 @@
 <!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]> <html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]> <html class="no-js ie ie8" lang="en"> <![endif]-->
+<!-- [if (gte IE 9)|!(IE)]><! -->
 <html
   class="no-js"
   lang="{{ request.locale.iso_code }}"
+  <!--
+  data-headings-size="{{ settings.heading--base-size }}"
+  --
 >
+  <!-- <![endif] -->
 
-  <head>
-
-    <!-- Easy Quote App -->
-    <script src='{{ 'easy_quote_sealapps.js' | asset_url }}' defer='defer'></script>
+  <head> 
+    <script src='{{ 'easy_quote_sealapps.js' | asset_url }}' defer='defer' ></script> 
     <script id='quote_product_variants' type='application/json'>
         {{ product.variants | json }}
     </script>
@@ -15,28 +21,32 @@
         {{ product.selected_or_first_available_variant | json }}
     </script>
     <script id='quote_product_current_id' type='application/json'>
-        {{ product.id | json }}
+            {{ product.id | json }}
     </script>
+    
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K384NXXK');</script>
+<!-- End Google Tag Manager -->
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K384NXXK');</script>
-    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11335093010"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <!-- Google Ads tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11335093010"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-11335093010');
-    </script>
-
+  gtag('config', 'AW-11335093010');
+</script>
+    
     <meta name="google-site-verification" content="C88UulkjZ0W_-G_wza_wylIJ-wz6kVVf7j6vGjszBz0">
+
     <meta charset="utf-8">
+
+    <!--[if lt IE 9]> <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
 
     {%- comment -%}DemoStoreRequirements{%- endcomment -%}
 
@@ -103,6 +113,7 @@
     {{ 'custom.css' | asset_url | stylesheet_tag }}
     {{ 'new-custom.css' | asset_url | stylesheet_tag }}
 
+
     {% if settings.type_base_font contains 'Google' %}
       {%- assign type_body_parts = settings.type_base_font | split: '_' -%}
       {% capture bodyGoogleUrl %}{{ type_body_parts[1] }}:400,700{% endcapture %}
@@ -122,38 +133,39 @@
     {% endif %}
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     {{ content_for_header }}
 
     <script type="text/javascript">
       window.wetheme = {
-        name: 'Envy',
-        webcomponentRegistry: {
-          registry: {},
-          checkScriptLoaded: function(key) {
-            return window.wetheme.webcomponentRegistry.registry[key] ? true : false
-          },
-          register: function(registration) {
-            if(!window.wetheme.webcomponentRegistry.checkScriptLoaded(registration.key)) {
-              window.wetheme.webcomponentRegistry.registry[registration.key] = registration
-            }
-          }
-        }
-      };
+      	name: 'Envy',
+      	webcomponentRegistry: {
+                    registry: {},
+      		checkScriptLoaded: function(key) {
+      			return window.wetheme.webcomponentRegistry.registry[key] ? true : false
+      		},
+                    register: function(registration) {
+                        if(!window.wetheme.webcomponentRegistry.checkScriptLoaded(registration.key)) {
+                          window.wetheme.webcomponentRegistry.registry[registration.key] = registration
+                        }
+                    }
+                }
+            };
     </script>
 
-    <script src="{{ 'jquery.min.js' | asset_url }}"></script>
+    <!-- <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+   <script  src="{{ 'jquery.min.js' | asset_url }}"></script>
     <script defer="defer" src="{{ 'owl.carousel.js' | asset_url }}"></script>
     <script defer="defer" src="{{ 'owl.js' | asset_url }}"></script>
     <script defer="defer" src="{{ 'track-record.js' | asset_url }}"></script>
     <script defer="defer" src="{{ 'slick.min.js' | asset_url }}"></script>
     <script defer="defer" src="{{ 'enquire.min.js' | asset_url }}"></script>
-
     {% if template contains 'customers' %}
       {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
       {{ 'customer_area.js' | shopify_asset_url | script_tag }}
     {% endif %}
-
+    <!-- <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script> -->
     <script src="{{ 'product-grid-size-updater.js' | asset_url }}" defer="defer"></script>
 
     {% if template.name == 'article' %}
@@ -162,8 +174,8 @@
 
     <!-- GSSTART CFP code start. Do not change -->
     <script type="text/javascript">
-      gsProductId = "{{ product.id }}"; gsCustomerId = "{{ customer.id }}"; gsShopName = "3fd83e.myshopify.com"; gsProductName = "{{product.title | escape}}";
-      gsProductHandle = "{{product.handle}}"; gsProductPrice = "{{product.price}}"; gsProductImage = "{{ product | img_url }}";
+      gsProductId = "{{ product.id }}"; gsCustomerId = "{{ customer.id }}"; gsShopName = "acmeshelving-com.myshopify.com";   gsProductName = "{{product.title | escape}}";
+      gsProductHandle = "{{product.handle}}"; gsProductPrice = "{{product.price}}";  gsProductImage = "{{ product | img_url }}";
     </script>
     <script
       type="text/javascript"
@@ -175,26 +187,27 @@
       href="https://gravity-software.com/js/shopify/jqueryui/jquery-uinew.min22762.css?v=fa52dda67e03684e2c9eafbffb0674c1"
     >
     <!-- CFP code end. Do not change GSEND -->
-
-    {% render 'edt_p' %}
-
-    <script>
-      window.asl_loaded = function(){
+  {% render 'edt_p' %} 
+<script>
+  window.asl_loaded = function(){
+        // When our app loads, this function will get called.
         var country = asl_country();
-      }
-    </script>
+    }
+</script>
 
-    {% render 'shogun-head' %}
-  </head>
+
+
+  {% render 'shogun-head' %}
+</head>
 
   <body
     id="{{ page_title | handle }}"
     class="page-title--{{ page_title | handle }} {% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} flexbox-wrapper{% unless settings.animations_enabled %} animations-disabled{% endunless %}"
   >
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-K384NXXK"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+   <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K384NXXK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
     {% if template != 'cart' and settings['cart-type'] == 'drawer' or settings['cart-action'] == 'drawer' %}
       {% render 'cart-drawer' %}
@@ -217,6 +230,7 @@
         {{ content_for_layout }}
       </main>
 
+      
       {% sections 'footer-group' %}
     </div>
 
@@ -232,46 +246,50 @@
 
     <script type="application/json" id="wetheme-global">
       {
-        "translations": {
-          "addToCart": {{ 'products.product.add_to_cart' | t | json }},
-          "added": {{ 'products.product.added' | t | json }},
-          "soldOut": {{ 'products.product.sold_out' | t | json }},
-          "unavailable": {{ 'products.product.unavailable' | t | json }},
-          "makeASelection": {{ 'products.product.make_a_selection' | t | json }},
-          "loading": {{ 'collections.paginate.loading' | t | json }},
-          "showMore": {{ 'general.filters.show_more' | t | json }},
-          "showLess": {{ 'general.filters.show_less' | t | json }},
-          "saving": {{ 'products.general.saving' | t | json }},
-          "products": {{ 'general.search.products' | t | json }},
-          "pages": {{ 'general.search.pages' | t | json }},
-          "collections": {{ 'general.search.collections' | t | json }},
-          "articles": {{ 'general.search.articles' | t | json }},
-          "suggestions": {{ 'general.search.suggestions' | t | json }},
-          "no_results_html": {{ 'general.search.no_results_html' | t | json }},
-          "view_all": {{ 'general.search.view_all' | t | json }},
-          "clear": {{ 'general.search.clear' | t | json }},
-          "cart_title": {{ 'cart.general.title' | t | json }},
-          "cart_subtotal": {{ 'cart.general.subtotal' | t | json }},
-          "added_to_cart": {{ 'cart.general.added_to' | t | json }},
-          "removed_from_cart": {{ 'cart.general.removed_from' | t | json }},
-          "cart_item": {{ 'cart.general.item' | t | json }},
-          "slide": {{ 'general.slider.slide' | t | json }},
-          "pause": {{ 'general.slider.pause' | t | json }},
-          "search_found": {{ 'general.search.search_found' | t | json }},
-          "none_found": {{ 'general.search.none_found' | t | json }},
-          "search_result": {{ 'general.search.search_result' | t | json }},
-          "search_result_plural": {{ 'general.search.search_result_plural' | t | json }},
-          "days": {{ 'general.time.days' | t | json }},
-          "hours": {{ 'general.time.hours' | t | json }},
-          "minutes": {{ 'general.time.minutes' | t | json }},
-          "seconds": {{ 'general.time.seconds' | t | json }}
-        },
-        "moneyFormat": {{ shop.money_format | json }}
+      	{% comment %}Translations that will be used in javascript section handling{% endcomment %}
+      	"translations": {
+      		"addToCart": {{ 'products.product.add_to_cart' | t | json }},
+      		"added": {{ 'products.product.added' | t | json }},
+      		"soldOut": {{ 'products.product.sold_out' | t | json }},
+      		"unavailable": {{ 'products.product.unavailable' | t | json }},
+      		"makeASelection": {{ 'products.product.make_a_selection' | t | json }},
+      		"loading": {{ 'collections.paginate.loading' | t | json }},
+      		"showMore": {{ 'general.filters.show_more' | t | json }},
+      		"showLess": {{ 'general.filters.show_less' | t | json }},
+      		"saving": {{ 'products.general.saving' | t | json }},
+      		"products": {{ 'general.search.products' | t | json }},
+      		"pages": {{ 'general.search.pages' | t | json }},
+      		"collections": {{ 'general.search.collections' | t | json }},
+      		"articles": {{ 'general.search.articles' | t | json }},
+      		"suggestions": {{ 'general.search.suggestions' | t | json }},
+      		"loading": {{ 'collections.paginate.loading' | t | json }},
+      		"no_results_html": {{ 'general.search.no_results_html' | t | json }},
+      		"view_all": {{ 'general.search.view_all' | t | json }},
+      		"clear": {{ 'general.search.clear' | t | json }},
+      		"cart_title": {{ 'cart.general.title' | t | json }},
+      		"cart_subtotal": {{ 'cart.general.subtotal' | t | json }},
+      		"added_to_cart": {{ 'cart.general.added_to' | t | json }},
+      		"removed_from_cart": {{ 'cart.general.removed_from' | t | json }},
+      		"cart_item": {{ 'cart.general.item' | t | json }},
+      		"slide": {{ 'general.slider.slide' | t | json }},
+      		"pause": {{ 'general.slider.pause' | t | json }},
+      		"search_found": {{ 'general.search.search_found' | t | json }},
+      		"none_found": {{ 'general.search.none_found' | t | json }},
+      		"search_result": {{ 'general.search.search_result' | t | json }},
+      		"search_result_plural": {{ 'general.search.search_result_plural' | t | json }},
+            "days": {{ 'general.time.days' | t | json }},
+            "hours": {{ 'general.time.hours' | t | json }},
+            "minutes": {{ 'general.time.minutes' | t | json }},
+            "seconds": {{ 'general.time.seconds' | t | json }}
+      	},
+      	"moneyFormat": {{ shop.money_format | json }}
       }
     </script>
-
     {% render 'structured-data' %}
+    <script defer type="module" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script defer type="module" src="{{ 'theme.js' | asset_url }}"></script>
+    
+    <script defer nomodule src="{{ 'theme.legacy.min.js' | asset_url }}"></script>
 
     <!-- **BEGIN** Hextom USB Integration // Main Include - DO NOT MODIFY -->
     {% render 'hextom_usb_main', product: product, customer: customer %}

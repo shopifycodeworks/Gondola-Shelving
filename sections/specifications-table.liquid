@@ -1,7 +1,7 @@
 <style>
   .desTable h4 {
     text-transform: uppercase;
-  }
+}
 </style>
 <div class="main-titleSpec center">
   <div class="container">
@@ -15,96 +15,55 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 mb-4">
-      <h4>{{ section.settings.dimensions_lebel }}</h4>
+{% comment %}{% if product.metafields.custom.product_dimensions_title_1 != blank %} {% endcomment %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <h4>{{ section.settings.dimensions_lebel }}</h4>
 
-      <div class="table-responsive">
-        <table class="table table-striped table-dimentions">
-          {% assign loopvar = 1 %}
-          {% assign col_count = 0 %}
-          {% for i in (1..60) %}
-            {% capture dimention_title %}product_dimensions_title_{{ loopvar }}{% endcapture %}
-            {% capture dimention_value %}product_dimensions_value_{{ loopvar }}{% endcapture %}
+        <div class="table-responsive">
+          <table class="table table-striped table-dimentions">
+            {% assign loopvar = 1 %}
+            {% assign col_count = 0 %}
+            {% for i in (1..60) %}
+              {% capture dimention_title %}product_dimensions_title_{{ loopvar }}{% endcapture %}
+              {% capture dimention_value %}product_dimensions_value_{{ loopvar }}{% endcapture %}
 
-            {% capture dimention_title_nxt %}product_dimensions_title_{{ loopvar | plus: 1 }}{% endcapture %}
-            {% capture dimention_value_nxt %}product_dimensions_value_{{ loopvar | plus: 1 }}{% endcapture %}
+              {% capture dimention_title_nxt %}product_dimensions_title_{{ loopvar | plus: 1 }}{% endcapture %}
+              {% capture dimention_value_nxt %}product_dimensions_value_{{ loopvar | plus: 1 }}{% endcapture %}
 
-            {% assign dim_title = product.metafields.custom[dimention_title] %}
-            {% assign dim_val = product.metafields.custom[dimention_value] %}
+              {% assign dim_title = product.metafields.custom[dimention_title] %}
+              {% assign dim_val = product.metafields.custom[dimention_value] %}
 
-            {% assign dim_title_nxt = product.metafields.custom[dimention_title_nxt] %}
-            {% assign dim_val_nxt = product.metafields.custom[dimention_value_nxt] %}
+              {% assign dim_title_nxt = product.metafields.custom[dimention_title_nxt] %}
+              {% assign dim_val_nxt = product.metafields.custom[dimention_value_nxt] %}
 
-            {% if dim_title != blank and dim_val != blank %}
-              {% if col_count < 4 %}
-                <td>{{ dim_title }}</td>
-                <td>{{ dim_val }}</td>
-                {% assign col_count = col_count | plus: 2 %}
-              {% else %}
-                </tr>
-                <tr>
+              {% if dim_title != blank and dim_val != blank %}
+                {% if col_count < 4 %}
+                  <td>{{ dim_title }}</td>
+                  <td>{{ dim_val }}</td>
+                  {% assign col_count = col_count | plus: 2 %}
+                {% else %}
+                  </tr><tr>
                   <td>{{ dim_title }}</td>
                   <td>{{ dim_val }}</td>
                   {% assign col_count = 2 %}
+                {% endif %}
               {% endif %}
-            {% endif %}
 
-            {% if dim_title_nxt != blank and dim_val_nxt != blank %}
-              {% if col_count < 4 %}
-                <td>{{ dim_title_nxt }}</td>
-                <td>{{ dim_val_nxt }}</td>
-                {% assign col_count = col_count | plus: 2 %}
-              {% else %}
-                </tr>
-                <tr>
+              {% if dim_title_nxt != blank and dim_val_nxt != blank %}
+                {% if col_count < 4 %}
+                  <td>{{ dim_title_nxt }}</td>
+                  <td>{{ dim_val_nxt }}</td>
+                  {% assign col_count = col_count | plus: 2 %}
+                {% else %}
+                  </tr><tr>
                   <td>{{ dim_title_nxt }}</td>
                   <td>{{ dim_val_nxt }}</td>
                   {% assign col_count = 2 %}
-              {% endif %}
-            {% endif %}
-            {% assign loopvar = loopvar | plus: 2 %}
-          {% endfor %}
-          {% if col_count < 4 %}
-            {% assign remaining = 4 | minus: col_count %}
-            {% for i in (1..remaining) %}
-              <td></td>
-            {% endfor %}
-          {% endif %}
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 mb-4">
-      <h4>{{ section.settings.details_lebel }}</h4>
-
-      <div class="table-responsive">
-        <table class="table table-striped table-details">
-          {% assign loopvar = 1 %}
-          <tr>
-            {% assign col_count = 0 %}
-            {% for i in (1..200) %}
-              {% capture details_title %}product_details_title_{{ loopvar }}{% endcapture %}
-              {% capture details_value %}product_details_value_{{ loopvar }}{% endcapture %}
-              {% assign details_title = product.metafields.custom[details_title] %}
-              {% assign details_val = product.metafields.custom[details_value] %}
-
-              {% if details_title != blank and details_val != blank %}
-                {% if col_count == 4 %}
-                  {% assign col_count = 0 %}
-                  </tr>
-                  <tr>
                 {% endif %}
-                <td>{{ details_title }}</td>
-                <td>{{ details_val }}</td>
-                {% assign col_count = col_count | plus: 2 %}
               {% endif %}
-              {% assign loopvar = loopvar | plus: 1 %}
+              {% assign loopvar = loopvar | plus: 2 %}
             {% endfor %}
             {% if col_count < 4 %}
               {% assign remaining = 4 | minus: col_count %}
@@ -112,58 +71,359 @@
                 <td></td>
               {% endfor %}
             {% endif %}
-          </tr>
-        </table>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
+{% comment %}{% endif %}{% endcomment %}
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 mb-4">
-      <h4>{{ section.settings.warranty_lebel }}</h4>
 
-      <div class="table-responsive">
-        <table class="table table-striped table-warrenty">
-          {% assign loopvar = 1 %}
-          {% for i in (1..60) %}
-            {% capture warranty_title %}product_warranty_title_{{ loopvar }}{% endcapture %}
-            {% capture warranty_value %}product_warranty_value_{{ loopvar }}{% endcapture %}
 
-            {% capture warranty_title_nxt %}product_warranty_title_{{ loopvar | plus: 1 }}{% endcapture %}
-            {% capture warranty_value_nxt %}product_warranty_value_{{ loopvar | plus: 1 }}{% endcapture %}
+{% comment %}{% if product.metafields.custom.product_details_title_1 != blank %}{% endcomment %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <h4>{{ section.settings.details_lebel }}</h4>
 
-            {% assign wrnt_title = product.metafields.custom[warranty_title] %}
-            {% assign wrnt_val = product.metafields.custom[warranty_value] %}
+        <div class="table-responsive">
+          <table class="table table-striped table-details">
+            {% assign loopvar = 1 %}
+            <tr>
+              {% assign col_count = 0 %}
+              {% for i in (1..200) %}
+                {% capture details_title %}product_details_title_{{ loopvar }}{% endcapture %}
+                {% capture details_value %}product_details_value_{{ loopvar }}{% endcapture %}
+                {% assign details_title = product.metafields.custom[details_title] %}
+                {% assign details_val = product.metafields.custom[details_value] %}
 
-            {% assign wrnt_title_nxt = product.metafields.custom[warranty_title_nxt] %}
-            {% assign wrnt_val_nxt = product.metafields.custom[warranty_value_nxt] %}
-
-            {% if wrnt_title != blank and wrnt_val != blank %}
-              <tr>
-                <td>{{ wrnt_title }}</td>
-                <td>{{ wrnt_val }}</td>
-
-                <td>{{ wrnt_title_nxt }}</td>
-                <td>{{ wrnt_val_nxt }}</td>
-              </tr>
-            {% endif %}
-            {% assign loopvar = loopvar | plus: 2 %}
-          {% endfor %}
-        </table>
+                {% if details_title != blank and details_val != blank %}
+                  {% if col_count == 4 %}
+                    {% assign col_count = 0 %}
+                    </tr><tr>
+                  {% endif %}
+                  <td>{{ details_title }}</td>
+                  <td>{{ details_val }}</td>
+                  {% assign col_count = col_count | plus: 2 %}
+                {% endif %}
+                {% assign loopvar = loopvar | plus: 1 %}
+              {% endfor %}
+              {% if col_count < 4 %}
+                {% assign remaining = 4 | minus: col_count %}
+                {% for i in (1..remaining) %}
+                  <td></td>
+                {% endfor %}
+              {% endif %}
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
+{% comment %}{% endif %}{% endcomment %}
+
+
+{% comment %}{% if product.metafields.custom.product_warranty_title_1 != blank %}{% endcomment %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <h4>{{ section.settings.warranty_lebel }}</h4>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-warrenty">
+            {% assign loopvar = 1 %}
+            {% for i in (1..60) %}
+              {% capture warranty_title %}product_warranty_title_{{ loopvar }}{% endcapture %}
+              {% capture warranty_value %}product_warranty_value_{{ loopvar }}{% endcapture %}
+
+              {% capture warranty_title_nxt %}product_warranty_title_{{ loopvar | plus: 1 }}{% endcapture %}
+              {% capture warranty_value_nxt %}product_warranty_value_{{ loopvar | plus: 1 }}{% endcapture %}
+
+              {% assign wrnt_title = product.metafields.custom[warranty_title] %}
+              {% assign wrnt_val = product.metafields.custom[warranty_value] %}
+
+              {% assign wrnt_title_nxt = product.metafields.custom[warranty_title_nxt] %}
+              {% assign wrnt_val_nxt = product.metafields.custom[warranty_value_nxt] %}
+
+              {% if wrnt_title != blank and wrnt_val != blank %}
+                <tr>
+                  <td>{{ wrnt_title }}</td>
+                  <td>{{ wrnt_val }}</td>
+
+                  <td>{{ wrnt_title_nxt }}</td>
+                  <td>{{ wrnt_val_nxt }}</td>
+                </tr>
+              {% endif %}
+              {% assign loopvar = loopvar | plus: 2 %}
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+{% comment %}{% endif %}{% endcomment %}
+
+{% comment %}
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'dimensions' %}
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              {% if block.settings.heading != blank %}
+                <h4>{{ block.settings.heading }}</h4>
+              {% endif %}
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <tbody>
+                    {% if block.settings.row1_column1 != blank
+                      or block.settings.row1_column2 != blank
+                      or block.settings.row1_column3 != blank
+                      or block.settings.row1_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row1_column2 != blank %}
+                          <td>{{ block.settings.row1_column1 }}</td>
+                          <td>{{ block.settings.row1_column2 }}</td>
+                        {% endif %}
+                        {% if block.settings.row1_column4 != blank %}
+                          <td>{{ block.settings.row1_column3 }}</td>
+                          <td>{{ block.settings.row1_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+
+                    {% if block.settings.row2_column1 != blank
+                      or block.settings.row2_column2 != blank
+                      or block.settings.row2_column3 != blank
+                      or block.settings.row2_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row2_column2 != blank %}
+                          <td>{{ block.settings.row2_column1 }}</td>
+                          <td>{{ block.settings.row2_column2 }}</td>
+                        {% endif %}
+                        {% if block.settings.row2_column4 != blank %}
+                          <td>{{ block.settings.row2_column3 }}</td>
+                          <td>{{ block.settings.row2_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+                    {% if block.settings.row3_column1 != blank
+                      or block.settings.row3_column2 != blank
+                      or block.settings.row3_column3 != blank
+                      or block.settings.row3_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row3_column2 != blank %}
+                          <td>{{ block.settings.row3_column1 }}</td>
+                          <td>{{ block.settings.row3_column2 }}</td>
+                        {% endif %}
+                        {% if block.settings.row3_column4 != blank %}
+                          <td>{{ block.settings.row3_column3 }}</td>
+                          <td>{{ block.settings.row3_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {% when 'detailss' %}
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              {% if block.settings.heading != blank %}
+                <h4>{{ block.settings.heading }}</h4>
+              {% endif %}
+              <div class="table-responsive">
+                <table class="table table table-striped">
+                  <tbody>
+                    <!-- 1. First <tr> -->
+                    {% if block.settings.row1_column1 != blank
+                      or block.settings.row1_column2 != blank
+                      or block.settings.row1_column3 != blank
+                      or block.settings.row1_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row1_column2 != blank %}
+                          <td>{{ block.settings.row1_column1 }}</td>
+                          <td>{{ block.settings.row1_column2 }}</td>
+                        {% endif %}
+
+                        {% if block.settings.row1_column4 != blank %}
+                          <td>{{ block.settings.row1_column3 }}</td>
+                          <td>{{ block.settings.row1_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+
+                    <!-- 2. Second <tr> -->
+                    {% if block.settings.row2_column1 != blank
+                      or block.settings.row2_column2 != blank
+                      or block.settings.row2_column3 != blank
+                      or block.settings.row2_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row2_column2 != blank %}
+                          <td>{{ block.settings.row2_column1 }}</td>
+                          <td>{{ block.settings.row2_column2 }}</td>
+                        {% endif %}
+
+                        {% if block.settings.row2_column4 != blank %}
+                          <td>{{ block.settings.row2_column3 }}</td>
+                          <td>{{ block.settings.row2_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+
+                    <!-- 3. Third <tr> -->
+                    {% if block.settings.row3_column1 != blank
+                      or block.settings.row3_column2 != blank
+                      or block.settings.row3_column3 != blank
+                      or block.settings.row3_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row3_column2 != blank %}
+                          <td>{{ block.settings.row3_column1 }}</td>
+
+                          <td>{{ block.settings.row3_column2 }}</td>
+                        {% endif %}
+                        {% if block.settings.row3_column4 != blank %}
+                          <td>{{ block.settings.row3_column3 }}</td>
+
+                          <td>{{ block.settings.row3_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+
+                    <!-- 4. Fourth <tr> -->
+                    {% if block.settings.row4_column1 != blank
+                      or block.settings.row4_column2 != blank
+                      or block.settings.row4_column3 != blank
+                      or block.settings.row4_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row4_column2 != blank %}
+                          <td>{{ block.settings.row4_column1 }}</td>
+                          <td>{{ block.settings.row4_column2 }}</td>
+                        {% endif %}
+
+                        {% if block.settings.row4_column4 != blank %}
+                          <td>{{ block.settings.row4_column3 }}</td>
+                          <td>{{ block.settings.row4_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+
+                    <!-- 5. Fifth <tr> -->
+                    {% if block.settings.row5_column1 != blank
+                      or block.settings.row5_column2 != blank
+                      or block.settings.row5_column3 != blank
+                      or block.settings.row5_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row5_column2 != blank %}
+                          <td>{{ block.settings.row5_column1 }}</td>
+
+                          <td>{{ block.settings.row5_column2 }}</td>
+                        {% endif %}
+                        {% if block.settings.row5_column4 != blank %}
+                          <td>{{ block.settings.row5_column3 }}</td>
+
+                          <td>{{ block.settings.row5_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+
+                    <!-- 6. Sixth <tr> -->
+                    {% if block.settings.row6_column1 != blank
+                      or block.settings.row6_column2 != blank
+                      or block.settings.row6_column3 != blank
+                      or block.settings.row6_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row6_column2 != blank %}
+                          <td>{{ block.settings.row6_column1 }}</td>
+                          <td>{{ block.settings.row6_column2 }}</td>
+                        {% endif %}
+
+                        {% if block.settings.row6_column4 != blank %}
+                          <td>{{ block.settings.row6_column3 }}</td>
+                          <td>{{ block.settings.row6_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+
+                    <!-- 7. Seventh <tr> -->
+                    {% if block.settings.row7_column1 != blank
+                      or block.settings.row7_column2 != blank
+                      or block.settings.row7_column3 != blank
+                      or block.settings.row7_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row7_column2 != blank %}
+                          <td>{{ block.settings.row7_column1 }}</td>
+                          <td>{{ block.settings.row7_column2 }}</td>
+                        {% endif %}
+
+                        {% if block.settings.row7_column4 != blank %}
+                          <td>{{ block.settings.row7_column3 }}</td>
+                          <td>{{ block.settings.row7_column4 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      {% when 'warranty' %}
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb-4">
+              {% if block.settings.heading != blank %}
+                <h4>{{ block.settings.heading }}</h4>
+              {% endif %}
+              <div class="table-responsive">
+                <table class="table table table-striped">
+                  <tbody>
+                    {% if block.settings.row1_column1 != blank
+                      or block.settings.row1_column2 != blank
+                      or block.settings.row1_column3 != blank
+                      or block.settings.row1_column4 != blank
+                    %}
+                      <tr>
+                        {% if block.settings.row1_column2 != blank %}
+                          <td>{{ block.settings.row1_column1 }}</td>
+                          <td>{{ block.settings.row1_column2 }}</td>
+                        {% endif %}
+                      </tr>
+                    {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endcase %}
+  {% endfor %}
+{% endcomment %}
 
 {% schema %}
 {
   "name": "Specifications table",
-  "tag": "section",
-  "class": "desTable section sec-gapTopSm sec-gapBottom grayBg",
+  "tag":"section",
+  "class":"desTable section sec-gapTopSm sec-gapBottom grayBg",
   "settings": [
-    {
+     {
       "type": "text",
       "id": "button_lebel",
       "label": "Button Lebel"
@@ -172,26 +432,26 @@
       "type": "text",
       "id": "dimensions_lebel",
       "label": "Dimension Lebel",
-      "default": "Dimensions"
+      "default":"Dimensions"
     },
     {
       "type": "text",
       "id": "details_lebel",
       "label": "Details Lebel",
-      "default": "Details"
+      "default":"Details"
     },
     {
       "type": "text",
       "id": "warranty_lebel",
       "label": "Warranty Lebel",
-      "default": "WARRANTY / CERTIFICATIONS"
+      "default":"WARRANTY / CERTIFICATIONS"
     }
-  ],
-
+ ],
+  
   "presets": [
-    {
-      "name": "Specifications table"
-    }
-  ]
+  {
+    "name": "Specifications table"
+  }
+]
 }
 {% endschema %}

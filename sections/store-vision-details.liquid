@@ -1,4 +1,5 @@
 <section class="Restaurant-sec comm-padd">
+  <!-- <div class="container"> -->
   <div class="">
     <div class="Restaurant-sec-row">
       {% for block in section.blocks %}
@@ -7,11 +8,8 @@
             <div class="col-md-6">
               <div class="rest-col-right">
                 <img
-                  src="{{ block.settings.vision_image | image_url: width: 800 }}"
-                  alt="{{ block.settings.vision_image.alt | default: 'Vision Image' | escape }}"
-                  width="{{ block.settings.vision_image.width | default: 400 }}"
-                  height="{{ block.settings.vision_image.height | default: 400 }}"
-                  loading="lazy"
+                  src="{{ block.settings.vision_image | img_url: 'master' }}"
+                  alt="{{ block.settings.vision_image.alt }}"
                 >
               </div>
             </div>

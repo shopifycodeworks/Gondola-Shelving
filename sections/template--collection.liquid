@@ -59,11 +59,11 @@ transition: 0.3s;
                 <div class="featured-box text-center">
                   {% if collectionsMeta.image.src != blank %}
                      <div class="featured-img-wrap">
-                      <img src="{{ collectionsMeta.image.src | img_url:'master' }}" alt="{{ collectionsMeta.title | default: 'Collection Image' | escape }}">
+                      <img src="{{ collectionsMeta.image.src | img_url:'master' }}">
                     </div>
                    {% else %}
                      <div class="featured-img-wrap">
-                       <img src="{{ 'No_Image_Placeholder.png' | asset_url }}" alt="{{ collectionsMeta.title | default: 'No Image Placeholder' | escape }}">
+                       <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/default-image.png?v=1706777675" >
                   </div>
                   {% endif %}
                   {% if collectionsMeta.title != blank %}
@@ -74,8 +74,65 @@ transition: 0.3s;
                 </div>
               </div>
             </a>
-          {% endfor %}        
+          {% endfor %}
 
+
+
+
+          {% comment %}   
+           {%- for collection in collections -%}
+            <a href="{{ collection.url }}">
+              <div class="item">
+                <div class="featured-box text-center">
+                  {% if collection.collection_list != blank %}
+                    <div class="featured-img-wrap">
+                      <img src="{{ collection.collection_list | img_url:'master' }}">
+                    </div>
+                  {% else %}
+                     <div class="featured-img-wrap">
+                       <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/default-image.png?v=1706777675" >
+                  </div>
+                  {% endif %}
+                  {% if collection.title != blank %}
+                    <div class="featured-imgTitle">
+                      <p>{{ collection.title }}</p>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+          {% endcomment %}
+
+
+
+
+
+          
+             
+           {% comment %}{%- for block in section.blocks -%}
+              {% if block.type == 'collection_list' %}{% endcomment %}
+                
+          {% comment %}
+           <a href="{{ block.settings.featured_collection.url }}">
+              <div class="item">
+                 <div class="featured-box text-center">
+                  {% if block.settings.featured_collection.featured_image != blank %}
+                    <div class="featured-img-wrap">
+                      <img src="{{ block.settings.featured_collection.featured_image | img_url:'master' }}">
+                    </div>
+                  
+                  {% endif %}
+                  {% if block.settings.featured_collection.title!= blank %}
+                    <div class="featured-imgTitle">
+                     <p>{{ block.settings.featured_collection.title }}</p> 
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </a>{% endcomment %}
+                {% comment %}{% endif %}
+          {% endfor %}{% endcomment %}
         </div>
 
       <!-- </div> -->

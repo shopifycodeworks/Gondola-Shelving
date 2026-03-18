@@ -86,6 +86,15 @@
     "checkout_button_color": "#dd1d1d",
     "checkout_input_background_color_mode": "white",
     "checkout_logo_image": "shopify://shop_images/2801_VANGUARD_Store_Fixtures_AV-02_ec56b3da-12a0-48af-98b9-77f3ac51807d.png",
+    "sections": {
+      "gandola-products": {
+        "type": "gandola-products",
+        "settings": {
+          "title": "Compatible Gondola Fixtures",
+          "gondola_collection": "gondola"
+        }
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "13672250894428551832": {

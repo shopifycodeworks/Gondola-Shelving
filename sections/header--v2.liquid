@@ -174,12 +174,16 @@
           </div>
         {% endif %}
         <div class="sticky-header-menu d-none d-lg-block">
+          {% comment %}#main-navigation-wrapper will be copied here{% endcomment %}
         </div>
         <div class="sticky-header-icons d-none d-lg-flex">
+          {% comment %}icons from .cart-link will be copied here{% endcomment %}
         </div>
         <div class="sticky-header-search d-none d-lg-block">
+          {% comment %}Search box will be copied here{% endcomment %}
         </div>
         <div class="sticky-mobile-header d-lg-none">
+          {% comment %}Mobile menu will be copied here{% endcomment %}
         </div>
       </div>
     </div>
@@ -203,7 +207,7 @@
             type="button"
             class="slide-menu slide-menu-mobile alt-focus header-link header-link--button"
             aria-label="{{ 'general.menu.open_nav' | t }}"
-            aria-controls="mobile-menu--{{ linklists[section.settings.main_linklist].handle }}"
+            aria-controls="mobile-menu--main-menu"
           >
             <i id="iconAnim" data-feather="menu"></i>
           </button>
@@ -323,14 +327,17 @@
                         <a href="{{ routes.account_url }}" class="icons--inline alt-focus header-link" title="{{ 'customer.account.title' | t }}">
                             <i data-feather="user"></i>
                             {% if section.settings.label-enable %}
-                              <span class="header--supporting-text">My Account</span>
+                              <span class="header--supporting-text">
+                              <!-- {{ 'layout.header.account' | t }} -->
+                                My Account
+                              </span>
                               {% endif %}
                         </a>
                     </li>
                 {% else %}
                     <li{% if section.settings.search-enable == false %} class="login-no-padding"{% endif %}>
                         <a href="{{ routes.account_login_url }}" class="icons--inline alt-focus header-link" title="{{ 'layout.customer.log_in' | t }}">
-                             <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_awesome-user-alt.svg?v=1702473342" alt="" width="24" height="24" />
+                             <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_awesome-user-alt.svg?v=1702473342" />
                             {% if section.settings.label-enable %}<span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>{% endif %}
                         </a>
                     </li>
@@ -345,9 +352,10 @@
                     aria-label="{{ 'cart.general.open_cart' | t }}"
                     aria-controls="cartSlideoutAside"
                   >
-                    <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_ionic-md-cart.svg?v=1702473357" alt="" width="24" height="24" />
+                    <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_ionic-md-cart.svg?v=1702473357" />
                     {% if section.settings.label-enable %}
                         <span class="header--supporting-text">
+                      {% comment %} {{ 'layout.header.your_cart' | t }} {% endcomment %}
                       My Cart 
                             {% case section.settings.cart-number %}
                             {% when 'quantity' %}

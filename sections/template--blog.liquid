@@ -50,7 +50,7 @@
 									<div class="blog__date-author">
 										<div class="blog-publish-date">
 											{% if section.settings.show_dates %}
-                                            <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/calender.png?v=1689068613" alt="Calendar Icon" />
+                                            <img src="https://cdn.shopify.com/s/files/1/0790/3094/4025/files/calender.png?v=1689068613" />
 											<time class="updated blog--indiv-date"
 												datetime="{{ article.published_at | date: format: 'long' }}" pubdate>{{ article.published_at |
 												date: format: 'month_day_year' }}</time>
@@ -67,9 +67,9 @@
 									</div>
 									{% endif %}
 
-                                    <h2 class="blog_listing_title">
-										<a class="blog_listing_title h3" href="{{ article.url }}">{{ article.title }}</a>
-									</h2>
+                                    <h3 class="blog_listing_title">
+										<a href="{{ article.url }}">{{ article.title }}</a>
+									</h3>
 
 								</div>
 

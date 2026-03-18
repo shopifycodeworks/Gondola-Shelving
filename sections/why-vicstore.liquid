@@ -4,12 +4,12 @@
    
   {% if section.settings.vicstor_logo1 != blank %}
     <div class="logo1">
-      <img src="{{ section.settings.vicstor_logo1 | img_url: 'master' }}" alt="{{ section.settings.vicstor_logo1.alt | default: 'Vicstore Logo 1' | escape }}">
+      <img src="{{ section.settings.vicstor_logo1 | img_url: 'master' }}">
     </div>
   {% endif %}
   {% if section.settings.vicstor_logo2 != blank %}
     <div class="logo1">
-      <img src="{{ section.settings.vicstor_logo2 | img_url: 'master' }}" alt="{{ section.settings.vicstor_logo2.alt | default: 'Vicstore Logo 2' | escape }}">
+      <img src="{{ section.settings.vicstor_logo2 | img_url: 'master' }}">
     </div>
   {% endif %}
   </div>

@@ -169,7 +169,7 @@
           <div class="ancrght_otr">
             <div class="rght_inr">
               {% if section.settings.timer != blank %}
-                <img src="{{ section.settings.timer | img_url: 'icon' }}" class="icon-image" alt="clock">
+                <img src="{{ section.settings.timer | img_url: 'icon' }}" class="icon-image">
               {% endif %}
               {% if section.settings.time != blank %}
                 <a href="#" class="time_menu">{{ section.settings.time }}</a>
@@ -189,7 +189,7 @@
             </div>
             <div class="rght_inr">
               {% if section.settings.page_icon != blank %}
-                <img src="{{ section.settings.page_icon | img_url: 'icon' }}" class="icon-image" alt="contact">
+                <img src="{{ section.settings.page_icon | img_url: 'icon' }}" class="icon-image">
               {% endif %}
               {% if section.settings.page != blank %}
                 <a href="{{ section.settings.message_link }}">{{ section.settings.page }}</a>
@@ -200,18 +200,20 @@
           <div class="ancleft_otr">
             <div class="left_inr d-lg-none">
               <!-- Trigger/Open The Modal -->
-              <button type="button" id="myBtn" aria-label="Open search modal"
+              <a href="javascript:void(0);" id="myBtn"
                 ><img
                   src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/header-search.png?v=1689948486"
-                  alt="Search"
+                  alt="icon"
                   class="icon-image"
                   data-toggle="myBtn"
-                  width="20"
-                  height="20"
-              ></button>
+              ></a>
             </div>
             <div class="left_inr">
-
+              <!--
+                <div class="header-icons cart-link">
+                  <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/header-search.png?v=1689948486" alt="icon" class="icon-image" data-toggle="modal" data-target="#exampleModal">
+                </div>
+              -->
 
               {% if section.settings['search-enable'] %}
                 {% render 'search-bar' %}
@@ -219,7 +221,7 @@
 
               {% if section.settings.mobile_icon != blank %}
                 <a href="tel:{{ section.settings.mobile_number }}">
-                  <img src="{{ section.settings.mobile_icon | img_url: 'icon' }}" class="icon-image" alt="phone">
+                  <img src="{{ section.settings.mobile_icon | img_url: 'icon' }}" class="icon-image">
                 </a>
               {% endif %}
               {% if section.settings.mobile_number != blank %}
@@ -229,7 +231,7 @@
             <div class="left_inr">
               {% if section.settings.email_icon != blank %}
                 <a href="mailto:{{ section.settings.email }}">
-                  <img src="{{ section.settings.email_icon | img_url: 'icon' }}" class="icon-image" alt="email">
+                  <img src="{{ section.settings.email_icon | img_url: 'icon' }}" class="icon-image">
                 </a>
               {% endif %}
               {% if section.settings.email != blank %}
@@ -237,7 +239,15 @@
               {% endif %}
             </div>
           </div>
-
+          {% comment %}
+            {% if section.settings.message_link != blank %}
+              <a href="{{ section.settings.message_link }}" class="notification-bar__message">
+                <p>{{ section.settings.message_text | escape }}</p>
+              </a>
+            {% else %}
+              <p class="notification-bar__message">{{ section.settings.message_text | escape }}</p>
+            {% endif %}
+          {% endcomment %}
         </div>
       </div>
     </div>

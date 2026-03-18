@@ -1,0 +1,997 @@
+{{ 'gondola-builder-v2.css' | asset_url | stylesheet_tag }}
+
+<script>
+  window.gondolaBuilderV2Data = {
+    {% for block in section.blocks %}
+      "{{ block.settings.product.id }}": {
+        "productId": {{ block.settings.product.id | json }},
+        "productTitle": {{ block.settings.product.title | json }},
+        "featuredImage": {% if block.settings.product.featured_image %}{{ block.settings.product.featured_image | img_url: '200x200' | json }}{% else %}null{% endif %},
+        "isShelves": {% if block.settings.product.tags contains 'gondola-shelves' %}true{% else %}false{% endif %},
+        "options": {{ block.settings.product.options | json }},
+        "variants": [
+          {% for variant in block.settings.product.variants %}
+            {
+              "id": {{ variant.id }},
+              "available": {{ variant.available | json }},
+              "option1": {{ variant.option1 | json }},
+              "option2": {{ variant.option2 | json }},
+              "option3": {{ variant.option3 | json }},
+              "price": {{ variant.price | json }},
+              "compare_at_price": {{ variant.compare_at_price | default: 0 | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ],
+        "hasColour": {% if block.settings.product.metafields.custom.colour_variant_options.value != blank %}true{% else %}false{% endif %},
+        "firstColour": {% assign colors = block.settings.product.metafields.custom.colour_variant_options.value %}{% if colors != blank %}{{ colors[0] | json }}{% else %}null{% endif %},
+        "hasBacking": {% assign bt = block.settings.product.metafields.custom.backing_type.value %}{% assign bo = block.settings.product.metafields.custom.backing_options.value %}{% if bt != blank or bo != blank %}true{% else %}false{% endif %}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+</script>
+
+<div id="section_{{ section.id }}" class="gondola-builder-v2-section">
+  <div class="page-width">
+    {% for block in section.blocks %}
+      {% assign product = block.settings.product %}
+      {% assign colors = product.metafields.custom.colour_variant_options.value %}
+      {% comment %}Backing: prefer metaobject list (custom.backing_type), fallback to legacy backing_options, then hardcoded {% endcomment %}
+      {% assign backing_list = product.metafields.custom.backing_type.value %}
+      {% if backing_list == blank %}
+        {% assign backing_list = product.metafields.custom.backing_options.value %}
+      {% endif %}
+      {% assign hide_backing = false %}
+      {% for tag in product.tags %}
+        {% if tag == 'gondola-shelves' or tag == 'no-backing' %}
+          {% assign hide_backing = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      {% if hide_backing %}
+        {% assign backing_list = blank %}
+      {% endif %}
+      <div
+        class="pcard{% unless forloop.first %} pcard--collapsed{% endunless %}"
+        data-id="{{ product.id }}"
+        data-product-id="{{ product.id }}"
+      >
+        <div
+          class="pcard_header"
+          role="button"
+          tabindex="0"
+          aria-expanded="{{ forloop.first }}"
+          aria-controls="pcard-body-{{ product.id }}"
+          data-toggle-body
+        >
+          <div class="pcard_header_left_wrapper">
+            <div class="pcard_header_stepnum">{{ forloop.index }}</div>
+            <div class="pcard_product_image">
+              <img
+                src="{{ block.settings.product.featured_image | img_url: 'master' }}"
+                alt="{{ block.settings.product.title }}"
+                width=""
+                height=""
+              >
+            </div>
+            <div class="pcard_product_info">
+              <div class="pcard_product_title">{{ block.settings.product.title }}</div>
+              <div class="pcard_product_sub">{{ block.settings.product.metafields.custom.sort_text }}</div>
+            </div>
+          </div>
+          <div class="pcard_header_right_wrapper">
+            {% assign badge = '' %}
+            {% for tag in block.settings.product.tags %}
+              {% if tag contains 'gondola-' %}
+                {% assign badge = tag | remove: 'gondola-' %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            <div class="pcard_product_badges">
+              <span class="badge badge--{{ badge }}">{{ badge }}</span>
+            </div>
+            <div class="pcard_toggle_icon">
+              <span class="icon_wrapper">
+                <svg width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.3837 0.929688L7.66905 5.64435C7.11226 6.20114 6.20114 6.20114 5.64435 5.64435L0.929688 0.929688" stroke="#231F20" stroke-width="1.85942" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="pcard_body" id="pcard-body-{{ product.id }}">
+          <div class="pcard_body_inner">
+            <div class="pcard_variant_options">
+              <div class="pvo_row pvo_row_product_variants">
+                <div class="pvo_col pvo_col--colors">
+                  {% assign colors = block.settings.product.metafields.custom.colour_variant_options.value %}
+                  {% if colors != blank %}
+                    <div class="option_label">Colour</div>
+                    <div class="option_values">
+                      {% for color in colors %}
+                        <button
+                          type="button"
+                          class="color_swatch"
+                          data-opt="colour"
+                          data-val="{{ color }}"
+                          data-pid="{{ product.id }}"
+                          title="{{ color }}"
+                          style="background-color: {{ color }} !important;"
+                        >
+                          <span class="swatch__check">
+                            <svg
+                              width="18"
+                              height="13"
+                              viewBox="0 0 18 13"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M5.03684 11.7738L4.61202 12.0375L4.93236 12.5536L5.37726 12.14L5.03684 11.7738ZM17.5051 0.866213C17.7074 0.678203 17.7189 0.361831 17.5309 0.159577C17.3429 -0.042677 17.0265 -0.0542237 16.8243 0.133787L17.1647 0.5L17.5051 0.866213ZM0.424805 4.34332L-1.47521e-05 4.607L4.61202 12.0375L5.03684 11.7738L5.46166 11.5101L0.849624 4.07964L0.424805 4.34332ZM5.03684 11.7738L5.37726 12.14L17.5051 0.866213L17.1647 0.5L16.8243 0.133787L4.69642 11.4076L5.03684 11.7738Z" fill="{%if color == 'Black' %}white{% else %}black{% endif %}"/>
+                            </svg>
+                          </span>
+                          <span class="swatch__tip">{{ color }}</span>
+                        </button>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="pvo_row pvo_row_product_variants">
+                {% for option in product.options_with_values %}
+                  {% if option.name == 'Depth' %}
+                    <div class="pvo_col pvo_col--Depth">
+                      <div class="option_label">{{ option.name }}</div>
+                      <div class="option_values">
+                        {% for value in option.values %}
+                          <button
+                            type="button"
+                            class="Depth_pill pill-group alt-focus"
+                            data-opt="{{ option.name | downcase }}"
+                            data-val="{{ value }}"
+                            data-pid="{{ product.id }}"
+                            title="{{ value }}"
+                          >
+                            {{ value }}
+                          </button>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+
+              <div class="pvo_row pvo_row_product_variants half_width">
+                {% for option in product.options_with_values %}
+                  {% if option.name == 'Length' or option.name == 'Height' %}
+                    <div class="pvo_col pvo_col--{{ option.name | handle }}">
+                      <div class="option_label">{{ option.name }}</div>
+
+                      <div class="option_values">
+                        {% for value in option.values %}
+                          <button
+                            type="button"
+                            class="variant_pill pill-group alt-focus"
+                            data-opt="{{ option.name | downcase }}"
+                            data-val="{{ value }}"
+                            data-pid="{{ product.id }}"
+                            title="{{ value }}"
+                          >
+                            {{ value }}
+                          </button>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+
+              {% if backing_list != blank %}
+                <div class="pvo_row pvo_row_product_variants">
+                  <div class="pvo_col pvo_col--backing">
+                    <div class="option_label">Backing</div>
+                    <div class="option_values">
+                      {% for entry in backing_list %}
+                        {% if entry.backing_type %}
+                          {% assign backing_val = entry.backing_type %}
+                          {% assign backing_svg = entry.svg_code | default: '' %}
+                          {% assign backing_img = entry.image %}
+                          {% assign backing_sort_text = entry.sort_text | default: '' %}
+                        {% else %}
+                          {% assign backing_val = entry %}
+                          {% assign backing_svg = '' %}
+                          {% assign backing_img = blank %}
+                          {% assign backing_sort_text = '' %}
+                        {% endif %}
+                        <button
+                          type="button"
+                          class="variant_pill pill-group backing_pill alt-focus"
+                          data-opt="backing"
+                          data-val="{{ backing_val }}"
+                          data-pid="{{ product.id }}"
+                          title="{{ backing_val }}"
+                          {% if backing_svg != '' %}
+                            data-svg="{{ backing_svg | escape }}"
+                          {% endif %}
+                          {% if backing_img != blank %}
+                            data-image="{{ backing_img | img_url: 'master' }}"
+                          {% endif %}
+                        >
+                          {% if backing_img != blank %}
+                            <span class="backing_pill_icon"
+                              ><img src="{{ backing_img | img_url: 'master' }}" alt="" width="" height="" loading="lazy"
+                            ></span>
+                          {% elsif backing_svg != '' %}
+                            <span class="backing_pill_icon">{{ backing_svg | escape }}</span>
+                          {% endif %}
+                          <span class="backing_pill_label">{{ backing_val }}</span>
+                          <span class="backing_pill_sort_text">{{ backing_sort_text }}</span>
+                        </button>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+            <div class="pcard_product_preview">
+              <div class="pcard_product_preview_inner">
+                <div class="pcard_product_preview_inner_title">
+                  <h4 class="pcard_preview_title">Colour Preview</h4>
+                </div>
+                <div class="pcard_product_preview_inner_color">
+                  <div class="pcard_product_preview_inner_image">
+                    <div class="pcard_product_preview_inner_image_inner">
+                      <img
+                        class="pcard_preview_img"
+                        data-preview-image
+                        src="{{ block.settings.product.featured_image | img_url: 'master' }}"
+                        alt="{{ block.settings.product.title }}"
+                        width=""
+                        height=""
+                      >
+                    </div>
+                    {% if colors != blank %}
+                      <div class="pcard_selected_color">
+                        <span class="pcard_selected_color_value" data-preview="colour-name">{{ colors[0] }}</span>
+                        <span class="pcard_selected_color_code" data-preview="colour-code">{{ colors[0] }}</span>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="pcard_product_selected_table">
+                    {% if colors != blank %}
+                      <div class="table_row table_row_color">
+                        <span class="table_row_color_label">Colour</span>
+                        <span class="table_row_color_value" data-preview="colour">{{ colors[0] }}</span>
+                      </div>
+                    {% endif %}
+                    <div class="table_row table_row_length">
+                      <span class="table_row_length_label">Length</span>
+                      <span class="table_row_length_value" data-preview="length">—</span>
+                    </div>
+                    <div class="table_row table_row_depth">
+                      <span class="table_row_depth_label">Depth</span>
+                      <span class="table_row_depth_value" data-preview="depth">—</span>
+                    </div>
+                    <div class="table_row table_row_height">
+                      <span class="table_row_height_label">Height</span>
+                      <span class="table_row_height_value" data-preview="height">—</span>
+                    </div>
+                    {% if backing_list != blank %}
+                      {% assign first_backing = backing_list[0] %}
+                      {% if first_backing.backing_type %}
+                        {% assign first_backing_val = first_backing.backing_type %}
+                      {% else %}
+                        {% assign first_backing_val = first_backing %}
+                      {% endif %}
+                      <div class="table_row table_row_backing">
+                        <span class="table_row_backing_label">Backing</span>
+                        <span class="table_row_backing_value" data-preview="backing">{{ first_backing_val }}</span>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form method="post" action="/cart/add" class="pcard_atc-form" data-product-id="{{ product.id }}">
+          <input type="hidden" name="id" class="pcard_variant_id" value="">
+          <input type="hidden" name="quantity" class="pcard_quantity" value="1">
+          <input type="hidden" name="properties[Colour]" class="pcard_prop_colour" value="" data-prop="colour">
+          <input type="hidden" name="properties[Backing]" class="pcard_prop_backing" value="" data-prop="backing">
+
+          <div class="pcard_footer">
+            <div class="pcard_footer_left">
+              <div class="pcard_footer_left_price" data-price-wrapper>
+                <span class="pcard_footer_left_price_old" data-compare-price style="display: none;"></span>
+                <span class="pcard_footer_left_price_new" data-variant-price>
+                  {{- product.selected_or_first_available_variant.price | money -}}
+                </span>
+              </div>
+            </div>
+            <div class="pcard_footer_right">
+              <div class="pcard_footer_right_qty">
+                <button type="button" data-qty-minus="{{ product.id }}" class="qty-btn qty-minus" disabled>
+                  <span class="minus_icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 8L14 8" stroke="#231F20" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+                <input
+                  id="qty-input-{{ product.id }}"
+                  type="number"
+                  class="qty-input pcard_qty_input"
+                  value="1"
+                  min="1"
+                  max="999"
+                  data-product-id="{{ product.id }}"
+                >
+                <button type="button" data-qty-plus="{{ product.id }}" class="qty-btn qty-plus">
+                  <span class="plus_icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2.66663 8.00001H13.3333M7.99996 2.66667V13.3333" stroke="#231F20" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <button type="button" class="pcard_add-btn" data-add-to-build="{{ product.id }}" disabled>
+                <span class="add_btn_label">Add</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    {% endfor %}
+
+    {% comment %} Your Build - Items added via Add button only {% endcomment %}
+    <div class="pcard pcard--your-build pcard--collapsed" id="gondola-your-build" data-your-build>
+      <div
+        class="pcard_header"
+        role="button"
+        tabindex="0"
+        aria-expanded="false"
+        aria-controls="pcard-body-your-build"
+        data-toggle-body
+      >
+        <div class="pcard_header_left_wrapper">
+          <div class="pcard_product_info">
+            <div class="pcard_product_title">Your Build</div>
+          </div>
+        </div>
+        <div class="pcard_header_right_wrapper">
+          <div class="pcard_toggle_icon">
+            <span class="icon_wrapper">
+              <svg width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.3837 0.929688L7.66905 5.64435C7.11226 6.20114 6.20114 6.20114 5.64435 5.64435L0.929688 0.929688" stroke="#231F20" stroke-width="1.85942" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="pcard_body" id="pcard-body-your-build">
+        <div class="pcard_body_inner your-build-inner">
+          <div class="your-build-list-wrapper">
+            <div class="your-build-empty" data-your-build-empty>
+              <p>Click "Add" on the product cards above to add items to your build.</p>
+            </div>
+            <ul class="your-build-list" data-your-build-list></ul>
+          </div>
+        </div>
+      </div>
+      <div class="pcard_footer pcard_footer--your-build">
+        <div class="pcard_footer_left">
+          <div class="pcard_footer_left_price" data-your-build-total>
+            <span class="pcard_footer_left_price_new" data-your-build-total-value>—</span>
+          </div>
+        </div>
+        <div class="pcard_footer_right">
+          <button type="button" class="pcard_atc-btn your-build-atc-btn" data-your-build-atc disabled>
+            <span class="atc_lable">Add Build to Cart</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const data = window.gondolaBuilderV2Data || {};
+    var buildItems = [];
+
+    function parseDepth(val) {
+      if (val == null || val === '') return null;
+      var s = String(val)
+        .replace(/["\u201C\u201D\u2033″]/g, '')
+        .trim();
+      var n = parseInt(s, 10);
+      return isNaN(n) ? null : n;
+    }
+
+    function getSelectedGondolaDepth() {
+      var pcards = document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)');
+      for (var i = 0; i < pcards.length; i++) {
+        var pid = pcards[i].dataset.productId;
+        var pd = data[pid];
+        if (!pd || pd.isShelves) continue;
+        var depthBtn = pcards[i].querySelector('[data-opt="depth"].active');
+        if (depthBtn && depthBtn.dataset.val) {
+          var d = parseDepth(depthBtn.dataset.val);
+          if (d != null) return d;
+        }
+      }
+      return null;
+    }
+
+    function applyShelfDepthFilter() {
+      var maxDepth = getSelectedGondolaDepth();
+      var pcards = document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)');
+      pcards.forEach(function (pcard) {
+        var pid = pcard.dataset.productId;
+        var pd = data[pid];
+        if (!pd || !pd.isShelves) return;
+        var depthPills = pcard.querySelectorAll('[data-opt="depth"]');
+        var firstValid = null;
+        var currentInvalid = false;
+        depthPills.forEach(function (pill) {
+          var d = parseDepth(pill.dataset.val);
+          var allowed = maxDepth == null || (d != null && d <= maxDepth);
+          if (allowed) {
+            pill.classList.remove('gondola-depth-disabled');
+            pill.disabled = false;
+            pill.setAttribute('aria-disabled', 'false');
+            if (!firstValid) firstValid = pill;
+          } else {
+            pill.classList.add('gondola-depth-disabled');
+            pill.disabled = true;
+            pill.setAttribute('aria-disabled', 'true');
+            if (pill.classList.contains('active')) currentInvalid = true;
+          }
+        });
+        if (currentInvalid && firstValid) {
+          firstValid.click();
+        }
+      });
+    }
+
+    function formatMoney(cents) {
+      if (typeof Shopify !== 'undefined' && Shopify.formatMoney) {
+        return Shopify.formatMoney(cents);
+      }
+      return '$' + (cents / 100).toFixed(2);
+    }
+
+    function generateGID() {
+      return 'gondola-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+    }
+
+    function escapeHtml(s) {
+      if (!s) return '';
+      var div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    function getItemFromCard(pcard) {
+      var productId = pcard.dataset.productId;
+      var productData = data[productId];
+      if (!productData) return null;
+
+      var form = pcard.querySelector('.pcard_atc-form');
+      var variantInput = form ? form.querySelector('.pcard_variant_id') : null;
+      var qtyInput = pcard.querySelector('.pcard_qty_input');
+      var optionButtons = pcard.querySelectorAll('[data-opt][data-pid="' + productId + '"]');
+      var propColour = form ? form.querySelector('.pcard_prop_colour') : null;
+      var propBacking = form ? form.querySelector('.pcard_prop_backing') : null;
+
+      var variantId = variantInput ? variantInput.value : '';
+      var qty = parseInt(qtyInput ? qtyInput.value : 0, 10) || 0;
+      if (!variantId || qty <= 0) return null;
+
+      var selected = {};
+      optionButtons.forEach(function (btn) {
+        if (btn.classList.contains('active')) {
+          selected[btn.dataset.opt] = btn.dataset.val;
+        }
+      });
+
+      var variant = productData.variants.find(function (v) {
+        return String(v.id) === String(variantId);
+      });
+      if (!variant || !variant.available) return null;
+
+      var properties = {};
+      if (propColour && propColour.value) properties['Colour'] = propColour.value;
+      if (propBacking && propBacking.value) properties['Backing'] = propBacking.value;
+
+      var previewImg = pcard.querySelector('[data-preview-image]');
+      var headerImg = pcard.querySelector('.pcard_product_image img');
+      var imageUrl =
+        previewImg && previewImg.src
+          ? previewImg.src
+          : headerImg && headerImg.src
+          ? headerImg.src
+          : productData.featuredImage || '';
+
+      return {
+        productId: productId,
+        productTitle: productData.productTitle || productData.title || 'Product',
+        variantId: variantId,
+        quantity: qty,
+        price: variant.price,
+        properties: properties,
+        selected: selected,
+        imageUrl: imageUrl,
+      };
+    }
+
+    function showAddedToast() {
+      var existing = document.querySelector('.gondola-add-toast');
+      if (existing) existing.remove();
+      var toast = document.createElement('div');
+      toast.className = 'gondola-add-toast';
+      toast.setAttribute('role', 'status');
+      toast.innerHTML =
+        '<span class="gondola-add-toast-icon">✓</span> <span class="gondola-add-toast-text">Added to Your Build</span>';
+      document.body.appendChild(toast);
+      requestAnimationFrame(function () {
+        toast.classList.add('gondola-add-toast--visible');
+      });
+      setTimeout(function () {
+        toast.classList.remove('gondola-add-toast--visible');
+        setTimeout(function () {
+          toast.remove();
+        }, 300);
+      }, 2500);
+    }
+
+    function scrollToYourBuild() {
+      var yourBuild = document.querySelector('#gondola-your-build');
+      if (yourBuild) {
+        yourBuild.classList.add('gondola-your-build--highlight');
+        yourBuild.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        setTimeout(function () {
+          yourBuild.classList.remove('gondola-your-build--highlight');
+        }, 2000);
+      }
+    }
+
+    function addItemToBuild(pcard) {
+      var item = getItemFromCard(pcard);
+      if (!item) return;
+
+      var existing = buildItems.find(function (b) {
+        return b.variantId === item.variantId && JSON.stringify(b.properties) === JSON.stringify(item.properties);
+      });
+      if (existing) {
+        existing.quantity += item.quantity;
+        if (!existing.imageUrl && item.imageUrl) existing.imageUrl = item.imageUrl;
+      } else {
+        buildItems.push({
+          productId: item.productId,
+          productTitle: item.productTitle,
+          variantId: item.variantId,
+          quantity: item.quantity,
+          price: item.price,
+          properties: item.properties,
+          selected: item.selected,
+          imageUrl: item.imageUrl,
+        });
+      }
+      refreshYourBuild();
+      showAddedToast();
+      scrollToYourBuild();
+    }
+
+    function removeItemFromBuild(index) {
+      buildItems.splice(index, 1);
+      refreshYourBuild();
+    }
+
+    function refreshYourBuild() {
+      var listEl = document.querySelector('[data-your-build-list]');
+      var emptyEl = document.querySelector('[data-your-build-empty]');
+      var totalEl = document.querySelector('[data-your-build-total-value]');
+      var atcBtn = document.querySelector('[data-your-build-atc]');
+
+      if (!listEl || !emptyEl || !totalEl || !atcBtn) return;
+
+      listEl.innerHTML = '';
+      if (buildItems.length === 0) {
+        emptyEl.style.display = '';
+        totalEl.textContent = '—';
+        atcBtn.disabled = true;
+        return;
+      }
+
+      emptyEl.style.display = 'none';
+      var totalCents = 0;
+      buildItems.forEach(function (item, index) {
+        totalCents += item.price * item.quantity;
+        var spec = [
+          item.selected.colour,
+          item.selected.length,
+          item.selected.height,
+          item.selected.depth,
+          item.selected.backing,
+        ]
+          .filter(Boolean)
+          .join(' · ');
+        var imgSrc = item.imageUrl || '';
+        var imgHtml = imgSrc ? '<img src="' + escapeHtml(imgSrc) + '" alt="" loading="lazy">' : '';
+        var priceLine =
+          formatMoney(item.price) + ' × ' + item.quantity + ' = ' + formatMoney(item.price * item.quantity);
+        var li = document.createElement('li');
+        li.className = 'your-build-list-item';
+        li.innerHTML =
+          '<div class="your-build-item-image">' +
+          imgHtml +
+          '</div>' +
+          '<div class="your-build-item-content">' +
+          '<div class="your-build-item-title">' +
+          escapeHtml(item.productTitle) +
+          '</div>' +
+          (spec ? '<div class="your-build-item-spec">' + escapeHtml(spec) + '</div>' : '') +
+          '<div class="your-build-item-price-line">' +
+          escapeHtml(priceLine) +
+          '</div>' +
+          '</div>' +
+          '<button type="button" class="your-build-item-remove" data-remove-index="' +
+          index +
+          '" title="Remove">×</button>';
+        listEl.appendChild(li);
+
+        li.querySelector('.your-build-item-remove').addEventListener('click', function () {
+          removeItemFromBuild(index);
+        });
+      });
+      totalEl.textContent = formatMoney(totalCents);
+      atcBtn.disabled = false;
+    }
+
+    function addBuildToCart() {
+      if (!buildItems.length) return;
+      var atcBtn = document.querySelector('[data-your-build-atc]');
+      if (atcBtn) {
+        atcBtn.disabled = true;
+        atcBtn.querySelector('.atc_lable').textContent = 'Adding…';
+      }
+
+      var gid = generateGID();
+      var items = buildItems.map(function (item) {
+        var properties = Object.assign({}, item.properties, { 'Group ID': gid });
+        return {
+          id: parseInt(item.variantId, 10),
+          quantity: item.quantity,
+          properties: properties,
+        };
+      });
+
+      var cartAddUrl =
+        window.Shopify && window.Shopify.routes && window.Shopify.routes.root
+          ? window.Shopify.routes.root + 'cart/add.js'
+          : '/cart/add.js';
+
+      fetch(cartAddUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: items }),
+      })
+        .then(function (res) {
+          return res.json().then(function (json) {
+            if (!res.ok) throw json;
+            return json;
+          });
+        })
+        .then(function () {
+          return fetch(
+            window.Shopify && window.Shopify.routes && window.Shopify.routes.root
+              ? window.Shopify.routes.root + 'cart.js'
+              : '/cart.js'
+          ).then(function (r) {
+            return r.json();
+          });
+        })
+        .then(function (cart) {
+          try {
+            if (window.wetheme && typeof window.wetheme.updateCartDrawer === 'function') {
+              window.wetheme.updateCartDrawer(cart);
+            } else {
+              var cartWrapper = document.querySelector('#cartSlideoutWrapper');
+              if (cartWrapper) {
+                cartWrapper.dispatchEvent(new CustomEvent('cart:open'));
+              }
+            }
+          } catch (e) {
+            console.warn('Gondola: Could not open cart drawer, theme may use different API', e);
+          }
+          buildItems = [];
+          refreshYourBuild();
+        })
+        .catch(function (err) {
+          console.error('Gondola build add to cart error:', err);
+          alert(err && err.description ? err.description : 'Could not add to cart. Please try again.');
+        })
+        .finally(function () {
+          if (atcBtn) {
+            atcBtn.querySelector('.atc_lable').textContent = 'Add Build to Cart';
+            atcBtn.disabled = false;
+          }
+        });
+    }
+
+    function initGondolaBuilder() {
+      document.querySelectorAll('.gondola-builder-v2-section .pcard:not(.pcard--your-build)').forEach(function (pcard) {
+        var productId = pcard.dataset.productId;
+        var productData = data[productId];
+        if (!productData) return;
+
+        var form = pcard.querySelector('.pcard_atc-form');
+        var variantInput = form ? form.querySelector('.pcard_variant_id') : null;
+        var qtyInput = pcard.querySelector('.pcard_qty_input');
+        var qtyHidden = form ? form.querySelector('.pcard_quantity') : null;
+        var addBtn = pcard.querySelector('[data-add-to-build]');
+        var priceEl = pcard.querySelector('[data-variant-price]');
+        var comparePriceEl = pcard.querySelector('[data-compare-price]');
+        var optionButtons = pcard.querySelectorAll('[data-opt][data-pid="' + productId + '"]');
+
+        var propInputs = form
+          ? {
+              colour: form.querySelector('.pcard_prop_colour'),
+              backing: form.querySelector('.pcard_prop_backing'),
+            }
+          : {};
+
+        function getSelectedOptions() {
+          var opts = {};
+          optionButtons.forEach(function (btn) {
+            if (btn.classList.contains('active')) {
+              opts[btn.dataset.opt] = btn.dataset.val;
+            }
+          });
+          return opts;
+        }
+
+        function normVal(s) {
+          return (s || '')
+            .toString()
+            .replace(/["\u2033]/g, '')
+            .trim();
+        }
+
+        function findMatchingVariant() {
+          var selected = getSelectedOptions();
+          var options = productData.options || [];
+          var optionMap = {};
+          options.forEach(function (name, i) {
+            optionMap[name.toLowerCase()] = i + 1;
+          });
+
+          for (var i = 0; i < productData.variants.length; i++) {
+            var v = productData.variants[i];
+            if (!v.available) continue;
+
+            var match = true;
+            if (selected.depth) {
+              var idx = optionMap.depth;
+              var vVal = idx ? v['option' + idx] : null;
+              var vNorm = normVal(vVal);
+              var sNorm = normVal(selected.depth);
+              if (idx && vNorm !== sNorm) match = false;
+              else if (!idx && [v.option1, v.option2, v.option3].map(normVal).indexOf(sNorm) < 0) match = false;
+            }
+            if (match && selected.length) {
+              idx = optionMap.length;
+              vVal = idx ? v['option' + idx] : null;
+              vNorm = normVal(vVal);
+              sNorm = normVal(selected.length);
+              if (idx && vNorm !== sNorm) match = false;
+              else if (!idx && [v.option1, v.option2, v.option3].map(normVal).indexOf(sNorm) < 0) match = false;
+            }
+            if (match && selected.height) {
+              idx = optionMap.height;
+              vVal = idx ? v['option' + idx] : null;
+              vNorm = normVal(vVal);
+              sNorm = normVal(selected.height);
+              if (idx && vNorm !== sNorm) match = false;
+              else if (!idx && [v.option1, v.option2, v.option3].map(normVal).indexOf(sNorm) < 0) match = false;
+            }
+            if (match) return v;
+          }
+          return null;
+        }
+
+        function updateVariantAndUI() {
+          var variant = findMatchingVariant();
+          var selected = getSelectedOptions();
+
+          if (variant) {
+            if (variantInput) variantInput.value = variant.id;
+            if (addBtn) addBtn.disabled = false;
+            if (priceEl) priceEl.textContent = formatMoney(variant.price);
+            if (comparePriceEl) {
+              if (variant.compare_at_price && variant.compare_at_price > variant.price) {
+                comparePriceEl.textContent = formatMoney(variant.compare_at_price);
+                comparePriceEl.style.display = '';
+                comparePriceEl.style.textDecoration = 'line-through';
+                comparePriceEl.style.color = '#666';
+              } else {
+                comparePriceEl.style.display = 'none';
+              }
+            }
+          } else {
+            if (variantInput) variantInput.value = '';
+            if (addBtn) addBtn.disabled = true;
+          }
+
+          if (qtyHidden) qtyHidden.value = qtyInput ? qtyInput.value : '1';
+          if (propInputs.colour) propInputs.colour.value = selected.colour || '';
+          if (propInputs.backing) propInputs.backing.value = selected.backing || '';
+
+          pcard.querySelectorAll('[data-preview]').forEach(function (el) {
+            var key = el.dataset.preview;
+            if (key === 'colour' && selected.colour) el.textContent = selected.colour;
+            if (key === 'colour-name' && selected.colour) el.textContent = selected.colour;
+            if (key === 'colour-code' && selected.colour) el.textContent = selected.colour;
+            if (key === 'length' && selected.length) el.textContent = selected.length;
+            if (key === 'depth' && selected.depth) el.textContent = selected.depth;
+            if (key === 'height' && selected.height) el.textContent = selected.height;
+            if (key === 'backing' && selected.backing) el.textContent = selected.backing;
+          });
+
+          var depthDim = pcard.querySelector('[data-dimension="depth"] [data-dimension-value]');
+          if (depthDim && selected.depth) depthDim.textContent = selected.depth + '"';
+          else if (depthDim) depthDim.textContent = '—';
+
+          applyShelfDepthFilter();
+        }
+
+        function setDefaultSelections() {
+          optionButtons.forEach(function (btn) {
+            var opt = btn.dataset.opt;
+            var sameOptBtns = pcard.querySelectorAll('[data-opt="' + opt + '"][data-pid="' + productId + '"]');
+            var first = sameOptBtns[0];
+            var alreadyActive = pcard.querySelector('[data-opt="' + opt + '"].active');
+            if (first && !alreadyActive) first.classList.add('active');
+          });
+          updateVariantAndUI();
+        }
+
+        optionButtons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (btn.classList.contains('gondola-depth-disabled') || btn.disabled) return;
+            var opt = btn.dataset.opt;
+            pcard.querySelectorAll('[data-opt="' + opt + '"][data-pid="' + productId + '"]').forEach(function (b) {
+              b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            updateVariantAndUI();
+          });
+        });
+
+        if (qtyInput) {
+          qtyInput.addEventListener('change', function () {
+            var maxQty = parseInt(this.getAttribute('max'), 10) || 999;
+            var val = parseInt(this.value, 10) || 1;
+            val = Math.max(1, Math.min(maxQty, val));
+            this.value = val;
+            if (qtyHidden) qtyHidden.value = val;
+            var minusBtn = pcard.querySelector('.qty-minus');
+            var plusBtn = pcard.querySelector('.qty-plus');
+            if (minusBtn) minusBtn.disabled = val <= 1;
+            if (plusBtn) plusBtn.disabled = val >= maxQty;
+          });
+        }
+
+        var minusBtn = pcard.querySelector('.qty-minus');
+        if (minusBtn) {
+          minusBtn.addEventListener('click', function () {
+            var maxQty = parseInt(qtyInput.getAttribute('max'), 10) || 999;
+            var val = parseInt(qtyInput.value, 10) || 1;
+            val = Math.max(1, val - 1);
+            qtyInput.value = val;
+            if (qtyHidden) qtyHidden.value = val;
+            this.disabled = val <= 1;
+            var plusBtn = pcard.querySelector('.qty-plus');
+            if (plusBtn) plusBtn.disabled = val >= maxQty;
+          });
+        }
+
+        var plusBtn = pcard.querySelector('.qty-plus');
+        if (plusBtn) {
+          plusBtn.addEventListener('click', function () {
+            var maxQty = parseInt(qtyInput.getAttribute('max'), 10) || 999;
+            var val = parseInt(qtyInput.value, 10) || 1;
+            val = Math.min(maxQty, val + 1);
+            qtyInput.value = val;
+            if (qtyHidden) qtyHidden.value = val;
+            var mBtn = pcard.querySelector('.qty-minus');
+            if (mBtn) mBtn.disabled = val <= 1;
+            this.disabled = val >= maxQty;
+          });
+        }
+
+        if (addBtn) {
+          addBtn.addEventListener('click', function () {
+            addItemToBuild(pcard);
+          });
+        }
+
+        if (form) {
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+          });
+        }
+
+        var toggleHeader = pcard.querySelector('[data-toggle-body]');
+        if (toggleHeader) {
+          toggleHeader.addEventListener('click', function () {
+            pcard.classList.toggle('pcard--collapsed');
+            toggleHeader.setAttribute('aria-expanded', !pcard.classList.contains('pcard--collapsed'));
+          });
+          toggleHeader.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleHeader.click();
+            }
+          });
+        }
+
+        setDefaultSelections();
+      });
+
+      var yourBuildCard = document.querySelector('.pcard--your-build');
+      if (yourBuildCard) {
+        var ybToggle = yourBuildCard.querySelector('[data-toggle-body]');
+        if (ybToggle) {
+          ybToggle.addEventListener('click', function () {
+            yourBuildCard.classList.toggle('pcard--collapsed');
+            ybToggle.setAttribute('aria-expanded', !yourBuildCard.classList.contains('pcard--collapsed'));
+          });
+          ybToggle.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              ybToggle.click();
+            }
+          });
+        }
+        var ybAtc = document.querySelector('[data-your-build-atc]');
+        if (ybAtc) ybAtc.addEventListener('click', addBuildToCart);
+      }
+
+      refreshYourBuild();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGondolaBuilder);
+    } else {
+      initGondolaBuilder();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Gondola Builder V2",
+  "tag": "section",
+  "class": "gondola-builder-v2-section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Gondola Type",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gondola Builder V2"
+    }
+  ]
+}
+{% endschema %}

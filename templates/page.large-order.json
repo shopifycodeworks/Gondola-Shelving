@@ -1,0 +1,81 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "52b2ad64-345b-4f3b-8f17-4399f4b423f4": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/e3c174dbb1e948e88b100ab9a6b304ad.mp4"
+      }
+    },
+    "2a47e1e5-5ef3-4021-95e4-e5a3838a4b43": {
+      "type": "large-orders",
+      "blocks": {
+        "template--14678550872161__2a47e1e5-5ef3-4021-95e4-e5a3838a4b43-16867446599b73f931-0": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "template--14678550872161__2a47e1e5-5ef3-4021-95e4-e5a3838a4b43-16867446599b73f931-1": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "template--14678550872161__2a47e1e5-5ef3-4021-95e4-e5a3838a4b43-16867446599b73f931-2": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "template--14678550872161__2a47e1e5-5ef3-4021-95e4-e5a3838a4b43-16867446599b73f931-3": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "template--14678550872161__2a47e1e5-5ef3-4021-95e4-e5a3838a4b43-16867446599b73f931-0",
+        "template--14678550872161__2a47e1e5-5ef3-4021-95e4-e5a3838a4b43-16867446599b73f931-1",
+        "template--14678550872161__2a47e1e5-5ef3-4021-95e4-e5a3838a4b43-16867446599b73f931-2",
+        "template--14678550872161__2a47e1e5-5ef3-4021-95e4-e5a3838a4b43-16867446599b73f931-3"
+      ],
+      "settings": {
+        "section_color_scheme": "white",
+        "section_heading": "Get In Touch With Us",
+        "sub_heading": "Providing all customers with exceptional service & support is our main priority. We are eager to hear your suggestions on how we can keep improving.",
+        "location": "<p>Acme Shelving & Store Fixtures<br/>360 Magnetic Dr, North York, ON M3J 2C4</p>",
+        "timing": "<p>Monday to Friday 8:30AM - 5:00PM<br/>Saturday / Sunday - CLOSED</p>",
+        "number": "<p><a href=\"tel:(647)-285-4285\" title=\"tel:(647)-285-4285\">(647)-285-4285 </a>(Cell)</p><p><a href=\"tel:(416)-661-2442\" title=\"tel:(416)-661-2442\">(416)-661-2442</a> (Office)</p><p><a href=\"tel:1-800-661-2263\" title=\"tel:1-800-661-2263\">1-800-661-2263</a></p>",
+        "email": "<p><a href=\"mailto:contact@acmeshelving.com\"><span style=\"text-decoration:underline\">contact@acmeshelving.com</span><br/></a><a href=\"mailto:massimo@acmeshelving.com\"><span style=\"text-decoration:underline\">massimo@acmeshelving.com</span></a></p>",
+        "section_width": "container-narrow",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "52b2ad64-345b-4f3b-8f17-4399f4b423f4",
+    "2a47e1e5-5ef3-4021-95e4-e5a3838a4b43"
+  ]
+}

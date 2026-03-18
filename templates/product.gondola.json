@@ -43,55 +43,55 @@
         "enable_video_loop": false
       }
     },
-    "gondola_builder_UJAR9h": {
-      "type": "gondola-builder",
+    "gondola_builder_v2_m6eFtw": {
+      "type": "gondola-builder-v2",
       "blocks": {
-        "block_ztTntX": {
+        "block_krCHeJ": {
           "type": "block",
           "settings": {
-            "collection": "double-sided-gondola-starter"
+            "product": "gondola-test"
           }
         },
-        "block_VYwhaQ": {
+        "block_RjzWNF": {
           "type": "block",
           "settings": {
-            "collection": "gondola-double-sided-add-on"
+            "product": "gondola-double-sided-add-on-gondola-test"
           }
         },
-        "block_nRnYEQ": {
+        "block_mxPVM4": {
           "type": "block",
           "settings": {
-            "collection": "gondola-end-cap"
+            "product": "gondola-end-cap-gondola-test"
           }
         },
-        "block_YzRdch": {
+        "block_T6UJ33": {
           "type": "block",
           "settings": {
-            "collection": "gondola-single-sided-wall-starter"
+            "product": "gondola-single-sided-wall-add-on-gondola-test"
           }
         },
-        "block_UAJVLW": {
+        "block_EY6mPe": {
           "type": "block",
           "settings": {
-            "collection": "gondola-single-sided-wall-add-on"
+            "product": "gondola-single-sided-wall-add-on-gondola-test"
           }
         },
-        "block_gRzJkF": {
+        "block_PqPgP7": {
           "type": "block",
           "settings": {
-            "collection": "gondola-shelves"
+            "product": "gondola-shelves-gondola-test-copy"
           }
         }
       },
       "block_order": [
-        "block_ztTntX",
-        "block_VYwhaQ",
-        "block_nRnYEQ",
-        "block_YzRdch",
-        "block_UAJVLW",
-        "block_gRzJkF"
+        "block_krCHeJ",
+        "block_RjzWNF",
+        "block_mxPVM4",
+        "block_T6UJ33",
+        "block_EY6mPe",
+        "block_PqPgP7"
       ],
-      "name": "Gondola Builder",
+      "name": "Gondola Builder V2",
       "settings": {}
     },
     "faq_ChHVrt": {
@@ -127,6 +127,13 @@
         "section_width": "container",
         "padding_top": 50,
         "padding_bottom": 50
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendation",
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You May Also Need"
       }
     },
     "template_contact_form_VzPLmJ": {
@@ -176,21 +183,13 @@
         "padding_top": 50,
         "padding_bottom": 50
       }
-    },
-    "product-recommendations": {
-      "type": "product-recommendation",
-      "disabled": true,
-      "settings": {
-        "show_product_recommendations": true,
-        "product_recommendations_heading": "Customers Also Bought"
-      }
     }
   },
   "order": [
     "main",
-    "gondola_builder_UJAR9h",
+    "gondola_builder_v2_m6eFtw",
     "faq_ChHVrt",
-    "template_contact_form_VzPLmJ",
-    "product-recommendations"
+    "product-recommendations",
+    "template_contact_form_VzPLmJ"
   ]
 }

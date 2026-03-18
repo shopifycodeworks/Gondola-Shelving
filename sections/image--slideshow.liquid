@@ -4,7 +4,9 @@
 {% endcapture %}
 
 {% if section.settings.section_width == 'full' %}
-
+	{% comment %} <section class="container-fluid homepage-slider-container slider-section--{{ section.id }}
+  {% if section.settings.show-slide-dots %} slider-dots--caption-padding{% endif %}" data-wetheme-section-type="image--slideshow" 
+      data-wetheme-section-id="{{ section.id }}" {{ section_style_attr }}> {% endcomment %}
 
 
   <section class="container-fluid homepage-slider-container slider-section--{{ section.id }}
@@ -40,21 +42,15 @@
                                         style="display: block; background-image: url('{{ block.settings.mobile_image | img_url: 'master' }}'); width: {{ 100 | divided_by: number_of_slides_float }}%;"
                                     >
                                         {% if block.settings.image != blank %}
-                                              <video class="banner_video" autoplay loop muted playsinline aria-label="Slideshow Video">
+                                              <video class="banner_video" autoplay loop muted playsinline>
                                                 <source src="{{ block.settings.image }}" type="video/mp4">
-                                                <track kind="captions" srclang="en" label="English">
                                               </video>
                                         {% endif %}
 
                                        <div class="banner-wrapper">
                                         {% if block.settings.left_image != blank %}
                                       <div class="left-image">
-                                         <img src="{{ block.settings.left_image | image_url: width: 1000 }}" 
-                                              alt="{{ block.settings.left_image.alt | default: 'Banner left image' | escape }}"
-                                              width="{{ block.settings.left_image.width | default: 500 }}"
-                                              height="{{ block.settings.left_image.height | default: 500 }}"
-                                              {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
-                                         />    
+                                        <img src="{{ block.settings.left_image | img_url: 'master' }}" alt="banner-left-image" />    
                                       </div>
                                         {% endif %}
                                       

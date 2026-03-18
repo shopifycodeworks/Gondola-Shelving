@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "template--page",
+      "disabled": true,
+      "settings": {}
+    },
+    "2084d742-9b22-4fe0-8962-40e070947ece": {
+      "type": "banner-with-text",
+      "settings": {
+        "page_title": true,
+        "page_heading": "",
+        "banner_video": "https://cdn.shopify.com/videos/c/o/v/a9baddc912aa4c5c8afb869c2582da03.mp4"
+      }
+    },
+    "2ed94b41-aea9-49c5-8716-ad209aef99ea": {
+      "type": "madix-cont",
+      "disabled": true,
+      "blocks": {
+        "f8af619c-b174-459f-b732-e9e649337579": {
+          "type": "video",
+          "settings": {
+            "url": "",
+            "image1": "shopify://shop_images/images_3.jpg",
+            "image2": "shopify://shop_images/s-l1200.jpg",
+            "image3": "shopify://shop_images/images_1.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>From the initial design concept to site assessment, installation, logistics, and ongoing maintenance, we take pride in ensuring that your space maintains its pristine appearance from the very first day it opened. When you entrust your project to Acme, we treat your space as if it were our own, allowing us to meticulously manage every aspect of the project from start to finish. Our commitment to excellence extends to every detail, enabling us to deliver exceptional results that align with your vision. With ACME, you can rest assured that your retail space will receive the highest level of attention and care throughout the entire process.</p>"
+          }
+        },
+        "09f2afa9-7cc4-4956-af07-491b11e2271e": {
+          "type": "video",
+          "settings": {
+            "url": "",
+            "image1": "shopify://shop_images/s-l1200.jpg",
+            "image2": "shopify://shop_images/download_2.jpg",
+            "image3": "shopify://shop_images/Screenshot_2.png",
+            "video_alignment": "right",
+            "title": "",
+            "video_description": "<p>From the initial design concept to site assessment, installation, logistics, and ongoing maintenance, we take pride in ensuring that your space maintains its pristine appearance from the very first day it opened. When you entrust your project to Acme, we treat your space as if it were our own, allowing us to meticulously manage every aspect of the project from start to finish. Our commitment to excellence extends to every detail, enabling us to deliver exceptional results that align with your vision. With ACME, you can rest assured that your retail space will receive the highest level of attention and care throughout the entire process.</p>"
+          }
+        },
+        "588ecefd-63c2-4722-8b85-3390499e521d": {
+          "type": "video",
+          "settings": {
+            "url": "",
+            "image1": "shopify://shop_images/images_3.jpg",
+            "image2": "shopify://shop_images/Screenshot_2.png",
+            "image3": "shopify://shop_images/s-l1200.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>From the initial design concept to site assessment, installation, logistics, and ongoing maintenance, we take pride in ensuring that your space maintains its pristine appearance from the very first day it opened. When you entrust your project to Acme, we treat your space as if it were our own, allowing us to meticulously manage every aspect of the project from start to finish. Our commitment to excellence extends to every detail, enabling us to deliver exceptional results that align with your vision. With ACME, you can rest assured that your retail space will receive the highest level of attention and care throughout the entire process.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f8af619c-b174-459f-b732-e9e649337579",
+        "09f2afa9-7cc4-4956-af07-491b11e2271e",
+        "588ecefd-63c2-4722-8b85-3390499e521d"
+      ],
+      "settings": {}
+    },
+    "3200a2b1-fbe9-4d0a-b0c7-6824bd0a5681": {
+      "type": "services-content",
+      "blocks": {
+        "07833636-8435-4793-9c98-378c5de20c1b": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/Penn-Equity-Red-Rope.jpg",
+            "video_alignment": "right",
+            "title": "Illuminate Your Brand with Vanguard Store Fixtures' LED Solutions",
+            "video_description": "<p>At Vanguard Store Fixtures, we believe in the transformative power of visual communication, and LED signage stands as a testament to that belief. In an era where visual appeal is paramount, our custom LED signage solutions provide the perfect blend of style, functionality, and energy efficiency. With our diverse range of options and commitment to quality, we help businesses shine brighter in the crowded marketplace.</p>"
+          }
+        },
+        "9a1b79e3-5c6f-4293-992e-5275b7d47db4": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/IMG_5299.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>Our custom LED signage is tailored to suit the unique needs of various businesses, be it a retail store or an entire plaza:</p><ul><li><strong>Retail Stores:</strong> Enhance branding and attract customers with vibrant and dynamic LED signs.</li><li><strong>Shopping Plazas:</strong> Create a cohesive and modern aesthetic that sets the tone for an entire shopping experience.</li><li><strong>Restaurants:</strong> Showcase your menu or promote special offers with eye-catching LED displays.</li><li><strong>Hotels and Commercial Spaces:</strong> Elevate your premises with sophisticated and welcoming LED signage.</li><li><strong>Outdoor Advertising:</strong> Make a bold statement with weather-resistant and bright LED solutions.<br/>We offer full customization, ensuring that your LED sign reflects your brand's personality and objectives</li></ul>"
+          }
+        },
+        "3e70e898-5b64-46bd-aa85-a2a91e1936bd": {
+          "type": "Image",
+          "settings": {
+            "image1": "shopify://shop_images/DSCN0058.jpg",
+            "video_alignment": "right",
+            "title": "",
+            "video_description": "<p>Let Vanguard Store Fixtures be the guiding light in your journey to business success. Our LED signage solutions are not just about illumination; they're about creating a lasting impression that resonates with your target audience. With professional craftsmanship, cutting-edge technology, and a deep understanding of marketing dynamics, we stand as the premier choice for custom LED signage. Partner with us today and watch your business come alive with the vibrant energy of LED.</p>"
+          }
+        },
+        "f610d775-a931-4851-abc1-cfecbd0df688": {
+          "type": "Image",
+          "disabled": true,
+          "settings": {
+            "image1": "shopify://shop_images/B3altvLCMAE886R.jpg",
+            "video_alignment": "left",
+            "title": "",
+            "video_description": "<p>Discover our high-quality store fixtures designed and made for modern grocery stores. Our versatile shelving units and custom-built display cases enhance product visibility and organization, delivering a seamless and visually appealing shopping experience. Some of the qualitative products we provide that all supermarkets need include:</p><ul><li>GONDOLA SHELVING</li><li>SLATWALL</li><li>VEGETABLE TABLES</li><li>CUSTOM COUNTERS</li><li>STOCKROOM SHELVING</li><li>SHOPPING CARTS</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "07833636-8435-4793-9c98-378c5de20c1b",
+        "9a1b79e3-5c6f-4293-992e-5275b7d47db4",
+        "3e70e898-5b64-46bd-aa85-a2a91e1936bd",
+        "f610d775-a931-4851-abc1-cfecbd0df688"
+      ],
+      "settings": {}
+    },
+    "f3de9996-8cc6-483f-9d2f-06895b664b7e": {
+      "type": "how-we-can-help",
+      "blocks": {
+        "16739543-c5d7-4419-aaf2-3abf2adb0d1f": {
+          "type": "name_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "99ecf8e1-4077-484e-a722-0aec889e2e67": {
+          "type": "email_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        },
+        "cb66a2a5-78e0-47a7-be13-08e04fcfaa0e": {
+          "type": "tel_input",
+          "settings": {
+            "required": false,
+            "input_width": "full"
+          }
+        },
+        "a01c7dc1-e058-4cc1-91ca-9fc3dd844174": {
+          "type": "message_input",
+          "settings": {
+            "required": true,
+            "input_width": "full"
+          }
+        }
+      },
+      "block_order": [
+        "16739543-c5d7-4419-aaf2-3abf2adb0d1f",
+        "99ecf8e1-4077-484e-a722-0aec889e2e67",
+        "cb66a2a5-78e0-47a7-be13-08e04fcfaa0e",
+        "a01c7dc1-e058-4cc1-91ca-9fc3dd844174"
+      ],
+      "settings": {
+        "form_head": "<h3>LET US KNOW HOW WE CAN HELP</h3>",
+        "form_desc": "<p>Contact us today to create the perfect environment for your retail space, that not only attracts and retains customers, but also promotes efficient business operations.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "2084d742-9b22-4fe0-8962-40e070947ece",
+    "2ed94b41-aea9-49c5-8716-ad209aef99ea",
+    "3200a2b1-fbe9-4d0a-b0c7-6824bd0a5681",
+    "f3de9996-8cc6-483f-9d2f-06895b664b7e"
+  ]
+}

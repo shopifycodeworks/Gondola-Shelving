@@ -13,7 +13,7 @@
         <div class="item">
           <div class="iteam-content">
             {% if block.settings.project_image != blank %}
-              <img src="{{ block.settings.project_image | img_url:'master' }}" alt="{{ block.settings.project_image.alt | default: block.settings.project_name | escape }}" />
+              <img src="{{ block.settings.project_image | img_url:'master' }}" />
             {% endif %}
             {% if block.settings.project_name != blank %}
               <h2>{{ block.settings.project_name }}</h2>

@@ -19782,7 +19782,7 @@ a[data-swatch="true"] div.color-icon {
       text-decoration: none; }
     .list-collection-page .list-collection-page__link .list-collection-page__count {
       padding-left: 15px; }
-  .list-collection-page .title-bar h2,.list-collection-page .title-bar h1 {
+  .list-collection-page .title-bar h2 {
     margin-bottom: 2rem; }
   .list-collection-page .list-collection-page__heading > div {
     border-top: 1px solid var(--border-color-subtle);

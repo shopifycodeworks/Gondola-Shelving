@@ -10,7 +10,7 @@
           {% for pdf_url in pdf_links %}
             <div class="pdfIcon">
               <a href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer">
-                <img class="pdfImg" src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/icon-doc-pdf.png?v=1710481706" alt="PDF Icon">
+                <img class="pdfImg" src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/icon-doc-pdf.png?v=1710481706">
               </a>
               {%- if pdf_label.size > forloop.index0 -%}
                  <p>{{ product.metafields.custom.pdf_label_.value[forloop.index0] | strip_html }}</p> 

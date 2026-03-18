@@ -60,9 +60,9 @@
            {% render 'breadcrumbs' %}
           <div class="title-bar custom-font collection-header{% if collection.image and has_collection_image %} collection-header--with-image{% endif %}">
             {% if collection.handle == 'all' %}
-              <h1>{{ 'products.general.products_title' | t }}</h1>
+              <h2>{{ 'products.general.products_title' | t }}</h2>
             {% else %}
-              <h1>{{ collection.title }}</h1>
+              <h2>{{ collection.title }}</h2>
             {% endif %}
             <div class="clear"></div>
           </div>

@@ -18,6 +18,13 @@
                         <h6>{{ collection.title }}</h6>
                       </div>
 
+                      {% comment %}
+                        {% if block.settings.content != blank %}
+                          <div class="collectionList-content-wrapper">
+                            <p>{{ block.settings.content }}</p>
+                          </div>
+                        {% endif %}
+                      {% endcomment %}
 
                       {% if collection.products.size > 1 %}
                         <div class="collectionList-content-wrapper">

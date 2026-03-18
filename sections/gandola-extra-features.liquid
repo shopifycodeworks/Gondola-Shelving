@@ -4,8 +4,7 @@
     padding: 10px;
     margin-bottom: 20px;
 }
-  .extra-features h4.type-subheading,
-  .extra-features h3.type-subheading {    
+  .extra-features h4.type-subheading {    
     color: #CC0000 !important;
     line-height: 1;
     text-transform: capitalize;
@@ -76,7 +75,7 @@
   
 <div class="container">
   {% if section.settings.heading != blank %}
-    <h2 class="heading">{{ section.settings.heading }}</h2>
+    <h3 class="heading">{{ section.settings.heading }}</h3>
   {% endif %}
   <div class="owl-carousel owl-theme" id="features-slider">
     {% for block in section.blocks %}
@@ -86,9 +85,9 @@
             <img src="{{ block.settings.image | img_url: 'master' }}" class="extra-feature-image">
           {% endif %}
           {% if block.settings['slider-heading'] != blank %}
-            <h3 class="type-subheading type-subheading--1 info-columns--title">
+            <h4 class="type-subheading type-subheading--1 info-columns--title">
               {{ block.settings['slider-heading'] }}
-            </h3>
+            </h4>
           {% endif %}
           <div class="info-columns--text">
             {% if block.settings.desc != blank %}
@@ -154,7 +153,7 @@ window.onclick = function(event) {
 </div>
 {% schema %}
 {
-  "name": "Gondola Extra Features",
+  "name": "Gandola Extra Features",
   "tag": "section",
   "class": "extra-features",
   "settings": [
@@ -209,7 +208,7 @@ window.onclick = function(event) {
   ],
   "presets": [
     {
-      "name": "Gondola Extra Features"
+      "name": "Gandola Extra Features"
     }
   ]
 }
