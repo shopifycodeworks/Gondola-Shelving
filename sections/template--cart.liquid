@@ -19,6 +19,11 @@
 
 		<tbody>
 			{% for item in cart.items %}
+				{% assign is_linked_endcap = false %}
+				{% assign group_id = item.properties['Group ID'] | default: '' %}
+				{% if item.properties['_is_endcap'] == '1' %}
+					{% assign is_linked_endcap = true %}
+				{% endif %}
 				<tr class="{% cycle 'even', 'odd' %} line-item id-{{ item.id }}">
 					<td class="cart-table-image">
 						<a class="cart_thumb" href="{{item.product.url}}" title="View {{item.title}} Page">
@@ -44,7 +49,7 @@
 
 						{% if item.selling_plan_allocation %}
 							<div class="cart__meta-text">
-								<span>{{ item.selling_plan_allocation.selling_plan.name }}<span>
+								<span>{{ item.selling_plan_allocation.selling_plan.name }}</span>
 							</div>
 						{% endif %}
 
@@ -67,9 +72,16 @@
 							{% endfor %}
 						{% endif %}
 
-						<div class="cart-table-item-remove cart-table-item-remove--desktop">
-							<a href="{{ routes.cart_url }}/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
-						</div>
+						{% unless is_linked_endcap %}
+							<div class="cart-table-item-remove cart-table-item-remove--desktop">
+								<a
+									href="{{ routes.cart_url }}/change?line={{ forloop.index }}&amp;quantity=0"
+									class="js-group-remove"
+									data-line="{{ forloop.index }}"
+									data-group-id="{{ group_id | escape }}"
+								>{{ 'cart.general.remove' | t }}</a>
+							</div>
+						{% endunless %}
 					</td>
 
 					<td class="cart-table-price">
@@ -100,28 +112,44 @@
 					</td>
 
 					<td class="cart-table-quantity">
-						<div class="quantity-controls" data-stock-count="{{ item.variant.inventory_quantity }}" data-inventory-policy="{{ item.variant.inventory_policy }}" data-inventory-management="{{ item.variant.inventory_management }}">
-							<button
-								type="button"
-								class="qty-minus alt-focus"
-								aria-label="Reduce item quantity by one"
-							>-</button>
-							<input
-								id="updates_{{item.variant.id}}"
-								class="number quantity-selector"
-								value="{{item.quantity}}"
+						{% if is_linked_endcap %}
+							<span
+								class="quantity-selector quantity-selector--linked-endcap"
 								aria-label="Quantity"
+								data-group-id="{{ group_id | escape }}"
+							>{{ item.quantity }}</span>
+							<input
+								type="hidden"
 								name="updates[]"
-								type="text"
-								size="4"
+								class="linked-endcap-quantity-input"
+								data-group-id="{{ group_id | escape }}"
+								value="{{ item.quantity }}"
 							>
-							<button
-								type="button"
-								class="qty-plus alt-focus"
-								aria-label="Increase item quantity by one"
-							>+</button>
-						</div>
-						<div class="stock-error-message d-none">{{ 'cart.general.stock_error' | t }}</div>
+						{% else %}
+							<div class="quantity-controls" data-stock-count="{{ item.variant.inventory_quantity }}" data-inventory-policy="{{ item.variant.inventory_policy }}" data-inventory-management="{{ item.variant.inventory_management }}">
+								<button
+									type="button"
+									class="qty-minus alt-focus"
+									aria-label="Reduce item quantity by one"
+								>-</button>
+								<input
+									id="updates_{{item.variant.id}}"
+									class="number quantity-selector"
+									data-group-id="{{ group_id | escape }}"
+									value="{{item.quantity}}"
+									aria-label="Quantity"
+									name="updates[]"
+									type="text"
+									size="4"
+								>
+								<button
+									type="button"
+									class="qty-plus alt-focus"
+									aria-label="Increase item quantity by one"
+								>+</button>
+							</div>
+							<div class="stock-error-message d-none">{{ 'cart.general.stock_error' | t }}</div>
+						{% endif %}
 					</td>
 
 					<td class="cart-table-line-price cart--final-column">
@@ -148,7 +176,14 @@
 					</td>
 
 					<td class="cart-table-item-remove cart-table-item-remove--mobile">
-						<a href="{{ routes.cart_url }}/change?line={{ forloop.index }}&amp;quantity=0">{{ 'cart.general.remove' | t }}</a>
+						{% unless is_linked_endcap %}
+							<a
+								href="{{ routes.cart_url }}/change?line={{ forloop.index }}&amp;quantity=0"
+								class="js-group-remove"
+								data-line="{{ forloop.index }}"
+								data-group-id="{{ group_id | escape }}"
+							>{{ 'cart.general.remove' | t }}</a>
+						{% endunless %}
 					</td>
 
 				</tr>
@@ -239,17 +274,146 @@
 	{{ cart | json }}
 </script>
 
+<script>
+	(function () {
+		'use strict';
+
+		function removeGroupedItems(line, groupId) {
+			if (!groupId) {
+				window.location.href = '{{ routes.cart_url }}/change?line=' + line + '&quantity=0';
+				return;
+			}
+
+			fetch('{{ routes.cart_url }}.js')
+				.then(function (r) {
+					return r.json();
+				})
+				.then(function (cart) {
+					var updates = {};
+					cart.items.forEach(function (item, idx) {
+						var itemGroup = item.properties && item.properties['Group ID'];
+						if (itemGroup && String(itemGroup) === String(groupId) && item.key) {
+							updates[item.key] = 0;
+						}
+					});
+
+					if (!Object.keys(updates).length) {
+						window.location.href = '{{ routes.cart_url }}/change?line=' + line + '&quantity=0';
+						return null;
+					}
+
+					return fetch('{{ routes.cart_url }}/update.js', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ updates: updates }),
+					});
+				})
+				.then(function () {
+					window.location.reload();
+				})
+				.catch(function () {
+					window.location.href = '{{ routes.cart_url }}/change?line=' + line + '&quantity=0';
+				});
+		}
+
+		function updateGroupedQuantity(groupId, qty) {
+			if (!groupId) return Promise.resolve(false);
+			if (isNaN(qty) || qty < 1) qty = 1;
+
+			return fetch('{{ routes.cart_url }}.js')
+				.then(function (r) {
+					return r.json();
+				})
+				.then(function (cart) {
+					var updates = {};
+					cart.items.forEach(function (item) {
+						var itemGroup = item.properties && item.properties['Group ID'];
+						if (itemGroup && String(itemGroup) === String(groupId) && item.key) {
+							updates[item.key] = qty;
+						}
+					});
+
+					if (!Object.keys(updates).length) return false;
+
+					return fetch('{{ routes.cart_url }}/update.js', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ updates: updates }),
+					}).then(function () {
+						return true;
+					});
+				});
+		}
+
+		function syncHiddenEndcapInputs(groupId, qty) {
+			document.querySelectorAll('input.linked-endcap-quantity-input[data-group-id="' + groupId + '"]').forEach(function (input) {
+				input.value = String(qty);
+			});
+		}
+
+		document.addEventListener('click', function (e) {
+			var qtyBtn = e.target.closest('.qty-plus, .qty-minus');
+			if (qtyBtn) {
+				var controls = qtyBtn.closest('.quantity-controls');
+				var qtyInput = controls && controls.querySelector('input.quantity-selector[data-group-id]');
+				var groupId = qtyInput && qtyInput.getAttribute('data-group-id');
+				if (groupId) {
+					e.preventDefault();
+					e.stopImmediatePropagation();
+
+					var currentQty = parseInt(qtyInput.value, 10);
+					if (isNaN(currentQty) || currentQty < 1) currentQty = 1;
+					var nextQty = qtyBtn.classList.contains('qty-plus') ? currentQty + 1 : Math.max(1, currentQty - 1);
+
+					qtyInput.value = String(nextQty);
+					syncHiddenEndcapInputs(groupId, nextQty);
+
+					updateGroupedQuantity(groupId, nextQty)
+						.then(function () {
+							window.location.reload();
+						})
+						.catch(function () {
+							window.location.reload();
+						});
+					return;
+				}
+			}
+
+			var link = e.target.closest('.js-group-remove');
+			if (!link) return;
+			e.preventDefault();
+			removeGroupedItems(link.getAttribute('data-line'), link.getAttribute('data-group-id'));
+		}, true);
+
+		document.addEventListener('change', function (e) {
+			if (e.target && e.target.matches('input.quantity-selector[data-group-id]')) {
+				var groupId = e.target.getAttribute('data-group-id');
+				if (!groupId) return;
+				e.preventDefault();
+				e.stopImmediatePropagation();
+
+				var qty = parseInt(e.target.value, 10);
+				if (isNaN(qty) || qty < 1) qty = 1;
+				e.target.value = String(qty);
+				syncHiddenEndcapInputs(groupId, qty);
+
+				updateGroupedQuantity(groupId, qty)
+					.then(function () {
+						window.location.reload();
+					})
+					.catch(function () {
+						window.location.reload();
+					});
+			}
+		}, true);
+	})();
+</script>
+
 {% endif %}
 
 {% schema %}
 	{
-		"name": {
-			"en": "Cart template",
-			"de": "TRANSLATION_MISSING",
-			"es": "TRANSLATION_MISSING",
-			"fr": "TRANSLATION_MISSING",
-			"pt-PT": "TRANSLATION_MISSING"
-		},
+		"name": "Cart template",
 		"class": "container cart-page-template",
 		"settings": [
 		]

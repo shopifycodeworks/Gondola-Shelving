@@ -49,37 +49,43 @@
         "block_krCHeJ": {
           "type": "block",
           "settings": {
-            "product": "gondola-test"
+            "product": "gondola-test",
+            "end_cap_product": "gondola-end-cap"
           }
         },
         "block_RjzWNF": {
           "type": "block",
           "settings": {
-            "product": "gondola-double-sided-add-on-gondola-test"
+            "product": "gondola-double-sided-add-on-gondola-test",
+            "end_cap_product": "gondola-end-cap"
           }
         },
         "block_mxPVM4": {
           "type": "block",
           "settings": {
-            "product": "gondola-end-cap-gondola-test"
+            "product": "gondola-end-cap-gondola-test",
+            "end_cap_product": ""
           }
         },
         "block_T6UJ33": {
           "type": "block",
           "settings": {
-            "product": "gondola-single-sided-wall-add-on-gondola-test"
+            "product": "gondola-single-sided-wall-add-on-gondola-test",
+            "end_cap_product": ""
           }
         },
         "block_EY6mPe": {
           "type": "block",
           "settings": {
-            "product": "gondola-single-sided-wall-add-on-gondola-test"
+            "product": "gondola-single-sided-wall-add-on-gondola-test",
+            "end_cap_product": ""
           }
         },
         "block_PqPgP7": {
           "type": "block",
           "settings": {
-            "product": "gondola-shelves-gondola-test-copy"
+            "product": "gondola-shelves-gondola-test-copy",
+            "end_cap_product": ""
           }
         }
       },

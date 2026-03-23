@@ -176,3 +176,45 @@
 		</div>
 	</form>
 </aside>
+
+<script>
+	(function () {
+		'use strict';
+
+		function hideLinkedEndcapDrawerQty() {
+			fetch('{{ routes.cart_url }}.js')
+				.then(function (r) {
+					return r.json();
+				})
+				.then(function (cart) {
+					var items = document.querySelectorAll('.cart-items > li');
+					if (!items || !items.length) return;
+
+					items.forEach(function (li, idx) {
+						var cartItem = cart.items[idx];
+						if (!cartItem || !cartItem.properties) return;
+						if (String(cartItem.properties['_is_endcap'] || '') !== '1') return;
+
+						var qtyWrapper = li.querySelector('.cart-item--quantity-wrapper');
+						if (qtyWrapper) qtyWrapper.style.display = 'none';
+					});
+				})
+				.catch(function () {
+					// Ignore drawer UI sync errors.
+				});
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			hideLinkedEndcapDrawerQty();
+
+			var cartItems = document.querySelector('.cart-items');
+			if (!cartItems || typeof MutationObserver === 'undefined') return;
+
+			var observer = new MutationObserver(function () {
+				hideLinkedEndcapDrawerQty();
+			});
+
+			observer.observe(cartItems, { childList: true, subtree: false });
+		});
+	})();
+</script>
