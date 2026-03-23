@@ -4267,6 +4267,10 @@ a.read-moreBtn {
   .van_product_wrapper {
     font-size: 16px;
   }
+
+  #Collection .product-grid {
+    --column-gap-width: 15px;
+  }
 }
 
 /* ======================= Responsive Small device End ======================= */
