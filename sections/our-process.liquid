@@ -27,7 +27,7 @@
                   <div class="process-details">
                     {% if block.settings.background_image != blank %}
                       <div class="process-bg-pic">
-                        <img src="{{ block.settings.background_image | img_url:'master' }}">
+                        <img src="{{ block.settings.background_image | img_url:'master' }}" alt="{{ block.settings.background_image.alt | escape }}">
                       </div>
                     {% endif %}
                     <div class="cont">

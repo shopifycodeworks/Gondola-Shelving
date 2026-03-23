@@ -96,8 +96,8 @@
 						{% for comment in article.comments %}
 						<li class="comment clearfix">
 							<div class="col-md-2">
-								<img src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}"
-									class="img-responsive" alt="" />
+								<img src="//www.gravatar.com/avatar/{{ comment.email | remove: ' ' | strip_newlines | downcase | md5 }}"									
+									class="img-responsive" alt="{{ comment.author | escape }}" />
 							</div>
 							<div class="col-md-10">
 								<div class="comment-author">

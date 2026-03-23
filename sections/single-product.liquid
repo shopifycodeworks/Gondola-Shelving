@@ -166,7 +166,7 @@
          {%- if product.metafields.custom.brand_logo != blank -%}
           <div class="warranty-badge">
            {% comment %} <img src="{{ section.settings.warrenty_image | img_url:'master' }}">{% endcomment %}
-             <img src="{{ product.metafields.custom.brand_logo.value | img_url:'master' }}">
+             <img src="{{ product.metafields.custom.brand_logo.value | img_url:'master' }}" alt="{{ product.metafields.custom.brand_logo.value.alt | escape  }}">
           </div>
        {% endif %} 
 
@@ -179,7 +179,7 @@
 
         {% if section.settings.country_image != blank %}
           <div class="country-badge">
-            <img src="{{ section.settings.country_image | img_url:'master' }}">
+            <img src="{{ section.settings.country_image | img_url:'master' }}" alt="{{ section.settings.country_image.alt | escape }}">
           </div>
         {% endif %}
       </div>
@@ -416,7 +416,7 @@
                           {% for image_url in additional_info_icon %}
                             <li>
                               <div class="additional-image">
-                                <img src="{{ image_url | img_url: 'master' }}" alt="Image">
+                                <img src="{{ image_url | img_url: 'master' }}" alt="{{ additional_info_title[forloop.index0] | escape }}">
                               </div>
                               <div class="others">
                                 <h3>{{ additional_info_title[forloop.index0] }}</h3>
@@ -788,7 +788,7 @@
                           {% for image_url in feature_icon_list %}
                             <li>
                               <span class="text-with-icon--icon">
-                                <img src="{{ image_url | img_url: 'master' }}" alt="Image">
+                                <img src="{{ image_url | img_url: 'master' }}" alt="{{ feature_icon_text_list[forloop.index0] | escape }}">
                               </span>
                               <span class="text-with-icon--text">{{ feature_icon_text_list[forloop.index0] }}</span>
                             </li>

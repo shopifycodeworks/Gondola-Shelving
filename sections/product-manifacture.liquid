@@ -14,7 +14,7 @@
       </div>
 
       <div class="manifacture-img-wrap">
-        <img src="{{ block.settings.image | img_url:'master' }}">
+        <img src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.heading | escape }}">
       </div>
     {% endfor %}
   </div>

@@ -59,11 +59,11 @@ transition: 0.3s;
                 <div class="featured-box text-center">
                   {% if collectionsMeta.image.src != blank %}
                      <div class="featured-img-wrap">
-                      <img src="{{ collectionsMeta.image.src | img_url:'master' }}">
+                      <img src="{{ collectionsMeta.image.src | img_url:'master' }}" alt="{{ collectionsMeta.image.alt | escape }}">
                     </div>
                    {% else %}
                      <div class="featured-img-wrap">
-                       <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/default-image.png?v=1706777675" >
+                       <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/default-image.png?v=1706777675" alt="Default Image">
                   </div>
                   {% endif %}
                   {% if collectionsMeta.title != blank %}
@@ -90,7 +90,7 @@ transition: 0.3s;
                     </div>
                   {% else %}
                      <div class="featured-img-wrap">
-                       <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/default-image.png?v=1706777675" >
+                       <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/default-image.png?v=1706777675" alt="Default Image">
                   </div>
                   {% endif %}
                   {% if collection.title != blank %}

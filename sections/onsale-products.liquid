@@ -14,7 +14,7 @@
 
           {% if product.featured_image != blank %}
             <div class="img-wrap onsale-product-left">
-              <img src="{{ product.featured_image | img_url:'master' }}">
+              <img src="{{ product.featured_image | img_url:'master' }}" alt="{{ product.featured_image.alt | escape }}">
             </div>
           {% endif %}
 

@@ -11,7 +11,7 @@
       <div class="col-lg-4 col-md-6 mb-md-5 mb-4">
         <div class="learningBox">
           <div class="learningImage">
-            <img src="{{ article | img_url: 'large' }}">
+            <img src="{{ article | img_url: 'large' }}" alt="{{ article.title | escape }}">
           </div>
           <div class="learningContent">
             <h6>{{ article.title }}</h6>

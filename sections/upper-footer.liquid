@@ -12,7 +12,7 @@
             <div class="footer-conBoxTop">
               {% if block.settings.image != blank %}
                 <div class="footer-conIcon">
-                  <img src="{{ block.settings.image | img_url:'master' }}">
+                  <img src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.image.alt | escape }}">
                 </div>
               {% endif %}
               {% if block.settings.heading != blank %}

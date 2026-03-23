@@ -6,7 +6,7 @@
           <div class="policy-sec">
             {% if block.settings.return_icon != blank %}
               <div class="icon-img">
-                <img src="{{ block.settings.return_icon | img_url: 'icon' }}">
+                <img src="{{ block.settings.return_icon | img_url: 'icon' }}" alt="{{ block.settings.return_icon.alt | escape }}">
               </div>
             {% endif %}
             <div class="policy-details">
