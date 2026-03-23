@@ -285,7 +285,7 @@
                           title="{{ variant.title }}"
                         >
                           <span class="backing_pill_label">{{ variant.title }}</span>
-                          <span class="backing_pill_sort_text">{{ variant.price | money }}</span>
+                          {% comment %} <span class="backing_pill_sort_text">{{ variant.price | money }}</span> {% endcomment %}
                         </button>
                       {% endfor %}
                     </div>
