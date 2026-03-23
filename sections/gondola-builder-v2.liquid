@@ -599,6 +599,11 @@
       return d.innerHTML;
     }
 
+    function isNoEndcapTitle(title) {
+      var t = String(title || '').toLowerCase();
+      return t.indexOf('no end cap') !== -1 || t.indexOf('no end caps') !== -1;
+    }
+
     /* ─── Build Items Array ───────────────────────────────────────────── */
     var buildItems = [];
 
@@ -709,6 +714,7 @@
       var priceEl = pcard.querySelector('[data-variant-price]');
       var comparePriceEl = pcard.querySelector('[data-compare-price]');
       var endcapVariantIdInput = pcard.querySelector('.pcard_endcap_variant_id');
+      var endcapData = readEndcapJson(pcard);
       var propInputs = {
         colour: form && form.querySelector('.pcard_prop_colour'),
         backing: form && form.querySelector('.pcard_prop_backing'),
@@ -726,13 +732,32 @@
       function updateUI() {
         var selected = getSelectedOptions();
         var variant = findMatchingVariant(productData, selected);
+        var activeEndcapBtn = pcard.querySelector('[data-opt="endcap"].active');
+        var selectedEndcapVariantId = activeEndcapBtn
+          ? String(activeEndcapBtn.dataset.variantId || '')
+          : String((endcapVariantIdInput && endcapVariantIdInput.value) || '');
+
+        if (endcapVariantIdInput) endcapVariantIdInput.value = selectedEndcapVariantId;
 
         if (variant) {
           if (variantInput) variantInput.value = variant.id;
           if (addBtn) addBtn.disabled = false;
-          if (priceEl) priceEl.textContent = formatMoney(variant.price);
+          var totalPrice = Number(variant.price || 0);
+          var hasPricedEndcap = false;
+
+          if (endcapData && selectedEndcapVariantId) {
+            var endcapVariant = endcapData.variants.find(function (v) {
+              return String(v.id) === selectedEndcapVariantId;
+            });
+            if (endcapVariant) {
+              totalPrice += Number(endcapVariant.price || 0);
+              hasPricedEndcap = !isNoEndcapTitle(endcapVariant.title) && Number(endcapVariant.price || 0) > 0;
+            }
+          }
+
+          if (priceEl) priceEl.textContent = formatMoney(totalPrice);
           if (comparePriceEl) {
-            if (variant.compare_at_price && variant.compare_at_price > variant.price) {
+            if (!hasPricedEndcap && variant.compare_at_price && variant.compare_at_price > variant.price) {
               comparePriceEl.textContent = formatMoney(variant.compare_at_price);
               comparePriceEl.style.display = '';
               comparePriceEl.style.textDecoration = 'line-through';
@@ -750,7 +775,6 @@
         if (propInputs.colour) propInputs.colour.value = selected.colour || '';
         if (propInputs.backing) propInputs.backing.value = selected.backing || '';
         if (propInputs.endcap) {
-          var activeEndcapBtn = pcard.querySelector('[data-opt="endcap"].active');
           var resolvedEndcap = selected.endcap || (activeEndcapBtn && activeEndcapBtn.dataset.val) || propInputs.endcap.value || '';
           propInputs.endcap.value = resolvedEndcap;
         }
@@ -784,7 +808,6 @@
       });
 
       /* End cap pill click */
-      var endcapData = readEndcapJson(pcard);
       pcard.querySelectorAll('[data-opt="endcap"]').forEach(function (btn) {
         btn.addEventListener('click', function () {
           pcard.querySelectorAll('[data-opt="endcap"]').forEach(function (b) {
@@ -796,23 +819,7 @@
             el.textContent = btn.dataset.val;
           });
 
-          /* Update end cap variant ID and price */
-          var variantId = btn.dataset.variantId;
-          if (endcapVariantIdInput) endcapVariantIdInput.value = variantId;
-
-          /* Update displayed price with end cap price */
-          if (endcapData && priceEl) {
-            var variant = findMatchingVariant(productData, getSelectedOptions());
-            if (variant) {
-              var endcapVariant = endcapData.variants.find(function (v) {
-                return String(v.id) === String(variantId);
-              });
-              if (endcapVariant) {
-                var totalPrice = variant.price + endcapVariant.price;
-                priceEl.textContent = formatMoney(totalPrice);
-              }
-            }
-          }
+          updateUI();
         });
       });
 
@@ -948,9 +955,7 @@
         if (endcapVariant) {
           totalPrice += endcapVariant.price;
 
-          var endcapTitle = String(endcapVariant.title || '').toLowerCase();
-          var isNoEndcapTitle = endcapTitle.indexOf('no end cap') !== -1 || endcapTitle.indexOf('no end caps') !== -1;
-          if (!isNoEndcapTitle && Number(endcapVariant.price || 0) > 0) {
+          if (!isNoEndcapTitle(endcapVariant.title) && Number(endcapVariant.price || 0) > 0) {
             endcapVariantId = selectedEndcapVariantId;
           }
         }

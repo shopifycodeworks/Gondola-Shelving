@@ -181,40 +181,151 @@
 	(function () {
 		'use strict';
 
-		function hideLinkedEndcapDrawerQty() {
-			fetch('{{ routes.cart_url }}.js')
-				.then(function (r) {
-					return r.json();
-				})
-				.then(function (cart) {
-					var items = document.querySelectorAll('.cart-items > li');
-					if (!items || !items.length) return;
+		var listenersAttached = false;
 
-					items.forEach(function (li, idx) {
-						var cartItem = cart.items[idx];
-						if (!cartItem || !cartItem.properties) return;
-						if (String(cartItem.properties['_is_endcap'] || '') !== '1') return;
+		function applyEndcapRules(cartData) {
+			var items = document.querySelectorAll('.cart-items > li');
+			if (!items || !items.length) return;
 
-						var qtyWrapper = li.querySelector('.cart-item--quantity-wrapper');
-						if (qtyWrapper) qtyWrapper.style.display = 'none';
-					});
-				})
-				.catch(function () {
-					// Ignore drawer UI sync errors.
-				});
+			items.forEach(function (li, idx) {
+				var cartItem = cartData.items[idx];
+				if (!cartItem || !cartItem.properties) return;
+
+				var isEndcap = String(cartItem.properties['_is_endcap'] || '') === '1';
+				var groupId = String(cartItem.properties['Group ID'] || '');
+
+				li.setAttribute('data-group-id', groupId);
+				li.setAttribute('data-is-endcap', isEndcap ? '1' : '0');
+
+				if (isEndcap) {
+					var qtyWrapper = li.querySelector('.cart-item--quantity-wrapper');
+					if (qtyWrapper) qtyWrapper.style.cssText = 'display:none !important';
+
+					var removeContainer = li.querySelector('.cart-item-remove-button-container');
+					if (removeContainer) removeContainer.style.cssText = 'display:none !important';
+
+					var staticQty = li.querySelector('.endcap-static-qty');
+					if (!staticQty) {
+						staticQty = document.createElement('span');
+						staticQty.className = 'endcap-static-qty';
+						staticQty.style.cssText = 'display:inline-block;padding:4px 8px;font-size:14px;font-weight:500;';
+						var qtyRow = li.querySelector('.cart-item--quantity-remove-wrapper');
+						if (qtyRow) qtyRow.insertBefore(staticQty, qtyRow.firstChild);
+					}
+					staticQty.textContent = cartItem.quantity;
+				}
+			});
 		}
 
-		document.addEventListener('DOMContentLoaded', function () {
-			hideLinkedEndcapDrawerQty();
+		function findEndcapLi(mainLi) {
+			var groupId = mainLi.getAttribute('data-group-id');
+			if (!groupId) return null;
+			var allLis = document.querySelectorAll('.cart-items > li');
+			for (var i = 0; i < allLis.length; i++) {
+				var li = allLis[i];
+				if (li !== mainLi &&
+					li.getAttribute('data-is-endcap') === '1' &&
+					li.getAttribute('data-group-id') === groupId) {
+					return li;
+				}
+			}
+			return null;
+		}
 
-			var cartItems = document.querySelector('.cart-items');
-			if (!cartItems || typeof MutationObserver === 'undefined') return;
+		function attachGroupListeners() {
+			if (listenersAttached) return;
+			listenersAttached = true;
 
-			var observer = new MutationObserver(function () {
-				hideLinkedEndcapDrawerQty();
-			});
+			document.addEventListener('click', function (e) {
+				var qtyBtn = e.target.closest('.cart-items .cart-item-quantity-button');
+				if (qtyBtn) {
+					var li = qtyBtn.closest('li');
+					if (!li) return;
+					if (li.getAttribute('data-is-endcap') === '1') {
+						e.stopImmediatePropagation();
+						return;
+					}
+					var endcapLi = findEndcapLi(li);
+					if (endcapLi) {
+						var mainQtyInput = li.querySelector('.cart-item-quantity');
+						var current = parseInt(mainQtyInput ? mainQtyInput.value : '0', 10) || 0;
+						var change = parseInt(qtyBtn.getAttribute('data-amount'), 10) || 0;
+						var newQty = Math.max(0, current + change);
+						var ecInput = endcapLi.querySelector('.cart-item-quantity');
+						if (ecInput) ecInput.value = newQty;
+						var staticSpan = endcapLi.querySelector('.endcap-static-qty');
+						if (staticSpan) staticSpan.textContent = newQty;
+					}
+					return;
+				}
 
-			observer.observe(cartItems, { childList: true, subtree: false });
-		});
+				var removeBtn = e.target.closest('.cart-items .cart-item-remove-button-container button');
+				if (!removeBtn) return;
+				var lineLi = removeBtn.closest('li');
+				if (!lineLi) return;
+				if (lineLi.getAttribute('data-is-endcap') === '1') {
+					e.stopImmediatePropagation();
+					return;
+				}
+				var linkedEndcap = findEndcapLi(lineLi);
+				if (linkedEndcap) {
+					var endcapQtyInput = linkedEndcap.querySelector('.cart-item-quantity');
+					if (endcapQtyInput) endcapQtyInput.value = 0;
+				}
+			}, true);
+
+			document.addEventListener('change', function (e) {
+				var input = e.target;
+				if (!input || !input.classList.contains('cart-item-quantity')) return;
+				var li = input.closest('li');
+				if (!li || li.getAttribute('data-is-endcap') === '1') return;
+				var endcapLi = findEndcapLi(li);
+				if (!endcapLi) return;
+				var newQty = Math.max(0, parseInt(input.value, 10) || 0);
+				var endcapQtyInput = endcapLi.querySelector('.cart-item-quantity');
+				if (endcapQtyInput) endcapQtyInput.value = newQty;
+				var staticSpan = endcapLi.querySelector('.endcap-static-qty');
+				if (staticSpan) staticSpan.textContent = newQty;
+			}, true);
+		}
+
+		function refreshDrawerEndcapRules() {
+			fetch('{{ routes.cart_url }}.js')
+				.then(function (r) { return r.json(); })
+				.then(function (cart) {
+					applyEndcapRules(cart);
+					attachGroupListeners();
+				})
+				.catch(function () {});
+		}
+
+		function setupObserver() {
+			var target = document.getElementById('cartSlideoutAside') || document.querySelector('.cart-items');
+			if (!target || typeof MutationObserver === 'undefined') return;
+			var useSubtree = target.id === 'cartSlideoutAside';
+			new MutationObserver(function (mutations) {
+				var hasAdded = mutations.some(function (m) { return m.addedNodes && m.addedNodes.length > 0; });
+				if (hasAdded) {
+					clearTimeout(window._ecDebounce);
+					window._ecDebounce = setTimeout(refreshDrawerEndcapRules, 120);
+				}
+			}).observe(target, { childList: true, subtree: useSubtree });
+		}
+
+		function init() {
+			refreshDrawerEndcapRules();
+			setupObserver();
+			var polls = 0;
+			var poller = setInterval(function () {
+				refreshDrawerEndcapRules();
+				if (++polls >= 8) clearInterval(poller);
+			}, 500);
+		}
+
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', init);
+		} else {
+			init();
+		}
 	})();
 </script>
