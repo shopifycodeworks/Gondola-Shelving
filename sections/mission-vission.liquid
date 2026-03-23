@@ -1,27 +1,27 @@
-<div class="mission-vission-sec"
-<div class="container-fluid">
-  <div class="row m-0">
-    {% for block in section.blocks %}
-      <div class="col-md-4 p-0">
-        <div class="mission-vission-col">
-        <div class="mission-vission-col-img">
-          {% if block.settings.icon != blank %}
-          <img src="{{ block.settings.icon | img_url:'master' }}">
-        {% endif %}
-        </div>
-        <div class="details">
-          {% if block.settings.heading != blank %}
-            <h4>{{ block.settings.heading }}</h4>
-          {% endif %}
-          {% if block.settings.desc != blank %}
-            <p>{{ block.settings.desc }}</p>
-          {% endif %}
-        </div>
+<div class="mission-vission-sec">
+  <div class="container-fluid">
+    <div class="row m-0">
+      {% for block in section.blocks %}
+        <div class="col-md-4 p-0">
+          <div class="mission-vission-col">
+            <div class="mission-vission-col-img">
+              {% if block.settings.icon != blank %}
+                <img src="{{ block.settings.icon | img_url:'master' }}" alt="{{ block.settings.heading | escape }}">
+              {% endif %}
+            </div>
+            <div class="details">
+              {% if block.settings.heading != blank %}
+                <h4>{{ block.settings.heading }}</h4>
+              {% endif %}
+              {% if block.settings.desc != blank %}
+                <p>{{ block.settings.desc }}</p>
+              {% endif %}
+            </div>
           </div>
-      </div>
-    {% endfor %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
-</div>
 </div>
 {% schema %}
 {

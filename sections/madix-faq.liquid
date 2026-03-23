@@ -5,7 +5,7 @@
   <div class="faq-cont">
     <div class="faq-image">
       {% if section.settings.faq-image != blank %}
-        <img src="{{ section.settings.faq-image | img_url: 'master' }}" />
+        <img src="{{ section.settings.faq-image | img_url: 'master' }}" alt="{{ section.settings.faq-heading.alt | escape }}">
       {% endif %}
     </div>
     <div class="faqs">

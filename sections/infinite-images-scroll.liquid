@@ -142,7 +142,7 @@ section.infinite-images.{{ section.id }} a.full_gallery {
 <div class="scroller scroll_{{ section.id }}" data-direction="left" data-speed="fast">
   <div class="scroller__inner">
         {% for block in section.blocks %}
-          <img src="{{ block.settings.page_image | img_url: 'large' }}" />
+          <img src="{{ block.settings.page_image | img_url: 'large' }}" alt="{{ block.settings.page_image.alt | escape }}" />
           {% comment %}
           <img src = "{{ block.settings.page_image | img_url }}" class=""/>
           <div class="item info-column grid__item">

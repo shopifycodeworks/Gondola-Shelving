@@ -161,7 +161,7 @@
                                 {% endif %} -->
                               {% if section.settings.footer_logo != blank %}
                                 <div class="footer_logo2">
-                                  <img src="{{ section.settings.footer_logo | img_url: 'medium' }}" />
+                                  <img src="{{ section.settings.footer_logo | img_url: 'medium' }}" alt="{{ section.settings.footer_logo.alt | escape }}" />
                                 </div>
                               {% endif %}
                                 

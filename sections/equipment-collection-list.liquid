@@ -11,7 +11,7 @@
                 <a href="{{ collection.url}}">
                   <div class="all-content-wrapper">
                     <div class="collectionList-image-wrapper">
-                      <img src="{{collection.image | img_url:'master' }}">
+                      <img src="{{collection.image | img_url:'master' }}" alt="{{ collection.image.alt | escape }}">
                     </div>
                     <div class="collectionList-bottom">
                       <div class="collectionList-heading-wrapper">

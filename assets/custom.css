@@ -4780,3 +4780,12 @@ article#jewlery.page { padding-top: 30px; padding-bottom: 0px;}
 .mega-menu--dropdown-wrapper.open .dropdown-menu {
 	z-index: 999;
 }
+
+#cartform table thead tr th {
+  width: auto;
+}
+
+#your-shopping-cart .additional-checkout-buttons {
+    display: block;
+    justify-content: flex-end;
+}

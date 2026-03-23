@@ -1,7 +1,7 @@
 <div class="inner-banner">
   <div class="inner-banner-img">
     {% if section.settings.banner_image != blank %}
-      <img src="{{ section.settings.banner_image | img_url:'master' }}">
+      <img src="{{ section.settings.banner_image | img_url:'master' }}" alt="{{ section.settings.banner_image.alt | escape }}">
     {% endif %}
     {% if section.settings.banner_video != blank %}
       <video class="banner_video" autoplay loop muted playsinline>

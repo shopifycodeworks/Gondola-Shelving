@@ -254,7 +254,7 @@
                         >
                           {% if backing_img != blank %}
                             <span class="backing_pill_icon"
-                              ><img src="{{ backing_img | img_url: 'master' }}" alt="" width="" height="" loading="lazy"
+                              ><img src="{{ backing_img | img_url: 'master' }}" alt="{{ backing_img.alt | escape }}" width="" height="" loading="lazy"
                             ></span>
                           {% elsif backing_svg != '' %}
                             <span class="backing_pill_icon">{{ backing_svg | escape }}</span>

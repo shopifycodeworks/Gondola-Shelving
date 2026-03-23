@@ -82,7 +82,7 @@
       <div class="item">
         <div class="service-col">
           {% if block.settings.image != blank %}
-            <img src="{{ block.settings.image | img_url: 'master' }}" class="extra-feature-image">
+            <img src="{{ block.settings.image | img_url: 'master' }}" class="extra-feature-image" alt="{{ block.settings.image.alt | escape }}">
           {% endif %}
           {% if block.settings['slider-heading'] != blank %}
             <h4 class="type-subheading type-subheading--1 info-columns--title">

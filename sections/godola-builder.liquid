@@ -417,7 +417,7 @@
         <div class="g-product-table__row">
           <div class="g-product-table__label">
             {{ block.settings.collection.title }}
-            <img class="g-product-table__image" src="{{ block.settings.collection.image | img_url: 'master' }}">
+            <img class="g-product-table__image" src="{{ block.settings.collection.image | img_url: 'master' }}" alt="{{ block.settings.collection.image.alt | escape }}">
           </div>
           <div class="g-product-table__color {% if block.settings.collection.title == 'GONDOLA SHELVES' %}g-product-table__color--empty{% endif %}" data-title="{{ block.settings.collection.title }}">
             {% if block.settings.collection.title != 'GONDOLA SHELVES' %}

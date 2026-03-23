@@ -337,7 +337,7 @@
                 {% else %}
                     <li{% if section.settings.search-enable == false %} class="login-no-padding"{% endif %}>
                         <a href="{{ routes.account_login_url }}" class="icons--inline alt-focus header-link" title="{{ 'layout.customer.log_in' | t }}">
-                             <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_awesome-user-alt.svg?v=1702473342" />
+                             <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_awesome-user-alt.svg?v=1702473342" alt="User Icon" />
                             {% if section.settings.label-enable %}<span class="header--supporting-text">{{ 'layout.header.account' | t }}</span>{% endif %}
                         </a>
                     </li>
@@ -352,7 +352,7 @@
                     aria-label="{{ 'cart.general.open_cart' | t }}"
                     aria-controls="cartSlideoutAside"
                   >
-                    <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_ionic-md-cart.svg?v=1702473357" />
+                    <img src="https://cdn.shopify.com/s/files/1/0784/4941/0346/files/Icon_ionic-md-cart.svg?v=1702473357" alt="Cart Icon" />
                     {% if section.settings.label-enable %}
                         <span class="header--supporting-text">
                       {% comment %} {{ 'layout.header.your_cart' | t }} {% endcomment %}

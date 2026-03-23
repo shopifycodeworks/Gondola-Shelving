@@ -43,7 +43,7 @@
             {% if block.settings.icon-image != blank or block.settings.icon_heading != blank or block.settings.description != blank %}
               <div class="box-wrap">
                 {% if block.settings.icon-image != blank %}
-                  <img src="{{ block.settings.icon-image | img_url:'master' }}" alt="block.settings.icon-image.alt">
+                  <img src="{{ block.settings.icon-image | img_url:'master' }}" alt="{{ block.settings.icon-image.alt }}">
                 {% endif %}                
                 <div class="number-i">
                   {{ variable }}

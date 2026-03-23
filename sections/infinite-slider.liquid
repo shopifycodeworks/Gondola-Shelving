@@ -44,7 +44,7 @@
   {% endif %}
   <div class="infinite_slider">
         {% for block in section.blocks %}
-          <img src="{{ block.settings.page_image | image_url: width: 1600,height: 560 }}" />
+          <img src="{{ block.settings.page_image | image_url: width: 1600,height: 560 }}" alt="{{ block.settings.page_image.alt | escape }}" />
         {% endfor %}
       </div>
     </section>

@@ -218,7 +218,7 @@ span.benefits_content p {
           {% render 'responsive-image' with block.settings.benefits_image, alt: block.settings.benefits_image.alt, class: 'benefits-icon__image', default_size: '80x' %}
           {% endcomment %}
           <div class="image_content">
-          <img src="{{ block.settings.benefits_image | img_url: 'master' }}" class="benefits-icon__image">
+          <img src="{{ block.settings.benefits_image | img_url: 'master' }}" class="benefits-icon__image" alt="{{ block.settings.benefits_image.alt | escape }}">
           </div>
           <div class="benefits_data">
             {% if block.settings.benefits_heading != blank %}
