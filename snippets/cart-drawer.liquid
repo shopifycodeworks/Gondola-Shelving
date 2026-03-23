@@ -192,7 +192,7 @@
 				if (!cartItem || !cartItem.properties) return;
 
 				var isEndcap = String(cartItem.properties['_is_endcap'] || '') === '1';
-				var groupId = String(cartItem.properties['Group ID'] || '');
+				var groupId = String(cartItem.properties['_group_id'] || cartItem.properties['Group ID'] || '');
 
 				li.setAttribute('data-group-id', groupId);
 				li.setAttribute('data-is-endcap', isEndcap ? '1' : '0');
